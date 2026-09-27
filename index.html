@@ -66,6 +66,10 @@ body{
     box-shadow:inset 0 0 120px rgba(0,0,0,.9);
 }
 
+/* ============================= */
+/* PANTALLAS                     */
+/* ============================= */
+
 .screen{
     position:absolute;
     inset:0;
@@ -103,7 +107,9 @@ body{
     transform:scale(1);
 }
 
-/* CAPITOLIO */
+/* ============================= */
+/* CAPITOLIO                     */
+/* ============================= */
 
 .capitol-symbol{
     width:125px;
@@ -169,7 +175,9 @@ body{
     50%{transform:scale(1.025);}
 }
 
-/* TEXTO */
+/* ============================= */
+/* TEXTO                         */
+/* ============================= */
 
 .small{
     color:#81745a;
@@ -217,7 +225,9 @@ h2{
     margin:23px auto;
 }
 
-/* BOTONES */
+/* ============================= */
+/* BOTONES                       */
+/* ============================= */
 
 button{
     margin-top:30px;
@@ -254,7 +264,9 @@ button:disabled{
     color:#6d6659;
 }
 
-/* FORMULARIO */
+/* ============================= */
+/* FORMULARIO                    */
+/* ============================= */
 
 .registration-box{
     width:min(100%,410px);
@@ -322,7 +334,9 @@ button:disabled{
     line-height:1.5;
 }
 
-/* TERMINAL */
+/* ============================= */
+/* TERMINAL                      */
+/* ============================= */
 
 .terminal{
     width:min(100%,390px);
@@ -354,7 +368,9 @@ button:disabled{
     50%{opacity:0;}
 }
 
-/* IDENTIDAD */
+/* ============================= */
+/* IDENTIDAD                     */
+/* ============================= */
 
 .identity{
     width:min(100%,400px);
@@ -389,7 +405,9 @@ button:disabled{
     color:#b89b58;
 }
 
-/* COSECHA */
+/* ============================= */
+/* COSECHA                       */
+/* ============================= */
 
 .reaping-box{
     width:min(100%,410px);
@@ -474,13 +492,15 @@ button:disabled{
     margin-bottom:12px;
 }
 
-/* MAPA */
+/* ============================= */
+/* MAPA                          */
+/* ============================= */
 
 .map-frame{
     position:relative;
     width:min(100%,430px);
-    height:310px;
-    margin-top:22px;
+    height:250px;
+    margin-top:18px;
 
     border:1px solid rgba(190,155,75,.5);
     overflow:hidden;
@@ -563,12 +583,235 @@ button:disabled{
     box-shadow:0 0 15px rgba(255,255,255,.7);
 }
 
-/* GPS */
+/* ============================= */
+/* BRÚJULA ARENA                 */
+/* ============================= */
+
+.arena-navigation{
+    width:min(100%,430px);
+
+    margin-top:13px;
+    padding:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+
+    border:1px solid rgba(173,143,76,.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(180,145,65,.025),
+            rgba(255,255,255,.01)
+        );
+}
+
+.mini-compass{
+    position:relative;
+
+    width:112px;
+    height:112px;
+
+    flex:0 0 112px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(208,173,92,.5);
+
+    box-shadow:
+        inset 0 0 30px rgba(208,173,92,.04),
+        0 0 20px rgba(208,173,92,.05);
+}
+
+.compass-ring{
+    position:absolute;
+    inset:8px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(208,173,92,.14);
+}
+
+.compass-n,
+.compass-e,
+.compass-s,
+.compass-w{
+    position:absolute;
+
+    font-family:'Cinzel',serif;
+
+    font-size:9px;
+
+    color:#76684a;
+
+    z-index:2;
+}
+
+.compass-n{
+    top:5px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#c7a85e;
+}
+
+.compass-s{
+    bottom:5px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.compass-e{
+    right:7px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.compass-w{
+    left:7px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.arena-arrow{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:4px;
+    height:70px;
+
+    margin-left:-2px;
+    margin-top:-35px;
+
+    transform-origin:50% 50%;
+
+    transition:transform .18s linear;
+
+    z-index:5;
+}
+
+.arrow-tip{
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    border-bottom:28px solid #d0ad5c;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(208,173,92,.5)
+        );
+}
+
+.arrow-tail{
+    position:absolute;
+
+    top:29px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:2px;
+    height:30px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #a88b4c,
+            rgba(168,139,76,.15)
+        );
+}
+
+.compass-center{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d0ad5c;
+
+    box-shadow:
+        0 0 8px
+        rgba(208,173,92,.6);
+
+    z-index:6;
+}
+
+.navigation-info{
+    flex:1;
+
+    text-align:left;
+}
+
+.navigation-label{
+    color:#625a48;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.navigation-bearing{
+    margin-top:7px;
+
+    font-family:'Cinzel',serif;
+
+    color:#d3b36b;
+
+    font-size:20px;
+
+    letter-spacing:1px;
+}
+
+.navigation-direction{
+    margin-top:5px;
+
+    color:#8d8062;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.compass-status{
+    margin-top:8px;
+
+    color:#565656;
+
+    font-size:8px;
+
+    line-height:1.5;
+}
+
+/* ============================= */
+/* GPS                           */
+/* ============================= */
 
 .location-panel{
     width:min(100%,430px);
-    margin-top:14px;
-    padding:17px 18px;
+    margin-top:10px;
+    padding:13px 18px;
 
     border:1px solid rgba(173,143,76,.25);
     background:rgba(255,255,255,.015);
@@ -582,7 +825,7 @@ button:disabled{
 }
 
 .distance-label{
-    margin-top:15px;
+    margin-top:12px;
     font-size:8px;
     letter-spacing:3px;
     color:#666;
@@ -593,12 +836,12 @@ button:disabled{
     margin-top:5px;
     font-family:'Cinzel',serif;
     color:#d3b36b;
-    font-size:28px;
+    font-size:26px;
     letter-spacing:2px;
 }
 
 .accuracy{
-    margin-top:7px;
+    margin-top:6px;
     font-size:9px;
     color:#5f5f5f;
 }
@@ -607,14 +850,14 @@ button:disabled{
     width:min(100%,430px);
     display:flex;
     gap:10px;
-    margin-top:12px;
+    margin-top:10px;
 }
 
 .map-buttons button{
     flex:1;
     min-width:0;
     margin-top:0;
-    padding:14px 8px;
+    padding:13px 8px;
     letter-spacing:1.5px;
 }
 
@@ -624,13 +867,15 @@ button:disabled{
 
 .error-message{
     max-width:400px;
-    margin-top:12px;
+    margin-top:10px;
     color:#a98e55;
     font-size:11px;
     line-height:1.6;
 }
 
-/* ACCESO */
+/* ============================= */
+/* ACCESO                        */
+/* ============================= */
 
 .unlock{
     font-family:'Cinzel',serif;
@@ -674,7 +919,9 @@ button:disabled{
     color:#c7a85e;
 }
 
-/* DISTRITO */
+/* ============================= */
+/* DISTRITO                      */
+/* ============================= */
 
 .district-card{
     width:min(100%,410px);
@@ -711,7 +958,9 @@ button:disabled{
     line-height:1.7;
 }
 
-/* BRÚJULA */
+/* ============================= */
+/* BRÚJULA ALIJO PROVISIONAL     */
+/* ============================= */
 
 .compass{
     width:210px;
@@ -735,7 +984,9 @@ button:disabled{
     transform:rotate(25deg);
 }
 
-/* FLASH */
+/* ============================= */
+/* FLASH                         */
+/* ============================= */
 
 .flash{
     position:fixed;
@@ -756,7 +1007,9 @@ button:disabled{
     100%{opacity:0;}
 }
 
-/* ADMIN */
+/* ============================= */
+/* ADMIN                         */
+/* ============================= */
 
 .admin-overlay{
     position:fixed;
@@ -905,15 +1158,19 @@ button:disabled{
     color:#a47c68!important;
 }
 
+/* ============================= */
+/* MÓVIL PEQUEÑO                 */
+/* ============================= */
+
 @media(max-height:750px){
 
     .screen{
         justify-content:center;
 
         padding:
-            max(20px,env(safe-area-inset-top))
-            22px
-            max(20px,env(safe-area-inset-bottom));
+            max(15px,env(safe-area-inset-top))
+            20px
+            max(15px,env(safe-area-inset-bottom));
     }
 
     .capitol-symbol{
@@ -935,12 +1192,44 @@ button:disabled{
     }
 
     .map-frame{
-        height:235px;
-        margin-top:15px;
+        height:190px;
+        margin-top:10px;
+    }
+
+    .arena-navigation{
+        margin-top:8px;
+        padding:9px;
+    }
+
+    .mini-compass{
+        width:85px;
+        height:85px;
+        flex-basis:85px;
+    }
+
+    .arena-arrow{
+        height:55px;
+        margin-top:-27.5px;
+    }
+
+    .arrow-tip{
+        border-left-width:6px;
+        border-right-width:6px;
+        border-bottom-width:21px;
+    }
+
+    .arrow-tail{
+        top:22px;
+        height:23px;
     }
 
     .location-panel{
-        padding:12px;
+        padding:9px 12px;
+        margin-top:7px;
+    }
+
+    .distance{
+        font-size:22px;
     }
 
     .text{
@@ -970,12 +1259,43 @@ button:disabled{
     .admin-box{
         padding:18px 15px;
     }
+
+}
+
+/* pantallas muy bajas */
+
+@media(max-height:670px){
+
+    .map-frame{
+        height:150px;
+    }
+
+    .mini-compass{
+        width:72px;
+        height:72px;
+        flex-basis:72px;
+    }
+
+    .arena-navigation{
+        gap:12px;
+    }
+
+    .navigation-bearing{
+        font-size:16px;
+    }
+
+    .map-buttons button{
+        padding:10px 5px;
+    }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- AUDIO -->
 
 <audio id="backgroundMusic" loop preload="auto">
     <source src="Horn of Plenty.mp3" type="audio/mpeg">
@@ -988,9 +1308,12 @@ button:disabled{
 <div class="background"></div>
 <div class="noise"></div>
 <div class="vignette"></div>
+
 <div class="flash" id="flash"></div>
 
-<!-- 1 -->
+<!-- ============================= -->
+<!-- 1 · INICIO                    -->
+<!-- ============================= -->
 
 <section class="screen active" id="screen1">
 
@@ -1029,7 +1352,9 @@ button:disabled{
 
 </section>
 
-<!-- 2 -->
+<!-- ============================= -->
+<!-- 2 · IDENTIFICACIÓN            -->
+<!-- ============================= -->
 
 <section class="screen" id="screen2">
 
@@ -1101,7 +1426,9 @@ button:disabled{
 
 </section>
 
-<!-- 3 -->
+<!-- ============================= -->
+<!-- 3 · TERMINAL                  -->
+<!-- ============================= -->
 
 <section class="screen" id="screen3">
 
@@ -1113,7 +1440,9 @@ button:disabled{
 
 </section>
 
-<!-- 4 -->
+<!-- ============================= -->
+<!-- 4 · REGISTRO                  -->
+<!-- ============================= -->
 
 <section class="screen" id="screen4">
 
@@ -1165,7 +1494,9 @@ button:disabled{
 
 </section>
 
-<!-- 5 -->
+<!-- ============================= -->
+<!-- 5 · COSECHA                   -->
+<!-- ============================= -->
 
 <section class="screen" id="screen5">
 
@@ -1201,7 +1532,9 @@ button:disabled{
 
 </section>
 
-<!-- 6 -->
+<!-- ============================= -->
+<!-- 6 · CUENTA ATRÁS              -->
+<!-- ============================= -->
 
 <section class="screen" id="screen6">
 
@@ -1215,7 +1548,9 @@ button:disabled{
 
 </section>
 
-<!-- 7 -->
+<!-- ============================= -->
+<!-- 7 · SORTEO                    -->
+<!-- ============================= -->
 
 <section class="screen" id="screen7">
 
@@ -1236,13 +1571,17 @@ button:disabled{
     </div>
 
     <p class="text">
+
         El Capitolio está procesando
         el registro de ciudadanos.
+
     </p>
 
 </section>
 
-<!-- 8 -->
+<!-- ============================= -->
+<!-- 8 · TRIBUTO                   -->
+<!-- ============================= -->
 
 <section class="screen" id="screen8">
 
@@ -1276,7 +1615,9 @@ button:disabled{
 
 </section>
 
-<!-- 9 -->
+<!-- ============================= -->
+<!-- 9 · JUEGOS                    -->
+<!-- ============================= -->
 
 <section class="screen" id="screen9">
 
@@ -1324,7 +1665,9 @@ button:disabled{
 
 </section>
 
-<!-- 10 -->
+<!-- ============================= -->
+<!-- 10 · TRASLADO                 -->
+<!-- ============================= -->
 
 <section class="screen" id="screen10">
 
@@ -1368,7 +1711,9 @@ button:disabled{
 
 </section>
 
-<!-- 11 -->
+<!-- ============================= -->
+<!-- 11 · MAPA + BRÚJULA           -->
+<!-- ============================= -->
 
 <section class="screen" id="screen11">
 
@@ -1382,6 +1727,64 @@ button:disabled{
 
     <div class="map-frame">
         <div id="map"></div>
+    </div>
+
+    <!-- BRÚJULA NUEVA -->
+
+    <div class="arena-navigation">
+
+        <div class="mini-compass">
+
+            <div class="compass-ring"></div>
+
+            <div class="compass-n">N</div>
+            <div class="compass-e">E</div>
+            <div class="compass-s">S</div>
+            <div class="compass-w">O</div>
+
+            <div
+                class="arena-arrow"
+                id="arenaCompassArrow"
+            >
+
+                <div class="arrow-tip"></div>
+                <div class="arrow-tail"></div>
+
+            </div>
+
+            <div class="compass-center"></div>
+
+        </div>
+
+        <div class="navigation-info">
+
+            <div class="navigation-label">
+                Rumbo a la Arena
+            </div>
+
+            <div
+                class="navigation-bearing"
+                id="arenaBearing"
+            >
+                CALCULANDO...
+            </div>
+
+            <div
+                class="navigation-direction"
+                id="arenaDirection"
+            >
+                ESPERANDO GPS
+            </div>
+
+            <div
+                class="compass-status"
+                id="compassStatus"
+            >
+                Esperando orientación del dispositivo
+            </div>
+
+        </div>
+
     </div>
 
     <div class="location-panel">
@@ -1420,7 +1823,9 @@ button:disabled{
 
 </section>
 
-<!-- 12 -->
+<!-- ============================= -->
+<!-- 12 · PERÍMETRO                -->
+<!-- ============================= -->
 
 <section class="screen" id="screen12">
 
@@ -1477,7 +1882,9 @@ button:disabled{
 
 </section>
 
-<!-- 13 -->
+<!-- ============================= -->
+<!-- 13 · BRIEFING                 -->
+<!-- ============================= -->
 
 <section class="screen" id="screen13">
 
@@ -1538,7 +1945,9 @@ button:disabled{
 
 </section>
 
-<!-- 14 -->
+<!-- ============================= -->
+<!-- 14 · DISTRITO 04              -->
+<!-- ============================= -->
 
 <section class="screen" id="screen14">
 
@@ -1589,7 +1998,9 @@ button:disabled{
 
 </section>
 
-<!-- 15 -->
+<!-- ============================= -->
+<!-- 15 · ALIJO                    -->
+<!-- ============================= -->
 
 <section class="screen" id="screen15">
 
@@ -1643,7 +2054,9 @@ button:disabled{
 
 </section>
 
-<!-- ADMIN -->
+<!-- ============================= -->
+<!-- ADMIN                         -->
+<!-- ============================= -->
 
 <div class="admin-overlay" id="adminOverlay">
 
@@ -1795,6 +2208,34 @@ button:disabled{
             <div class="admin-section">
 
                 <div class="admin-section-title">
+                    Brújula
+                </div>
+
+                <div class="admin-grid">
+
+                    <button onclick="simulateCompass(0)">
+                        Norte
+                    </button>
+
+                    <button onclick="simulateCompass(90)">
+                        Este
+                    </button>
+
+                    <button onclick="simulateCompass(180)">
+                        Sur
+                    </button>
+
+                    <button onclick="simulateCompass(270)">
+                        Oeste
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="admin-section">
+
+                <div class="admin-section-title">
                     Partida
                 </div>
 
@@ -1823,13 +2264,9 @@ button:disabled{
 
 <script>
 
-/* ================================= */
-/* CONFIGURACIÓN                     */
-/* ================================= */
-
-/*
-    NUEVA LOCALIZACIÓN DE LA ARENA
-*/
+/* ============================= */
+/* CONFIGURACIÓN                 */
+/* ============================= */
 
 const ARENA_LATITUDE = 27.9251845;
 const ARENA_LONGITUDE = -15.3946295;
@@ -1862,7 +2299,21 @@ let gpsBypass = false;
 
 let currentScreen = 1;
 
-/* AUDIO */
+/* ============================= */
+/* DATOS BRÚJULA                 */
+/* ============================= */
+
+let currentLatitude = null;
+let currentLongitude = null;
+
+let currentHeading = null;
+let arenaTargetBearing = null;
+
+let orientationEnabled = false;
+
+/* ============================= */
+/* AUDIO                         */
+/* ============================= */
 
 const backgroundMusic =
     document.getElementById("backgroundMusic");
@@ -1918,7 +2369,9 @@ document
 
     });
 
-/* INICIO */
+/* ============================= */
+/* INICIO                        */
+/* ============================= */
 
 function beginCeremony(){
 
@@ -1933,7 +2386,9 @@ function beginCeremony(){
 
 }
 
-/* NOMBRES */
+/* ============================= */
+/* NOMBRES                       */
+/* ============================= */
 
 const fakeNames = [
 
@@ -1960,7 +2415,9 @@ const fakeNames = [
 
 ];
 
-/* PANTALLAS */
+/* ============================= */
+/* PANTALLAS                     */
+/* ============================= */
 
 function showScreen(number){
 
@@ -2004,7 +2461,9 @@ function showScreen(number){
 
 }
 
-/* REGISTRO */
+/* ============================= */
+/* REGISTRO                      */
+/* ============================= */
 
 function registerCitizen(){
 
@@ -2065,21 +2524,15 @@ function updateParticipantUI(){
         participant.fullName ||
         "TRIBUTO DE PRUEBA";
 
-    document
-        .getElementById("registeredName")
-        .textContent = name;
-
-    document
-        .getElementById("selectedTribute")
-        .textContent = name;
-
-    document
-        .getElementById("tributeGameName")
-        .textContent = name;
+    document.getElementById("registeredName").textContent = name;
+    document.getElementById("selectedTribute").textContent = name;
+    document.getElementById("tributeGameName").textContent = name;
 
 }
 
-/* TERMINAL */
+/* ============================= */
+/* TERMINAL                      */
+/* ============================= */
 
 function startRegistration(){
 
@@ -2154,7 +2607,9 @@ function startRegistration(){
 
 }
 
-/* COSECHA */
+/* ============================= */
+/* COSECHA                       */
+/* ============================= */
 
 function prepareReaping(){
     showScreen(5);
@@ -2179,8 +2634,7 @@ function startCountdown(){
 
                 if(number > 0){
 
-                    count.textContent =
-                        number;
+                    count.textContent = number;
 
                 }else{
 
@@ -2208,9 +2662,7 @@ function startReaping(){
     showScreen(7);
 
     const display =
-        document.getElementById(
-            "randomName"
-        );
+        document.getElementById("randomName");
 
     let iterations = 0;
 
@@ -2227,9 +2679,7 @@ function startReaping(){
 
     function nextName(){
 
-        display.classList.add(
-            "switching"
-        );
+        display.classList.add("switching");
 
         setTimeout(
             ()=>{
@@ -2243,16 +2693,11 @@ function startReaping(){
                 display.textContent =
                     fakeNames[randomIndex];
 
-                display.classList.remove(
-                    "switching"
-                );
+                display.classList.remove("switching");
 
                 iterations++;
 
-                if(
-                    iterations <
-                    speeds.length
-                ){
+                if(iterations < speeds.length){
 
                     setTimeout(
                         nextName,
@@ -2278,16 +2723,12 @@ function startReaping(){
 function finishReaping(){
 
     const display =
-        document.getElementById(
-            "randomName"
-        );
+        document.getElementById("randomName");
 
     setTimeout(
         ()=>{
 
-            display.classList.add(
-                "switching"
-            );
+            display.classList.add("switching");
 
             setTimeout(
                 ()=>{
@@ -2296,9 +2737,7 @@ function finishReaping(){
                         participant.fullName ||
                         "TRIBUTO";
 
-                    display.classList.remove(
-                        "switching"
-                    );
+                    display.classList.remove("switching");
 
                     setTimeout(
                         ()=>{
@@ -2324,9 +2763,19 @@ function finishReaping(){
 
 }
 
-/* MISIÓN */
+/* ============================= */
+/* MISIÓN                        */
+/* ============================= */
 
-function beginMission(){
+async function beginMission(){
+
+    /*
+        En iPhone Safari el permiso del
+        sensor debe solicitarse desde
+        una pulsación del usuario.
+    */
+
+    await requestOrientationPermission();
 
     showScreen(11);
 
@@ -2342,7 +2791,147 @@ function beginMission(){
 
 }
 
-/* MAPA */
+/* ============================= */
+/* PERMISO ORIENTACIÓN           */
+/* ============================= */
+
+async function requestOrientationPermission(){
+
+    const status =
+        document.getElementById(
+            "compassStatus"
+        );
+
+    try{
+
+        if(
+            typeof DeviceOrientationEvent !==
+            "undefined"
+        ){
+
+            if(
+                typeof DeviceOrientationEvent.requestPermission ===
+                "function"
+            ){
+
+                const permission =
+                    await DeviceOrientationEvent.requestPermission();
+
+                if(permission === "granted"){
+
+                    enableOrientation();
+
+                    status.textContent =
+                        "Brújula del dispositivo activa";
+
+                }else{
+
+                    status.textContent =
+                        "Permiso de orientación no concedido";
+
+                }
+
+            }else{
+
+                enableOrientation();
+
+            }
+
+        }else{
+
+            status.textContent =
+                "Sensor de orientación no disponible";
+
+        }
+
+    }catch(error){
+
+        status.textContent =
+            "No se ha podido activar la orientación";
+
+    }
+
+}
+
+function enableOrientation(){
+
+    if(orientationEnabled){
+        return;
+    }
+
+    orientationEnabled = true;
+
+    window.addEventListener(
+        "deviceorientation",
+        handleOrientation,
+        true
+    );
+
+}
+
+/* ============================= */
+/* ORIENTACIÓN IPHONE            */
+/* ============================= */
+
+function handleOrientation(event){
+
+    let heading = null;
+
+    /*
+        Safari/iPhone ofrece
+        webkitCompassHeading.
+    */
+
+    if(
+        typeof event.webkitCompassHeading ===
+        "number"
+    ){
+
+        heading =
+            event.webkitCompassHeading;
+
+    }else if(
+        event.absolute &&
+        typeof event.alpha === "number"
+    ){
+
+        heading =
+            360 - event.alpha;
+
+    }else if(
+        typeof event.alpha === "number"
+    ){
+
+        heading =
+            360 - event.alpha;
+
+    }
+
+    if(heading === null){
+        return;
+    }
+
+    currentHeading =
+        normalizeAngle(heading);
+
+    document
+        .getElementById(
+            "compassStatus"
+        )
+        .textContent =
+        "ORIENTACIÓN ACTIVA · "
+        +
+        Math.round(currentHeading)
+        +
+        "°";
+
+    updateArenaCompass();
+
+}
+
+/* ============================= */
+/* MAPA                          */
+/* ============================= */
 
 function initializeMap(){
 
@@ -2417,7 +3006,9 @@ function initializeMap(){
 
 }
 
-/* GPS */
+/* ============================= */
+/* GPS                           */
+/* ============================= */
 
 function startTracking(){
 
@@ -2506,6 +3097,9 @@ function locationSuccess(position){
     const accuracy =
         position.coords.accuracy;
 
+    currentLatitude = latitude;
+    currentLongitude = longitude;
+
     document
         .getElementById(
             "locationStatus"
@@ -2536,14 +3130,22 @@ function locationSuccess(position){
             ARENA_LONGITUDE
         );
 
-    updateDistanceDisplay(
-        distance
-    );
+    arenaTargetBearing =
+        calculateBearing(
+            latitude,
+            longitude,
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        );
+
+    updateDistanceDisplay(distance);
 
     updateMap(
         latitude,
         longitude
     );
+
+    updateArenaCompass();
 
     processArenaDistance(
         distance
@@ -2551,7 +3153,237 @@ function locationSuccess(position){
 
 }
 
-/* ARENA */
+/* ============================= */
+/* BRÚJULA HACIA LA ARENA        */
+/* ============================= */
+
+function calculateBearing(
+    lat1,
+    lon1,
+    lat2,
+    lon2
+){
+
+    const φ1 =
+        lat1 * Math.PI / 180;
+
+    const φ2 =
+        lat2 * Math.PI / 180;
+
+    const Δλ =
+        (lon2 - lon1)
+        *
+        Math.PI / 180;
+
+    const y =
+        Math.sin(Δλ)
+        *
+        Math.cos(φ2);
+
+    const x =
+        Math.cos(φ1)
+        *
+        Math.sin(φ2)
+        -
+        Math.sin(φ1)
+        *
+        Math.cos(φ2)
+        *
+        Math.cos(Δλ);
+
+    const θ =
+        Math.atan2(y,x);
+
+    return normalizeAngle(
+        θ * 180 / Math.PI
+    );
+
+}
+
+function normalizeAngle(angle){
+
+    return (
+        (angle % 360) + 360
+    ) % 360;
+
+}
+
+function updateArenaCompass(){
+
+    if(arenaTargetBearing === null){
+        return;
+    }
+
+    const bearingText =
+        document.getElementById(
+            "arenaBearing"
+        );
+
+    const directionText =
+        document.getElementById(
+            "arenaDirection"
+        );
+
+    const arrow =
+        document.getElementById(
+            "arenaCompassArrow"
+        );
+
+    const cardinal =
+        getCardinalDirection(
+            arenaTargetBearing
+        );
+
+    bearingText.textContent =
+        Math.round(arenaTargetBearing)
+        +
+        "° · "
+        +
+        cardinal;
+
+    /*
+        Si tenemos orientación real
+        del teléfono, calculamos cuánto
+        debe girar la flecha respecto
+        a hacia dónde apunta el iPhone.
+    */
+
+    if(currentHeading !== null){
+
+        const relativeBearing =
+            normalizeAngle(
+                arenaTargetBearing -
+                currentHeading
+            );
+
+        arrow.style.transform =
+            "rotate("
+            +
+            relativeBearing
+            +
+            "deg)";
+
+        directionText.textContent =
+            getMovementInstruction(
+                relativeBearing
+            );
+
+    }else{
+
+        /*
+            Sin sensor todavía, la flecha
+            representa el rumbo respecto
+            al norte.
+        */
+
+        arrow.style.transform =
+            "rotate("
+            +
+            arenaTargetBearing
+            +
+            "deg)";
+
+        directionText.textContent =
+            "RUMBO DESDE EL NORTE";
+
+    }
+
+}
+
+function getCardinalDirection(angle){
+
+    const directions = [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SO",
+        "O",
+        "NO"
+    ];
+
+    const index =
+        Math.round(
+            angle / 45
+        ) % 8;
+
+    return directions[index];
+
+}
+
+function getMovementInstruction(angle){
+
+    if(
+        angle <= 15 ||
+        angle >= 345
+    ){
+
+        return "CONTINÚA DE FRENTE";
+
+    }
+
+    if(
+        angle > 15 &&
+        angle < 75
+    ){
+
+        return "GIRA LIGERAMENTE A LA DERECHA";
+
+    }
+
+    if(
+        angle >= 75 &&
+        angle <= 105
+    ){
+
+        return "GIRA A LA DERECHA";
+
+    }
+
+    if(
+        angle > 105 &&
+        angle < 165
+    ){
+
+        return "CONTINÚA GIRANDO A LA DERECHA";
+
+    }
+
+    if(
+        angle >= 165 &&
+        angle <= 195
+    ){
+
+        return "DA MEDIA VUELTA";
+
+    }
+
+    if(
+        angle > 195 &&
+        angle < 255
+    ){
+
+        return "CONTINÚA GIRANDO A LA IZQUIERDA";
+
+    }
+
+    if(
+        angle >= 255 &&
+        angle <= 285
+    ){
+
+        return "GIRA A LA IZQUIERDA";
+
+    }
+
+    return "GIRA LIGERAMENTE A LA IZQUIERDA";
+
+}
+
+/* ============================= */
+/* ARENA                         */
+/* ============================= */
 
 function processArenaDistance(distance){
 
@@ -2666,7 +3498,9 @@ function enterArena(){
 
 }
 
-/* JUEGOS */
+/* ============================= */
+/* JUEGOS                        */
+/* ============================= */
 
 function startGames(){
 
@@ -2679,7 +3513,9 @@ function startGames(){
 
 }
 
-/* MAPA JUGADOR */
+/* ============================= */
+/* MAPA JUGADOR                  */
+/* ============================= */
 
 function updateMap(
     latitude,
@@ -2784,7 +3620,9 @@ function updateMap(
 
 }
 
-/* DISTANCIA */
+/* ============================= */
+/* DISTANCIA                     */
+/* ============================= */
 
 function updateDistanceDisplay(distance){
 
@@ -2861,7 +3699,9 @@ function calculateDistance(
 
 }
 
-/* APPLE MAPS */
+/* ============================= */
+/* APPLE MAPS                    */
+/* ============================= */
 
 function openRoute(){
 
@@ -2891,7 +3731,9 @@ function openRoute(){
 
 }
 
-/* ERROR GPS */
+/* ============================= */
+/* ERROR GPS                     */
+/* ============================= */
 
 function locationFailure(error){
 
@@ -2924,14 +3766,14 @@ function locationFailure(error){
 
 }
 
-/* FLASH */
+/* ============================= */
+/* FLASH                         */
+/* ============================= */
 
 function flash(){
 
     const element =
-        document.getElementById(
-            "flash"
-        );
+        document.getElementById("flash");
 
     element.classList.remove("go");
 
@@ -2941,7 +3783,9 @@ function flash(){
 
 }
 
-/* ADMIN OCULTO */
+/* ============================= */
+/* ADMIN OCULTO                  */
+/* ============================= */
 
 let adminHoldTimer = null;
 
@@ -3132,7 +3976,9 @@ function updateGPSAdminButton(){
 
 }
 
-/* ADMIN NAVEGACIÓN */
+/* ============================= */
+/* ADMIN NAVEGACIÓN              */
+/* ============================= */
 
 function adminGo(screen){
 
@@ -3164,6 +4010,14 @@ function adminMap(){
         ()=>{
 
             initializeMap();
+
+            /*
+                Intentamos activar orientación.
+                Si Safari necesita interacción
+                explícita, el GPS sigue funcionando.
+            */
+
+            requestOrientationPermission();
 
             if(!gpsBypass){
 
@@ -3234,13 +4088,13 @@ function prepareLockedEntrance(){
     status.textContent =
         "🔒 ACCESO BLOQUEADO";
 
-    status.classList.remove(
-        "open"
-    );
+    status.classList.remove("open");
 
 }
 
-/* SIMULACIÓN GPS */
+/* ============================= */
+/* SIMULACIÓN GPS                */
+/* ============================= */
 
 function simulatePerimeter(){
 
@@ -3301,7 +4155,101 @@ function simulateExactEntrance(){
 
 }
 
-/* RESET */
+/* ============================= */
+/* SIMULACIÓN BRÚJULA            */
+/* ============================= */
+
+function simulateCompass(heading){
+
+    /*
+        Simulamos una posición cercana
+        al sur de la Arena para que
+        exista un rumbo calculable.
+    */
+
+    gpsBypass = true;
+
+    updateGPSAdminButton();
+
+    currentLatitude =
+        ARENA_LATITUDE - 0.003;
+
+    currentLongitude =
+        ARENA_LONGITUDE;
+
+    currentHeading =
+        heading;
+
+    arenaTargetBearing =
+        calculateBearing(
+            currentLatitude,
+            currentLongitude,
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        );
+
+    const simulatedDistance =
+        calculateDistance(
+            currentLatitude,
+            currentLongitude,
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        );
+
+    updateDistanceDisplay(
+        simulatedDistance
+    );
+
+    document
+        .getElementById(
+            "locationStatus"
+        )
+        .textContent =
+        "● SIMULACIÓN ADMIN ACTIVA";
+
+    document
+        .getElementById(
+            "accuracy"
+        )
+        .textContent =
+        "GPS simulado";
+
+    document
+        .getElementById(
+            "compassStatus"
+        )
+        .textContent =
+        "ORIENTACIÓN SIMULADA · "
+        +
+        heading
+        +
+        "°";
+
+    updateArenaCompass();
+
+    closeAdmin();
+
+    showScreen(11);
+
+    setTimeout(
+        ()=>{
+
+            initializeMap();
+
+            updateMap(
+                currentLatitude,
+                currentLongitude
+            );
+
+        },
+        500
+    );
+
+}
+
+/* ============================= */
+/* RESET                         */
+/* ============================= */
 
 function resetGame(){
 
@@ -3332,23 +4280,51 @@ function resetGame(){
 
     firstPosition = true;
 
+    currentLatitude = null;
+    currentLongitude = null;
+
+    currentHeading = null;
+    arenaTargetBearing = null;
+
     document
-        .getElementById(
-            "firstName"
-        )
+        .getElementById("firstName")
+        .value = "";
+
+    document
+        .getElementById("lastName")
+        .value = "";
+
+    document
+        .getElementById("birthDate")
         .value = "";
 
     document
         .getElementById(
-            "lastName"
+            "arenaCompassArrow"
         )
-        .value = "";
+        .style.transform =
+        "rotate(0deg)";
 
     document
         .getElementById(
-            "birthDate"
+            "arenaBearing"
         )
-        .value = "";
+        .textContent =
+        "CALCULANDO...";
+
+    document
+        .getElementById(
+            "arenaDirection"
+        )
+        .textContent =
+        "ESPERANDO GPS";
+
+    document
+        .getElementById(
+            "compassStatus"
+        )
+        .textContent =
+        "Esperando orientación del dispositivo";
 
     prepareLockedEntrance();
 
@@ -3360,12 +4336,12 @@ function resetGame(){
 
 }
 
-/* PIN ENTER */
+/* ============================= */
+/* PIN ENTER                     */
+/* ============================= */
 
 document
-    .getElementById(
-        "adminPin"
-    )
+    .getElementById("adminPin")
     .addEventListener(
         "keydown",
         event => {
