@@ -74,30 +74,17 @@ body{
     position:absolute;
     inset:0;
     min-height:100dvh;
-
-    padding:
-        max(30px,env(safe-area-inset-top))
-        25px
-        max(30px,env(safe-area-inset-bottom));
-
+    padding:max(30px,env(safe-area-inset-top)) 25px max(30px,env(safe-area-inset-bottom));
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     opacity:0;
     pointer-events:none;
-
     transform:scale(1.02);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-
+    transition:opacity .8s ease, transform .8s ease;
     z-index:5;
-
     overflow-y:auto;
 }
 
@@ -114,19 +101,16 @@ body{
 .capitol-symbol{
     width:125px;
     height:125px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     margin-bottom:30px;
-
     animation:
         emblemEntrance 2.5s ease both,
         emblemPulse 4s ease-in-out 2.5s infinite;
-
     user-select:none;
     -webkit-user-select:none;
+    -webkit-touch-callout:none;
     touch-action:manipulation;
 }
 
@@ -134,13 +118,11 @@ body{
     width:100%;
     height:100%;
     object-fit:contain;
-
     filter:
         sepia(1)
         saturate(.8)
         brightness(1.08)
         drop-shadow(0 0 15px rgba(190,150,65,.25));
-
     pointer-events:none;
 }
 
@@ -157,17 +139,8 @@ body{
 }
 
 @keyframes emblemEntrance{
-    0%{
-        opacity:0;
-        transform:scale(.75);
-        filter:blur(10px);
-    }
-
-    100%{
-        opacity:1;
-        transform:scale(1);
-        filter:blur(0);
-    }
+    0%{opacity:0;transform:scale(.75);filter:blur(10px);}
+    100%{opacity:1;transform:scale(1);filter:blur(0);}
 }
 
 @keyframes emblemPulse{
@@ -214,9 +187,7 @@ h2{
     color:#b8b8b8;
 }
 
-.gold{
-    color:#d0ad5c;
-}
+.gold{color:#d0ad5c;}
 
 .line{
     height:1px;
@@ -233,21 +204,15 @@ button{
     margin-top:30px;
     min-width:220px;
     padding:16px 24px;
-
     background:rgba(180,145,65,.02);
     border:1px solid #8e733a;
-
     color:#c6a45a;
-
     text-transform:uppercase;
     letter-spacing:3px;
     font-size:10px;
-
     border-radius:2px;
     cursor:pointer;
-
     transition:.25s;
-
     font-family:'Montserrat',sans-serif;
 }
 
@@ -272,20 +237,13 @@ button:disabled{
     width:min(100%,410px);
     margin-top:25px;
     padding:25px 20px;
-
     border:1px solid rgba(173,143,76,.35);
     background:rgba(255,255,255,.015);
-
     text-align:left;
 }
 
-.form-group{
-    margin-bottom:20px;
-}
-
-.form-group:last-child{
-    margin-bottom:0;
-}
+.form-group{margin-bottom:20px;}
+.form-group:last-child{margin-bottom:0;}
 
 .form-label{
     display:block;
@@ -299,19 +257,14 @@ button:disabled{
 .form-input{
     width:100%;
     padding:14px 12px;
-
     border:1px solid rgba(173,143,76,.35);
     border-radius:0;
-
     outline:none;
-
     background:rgba(0,0,0,.45);
     color:#d7c18b;
-
     font-family:'Montserrat',sans-serif;
     font-size:14px;
     letter-spacing:1px;
-
     appearance:none;
     -webkit-appearance:none;
 }
@@ -321,9 +274,7 @@ button:disabled{
     box-shadow:0 0 12px rgba(184,155,88,.08);
 }
 
-.form-input::placeholder{
-    color:#454545;
-}
+.form-input::placeholder{color:#454545;}
 
 .form-error{
     min-height:16px;
@@ -341,12 +292,9 @@ button:disabled{
 .terminal{
     width:min(100%,390px);
     padding:25px 20px;
-
     border-top:1px solid #55472a;
     border-bottom:1px solid #55472a;
-
     text-align:left;
-
     font-family:"Courier New",monospace;
     color:#9c8b65;
     font-size:12px;
@@ -364,9 +312,7 @@ button:disabled{
     animation:blink .8s infinite;
 }
 
-@keyframes blink{
-    50%{opacity:0;}
-}
+@keyframes blink{50%{opacity:0;}}
 
 /* ============================= */
 /* IDENTIDAD                     */
@@ -401,9 +347,7 @@ button:disabled{
     color:#8f8f8f;
 }
 
-.status span{
-    color:#b89b58;
-}
+.status span{color:#b89b58;}
 
 /* ============================= */
 /* COSECHA                       */
@@ -413,18 +357,13 @@ button:disabled{
     width:min(100%,410px);
     height:165px;
     margin-top:28px;
-
     position:relative;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     overflow:hidden;
-
     border-top:1px solid rgba(173,143,76,.35);
     border-bottom:1px solid rgba(173,143,76,.35);
-
     background:rgba(255,255,255,.01);
 }
 
@@ -454,10 +393,7 @@ button:disabled{
     color:#c5a75f;
     font-size:clamp(21px,6vw,30px);
     letter-spacing:2px;
-
-    transition:
-        opacity .15s ease,
-        transform .15s ease;
+    transition:opacity .15s ease,transform .15s ease;
 }
 
 .random-name.switching{
@@ -501,10 +437,8 @@ button:disabled{
     width:min(100%,430px);
     height:250px;
     margin-top:18px;
-
     border:1px solid rgba(190,155,75,.5);
     overflow:hidden;
-
     box-shadow:0 0 35px rgba(160,120,40,.08);
 }
 
@@ -515,38 +449,27 @@ button:disabled{
 }
 
 .leaflet-tile{
-    filter:
-        grayscale(1)
-        brightness(.55)
-        contrast(1.15)
-        sepia(.15);
+    filter:grayscale(1) brightness(.55) contrast(1.15) sepia(.15);
 }
 
 .leaflet-control-attribution{
-    font-size:7px !important;
-    background:rgba(0,0,0,.7) !important;
-    color:#777 !important;
+    font-size:7px!important;
+    background:rgba(0,0,0,.7)!important;
+    color:#777!important;
 }
 
-.leaflet-control-attribution a{
-    color:#9d8754 !important;
-}
+.leaflet-control-attribution a{color:#9d8754!important;}
 
 .arena-marker{
     width:46px;
     height:46px;
-
     border-radius:50%;
     border:1px solid #d0ad5c;
-
     background:rgba(10,10,10,.92);
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     box-shadow:0 0 18px rgba(208,173,92,.65);
-
     animation:arenaPulse 1.8s infinite;
 }
 
@@ -554,253 +477,150 @@ button:disabled{
     width:32px;
     height:32px;
     object-fit:contain;
-
-    filter:
-        sepia(1)
-        saturate(.8)
-        brightness(1.1);
+    filter:sepia(1) saturate(.8) brightness(1.1);
 }
 
 @keyframes arenaPulse{
-    0%,100%{
-        box-shadow:0 0 10px rgba(208,173,92,.35);
-    }
-
-    50%{
-        box-shadow:0 0 28px rgba(208,173,92,.9);
-    }
+    0%,100%{box-shadow:0 0 10px rgba(208,173,92,.35);}
+    50%{box-shadow:0 0 28px rgba(208,173,92,.9);}
 }
 
 .player-marker{
     width:18px;
     height:18px;
-
     border-radius:50%;
-
     background:#fff;
     border:4px solid #a88b4c;
-
     box-shadow:0 0 15px rgba(255,255,255,.7);
 }
 
 /* ============================= */
-/* BRÚJULA ARENA                 */
+/* BRÚJULA PRINCIPAL             */
 /* ============================= */
 
 .arena-navigation{
     width:min(100%,430px);
-
     margin-top:13px;
     padding:15px;
-
     display:flex;
     align-items:center;
     justify-content:center;
     gap:20px;
-
     border:1px solid rgba(173,143,76,.28);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(180,145,65,.025),
-            rgba(255,255,255,.01)
-        );
+    background:linear-gradient(135deg,rgba(180,145,65,.025),rgba(255,255,255,.01));
 }
 
 .mini-compass{
     position:relative;
-
     width:112px;
     height:112px;
-
     flex:0 0 112px;
-
     border-radius:50%;
-
     border:1px solid rgba(208,173,92,.5);
-
-    box-shadow:
-        inset 0 0 30px rgba(208,173,92,.04),
-        0 0 20px rgba(208,173,92,.05);
+    box-shadow:inset 0 0 30px rgba(208,173,92,.04),0 0 20px rgba(208,173,92,.05);
 }
 
 .compass-ring{
     position:absolute;
     inset:8px;
-
     border-radius:50%;
-
     border:1px solid rgba(208,173,92,.14);
 }
 
-.compass-n,
-.compass-e,
-.compass-s,
-.compass-w{
+.compass-n,.compass-e,.compass-s,.compass-w{
     position:absolute;
-
     font-family:'Cinzel',serif;
-
     font-size:9px;
-
     color:#76684a;
-
     z-index:2;
 }
 
-.compass-n{
-    top:5px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#c7a85e;
-}
+.compass-n{top:5px;left:50%;transform:translateX(-50%);color:#c7a85e;}
+.compass-s{bottom:5px;left:50%;transform:translateX(-50%);}
+.compass-e{right:7px;top:50%;transform:translateY(-50%);}
+.compass-w{left:7px;top:50%;transform:translateY(-50%);}
 
-.compass-s{
-    bottom:5px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.compass-e{
-    right:7px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.compass-w{
-    left:7px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.arena-arrow{
+.arena-arrow,
+.approach-arrow{
     position:absolute;
-
     left:50%;
     top:50%;
-
     width:4px;
     height:70px;
-
     margin-left:-2px;
     margin-top:-35px;
-
     transform-origin:50% 50%;
-
     transition:transform .18s linear;
-
     z-index:5;
 }
 
 .arrow-tip{
     position:absolute;
-
     top:0;
     left:50%;
-
     transform:translateX(-50%);
-
     width:0;
     height:0;
-
     border-left:8px solid transparent;
     border-right:8px solid transparent;
     border-bottom:28px solid #d0ad5c;
-
-    filter:
-        drop-shadow(
-            0 0 6px
-            rgba(208,173,92,.5)
-        );
+    filter:drop-shadow(0 0 6px rgba(208,173,92,.5));
 }
 
 .arrow-tail{
     position:absolute;
-
     top:29px;
     left:50%;
-
     transform:translateX(-50%);
-
     width:2px;
     height:30px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #a88b4c,
-            rgba(168,139,76,.15)
-        );
+    background:linear-gradient(to bottom,#a88b4c,rgba(168,139,76,.15));
 }
 
 .compass-center{
     position:absolute;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     width:8px;
     height:8px;
-
     border-radius:50%;
-
     background:#d0ad5c;
-
-    box-shadow:
-        0 0 8px
-        rgba(208,173,92,.6);
-
+    box-shadow:0 0 8px rgba(208,173,92,.6);
     z-index:6;
 }
 
 .navigation-info{
     flex:1;
-
     text-align:left;
 }
 
 .navigation-label{
     color:#625a48;
-
     font-size:8px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
 .navigation-bearing{
     margin-top:7px;
-
     font-family:'Cinzel',serif;
-
     color:#d3b36b;
-
     font-size:20px;
-
     letter-spacing:1px;
 }
 
 .navigation-direction{
     margin-top:5px;
-
     color:#8d8062;
-
     font-size:9px;
-
     letter-spacing:2px;
 }
 
 .compass-status{
     margin-top:8px;
-
     color:#565656;
-
     font-size:8px;
-
     line-height:1.5;
 }
 
@@ -812,7 +632,6 @@ button:disabled{
     width:min(100%,430px);
     margin-top:10px;
     padding:13px 18px;
-
     border:1px solid rgba(173,143,76,.25);
     background:rgba(255,255,255,.015);
 }
@@ -886,9 +705,8 @@ button:disabled{
 
 .access-panel{
     width:min(100%,400px);
-    margin-top:22px;
-    padding:18px;
-
+    margin-top:18px;
+    padding:16px;
     border:1px solid rgba(173,143,76,.28);
     background:rgba(255,255,255,.015);
 }
@@ -920,6 +738,109 @@ button:disabled{
 }
 
 /* ============================= */
+/* NUEVA BRÚJULA DE APROXIMACIÓN */
+/* ============================= */
+
+.approach-navigation{
+    width:min(100%,400px);
+    margin-top:12px;
+    padding:13px 15px;
+    border:1px solid rgba(173,143,76,.22);
+    background:rgba(255,255,255,.01);
+    display:flex;
+    align-items:center;
+    gap:17px;
+}
+
+.approach-compass{
+    position:relative;
+    width:92px;
+    height:92px;
+    flex:0 0 92px;
+    border-radius:50%;
+    border:1px solid rgba(208,173,92,.45);
+    background:
+        radial-gradient(circle,rgba(208,173,92,.04),transparent 65%);
+    box-shadow:
+        inset 0 0 25px rgba(208,173,92,.04),
+        0 0 15px rgba(208,173,92,.04);
+}
+
+.approach-compass::before{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(208,173,92,.12);
+    border-radius:50%;
+}
+
+.approach-cross-x,
+.approach-cross-y{
+    position:absolute;
+    background:rgba(208,173,92,.08);
+}
+
+.approach-cross-x{
+    width:60%;
+    height:1px;
+    left:20%;
+    top:50%;
+}
+
+.approach-cross-y{
+    width:1px;
+    height:60%;
+    top:20%;
+    left:50%;
+}
+
+.approach-arrow{
+    height:62px;
+    margin-top:-31px;
+}
+
+.approach-arrow .arrow-tip{
+    border-left-width:7px;
+    border-right-width:7px;
+    border-bottom-width:25px;
+}
+
+.approach-arrow .arrow-tail{
+    top:26px;
+    height:25px;
+}
+
+.approach-info{
+    flex:1;
+    text-align:left;
+}
+
+.approach-label{
+    color:#625a48;
+    font-size:8px;
+    line-height:1.5;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+}
+
+.approach-instruction{
+    margin-top:8px;
+    font-family:'Cinzel',serif;
+    color:#c9aa61;
+    font-size:13px;
+    line-height:1.45;
+    letter-spacing:1px;
+}
+
+.approach-sensor{
+    margin-top:7px;
+    color:#555;
+    font-size:8px;
+    line-height:1.4;
+    text-transform:uppercase;
+}
+
+/* ============================= */
 /* DISTRITO                      */
 /* ============================= */
 
@@ -927,7 +848,6 @@ button:disabled{
     width:min(100%,410px);
     margin-top:25px;
     padding:24px 20px;
-
     border:1px solid rgba(173,143,76,.35);
     background:rgba(255,255,255,.015);
 }
@@ -950,9 +870,7 @@ button:disabled{
 .supply-status{
     margin-top:20px;
     padding-top:18px;
-
     border-top:1px solid rgba(173,143,76,.18);
-
     color:#aaa;
     font-size:12px;
     line-height:1.7;
@@ -965,16 +883,12 @@ button:disabled{
 .compass{
     width:210px;
     height:210px;
-
     border:1px solid rgba(208,173,92,.45);
     border-radius:50%;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     margin-top:10px;
-
     position:relative;
 }
 
@@ -997,9 +911,7 @@ button:disabled{
     opacity:0;
 }
 
-.flash.go{
-    animation:flashAnimation .55s;
-}
+.flash.go{animation:flashAnimation .55s;}
 
 @keyframes flashAnimation{
     0%{opacity:0;}
@@ -1015,37 +927,22 @@ button:disabled{
     position:fixed;
     inset:0;
     z-index:500;
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
-    padding:
-        max(25px,env(safe-area-inset-top))
-        20px
-        max(25px,env(safe-area-inset-bottom));
-
+    padding:max(25px,env(safe-area-inset-top)) 20px max(25px,env(safe-area-inset-bottom));
     background:rgba(0,0,0,.94);
-
     backdrop-filter:blur(8px);
-
     overflow-y:auto;
 }
 
-.admin-overlay.open{
-    display:flex;
-}
+.admin-overlay.open{display:flex;}
 
 .admin-box{
     width:min(100%,460px);
-
     border:1px solid rgba(208,173,92,.45);
-
     padding:25px 20px;
-
     background:#050505;
-
     text-align:center;
 }
 
@@ -1064,24 +961,16 @@ button:disabled{
     text-transform:uppercase;
 }
 
-.admin-pin{
-    margin-top:25px;
-}
+.admin-pin{margin-top:25px;}
 
 .admin-pin input{
     width:100%;
     padding:15px;
-
     text-align:center;
-
     background:#000;
-
     border:1px solid rgba(173,143,76,.4);
-
     color:#d0ad5c;
-
     outline:none;
-
     font-size:18px;
     letter-spacing:8px;
 }
@@ -1093,16 +982,12 @@ button:disabled{
     font-size:10px;
 }
 
-.admin-content{
-    display:none;
-}
+.admin-content{display:none;}
 
 .admin-section{
     margin-top:25px;
     padding-top:20px;
-
     border-top:1px solid rgba(173,143,76,.18);
-
     text-align:left;
 }
 
@@ -1166,11 +1051,7 @@ button:disabled{
 
     .screen{
         justify-content:center;
-
-        padding:
-            max(15px,env(safe-area-inset-top))
-            20px
-            max(15px,env(safe-area-inset-bottom));
+        padding:max(15px,env(safe-area-inset-top)) 20px max(15px,env(safe-area-inset-bottom));
     }
 
     .capitol-symbol{
@@ -1228,9 +1109,7 @@ button:disabled{
         margin-top:7px;
     }
 
-    .distance{
-        font-size:22px;
-    }
+    .distance{font-size:22px;}
 
     .text{
         font-size:13px;
@@ -1242,9 +1121,7 @@ button:disabled{
         margin-top:18px;
     }
 
-    .form-group{
-        margin-bottom:14px;
-    }
+    .form-group{margin-bottom:14px;}
 
     .reaping-box{
         height:130px;
@@ -1252,23 +1129,43 @@ button:disabled{
     }
 
     .access-panel{
-        margin-top:15px;
-        padding:13px;
+        margin-top:11px;
+        padding:11px;
     }
 
-    .admin-box{
-        padding:18px 15px;
+    .approach-navigation{
+        margin-top:8px;
+        padding:9px 12px;
     }
 
+    .approach-compass{
+        width:75px;
+        height:75px;
+        flex-basis:75px;
+    }
+
+    .approach-arrow{
+        height:50px;
+        margin-top:-25px;
+    }
+
+    .approach-arrow .arrow-tip{
+        border-left-width:6px;
+        border-right-width:6px;
+        border-bottom-width:20px;
+    }
+
+    .approach-arrow .arrow-tail{
+        top:21px;
+        height:20px;
+    }
+
+    .admin-box{padding:18px 15px;}
 }
-
-/* pantallas muy bajas */
 
 @media(max-height:670px){
 
-    .map-frame{
-        height:150px;
-    }
+    .map-frame{height:150px;}
 
     .mini-compass{
         width:72px;
@@ -1276,26 +1173,17 @@ button:disabled{
         flex-basis:72px;
     }
 
-    .arena-navigation{
-        gap:12px;
-    }
+    .arena-navigation{gap:12px;}
 
-    .navigation-bearing{
-        font-size:16px;
-    }
+    .navigation-bearing{font-size:16px;}
 
-    .map-buttons button{
-        padding:10px 5px;
-    }
-
+    .map-buttons button{padding:10px 5px;}
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- AUDIO -->
 
 <audio id="backgroundMusic" loop preload="auto">
     <source src="Horn of Plenty.mp3" type="audio/mpeg">
@@ -1308,12 +1196,9 @@ button:disabled{
 <div class="background"></div>
 <div class="noise"></div>
 <div class="vignette"></div>
-
 <div class="flash" id="flash"></div>
 
-<!-- ============================= -->
-<!-- 1 · INICIO                    -->
-<!-- ============================= -->
+<!-- 1 -->
 
 <section class="screen active" id="screen1">
 
@@ -1321,46 +1206,29 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="small">
-        Capitolio · Registro oficial
-    </div>
+    <div class="small">Capitolio · Registro oficial</div>
 
     <h1>LA COSECHA</h1>
 
     <div class="line"></div>
 
     <p class="text">
-
         Ha llegado el día.
-
         <br><br>
-
-        Todos los ciudadanos convocados
-        deberán presentarse ante
-        el sistema de selección.
-
+        Todos los ciudadanos convocados deberán presentarse ante el sistema de selección.
         <br><br>
-
-        El registro para la ceremonia
-        ya está abierto.
-
+        El registro para la ceremonia ya está abierto.
     </p>
 
-    <button onclick="beginCeremony()">
-        Iniciar ceremonia
-    </button>
+    <button onclick="beginCeremony()">Iniciar ceremonia</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 2 · IDENTIFICACIÓN            -->
-<!-- ============================= -->
+<!-- 2 -->
 
 <section class="screen" id="screen2">
 
-    <div class="small">
-        Registro de ciudadanos
-    </div>
+    <div class="small">Registro de ciudadanos</div>
 
     <h2>IDENTIFICACIÓN</h2>
 
@@ -1371,303 +1239,164 @@ button:disabled{
     <div class="registration-box">
 
         <div class="form-group">
-
-            <label class="form-label" for="firstName">
-                Nombre
-            </label>
-
-            <input
-                class="form-input"
-                id="firstName"
-                type="text"
-                placeholder="Introduce tu nombre"
-                autocomplete="given-name"
-            >
-
+            <label class="form-label" for="firstName">Nombre</label>
+            <input class="form-input" id="firstName" type="text" placeholder="Introduce tu nombre" autocomplete="given-name">
         </div>
 
         <div class="form-group">
-
-            <label class="form-label" for="lastName">
-                Apellidos
-            </label>
-
-            <input
-                class="form-input"
-                id="lastName"
-                type="text"
-                placeholder="Introduce tus apellidos"
-                autocomplete="family-name"
-            >
-
+            <label class="form-label" for="lastName">Apellidos</label>
+            <input class="form-input" id="lastName" type="text" placeholder="Introduce tus apellidos" autocomplete="family-name">
         </div>
 
         <div class="form-group">
-
-            <label class="form-label" for="birthDate">
-                Fecha de nacimiento
-            </label>
-
-            <input
-                class="form-input"
-                id="birthDate"
-                type="date"
-            >
-
+            <label class="form-label" for="birthDate">Fecha de nacimiento</label>
+            <input class="form-input" id="birthDate" type="date">
         </div>
 
     </div>
 
     <div class="form-error" id="formError"></div>
 
-    <button onclick="registerCitizen()">
-        Registrar ciudadano
-    </button>
+    <button onclick="registerCitizen()">Registrar ciudadano</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 3 · TERMINAL                  -->
-<!-- ============================= -->
+<!-- 3 -->
 
 <section class="screen" id="screen3">
 
-    <div class="small">
-        Sistema central · Capitolio
-    </div>
+    <div class="small">Sistema central · Capitolio</div>
 
     <div class="terminal" id="terminal"></div>
 
 </section>
 
-<!-- ============================= -->
-<!-- 4 · REGISTRO                  -->
-<!-- ============================= -->
+<!-- 4 -->
 
 <section class="screen" id="screen4">
 
-    <div class="small">
-        Registro completado
-    </div>
+    <div class="small">Registro completado</div>
 
-    <h2>
-        CIUDADANO REGISTRADO
-    </h2>
+    <h2>CIUDADANO REGISTRADO</h2>
 
     <div class="identity">
 
-        <div class="identity-label">
-            CIUDADANO
-        </div>
+        <div class="identity-label">CIUDADANO</div>
 
-        <div class="identity-name" id="registeredName">
-            ---
-        </div>
+        <div class="identity-name" id="registeredName">---</div>
 
         <div class="status">
-
-            ESTADO ·
-
-            <span>
-                ELEGIBLE
-            </span>
-
+            ESTADO · <span>ELEGIBLE</span>
         </div>
 
     </div>
 
     <p class="text">
-
-        Tu nombre ha sido añadido
-        oficialmente al registro.
-
+        Tu nombre ha sido añadido oficialmente al registro.
         <br><br>
-
-        La Ceremonia de la Cosecha
-        está preparada para comenzar.
-
+        La Ceremonia de la Cosecha está preparada para comenzar.
     </p>
 
-    <button onclick="prepareReaping()">
-        Acceder a la Cosecha
-    </button>
+    <button onclick="prepareReaping()">Acceder a la Cosecha</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 5 · COSECHA                   -->
-<!-- ============================= -->
+<!-- 5 -->
 
 <section class="screen" id="screen5">
 
-    <div class="small">
-        Ceremonia oficial
-    </div>
+    <div class="small">Ceremonia oficial</div>
 
-    <h1>
-        LA COSECHA
-    </h1>
+    <h1>LA COSECHA</h1>
 
     <div class="line"></div>
 
     <p class="text">
-
         El registro ha sido cerrado.
-
         <br><br>
-
-        El sistema seleccionará
-        a uno de los ciudadanos
-        registrados.
-
+        El sistema seleccionará a uno de los ciudadanos registrados.
         <br><br>
-
         El resultado será definitivo.
-
     </p>
 
-    <button onclick="startCountdown()">
-        Iniciar selección
-    </button>
+    <button onclick="startCountdown()">Iniciar selección</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 6 · CUENTA ATRÁS              -->
-<!-- ============================= -->
+<!-- 6 -->
 
 <section class="screen" id="screen6">
 
-    <div class="small">
-        Iniciando Cosecha
-    </div>
+    <div class="small">Iniciando Cosecha</div>
 
-    <div class="number" id="count">
-        3
-    </div>
+    <div class="number" id="count">3</div>
 
 </section>
 
-<!-- ============================= -->
-<!-- 7 · SORTEO                    -->
-<!-- ============================= -->
+<!-- 7 -->
 
 <section class="screen" id="screen7">
 
-    <div class="small">
-        Selección en curso
-    </div>
+    <div class="small">Selección en curso</div>
 
-    <h2>
-        SELECCIONANDO TRIBUTO
-    </h2>
+    <h2>SELECCIONANDO TRIBUTO</h2>
 
     <div class="reaping-box">
-
-        <div class="random-name" id="randomName">
-            ---
-        </div>
-
+        <div class="random-name" id="randomName">---</div>
     </div>
 
     <p class="text">
-
-        El Capitolio está procesando
-        el registro de ciudadanos.
-
+        El Capitolio está procesando el registro de ciudadanos.
     </p>
 
 </section>
 
-<!-- ============================= -->
-<!-- 8 · TRIBUTO                   -->
-<!-- ============================= -->
+<!-- 8 -->
 
 <section class="screen" id="screen8">
 
-    <div class="warning">
-        ⚠ SELECCIÓN FINALIZADA
-    </div>
+    <div class="warning">⚠ SELECCIÓN FINALIZADA</div>
 
-    <div class="small">
-        El tributo seleccionado es
-    </div>
+    <div class="small">El tributo seleccionado es</div>
 
-    <h1 class="final-title" id="selectedTribute">
-        ---
-    </h1>
+    <h1 class="final-title" id="selectedTribute">---</h1>
 
     <div class="line"></div>
 
     <div class="status">
-
-        ESTADO ·
-
-        <span>
-            TRIBUTO CONFIRMADO
-        </span>
-
+        ESTADO · <span>TRIBUTO CONFIRMADO</span>
     </div>
 
-    <button onclick="showScreen(9)">
-        Continuar
-    </button>
+    <button onclick="showScreen(9)">Continuar</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 9 · JUEGOS                    -->
-<!-- ============================= -->
+<!-- 9 -->
 
 <section class="screen" id="screen9">
 
-    <div class="small">
-        Tributo confirmado
-    </div>
+    <div class="small">Tributo confirmado</div>
 
-    <h1 class="final-title" id="tributeGameName">
-        ---
-    </h1>
+    <h1 class="final-title" id="tributeGameName">---</h1>
 
     <div class="line"></div>
 
     <p class="text">
-
-        Has sido seleccionado
-        para participar en una
-        edición extraordinaria de
-
-        <span class="gold">
-            Los Juegos.
-        </span>
-
+        Has sido seleccionado para participar en una edición extraordinaria de
+        <span class="gold">Los Juegos.</span>
         <br><br>
-
-        En algún lugar de la isla
-        se ha preparado una Arena.
-
+        En algún lugar de la isla se ha preparado una Arena.
         <br><br>
-
-        En ella encontrarás
-        diferentes sectores,
-        pruebas y suministros.
-
+        En ella encontrarás diferentes sectores, pruebas y suministros.
         <br><br>
-
-        Completa todos los checkpoints
-        para alcanzar el objetivo final.
-
+        Completa todos los checkpoints para alcanzar el objetivo final.
     </p>
 
-    <button onclick="showScreen(10)">
-        Aceptar destino
-    </button>
+    <button onclick="showScreen(10)">Aceptar destino</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 10 · TRASLADO                 -->
-<!-- ============================= -->
+<!-- 10 -->
 
 <section class="screen" id="screen10">
 
@@ -1675,61 +1404,35 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="small">
-        Protocolo de traslado
-    </div>
+    <div class="small">Protocolo de traslado</div>
 
-    <h1>
-        LA ARENA
-        <br>
-        TE ESPERA
-    </h1>
+    <h1>LA ARENA<br>TE ESPERA</h1>
 
     <div class="line"></div>
 
     <p class="text">
-
-        El Capitolio ha marcado
-        el punto de entrada.
-
+        El Capitolio ha marcado el punto de entrada.
         <br><br>
-
-        Tu posición será rastreada
-        durante el traslado.
-
+        Tu posición será rastreada durante el traslado.
         <br><br>
-
-        Al alcanzar el perímetro
-        podrás aproximarte
-        al acceso de la Arena.
-
+        Al alcanzar el perímetro podrás aproximarte al acceso de la Arena.
     </p>
 
-    <button onclick="beginMission()">
-        Mostrar destino
-    </button>
+    <button onclick="beginMission()">Mostrar destino</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 11 · MAPA + BRÚJULA           -->
-<!-- ============================= -->
+<!-- 11 · MAPA + BRÚJULA GENERAL -->
 
 <section class="screen" id="screen11">
 
-    <div class="phase-number">
-        FASE I · TRASLADO
-    </div>
+    <div class="phase-number">FASE I · TRASLADO</div>
 
-    <h2>
-        LOCALIZA LA ARENA
-    </h2>
+    <h2>LOCALIZA LA ARENA</h2>
 
     <div class="map-frame">
         <div id="map"></div>
     </div>
-
-    <!-- BRÚJULA NUEVA -->
 
     <div class="arena-navigation">
 
@@ -1742,14 +1445,9 @@ button:disabled{
             <div class="compass-s">S</div>
             <div class="compass-w">O</div>
 
-            <div
-                class="arena-arrow"
-                id="arenaCompassArrow"
-            >
-
+            <div class="arena-arrow" id="arenaCompassArrow">
                 <div class="arrow-tip"></div>
                 <div class="arrow-tail"></div>
-
             </div>
 
             <div class="compass-center"></div>
@@ -1758,28 +1456,17 @@ button:disabled{
 
         <div class="navigation-info">
 
-            <div class="navigation-label">
-                Rumbo a la Arena
-            </div>
+            <div class="navigation-label">Rumbo a la Arena</div>
 
-            <div
-                class="navigation-bearing"
-                id="arenaBearing"
-            >
+            <div class="navigation-bearing" id="arenaBearing">
                 CALCULANDO...
             </div>
 
-            <div
-                class="navigation-direction"
-                id="arenaDirection"
-            >
+            <div class="navigation-direction" id="arenaDirection">
                 ESPERANDO GPS
             </div>
 
-            <div
-                class="compass-status"
-                id="compassStatus"
-            >
+            <div class="compass-status" id="compassStatus">
                 Esperando orientación del dispositivo
             </div>
 
@@ -1793,13 +1480,9 @@ button:disabled{
             LOCALIZANDO TRIBUTO...
         </div>
 
-        <div class="distance-label">
-            DISTANCIA A LA ARENA
-        </div>
+        <div class="distance-label">DISTANCIA A LA ARENA</div>
 
-        <div class="distance" id="distance">
-            ---
-        </div>
+        <div class="distance" id="distance">---</div>
 
         <div class="accuracy" id="accuracy">
             Esperando señal GPS
@@ -1809,9 +1492,7 @@ button:disabled{
 
     <div class="map-buttons">
 
-        <button onclick="checkLocation()">
-            Actualizar
-        </button>
+        <button onclick="checkLocation()">Actualizar</button>
 
         <button class="route-button" onclick="openRoute()">
             Iniciar ruta
@@ -1823,9 +1504,7 @@ button:disabled{
 
 </section>
 
-<!-- ============================= -->
-<!-- 12 · PERÍMETRO                -->
-<!-- ============================= -->
+<!-- 12 · APROXIMACIÓN EXACTA -->
 
 <section class="screen" id="screen12">
 
@@ -1833,27 +1512,16 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="small">
-        Perímetro alcanzado
-    </div>
+    <div class="small">Perímetro alcanzado</div>
 
-    <div class="unlock">
-        ARENA LOCALIZADA
-    </div>
+    <div class="unlock">ARENA LOCALIZADA</div>
 
     <div class="line"></div>
 
-    <p class="text">
-
-        Has alcanzado
-        el perímetro de la Arena.
-
+    <p class="text" style="margin-top:0">
+        Has alcanzado el perímetro de la Arena.
         <br><br>
-
-        Acércate al punto de entrada
-        para obtener autorización
-        de acceso.
-
+        Sigue la señal hasta el punto exacto de entrada.
     </p>
 
     <div class="access-panel">
@@ -1872,19 +1540,49 @@ button:disabled{
 
     </div>
 
-    <button
-        id="enterArenaButton"
-        onclick="enterArena()"
-        disabled
-    >
+    <!-- NUEVA BRÚJULA EXACTA -->
+
+    <div class="approach-navigation">
+
+        <div class="approach-compass">
+
+            <div class="approach-cross-x"></div>
+            <div class="approach-cross-y"></div>
+
+            <div class="approach-arrow" id="approachCompassArrow">
+                <div class="arrow-tip"></div>
+                <div class="arrow-tail"></div>
+            </div>
+
+            <div class="compass-center"></div>
+
+        </div>
+
+        <div class="approach-info">
+
+            <div class="approach-label">
+                DIRECCIÓN AL PUNTO DE ENTRADA
+            </div>
+
+            <div class="approach-instruction" id="approachInstruction">
+                LOCALIZANDO ACCESO...
+            </div>
+
+            <div class="approach-sensor" id="approachSensor">
+                ESPERANDO ORIENTACIÓN
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id="enterArenaButton" onclick="enterArena()" disabled>
         Entrar en la Arena
     </button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 13 · BRIEFING                 -->
-<!-- ============================= -->
+<!-- 13 -->
 
 <section class="screen" id="screen13">
 
@@ -1892,62 +1590,29 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="small">
-        Protocolo de supervivencia
-    </div>
+    <div class="small">Protocolo de supervivencia</div>
 
-    <h1>
-        LOS JUEGOS
-        <br>
-        HAN COMENZADO
-    </h1>
+    <h1>LOS JUEGOS<br>HAN COMENZADO</h1>
 
     <div class="line"></div>
 
     <p class="text">
-
-        Para sobrevivir en la Arena
-        necesitarás algo más que suerte.
-
+        Para sobrevivir en la Arena necesitarás algo más que suerte.
         <br><br>
-
-        Algunos
-
-        <span class="gold">
-            Distritos
-        </span>
-
-        han decidido enviar ayuda
-        a los tributos, ocultando
-        suministros en distintos
-        puntos de la Arena.
-
+        Algunos <span class="gold">Distritos</span> han decidido enviar ayuda a los tributos, ocultando suministros en distintos puntos de la Arena.
         <br><br>
-
-        Localiza los alijos.
-        <br>
-        Recupera los suministros.
-        <br>
+        Localiza los alijos.<br>
+        Recupera los suministros.<br>
         Sigue las señales.
-
         <br><br>
-
-        <span class="gold">
-            Encuéntralos todos
-            para alcanzar la victoria.
-        </span>
-
+        <span class="gold">Encuéntralos todos para alcanzar la victoria.</span>
     </p>
 
-    <button onclick="startGames()">
-        Comenzar los Juegos
-    </button>
+    <button onclick="startGames()">Comenzar los Juegos</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 14 · DISTRITO 04              -->
-<!-- ============================= -->
+<!-- 14 -->
 
 <section class="screen" id="screen14">
 
@@ -1955,52 +1620,31 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="small">
-        Transmisión recibida
-    </div>
+    <div class="small">Transmisión recibida</div>
 
-    <h2>
-        ENVÍO DE SUMINISTROS
-    </h2>
+    <h2>ENVÍO DE SUMINISTROS</h2>
 
     <div class="district-card">
 
-        <div class="transmission">
-            Señal procedente de
-        </div>
+        <div class="transmission">Señal procedente de</div>
 
-        <div class="district-number">
-            04
-        </div>
+        <div class="district-number">04</div>
 
-        <div class="transmission">
-            DISTRITO
-        </div>
+        <div class="transmission">DISTRITO</div>
 
         <div class="supply-status">
-
-            Un Distrito ha decidido
-            ayudarte.
-
+            Un Distrito ha decidido ayudarte.
             <br><br>
-
-            Se ha detectado un alijo
-            oculto en algún punto
-            de la Arena.
-
+            Se ha detectado un alijo oculto en algún punto de la Arena.
         </div>
 
     </div>
 
-    <button onclick="showScreen(15)">
-        Localizar suministro
-    </button>
+    <button onclick="showScreen(15)">Localizar suministro</button>
 
 </section>
 
-<!-- ============================= -->
-<!-- 15 · ALIJO                    -->
-<!-- ============================= -->
+<!-- 15 -->
 
 <section class="screen" id="screen15">
 
@@ -2008,94 +1652,53 @@ button:disabled{
         <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
-    <div class="phase-number">
-        SUMINISTRO ACTIVO
-    </div>
+    <div class="phase-number">SUMINISTRO ACTIVO</div>
 
-    <div class="small">
-        Distrito 04
-    </div>
+    <div class="small">Distrito 04</div>
 
-    <h1>
-        LOCALIZA
-        <br>
-        EL ALIJO
-    </h1>
+    <h1>LOCALIZA<br>EL ALIJO</h1>
 
     <div class="line"></div>
 
     <div class="compass">
-
-        <div class="compass-arrow">
-            ↑
-        </div>
-
+        <div class="compass-arrow">↑</div>
     </div>
 
-    <div class="distance-label">
-        DISTANCIA AL SUMINISTRO
-    </div>
+    <div class="distance-label">DISTANCIA AL SUMINISTRO</div>
 
-    <div class="distance">
-        --- m
-    </div>
+    <div class="distance">--- m</div>
 
     <p class="text">
-
-        La señal del Distrito
-        ha sido detectada.
-
+        La señal del Distrito ha sido detectada.
         <br><br>
-
-        Sigue la dirección indicada
-        para localizar el suministro.
-
+        Sigue la dirección indicada para localizar el suministro.
     </p>
 
 </section>
 
-<!-- ============================= -->
-<!-- ADMIN                         -->
-<!-- ============================= -->
+<!-- ADMIN -->
 
 <div class="admin-overlay" id="adminOverlay">
 
     <div class="admin-box">
 
-        <div
-            class="capitol-symbol small-symbol"
-            style="margin-left:auto;margin-right:auto;"
-        >
+        <div class="capitol-symbol small-symbol" style="margin-left:auto;margin-right:auto;">
             <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
         </div>
 
-        <div class="admin-title">
-            CAPITOLIO
-        </div>
+        <div class="admin-title">CAPITOLIO</div>
 
-        <div class="admin-subtitle">
-            Administración del sistema
-        </div>
+        <div class="admin-subtitle">Administración del sistema</div>
 
         <div class="admin-pin" id="adminLogin">
 
-            <input
-                id="adminPin"
-                type="password"
-                inputmode="numeric"
-                maxlength="3"
-                placeholder="•••"
-            >
+            <input id="adminPin" type="password" inputmode="numeric" maxlength="3" placeholder="•••">
 
             <div class="admin-error" id="adminError"></div>
 
-            <button onclick="unlockAdmin()">
-                Autorizar acceso
-            </button>
+            <button onclick="unlockAdmin()">Autorizar acceso</button>
 
-            <button onclick="closeAdmin()">
-                Cancelar
-            </button>
+            <button onclick="closeAdmin()">Cancelar</button>
 
         </div>
 
@@ -2103,21 +1706,13 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="admin-section-title">
-                    Estado del sistema
-                </div>
+                <div class="admin-section-title">Estado del sistema</div>
 
                 <div class="admin-toggle">
 
-                    <span>
-                        Restricciones GPS
-                    </span>
+                    <span>Restricciones GPS</span>
 
-                    <button
-                        class="admin-switch"
-                        id="gpsBypassButton"
-                        onclick="toggleGPSBypass()"
-                    >
+                    <button class="admin-switch" id="gpsBypassButton" onclick="toggleGPSBypass()">
                         ACTIVAS
                     </button>
 
@@ -2127,55 +1722,21 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="admin-section-title">
-                    Saltar a fase
-                </div>
+                <div class="admin-section-title">Saltar a fase</div>
 
                 <div class="admin-grid">
 
-                    <button onclick="adminGo(1)">
-                        Inicio
-                    </button>
-
-                    <button onclick="adminGo(2)">
-                        Registro
-                    </button>
-
-                    <button onclick="adminGo(5)">
-                        Cosecha
-                    </button>
-
-                    <button onclick="adminTribute()">
-                        Tributo
-                    </button>
-
-                    <button onclick="adminGo(10)">
-                        Traslado
-                    </button>
-
-                    <button onclick="adminMap()">
-                        Mapa
-                    </button>
-
-                    <button onclick="adminPerimeter()">
-                        Perímetro
-                    </button>
-
-                    <button onclick="adminEntrance()">
-                        Entrada
-                    </button>
-
-                    <button onclick="adminGo(13)">
-                        Briefing
-                    </button>
-
-                    <button onclick="adminGo(14)">
-                        Distrito 04
-                    </button>
-
-                    <button onclick="adminGo(15)">
-                        Brújula
-                    </button>
+                    <button onclick="adminGo(1)">Inicio</button>
+                    <button onclick="adminGo(2)">Registro</button>
+                    <button onclick="adminGo(5)">Cosecha</button>
+                    <button onclick="adminTribute()">Tributo</button>
+                    <button onclick="adminGo(10)">Traslado</button>
+                    <button onclick="adminMap()">Mapa</button>
+                    <button onclick="adminPerimeter()">Perímetro</button>
+                    <button onclick="adminEntrance()">Entrada</button>
+                    <button onclick="adminGo(13)">Briefing</button>
+                    <button onclick="adminGo(14)">Distrito 04</button>
+                    <button onclick="adminGo(15)">Brújula</button>
 
                 </div>
 
@@ -2183,23 +1744,13 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="admin-section-title">
-                    Simulación GPS
-                </div>
+                <div class="admin-section-title">Simulación GPS</div>
 
                 <div class="admin-grid">
 
-                    <button onclick="simulatePerimeter()">
-                        Simular 80 m
-                    </button>
-
-                    <button onclick="simulateNearEntrance()">
-                        Simular 20 m
-                    </button>
-
-                    <button onclick="simulateExactEntrance()">
-                        Simular 3 m
-                    </button>
+                    <button onclick="simulatePerimeter()">Simular 80 m</button>
+                    <button onclick="simulateNearEntrance()">Simular 20 m</button>
+                    <button onclick="simulateExactEntrance()">Simular 3 m</button>
 
                 </div>
 
@@ -2207,27 +1758,14 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="admin-section-title">
-                    Brújula
-                </div>
+                <div class="admin-section-title">Orientación</div>
 
                 <div class="admin-grid">
 
-                    <button onclick="simulateCompass(0)">
-                        Norte
-                    </button>
-
-                    <button onclick="simulateCompass(90)">
-                        Este
-                    </button>
-
-                    <button onclick="simulateCompass(180)">
-                        Sur
-                    </button>
-
-                    <button onclick="simulateCompass(270)">
-                        Oeste
-                    </button>
+                    <button onclick="simulateCompass(0)">Norte</button>
+                    <button onclick="simulateCompass(90)">Este</button>
+                    <button onclick="simulateCompass(180)">Sur</button>
+                    <button onclick="simulateCompass(270)">Oeste</button>
 
                 </div>
 
@@ -2235,22 +1773,12 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="admin-section-title">
-                    Partida
-                </div>
+                <div class="admin-section-title">Partida</div>
 
                 <div class="admin-grid">
 
-                    <button
-                        class="admin-danger"
-                        onclick="resetGame()"
-                    >
-                        Restablecer
-                    </button>
-
-                    <button onclick="closeAdmin()">
-                        Cerrar panel
-                    </button>
+                    <button class="admin-danger" onclick="resetGame()">Restablecer</button>
+                    <button onclick="closeAdmin()">Cerrar panel</button>
 
                 </div>
 
@@ -2294,14 +1822,8 @@ let perimeterReached = false;
 let entranceUnlocked = false;
 
 let firstPosition = true;
-
 let gpsBypass = false;
-
 let currentScreen = 1;
-
-/* ============================= */
-/* DATOS BRÚJULA                 */
-/* ============================= */
 
 let currentLatitude = null;
 let currentLongitude = null;
@@ -2315,11 +1837,8 @@ let orientationEnabled = false;
 /* AUDIO                         */
 /* ============================= */
 
-const backgroundMusic =
-    document.getElementById("backgroundMusic");
-
-const clickSound =
-    document.getElementById("clickSound");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const clickSound = document.getElementById("clickSound");
 
 backgroundMusic.volume = 0.30;
 clickSound.volume = 0.50;
@@ -2327,11 +1846,7 @@ clickSound.volume = 0.50;
 function ensureBackgroundMusic(){
 
     if(backgroundMusic.paused){
-
-        backgroundMusic
-            .play()
-            .catch(()=>{});
-
+        backgroundMusic.play().catch(()=>{});
     }
 
 }
@@ -2339,48 +1854,32 @@ function ensureBackgroundMusic(){
 function playClick(){
 
     try{
-
         clickSound.currentTime = 0;
-
-        clickSound
-            .play()
-            .catch(()=>{});
-
+        clickSound.play().catch(()=>{});
     }catch(error){}
 
 }
 
-document
-    .querySelectorAll("button")
-    .forEach(button => {
+document.querySelectorAll("button").forEach(button => {
 
-        button.addEventListener(
-            "click",
-            ()=>{
+    button.addEventListener("click",()=>{
 
-                playClick();
+        playClick();
 
-                if(currentScreen !== 1){
-                    ensureBackgroundMusic();
-                }
-
-            }
-        );
+        if(currentScreen !== 1){
+            ensureBackgroundMusic();
+        }
 
     });
 
-/* ============================= */
-/* INICIO                        */
-/* ============================= */
+});
 
 function beginCeremony(){
 
     backgroundMusic.volume = 0.30;
     backgroundMusic.loop = true;
 
-    backgroundMusic
-        .play()
-        .catch(()=>{});
+    backgroundMusic.play().catch(()=>{});
 
     showScreen(2);
 
@@ -2391,7 +1890,6 @@ function beginCeremony(){
 /* ============================= */
 
 const fakeNames = [
-
     "LUCÍA MENDOZA",
     "MARCOS VEGA",
     "CARLA MEDINA",
@@ -2412,7 +1910,6 @@ const fakeNames = [
     "NOA GARCÍA",
     "PABLO MORALES",
     "AINA MARTÍNEZ"
-
 ];
 
 /* ============================= */
@@ -2423,41 +1920,25 @@ function showScreen(number){
 
     currentScreen = number;
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen =>
-            screen.classList.remove("active")
-        );
-
-    const next =
-        document.getElementById(
-            "screen" + number
-        );
-
-    setTimeout(
-        ()=>{
-
-            next.classList.add("active");
-
-            if(number !== 1){
-                ensureBackgroundMusic();
-            }
-
-            if(
-                number === 11 &&
-                map !== null
-            ){
-
-                setTimeout(
-                    ()=>map.invalidateSize(),
-                    300
-                );
-
-            }
-
-        },
-        300
+    document.querySelectorAll(".screen").forEach(screen =>
+        screen.classList.remove("active")
     );
+
+    const next = document.getElementById("screen" + number);
+
+    setTimeout(()=>{
+
+        next.classList.add("active");
+
+        if(number !== 1){
+            ensureBackgroundMusic();
+        }
+
+        if(number === 11 && map !== null){
+            setTimeout(()=>map.invalidateSize(),300);
+        }
+
+    },300);
 
 }
 
@@ -2467,33 +1948,15 @@ function showScreen(number){
 
 function registerCitizen(){
 
-    const firstName =
-        document
-            .getElementById("firstName")
-            .value
-            .trim();
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const birthDate = document.getElementById("birthDate").value;
 
-    const lastName =
-        document
-            .getElementById("lastName")
-            .value
-            .trim();
-
-    const birthDate =
-        document
-            .getElementById("birthDate")
-            .value;
-
-    const error =
-        document.getElementById("formError");
+    const error = document.getElementById("formError");
 
     error.textContent = "";
 
-    if(
-        firstName === "" ||
-        lastName === "" ||
-        birthDate === ""
-    ){
+    if(firstName === "" || lastName === "" || birthDate === ""){
 
         error.textContent =
             "Todos los campos son obligatorios para acceder a la Cosecha.";
@@ -2506,11 +1969,7 @@ function registerCitizen(){
     participant.birthDate = birthDate;
 
     participant.fullName =
-        (
-            firstName +
-            " " +
-            lastName
-        ).toUpperCase();
+        (firstName + " " + lastName).toUpperCase();
 
     updateParticipantUI();
 
@@ -2538,13 +1997,11 @@ function startRegistration(){
 
     showScreen(3);
 
-    const terminal =
-        document.getElementById("terminal");
+    const terminal = document.getElementById("terminal");
 
     terminal.innerHTML = "";
 
     const lines = [
-
         "> CONECTANDO CON EL CAPITOLIO...",
         "> VERIFICANDO IDENTIDAD...",
         "> CIUDADANO IDENTIFICADO",
@@ -2553,7 +2010,6 @@ function startRegistration(){
         "> ESTADO: ELEGIBLE",
         "> AÑADIENDO NOMBRE A LA COSECHA...",
         "> REGISTRO COMPLETADO"
-
     ];
 
     let index = 0;
@@ -2562,11 +2018,9 @@ function startRegistration(){
 
         if(index < lines.length){
 
-            const div =
-                document.createElement("div");
+            const div = document.createElement("div");
 
-            div.textContent =
-                lines[index];
+            div.textContent = lines[index];
 
             terminal.appendChild(div);
 
@@ -2574,30 +2028,24 @@ function startRegistration(){
 
             setTimeout(
                 addLine,
-                350 + Math.random() * 350
+                350 + Math.random()*350
             );
 
         }else{
 
-            const last =
-                document.createElement("div");
+            const last = document.createElement("div");
 
             last.className = "cursor";
-
-            last.textContent =
-                "> ACCESO CONCEDIDO";
+            last.textContent = "> ACCESO CONCEDIDO";
 
             terminal.appendChild(last);
 
-            setTimeout(
-                ()=>{
+            setTimeout(()=>{
 
-                    flash();
-                    showScreen(4);
+                flash();
+                showScreen(4);
 
-                },
-                1100
-            );
+            },1100);
 
         }
 
@@ -2619,41 +2067,33 @@ function startCountdown(){
 
     showScreen(6);
 
-    const count =
-        document.getElementById("count");
+    const count = document.getElementById("count");
 
     let number = 3;
 
     count.textContent = number;
 
-    const timer =
-        setInterval(
-            ()=>{
+    const timer = setInterval(()=>{
 
-                number--;
+        number--;
 
-                if(number > 0){
+        if(number > 0){
 
-                    count.textContent = number;
+            count.textContent = number;
 
-                }else{
+        }else{
 
-                    clearInterval(timer);
+            clearInterval(timer);
 
-                    count.textContent = "";
+            count.textContent = "";
 
-                    flash();
+            flash();
 
-                    setTimeout(
-                        ()=>startReaping(),
-                        400
-                    );
+            setTimeout(()=>startReaping(),400);
 
-                }
+        }
 
-            },
-            1000
-        );
+    },1000);
 
 }
 
@@ -2661,58 +2101,45 @@ function startReaping(){
 
     showScreen(7);
 
-    const display =
-        document.getElementById("randomName");
+    const display = document.getElementById("randomName");
 
     let iterations = 0;
 
     const speeds = [
-
         80,80,80,80,80,
         90,90,90,100,100,
         110,120,130,140,
         160,180,210,240,
         280,330,400,500,
         650,800
-
     ];
 
     function nextName(){
 
         display.classList.add("switching");
 
-        setTimeout(
-            ()=>{
+        setTimeout(()=>{
 
-                const randomIndex =
-                    Math.floor(
-                        Math.random() *
-                        fakeNames.length
-                    );
+            const randomIndex =
+                Math.floor(Math.random()*fakeNames.length);
 
-                display.textContent =
-                    fakeNames[randomIndex];
+            display.textContent = fakeNames[randomIndex];
 
-                display.classList.remove("switching");
+            display.classList.remove("switching");
 
-                iterations++;
+            iterations++;
 
-                if(iterations < speeds.length){
+            if(iterations < speeds.length){
 
-                    setTimeout(
-                        nextName,
-                        speeds[iterations]
-                    );
+                setTimeout(nextName,speeds[iterations]);
 
-                }else{
+            }else{
 
-                    finishReaping();
+                finishReaping();
 
-                }
+            }
 
-            },
-            60
-        );
+        },60);
 
     }
 
@@ -2722,44 +2149,30 @@ function startReaping(){
 
 function finishReaping(){
 
-    const display =
-        document.getElementById("randomName");
+    const display = document.getElementById("randomName");
 
-    setTimeout(
-        ()=>{
+    setTimeout(()=>{
 
-            display.classList.add("switching");
+        display.classList.add("switching");
 
-            setTimeout(
-                ()=>{
+        setTimeout(()=>{
 
-                    display.textContent =
-                        participant.fullName ||
-                        "TRIBUTO";
+            display.textContent =
+                participant.fullName || "TRIBUTO";
 
-                    display.classList.remove("switching");
+            display.classList.remove("switching");
 
-                    setTimeout(
-                        ()=>{
+            setTimeout(()=>{
 
-                            flash();
+                flash();
 
-                            setTimeout(
-                                ()=>showScreen(8),
-                                300
-                            );
+                setTimeout(()=>showScreen(8),300);
 
-                        },
-                        1800
-                    );
+            },1800);
 
-                },
-                200
-            );
+        },200);
 
-        },
-        600
-    );
+    },600);
 
 }
 
@@ -2769,50 +2182,30 @@ function finishReaping(){
 
 async function beginMission(){
 
-    /*
-        En iPhone Safari el permiso del
-        sensor debe solicitarse desde
-        una pulsación del usuario.
-    */
-
     await requestOrientationPermission();
 
     showScreen(11);
 
-    setTimeout(
-        ()=>{
+    setTimeout(()=>{
 
-            initializeMap();
-            startTracking();
+        initializeMap();
+        startTracking();
 
-        },
-        500
-    );
+    },500);
 
 }
 
 /* ============================= */
-/* PERMISO ORIENTACIÓN           */
+/* ORIENTACIÓN                   */
 /* ============================= */
 
 async function requestOrientationPermission(){
 
-    const status =
-        document.getElementById(
-            "compassStatus"
-        );
-
     try{
 
-        if(
-            typeof DeviceOrientationEvent !==
-            "undefined"
-        ){
+        if(typeof DeviceOrientationEvent !== "undefined"){
 
-            if(
-                typeof DeviceOrientationEvent.requestPermission ===
-                "function"
-            ){
+            if(typeof DeviceOrientationEvent.requestPermission === "function"){
 
                 const permission =
                     await DeviceOrientationEvent.requestPermission();
@@ -2820,14 +2213,6 @@ async function requestOrientationPermission(){
                 if(permission === "granted"){
 
                     enableOrientation();
-
-                    status.textContent =
-                        "Brújula del dispositivo activa";
-
-                }else{
-
-                    status.textContent =
-                        "Permiso de orientación no concedido";
 
                 }
 
@@ -2837,19 +2222,9 @@ async function requestOrientationPermission(){
 
             }
 
-        }else{
-
-            status.textContent =
-                "Sensor de orientación no disponible";
-
         }
 
-    }catch(error){
-
-        status.textContent =
-            "No se ha podido activar la orientación";
-
-    }
+    }catch(error){}
 
 }
 
@@ -2869,41 +2244,17 @@ function enableOrientation(){
 
 }
 
-/* ============================= */
-/* ORIENTACIÓN IPHONE            */
-/* ============================= */
-
 function handleOrientation(event){
 
     let heading = null;
 
-    /*
-        Safari/iPhone ofrece
-        webkitCompassHeading.
-    */
+    if(typeof event.webkitCompassHeading === "number"){
 
-    if(
-        typeof event.webkitCompassHeading ===
-        "number"
-    ){
+        heading = event.webkitCompassHeading;
 
-        heading =
-            event.webkitCompassHeading;
+    }else if(typeof event.alpha === "number"){
 
-    }else if(
-        event.absolute &&
-        typeof event.alpha === "number"
-    ){
-
-        heading =
-            360 - event.alpha;
-
-    }else if(
-        typeof event.alpha === "number"
-    ){
-
-        heading =
-            360 - event.alpha;
+        heading = 360 - event.alpha;
 
     }
 
@@ -2911,21 +2262,32 @@ function handleOrientation(event){
         return;
     }
 
-    currentHeading =
-        normalizeAngle(heading);
+    currentHeading = normalizeAngle(heading);
 
-    document
-        .getElementById(
-            "compassStatus"
-        )
-        .textContent =
-        "ORIENTACIÓN ACTIVA · "
-        +
-        Math.round(currentHeading)
-        +
-        "°";
+    const compassStatus =
+        document.getElementById("compassStatus");
+
+    const approachSensor =
+        document.getElementById("approachSensor");
+
+    if(compassStatus){
+
+        compassStatus.textContent =
+            "ORIENTACIÓN ACTIVA · " +
+            Math.round(currentHeading) +
+            "°";
+
+    }
+
+    if(approachSensor){
+
+        approachSensor.textContent =
+            "SEÑAL DE ORIENTACIÓN ACTIVA";
+
+    }
 
     updateArenaCompass();
+    updateApproachCompass();
 
 }
 
@@ -2937,28 +2299,21 @@ function initializeMap(){
 
     if(map !== null){
 
-        setTimeout(
-            ()=>map.invalidateSize(),
-            300
-        );
-
+        setTimeout(()=>map.invalidateSize(),300);
         return;
+
     }
 
-    map =
-        L.map(
-            "map",
-            {
-                zoomControl:false,
-                attributionControl:true
-            }
-        );
+    map = L.map(
+        "map",
+        {
+            zoomControl:false,
+            attributionControl:true
+        }
+    );
 
     map.setView(
-        [
-            ARENA_LATITUDE,
-            ARENA_LONGITUDE
-        ],
+        [ARENA_LATITUDE,ARENA_LONGITUDE],
         11
     );
 
@@ -2970,30 +2325,20 @@ function initializeMap(){
         }
     ).addTo(map);
 
-    const arenaIcon =
-        L.divIcon(
-            {
-                className:"",
-                html:
-                    '<div class="arena-marker">' +
-                    '<img src="capitolio.png.webp" alt="">' +
-                    '</div>',
-                iconSize:[46,46],
-                iconAnchor:[23,23]
-            }
-        );
+    const arenaIcon = L.divIcon({
+        className:"",
+        html:
+            '<div class="arena-marker">' +
+            '<img src="capitolio.png.webp" alt="">' +
+            '</div>',
+        iconSize:[46,46],
+        iconAnchor:[23,23]
+    });
 
-    arenaMarker =
-        L.marker(
-            [
-                ARENA_LATITUDE,
-                ARENA_LONGITUDE
-            ],
-            {
-                icon:arenaIcon
-            }
-        )
-        .addTo(map);
+    arenaMarker = L.marker(
+        [ARENA_LATITUDE,ARENA_LONGITUDE],
+        {icon:arenaIcon}
+    ).addTo(map);
 
     arenaMarker.bindTooltip(
         "ARENA",
@@ -3017,39 +2362,30 @@ function startTracking(){
     }
 
     const status =
-        document.getElementById(
-            "locationStatus"
-        );
+        document.getElementById("locationStatus");
 
     if(!navigator.geolocation){
 
-        status.textContent =
-            "GPS NO DISPONIBLE";
-
+        status.textContent = "GPS NO DISPONIBLE";
         return;
+
     }
 
-    status.textContent =
-        "LOCALIZANDO TRIBUTO...";
+    status.textContent = "LOCALIZANDO TRIBUTO...";
 
     if(watchID !== null){
-
-        navigator.geolocation.clearWatch(
-            watchID
-        );
-
+        navigator.geolocation.clearWatch(watchID);
     }
 
-    watchID =
-        navigator.geolocation.watchPosition(
-            locationSuccess,
-            locationFailure,
-            {
-                enableHighAccuracy:true,
-                timeout:15000,
-                maximumAge:3000
-            }
-        );
+    watchID = navigator.geolocation.watchPosition(
+        locationSuccess,
+        locationFailure,
+        {
+            enableHighAccuracy:true,
+            timeout:15000,
+            maximumAge:3000
+        }
+    );
 
 }
 
@@ -3057,21 +2393,14 @@ function checkLocation(){
 
     if(gpsBypass){
 
-        document
-            .getElementById(
-                "locationStatus"
-            )
-            .textContent =
+        document.getElementById("locationStatus").textContent =
             "GPS IGNORADO · MODO ADMIN";
 
         return;
+
     }
 
-    document
-        .getElementById(
-            "locationStatus"
-        )
-        .textContent =
+    document.getElementById("locationStatus").textContent =
         "ACTUALIZANDO POSICIÓN...";
 
     navigator.geolocation.getCurrentPosition(
@@ -3088,125 +2417,90 @@ function checkLocation(){
 
 function locationSuccess(position){
 
-    const latitude =
-        position.coords.latitude;
-
-    const longitude =
-        position.coords.longitude;
-
-    const accuracy =
-        position.coords.accuracy;
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const accuracy = position.coords.accuracy;
 
     currentLatitude = latitude;
     currentLongitude = longitude;
 
-    document
-        .getElementById(
-            "locationStatus"
-        )
-        .textContent =
+    document.getElementById("locationStatus").textContent =
         "● POSICIÓN DEL TRIBUTO ACTIVA";
 
-    document
-        .getElementById(
-            "accuracy"
-        )
-        .textContent =
+    document.getElementById("accuracy").textContent =
         "Precisión GPS: ±" +
         Math.round(accuracy) +
         " m";
 
-    document
-        .getElementById(
-            "locationError"
-        )
-        .textContent = "";
+    document.getElementById("locationError").textContent = "";
 
-    const distance =
-        calculateDistance(
-            latitude,
-            longitude,
-            ARENA_LATITUDE,
-            ARENA_LONGITUDE
-        );
+    const distance = calculateDistance(
+        latitude,
+        longitude,
+        ARENA_LATITUDE,
+        ARENA_LONGITUDE
+    );
 
-    arenaTargetBearing =
-        calculateBearing(
-            latitude,
-            longitude,
-            ARENA_LATITUDE,
-            ARENA_LONGITUDE
-        );
+    arenaTargetBearing = calculateBearing(
+        latitude,
+        longitude,
+        ARENA_LATITUDE,
+        ARENA_LONGITUDE
+    );
 
     updateDistanceDisplay(distance);
 
-    updateMap(
-        latitude,
-        longitude
-    );
+    updateMap(latitude,longitude);
 
     updateArenaCompass();
 
-    processArenaDistance(
-        distance
-    );
+    updateApproachCompass();
+
+    processArenaDistance(distance);
 
 }
 
 /* ============================= */
-/* BRÚJULA HACIA LA ARENA        */
+/* CÁLCULO DE RUMBO              */
 /* ============================= */
 
-function calculateBearing(
-    lat1,
-    lon1,
-    lat2,
-    lon2
-){
+function calculateBearing(lat1,lon1,lat2,lon2){
 
-    const φ1 =
-        lat1 * Math.PI / 180;
+    const phi1 = lat1*Math.PI/180;
+    const phi2 = lat2*Math.PI/180;
 
-    const φ2 =
-        lat2 * Math.PI / 180;
-
-    const Δλ =
-        (lon2 - lon1)
-        *
-        Math.PI / 180;
+    const deltaLambda =
+        (lon2-lon1)*Math.PI/180;
 
     const y =
-        Math.sin(Δλ)
-        *
-        Math.cos(φ2);
+        Math.sin(deltaLambda) *
+        Math.cos(phi2);
 
     const x =
-        Math.cos(φ1)
-        *
-        Math.sin(φ2)
+        Math.cos(phi1) *
+        Math.sin(phi2)
         -
-        Math.sin(φ1)
-        *
-        Math.cos(φ2)
-        *
-        Math.cos(Δλ);
+        Math.sin(phi1) *
+        Math.cos(phi2) *
+        Math.cos(deltaLambda);
 
-    const θ =
-        Math.atan2(y,x);
+    const theta = Math.atan2(y,x);
 
     return normalizeAngle(
-        θ * 180 / Math.PI
+        theta*180/Math.PI
     );
 
 }
 
 function normalizeAngle(angle){
 
-    return (
-        (angle % 360) + 360
-    ) % 360;
+    return ((angle%360)+360)%360;
 
 }
+
+/* ============================= */
+/* BRÚJULA GENERAL               */
+/* ============================= */
 
 function updateArenaCompass(){
 
@@ -3215,37 +2509,87 @@ function updateArenaCompass(){
     }
 
     const bearingText =
-        document.getElementById(
-            "arenaBearing"
-        );
+        document.getElementById("arenaBearing");
 
     const directionText =
-        document.getElementById(
-            "arenaDirection"
-        );
+        document.getElementById("arenaDirection");
+
+    const arrow =
+        document.getElementById("arenaCompassArrow");
+
+    const cardinal =
+        getCardinalDirection(arenaTargetBearing);
+
+    bearingText.textContent =
+        Math.round(arenaTargetBearing) +
+        "° · " +
+        cardinal;
+
+    if(currentHeading !== null){
+
+        const relativeBearing =
+            normalizeAngle(
+                arenaTargetBearing -
+                currentHeading
+            );
+
+        arrow.style.transform =
+            "rotate(" +
+            relativeBearing +
+            "deg)";
+
+        directionText.textContent =
+            getMovementInstruction(relativeBearing);
+
+    }else{
+
+        arrow.style.transform =
+            "rotate(" +
+            arenaTargetBearing +
+            "deg)";
+
+        directionText.textContent =
+            "RUMBO DESDE EL NORTE";
+
+    }
+
+}
+
+/* ============================= */
+/* BRÚJULA EXACTA DE ACCESO      */
+/* ============================= */
+
+function updateApproachCompass(){
+
+    if(arenaTargetBearing === null){
+        return;
+    }
 
     const arrow =
         document.getElementById(
-            "arenaCompassArrow"
+            "approachCompassArrow"
         );
 
-    const cardinal =
-        getCardinalDirection(
-            arenaTargetBearing
+    const instruction =
+        document.getElementById(
+            "approachInstruction"
         );
 
-    bearingText.textContent =
-        Math.round(arenaTargetBearing)
-        +
-        "° · "
-        +
-        cardinal;
+    const sensor =
+        document.getElementById(
+            "approachSensor"
+        );
+
+    if(!arrow || !instruction){
+        return;
+    }
 
     /*
-        Si tenemos orientación real
-        del teléfono, calculamos cuánto
-        debe girar la flecha respecto
-        a hacia dónde apunta el iPhone.
+        Esta flecha NO representa norte/sur.
+
+        Representa la dirección física
+        hacia las coordenadas exactas
+        de entrada de la Arena.
     */
 
     if(currentHeading !== null){
@@ -3257,124 +2601,118 @@ function updateArenaCompass(){
             );
 
         arrow.style.transform =
-            "rotate("
-            +
-            relativeBearing
-            +
+            "rotate(" +
+            relativeBearing +
             "deg)";
 
-        directionText.textContent =
-            getMovementInstruction(
+        instruction.textContent =
+            getApproachInstruction(
                 relativeBearing
             );
 
+        if(sensor){
+
+            sensor.textContent =
+                "SIGUE LA FLECHA";
+
+        }
+
     }else{
 
-        /*
-            Sin sensor todavía, la flecha
-            representa el rumbo respecto
-            al norte.
-        */
-
         arrow.style.transform =
-            "rotate("
-            +
-            arenaTargetBearing
-            +
+            "rotate(" +
+            arenaTargetBearing +
             "deg)";
 
-        directionText.textContent =
-            "RUMBO DESDE EL NORTE";
+        instruction.textContent =
+            "CALIBRANDO DIRECCIÓN...";
+
+        if(sensor){
+
+            sensor.textContent =
+                "MUEVE EL IPHONE PARA ACTIVAR LA ORIENTACIÓN";
+
+        }
 
     }
+
+}
+
+function getApproachInstruction(angle){
+
+    if(angle <= 15 || angle >= 345){
+        return "CONTINÚA DE FRENTE";
+    }
+
+    if(angle > 15 && angle < 70){
+        return "DESPLÁZATE HACIA LA DERECHA";
+    }
+
+    if(angle >= 70 && angle <= 110){
+        return "EL ACCESO ESTÁ A TU DERECHA";
+    }
+
+    if(angle > 110 && angle < 165){
+        return "GIRA HACIA LA DERECHA";
+    }
+
+    if(angle >= 165 && angle <= 195){
+        return "EL ACCESO ESTÁ DETRÁS DE TI";
+    }
+
+    if(angle > 195 && angle < 250){
+        return "GIRA HACIA LA IZQUIERDA";
+    }
+
+    if(angle >= 250 && angle <= 290){
+        return "EL ACCESO ESTÁ A TU IZQUIERDA";
+    }
+
+    return "DESPLÁZATE HACIA LA IZQUIERDA";
 
 }
 
 function getCardinalDirection(angle){
 
     const directions = [
-        "N",
-        "NE",
-        "E",
-        "SE",
-        "S",
-        "SO",
-        "O",
-        "NO"
+        "N","NE","E","SE",
+        "S","SO","O","NO"
     ];
 
-    const index =
-        Math.round(
-            angle / 45
-        ) % 8;
-
-    return directions[index];
+    return directions[
+        Math.round(angle/45)%8
+    ];
 
 }
 
 function getMovementInstruction(angle){
 
-    if(
-        angle <= 15 ||
-        angle >= 345
-    ){
-
+    if(angle <= 15 || angle >= 345){
         return "CONTINÚA DE FRENTE";
-
     }
 
-    if(
-        angle > 15 &&
-        angle < 75
-    ){
-
+    if(angle > 15 && angle < 75){
         return "GIRA LIGERAMENTE A LA DERECHA";
-
     }
 
-    if(
-        angle >= 75 &&
-        angle <= 105
-    ){
-
+    if(angle >= 75 && angle <= 105){
         return "GIRA A LA DERECHA";
-
     }
 
-    if(
-        angle > 105 &&
-        angle < 165
-    ){
-
+    if(angle > 105 && angle < 165){
         return "CONTINÚA GIRANDO A LA DERECHA";
-
     }
 
-    if(
-        angle >= 165 &&
-        angle <= 195
-    ){
-
+    if(angle >= 165 && angle <= 195){
         return "DA MEDIA VUELTA";
-
     }
 
-    if(
-        angle > 195 &&
-        angle < 255
-    ){
-
+    if(angle > 195 && angle < 255){
         return "CONTINÚA GIRANDO A LA IZQUIERDA";
-
     }
 
-    if(
-        angle >= 255 &&
-        angle <= 285
-    ){
-
+    if(angle >= 255 && angle <= 285){
         return "GIRA A LA IZQUIERDA";
-
     }
 
     return "GIRA LIGERAMENTE A LA IZQUIERDA";
@@ -3382,7 +2720,7 @@ function getMovementInstruction(angle){
 }
 
 /* ============================= */
-/* ARENA                         */
+/* PERÍMETRO / ENTRADA           */
 /* ============================= */
 
 function processArenaDistance(distance){
@@ -3405,9 +2743,16 @@ function processArenaDistance(distance){
 
     if(perimeterReached){
 
-        updateAccessDistance(
-            distance
-        );
+        updateAccessDistance(distance);
+
+        /*
+            Aunque ya estamos en la
+            pantalla de aproximación,
+            el GPS sigue recalculando
+            rumbo y distancia.
+        */
+
+        updateApproachCompass();
 
     }
 
@@ -3425,22 +2770,18 @@ function processArenaDistance(distance){
 function updateAccessDistance(distance){
 
     const element =
-        document.getElementById(
-            "accessDistance"
-        );
+        document.getElementById("accessDistance");
 
     if(distance >= 1000){
 
         element.textContent =
-            (distance / 1000).toFixed(1)
-            +
+            (distance/1000).toFixed(1) +
             " km";
 
     }else{
 
         element.textContent =
-            Math.round(distance)
-            +
+            Math.round(distance) +
             " m";
 
     }
@@ -3452,14 +2793,13 @@ function unlockEntrance(){
     entranceUnlocked = true;
 
     const button =
-        document.getElementById(
-            "enterArenaButton"
-        );
+        document.getElementById("enterArenaButton");
 
     const status =
-        document.getElementById(
-            "arenaLockStatus"
-        );
+        document.getElementById("arenaLockStatus");
+
+    const instruction =
+        document.getElementById("approachInstruction");
 
     button.disabled = false;
 
@@ -3467,6 +2807,13 @@ function unlockEntrance(){
         "🔓 ACCESO CONFIRMADO";
 
     status.classList.add("open");
+
+    if(instruction){
+
+        instruction.textContent =
+            "PUNTO DE ENTRADA ALCANZADO";
+
+    }
 
     flash();
 
@@ -3482,10 +2829,7 @@ function unlockEntrance(){
 
 function enterArena(){
 
-    if(
-        !entranceUnlocked &&
-        !gpsBypass
-    ){
+    if(!entranceUnlocked && !gpsBypass){
         return;
     }
 
@@ -3514,73 +2858,49 @@ function startGames(){
 }
 
 /* ============================= */
-/* MAPA JUGADOR                  */
+/* MAPA DEL JUGADOR              */
 /* ============================= */
 
-function updateMap(
-    latitude,
-    longitude
-){
+function updateMap(latitude,longitude){
 
     if(map === null){
         return;
     }
 
     const playerIcon =
-        L.divIcon(
-            {
-                className:"",
-                html:
-                    '<div class="player-marker"></div>',
-                iconSize:[18,18],
-                iconAnchor:[9,9]
-            }
-        );
+        L.divIcon({
+            className:"",
+            html:'<div class="player-marker"></div>',
+            iconSize:[18,18],
+            iconAnchor:[9,9]
+        });
 
     if(playerMarker === null){
 
         playerMarker =
             L.marker(
-                [
-                    latitude,
-                    longitude
-                ],
-                {
-                    icon:playerIcon
-                }
+                [latitude,longitude],
+                {icon:playerIcon}
             )
             .addTo(map);
 
     }else{
 
         playerMarker.setLatLng(
-            [
-                latitude,
-                longitude
-            ]
+            [latitude,longitude]
         );
 
     }
 
     if(routeLine !== null){
-
-        map.removeLayer(
-            routeLine
-        );
-
+        map.removeLayer(routeLine);
     }
 
     routeLine =
         L.polyline(
             [
-                [
-                    latitude,
-                    longitude
-                ],
-                [
-                    ARENA_LATITUDE,
-                    ARENA_LONGITUDE
-                ]
+                [latitude,longitude],
+                [ARENA_LATITUDE,ARENA_LONGITUDE]
             ],
             {
                 color:"#b79a58",
@@ -3596,22 +2916,14 @@ function updateMap(
         const bounds =
             L.latLngBounds(
                 [
-                    [
-                        latitude,
-                        longitude
-                    ],
-                    [
-                        ARENA_LATITUDE,
-                        ARENA_LONGITUDE
-                    ]
+                    [latitude,longitude],
+                    [ARENA_LATITUDE,ARENA_LONGITUDE]
                 ]
             );
 
         map.fitBounds(
             bounds,
-            {
-                padding:[45,45]
-            }
+            {padding:[45,45]}
         );
 
         firstPosition = false;
@@ -3627,75 +2939,54 @@ function updateMap(
 function updateDistanceDisplay(distance){
 
     const element =
-        document.getElementById(
-            "distance"
-        );
+        document.getElementById("distance");
 
     if(distance >= 1000){
 
         element.textContent =
-            (distance / 1000).toFixed(1)
-            +
+            (distance/1000).toFixed(1) +
             " km";
 
     }else{
 
         element.textContent =
-            Math.round(distance)
-            +
+            Math.round(distance) +
             " m";
 
     }
 
 }
 
-function calculateDistance(
-    lat1,
-    lon1,
-    lat2,
-    lon2
-){
+function calculateDistance(lat1,lon1,lat2,lon2){
 
     const earthRadius = 6371000;
 
-    const phi1 =
-        lat1 * Math.PI / 180;
-
-    const phi2 =
-        lat2 * Math.PI / 180;
+    const phi1 = lat1*Math.PI/180;
+    const phi2 = lat2*Math.PI/180;
 
     const deltaLat =
-        (lat2-lat1)
-        *
-        Math.PI / 180;
+        (lat2-lat1)*Math.PI/180;
 
     const deltaLon =
-        (lon2-lon1)
-        *
-        Math.PI / 180;
+        (lon2-lon1)*Math.PI/180;
 
     const a =
-        Math.sin(deltaLat/2)
-        *
+        Math.sin(deltaLat/2) *
         Math.sin(deltaLat/2)
         +
-        Math.cos(phi1)
-        *
-        Math.cos(phi2)
-        *
-        Math.sin(deltaLon/2)
-        *
+        Math.cos(phi1) *
+        Math.cos(phi2) *
+        Math.sin(deltaLon/2) *
         Math.sin(deltaLon/2);
 
     const c =
-        2
-        *
+        2 *
         Math.atan2(
             Math.sqrt(a),
             Math.sqrt(1-a)
         );
 
-    return earthRadius * c;
+    return earthRadius*c;
 
 }
 
@@ -3706,28 +2997,21 @@ function calculateDistance(
 function openRoute(){
 
     const destination =
-        ARENA_LATITUDE
-        +
-        ","
-        +
+        ARENA_LATITUDE +
+        "," +
         ARENA_LONGITUDE;
 
     const appleMapsURL =
-        "https://maps.apple.com/?daddr="
-        +
-        destination
-        +
+        "https://maps.apple.com/?daddr=" +
+        destination +
         "&dirflg=d";
 
-    setTimeout(
-        ()=>{
+    setTimeout(()=>{
 
-            window.location.href =
-                appleMapsURL;
+        window.location.href =
+            appleMapsURL;
 
-        },
-        120
-    );
+    },120);
 
 }
 
@@ -3738,14 +3022,10 @@ function openRoute(){
 function locationFailure(error){
 
     const status =
-        document.getElementById(
-            "locationStatus"
-        );
+        document.getElementById("locationStatus");
 
     const message =
-        document.getElementById(
-            "locationError"
-        );
+        document.getElementById("locationError");
 
     status.textContent =
         "NO SE HA PODIDO LOCALIZAR";
@@ -3753,8 +3033,7 @@ function locationFailure(error){
     if(error.code === 1){
 
         message.innerHTML =
-            "Activa la localización para continuar.<br><br>"
-            +
+            "Activa la localización para continuar.<br><br>" +
             "Safari → Ajustes del sitio web → Ubicación → Permitir";
 
     }else{
@@ -3784,61 +3063,33 @@ function flash(){
 }
 
 /* ============================= */
-/* ADMIN OCULTO                  */
+/* ADMIN                         */
 /* ============================= */
 
 let adminHoldTimer = null;
 
-document
-    .querySelectorAll(".admin-trigger")
-    .forEach(
-        trigger => {
+document.querySelectorAll(".admin-trigger").forEach(trigger => {
 
-            trigger.addEventListener(
-                "touchstart",
-                startAdminHold,
-                {
-                    passive:true
-                }
-            );
-
-            trigger.addEventListener(
-                "touchend",
-                cancelAdminHold
-            );
-
-            trigger.addEventListener(
-                "touchcancel",
-                cancelAdminHold
-            );
-
-            trigger.addEventListener(
-                "mousedown",
-                startAdminHold
-            );
-
-            trigger.addEventListener(
-                "mouseup",
-                cancelAdminHold
-            );
-
-            trigger.addEventListener(
-                "mouseleave",
-                cancelAdminHold
-            );
-
-        }
+    trigger.addEventListener(
+        "touchstart",
+        startAdminHold,
+        {passive:true}
     );
+
+    trigger.addEventListener("touchend",cancelAdminHold);
+    trigger.addEventListener("touchcancel",cancelAdminHold);
+    trigger.addEventListener("mousedown",startAdminHold);
+    trigger.addEventListener("mouseup",cancelAdminHold);
+    trigger.addEventListener("mouseleave",cancelAdminHold);
+
+});
 
 function startAdminHold(){
 
     cancelAdminHold();
 
     adminHoldTimer =
-        setTimeout(
-            ()=>openAdmin(),
-            3000
-        );
+        setTimeout(()=>openAdmin(),3000);
 
 }
 
@@ -3846,9 +3097,7 @@ function cancelAdminHold(){
 
     if(adminHoldTimer !== null){
 
-        clearTimeout(
-            adminHoldTimer
-        );
+        clearTimeout(adminHoldTimer);
 
         adminHoldTimer = null;
 
@@ -3858,32 +3107,18 @@ function cancelAdminHold(){
 
 function openAdmin(){
 
-    document
-        .getElementById(
-            "adminOverlay"
-        )
+    document.getElementById("adminOverlay")
         .classList.add("open");
 
-    document
-        .getElementById(
-            "adminPin"
-        )
-        .value = "";
+    document.getElementById("adminPin").value = "";
 
-    document
-        .getElementById(
-            "adminError"
-        )
-        .textContent = "";
+    document.getElementById("adminError").textContent = "";
 
 }
 
 function closeAdmin(){
 
-    document
-        .getElementById(
-            "adminOverlay"
-        )
+    document.getElementById("adminOverlay")
         .classList.remove("open");
 
 }
@@ -3891,55 +3126,34 @@ function closeAdmin(){
 function unlockAdmin(){
 
     const pin =
-        document
-            .getElementById(
-                "adminPin"
-            )
-            .value;
+        document.getElementById("adminPin").value;
 
     if(pin !== ADMIN_PIN){
 
-        document
-            .getElementById(
-                "adminError"
-            )
-            .textContent =
+        document.getElementById("adminError").textContent =
             "ACCESO DENEGADO";
 
         return;
+
     }
 
-    document
-        .getElementById(
-            "adminLogin"
-        )
-        .style.display =
+    document.getElementById("adminLogin").style.display =
         "none";
 
-    document
-        .getElementById(
-            "adminContent"
-        )
-        .style.display =
+    document.getElementById("adminContent").style.display =
         "block";
 
 }
 
 function toggleGPSBypass(){
 
-    gpsBypass =
-        !gpsBypass;
+    gpsBypass = !gpsBypass;
 
     updateGPSAdminButton();
 
-    if(
-        gpsBypass &&
-        watchID !== null
-    ){
+    if(gpsBypass && watchID !== null){
 
-        navigator.geolocation.clearWatch(
-            watchID
-        );
+        navigator.geolocation.clearWatch(watchID);
 
         watchID = null;
 
@@ -3950,27 +3164,17 @@ function toggleGPSBypass(){
 function updateGPSAdminButton(){
 
     const button =
-        document.getElementById(
-            "gpsBypassButton"
-        );
+        document.getElementById("gpsBypassButton");
 
     if(gpsBypass){
 
-        button.textContent =
-            "IGNORADAS";
-
-        button.classList.add(
-            "active"
-        );
+        button.textContent = "IGNORADAS";
+        button.classList.add("active");
 
     }else{
 
-        button.textContent =
-            "ACTIVAS";
-
-        button.classList.remove(
-            "active"
-        );
+        button.textContent = "ACTIVAS";
+        button.classList.remove("active");
 
     }
 
@@ -4006,82 +3210,27 @@ function adminMap(){
 
     showScreen(11);
 
-    setTimeout(
-        ()=>{
+    setTimeout(()=>{
 
-            initializeMap();
+        initializeMap();
 
-            /*
-                Intentamos activar orientación.
-                Si Safari necesita interacción
-                explícita, el GPS sigue funcionando.
-            */
+        requestOrientationPermission();
 
-            requestOrientationPermission();
+        if(!gpsBypass){
+            startTracking();
+        }
 
-            if(!gpsBypass){
-
-                startTracking();
-
-            }
-
-        },
-        500
-    );
-
-}
-
-function adminPerimeter(){
-
-    gpsBypass = true;
-
-    updateGPSAdminButton();
-
-    perimeterReached = true;
-    entranceUnlocked = false;
-
-    prepareLockedEntrance();
-
-    updateAccessDistance(80);
-
-    closeAdmin();
-
-    showScreen(12);
-
-}
-
-function adminEntrance(){
-
-    gpsBypass = true;
-
-    updateGPSAdminButton();
-
-    perimeterReached = true;
-    entranceUnlocked = false;
-
-    prepareLockedEntrance();
-
-    updateAccessDistance(3);
-
-    unlockEntrance();
-
-    closeAdmin();
-
-    showScreen(12);
+    },500);
 
 }
 
 function prepareLockedEntrance(){
 
     const button =
-        document.getElementById(
-            "enterArenaButton"
-        );
+        document.getElementById("enterArenaButton");
 
     const status =
-        document.getElementById(
-            "arenaLockStatus"
-        );
+        document.getElementById("arenaLockStatus");
 
     button.disabled = true;
 
@@ -4092,11 +3241,7 @@ function prepareLockedEntrance(){
 
 }
 
-/* ============================= */
-/* SIMULACIÓN GPS                */
-/* ============================= */
-
-function simulatePerimeter(){
+function prepareAdminApproach(distance,heading){
 
     gpsBypass = true;
 
@@ -4107,7 +3252,39 @@ function simulatePerimeter(){
 
     prepareLockedEntrance();
 
-    updateAccessDistance(80);
+    /*
+        Creamos una posición simulada
+        al sur del punto exacto.
+        La distancia aproximada se ajusta
+        usando grados de latitud.
+    */
+
+    currentLatitude =
+        ARENA_LATITUDE -
+        (distance/111320);
+
+    currentLongitude =
+        ARENA_LONGITUDE;
+
+    currentHeading = heading;
+
+    arenaTargetBearing =
+        calculateBearing(
+            currentLatitude,
+            currentLongitude,
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        );
+
+    updateAccessDistance(distance);
+
+    updateApproachCompass();
+
+}
+
+function adminPerimeter(){
+
+    prepareAdminApproach(80,0);
 
     closeAdmin();
 
@@ -4115,37 +3292,9 @@ function simulatePerimeter(){
 
 }
 
-function simulateNearEntrance(){
+function adminEntrance(){
 
-    gpsBypass = true;
-
-    updateGPSAdminButton();
-
-    perimeterReached = true;
-    entranceUnlocked = false;
-
-    prepareLockedEntrance();
-
-    updateAccessDistance(20);
-
-    closeAdmin();
-
-    showScreen(12);
-
-}
-
-function simulateExactEntrance(){
-
-    gpsBypass = true;
-
-    updateGPSAdminButton();
-
-    perimeterReached = true;
-    entranceUnlocked = false;
-
-    prepareLockedEntrance();
-
-    updateAccessDistance(3);
+    prepareAdminApproach(3,0);
 
     unlockEntrance();
 
@@ -4156,16 +3305,46 @@ function simulateExactEntrance(){
 }
 
 /* ============================= */
-/* SIMULACIÓN BRÚJULA            */
+/* SIMULACIÓN GPS                */
+/* ============================= */
+
+function simulatePerimeter(){
+
+    prepareAdminApproach(80,0);
+
+    closeAdmin();
+
+    showScreen(12);
+
+}
+
+function simulateNearEntrance(){
+
+    prepareAdminApproach(20,90);
+
+    closeAdmin();
+
+    showScreen(12);
+
+}
+
+function simulateExactEntrance(){
+
+    prepareAdminApproach(3,180);
+
+    unlockEntrance();
+
+    closeAdmin();
+
+    showScreen(12);
+
+}
+
+/* ============================= */
+/* SIMULACIÓN ORIENTACIÓN        */
 /* ============================= */
 
 function simulateCompass(heading){
-
-    /*
-        Simulamos una posición cercana
-        al sur de la Arena para que
-        exista un rumbo calculable.
-    */
 
     gpsBypass = true;
 
@@ -4177,8 +3356,7 @@ function simulateCompass(heading){
     currentLongitude =
         ARENA_LONGITUDE;
 
-    currentHeading =
-        heading;
+    currentHeading = heading;
 
     arenaTargetBearing =
         calculateBearing(
@@ -4200,50 +3378,34 @@ function simulateCompass(heading){
         simulatedDistance
     );
 
-    document
-        .getElementById(
-            "locationStatus"
-        )
-        .textContent =
+    document.getElementById("locationStatus").textContent =
         "● SIMULACIÓN ADMIN ACTIVA";
 
-    document
-        .getElementById(
-            "accuracy"
-        )
-        .textContent =
+    document.getElementById("accuracy").textContent =
         "GPS simulado";
 
-    document
-        .getElementById(
-            "compassStatus"
-        )
-        .textContent =
-        "ORIENTACIÓN SIMULADA · "
-        +
-        heading
-        +
+    document.getElementById("compassStatus").textContent =
+        "ORIENTACIÓN SIMULADA · " +
+        heading +
         "°";
 
     updateArenaCompass();
+    updateApproachCompass();
 
     closeAdmin();
 
     showScreen(11);
 
-    setTimeout(
-        ()=>{
+    setTimeout(()=>{
 
-            initializeMap();
+        initializeMap();
 
-            updateMap(
-                currentLatitude,
-                currentLongitude
-            );
+        updateMap(
+            currentLatitude,
+            currentLongitude
+        );
 
-        },
-        500
-    );
+    },500);
 
 }
 
@@ -4255,9 +3417,7 @@ function resetGame(){
 
     if(watchID !== null){
 
-        navigator.geolocation.clearWatch(
-            watchID
-        );
+        navigator.geolocation.clearWatch(watchID);
 
         watchID = null;
 
@@ -4277,54 +3437,37 @@ function resetGame(){
     entranceUnlocked = false;
 
     gpsBypass = false;
-
     firstPosition = true;
 
     currentLatitude = null;
     currentLongitude = null;
-
     currentHeading = null;
     arenaTargetBearing = null;
 
-    document
-        .getElementById("firstName")
-        .value = "";
+    document.getElementById("firstName").value = "";
+    document.getElementById("lastName").value = "";
+    document.getElementById("birthDate").value = "";
 
-    document
-        .getElementById("lastName")
-        .value = "";
-
-    document
-        .getElementById("birthDate")
-        .value = "";
-
-    document
-        .getElementById(
-            "arenaCompassArrow"
-        )
-        .style.transform =
+    document.getElementById("arenaCompassArrow").style.transform =
         "rotate(0deg)";
 
-    document
-        .getElementById(
-            "arenaBearing"
-        )
-        .textContent =
+    document.getElementById("approachCompassArrow").style.transform =
+        "rotate(0deg)";
+
+    document.getElementById("arenaBearing").textContent =
         "CALCULANDO...";
 
-    document
-        .getElementById(
-            "arenaDirection"
-        )
-        .textContent =
+    document.getElementById("arenaDirection").textContent =
         "ESPERANDO GPS";
 
-    document
-        .getElementById(
-            "compassStatus"
-        )
-        .textContent =
+    document.getElementById("compassStatus").textContent =
         "Esperando orientación del dispositivo";
+
+    document.getElementById("approachInstruction").textContent =
+        "LOCALIZANDO ACCESO...";
+
+    document.getElementById("approachSensor").textContent =
+        "ESPERANDO ORIENTACIÓN";
 
     prepareLockedEntrance();
 
@@ -4336,24 +3479,16 @@ function resetGame(){
 
 }
 
-/* ============================= */
-/* PIN ENTER                     */
-/* ============================= */
+document.getElementById("adminPin").addEventListener(
+    "keydown",
+    event => {
 
-document
-    .getElementById("adminPin")
-    .addEventListener(
-        "keydown",
-        event => {
-
-            if(event.key === "Enter"){
-
-                unlockAdmin();
-
-            }
-
+        if(event.key === "Enter"){
+            unlockAdmin();
         }
-    );
+
+    }
+);
 
 </script>
 
