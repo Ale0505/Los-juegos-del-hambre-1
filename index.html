@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -23,7 +24,8 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -37,25 +39,29 @@ body{
 }
 
 
-/* ============================= */
-/* FONDO                         */
-/* ============================= */
+/* ============================== */
+/* FONDO                          */
+/* ============================== */
 
 .background{
+
     position:fixed;
     inset:0;
 
     background:
+
         radial-gradient(
             circle at 50% 38%,
             rgba(160,125,50,.11),
             transparent 35%
         ),
+
         radial-gradient(
             circle at 50% 100%,
             rgba(95,70,25,.07),
             transparent 40%
         ),
+
         linear-gradient(
             180deg,
             #070707,
@@ -65,16 +71,20 @@ body{
     z-index:0;
 }
 
+
 .noise{
+
     position:fixed;
     inset:0;
 
     opacity:.04;
 
     z-index:1;
+
     pointer-events:none;
 
     background-image:
+
         repeating-linear-gradient(
             0deg,
             transparent,
@@ -83,7 +93,9 @@ body{
         );
 }
 
+
 .vignette{
+
     position:fixed;
     inset:0;
 
@@ -96,11 +108,12 @@ body{
 }
 
 
-/* ============================= */
-/* PANTALLAS                     */
-/* ============================= */
+/* ============================== */
+/* PANTALLAS                      */
+/* ============================== */
 
 .screen{
+
     position:absolute;
     inset:0;
 
@@ -119,33 +132,42 @@ body{
     text-align:center;
 
     opacity:0;
+
     pointer-events:none;
 
     transform:scale(1.025);
 
     transition:
-        opacity 1.1s ease,
-        transform 1.1s ease;
+        opacity .8s ease,
+        transform .8s ease;
 
     z-index:5;
+
+    overflow-y:auto;
 }
 
+
 .screen.active{
+
     opacity:1;
+
     pointer-events:auto;
+
     transform:scale(1);
 }
 
 
-/* ============================= */
-/* ESCUDO DEL CAPITOLIO          */
-/* ============================= */
+/* ============================== */
+/* ESCUDO                         */
+/* ============================== */
 
 .capitol-symbol{
+
     width:135px;
     height:135px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -156,7 +178,9 @@ body{
         emblemPulse 4s ease-in-out 2.8s infinite;
 }
 
+
 .capitol-symbol img{
+
     width:100%;
     height:100%;
 
@@ -167,9 +191,14 @@ body{
         saturate(.8)
         brightness(1.05)
         contrast(1.05)
-        drop-shadow(0 0 8px rgba(195,160,75,.3))
-        drop-shadow(0 0 25px rgba(160,125,45,.15));
+        drop-shadow(
+            0 0 8px rgba(195,160,75,.3)
+        )
+        drop-shadow(
+            0 0 25px rgba(160,125,45,.15)
+        );
 }
+
 
 @keyframes emblemEntrance{
 
@@ -188,7 +217,9 @@ body{
         transform:scale(1);
         filter:blur(0);
     }
+
 }
+
 
 @keyframes emblemPulse{
 
@@ -201,17 +232,20 @@ body{
         transform:scale(1.025);
         opacity:1;
     }
+
 }
 
 
-/* ============================= */
-/* TIPOGRAFÍA                    */
-/* ============================= */
+/* ============================== */
+/* TEXTOS                         */
+/* ============================== */
 
 .small{
+
     color:#81745a;
 
     letter-spacing:4px;
+
     text-transform:uppercase;
 
     font-size:10px;
@@ -219,7 +253,9 @@ body{
     margin-bottom:16px;
 }
 
+
 h1{
+
     font-family:'Cinzel',serif;
 
     font-weight:500;
@@ -233,21 +269,25 @@ h1{
     line-height:1.25;
 }
 
+
 h2{
+
     font-family:'Cinzel',serif;
 
     font-weight:500;
 
     letter-spacing:3px;
 
-    font-size:25px;
+    font-size:24px;
 
     color:#d3b36b;
 
     line-height:1.4;
 }
 
+
 .text{
+
     max-width:430px;
 
     margin-top:26px;
@@ -261,17 +301,17 @@ h2{
     color:#b8b8b8;
 }
 
+
 .gold{
+
     color:#d0ad5c;
 }
 
 
-/* ============================= */
-/* LÍNEA                         */
-/* ============================= */
-
 .line{
+
     height:1px;
+
     width:55px;
 
     background:#94783e;
@@ -280,12 +320,13 @@ h2{
 }
 
 
-/* ============================= */
-/* BOTONES                       */
-/* ============================= */
+/* ============================== */
+/* BOTONES                        */
+/* ============================== */
 
 button{
-    margin-top:42px;
+
+    margin-top:35px;
 
     min-width:220px;
 
@@ -309,28 +350,25 @@ button{
 
     cursor:pointer;
 
-    transition:
-        transform .25s,
-        background .25s,
-        box-shadow .25s;
+    transition:.25s;
 }
 
+
 button:active{
+
     transform:scale(.96);
 
     background:
         rgba(190,150,70,.09);
-
-    box-shadow:
-        0 0 25px rgba(180,140,60,.1);
 }
 
 
-/* ============================= */
-/* TERMINAL                      */
-/* ============================= */
+/* ============================== */
+/* TERMINAL                       */
+/* ============================== */
 
 .terminal{
+
     width:min(100%,390px);
 
     padding:25px 20px;
@@ -354,7 +392,9 @@ button:active{
     line-height:2.1;
 }
 
+
 .cursor::after{
+
     content:"";
 
     display:inline-block;
@@ -372,6 +412,7 @@ button:active{
         blink .8s infinite;
 }
 
+
 @keyframes blink{
 
     50%{
@@ -381,11 +422,12 @@ button:active{
 }
 
 
-/* ============================= */
-/* FICHA                         */
-/* ============================= */
+/* ============================== */
+/* IDENTIDAD                      */
+/* ============================== */
 
 .identity{
+
     width:min(100%,400px);
 
     border:
@@ -397,12 +439,11 @@ button:active{
 
     background:
         rgba(255,255,255,.015);
-
-    box-shadow:
-        inset 0 0 40px rgba(160,120,40,.025);
 }
 
+
 .identity-label{
+
     font-size:9px;
 
     letter-spacing:3px;
@@ -410,7 +451,9 @@ button:active{
     color:#6f644d;
 }
 
+
 .identity-name{
+
     margin-top:12px;
 
     font-family:'Cinzel',serif;
@@ -422,7 +465,9 @@ button:active{
     letter-spacing:2px;
 }
 
+
 .status{
+
     margin-top:22px;
 
     font-size:10px;
@@ -432,16 +477,19 @@ button:active{
     color:#8f8f8f;
 }
 
+
 .status span{
+
     color:#b89b58;
 }
 
 
-/* ============================= */
-/* CUENTA ATRÁS                  */
-/* ============================= */
+/* ============================== */
+/* CUENTA ATRÁS                   */
+/* ============================== */
 
 .number{
+
     font-family:'Cinzel',serif;
 
     font-size:90px;
@@ -453,11 +501,8 @@ button:active{
 }
 
 
-/* ============================= */
-/* TRIBUTO                       */
-/* ============================= */
-
 .warning{
+
     font-size:10px;
 
     letter-spacing:4px;
@@ -467,21 +512,22 @@ button:active{
     margin-bottom:22px;
 }
 
+
 .final-title{
+
     font-size:
         clamp(38px,12vw,65px);
-
-    text-shadow:
-        0 0 35px rgba(200,165,80,.12);
 }
 
 
-/* ============================= */
-/* FLASH                         */
-/* ============================= */
+/* ============================== */
+/* FLASH                          */
+/* ============================== */
 
 .flash{
+
     position:fixed;
+
     inset:0;
 
     background:#d5c49d;
@@ -493,10 +539,13 @@ button:active{
     opacity:0;
 }
 
+
 .flash.go{
+
     animation:
         flashAnimation .55s;
 }
+
 
 @keyframes flashAnimation{
 
@@ -515,58 +564,276 @@ button:active{
 }
 
 
-/* ============================= */
-/* ESCUDO FINAL                  */
-/* ============================= */
+/* ============================== */
+/* FASE 1                         */
+/* ============================== */
 
-.final-emblem{
-    width:105px;
-    height:105px;
+.phase-number{
 
-    margin-bottom:35px;
+    font-family:'Cinzel',serif;
 
-    opacity:.9;
-}
+    color:#78643b;
 
-.final-emblem img{
-    width:100%;
-    height:100%;
+    font-size:11px;
 
-    object-fit:contain;
+    letter-spacing:5px;
 
-    filter:
-        sepia(1)
-        saturate(.8)
-        brightness(1.1)
-        drop-shadow(
-            0 0 18px rgba(190,150,60,.25)
-        );
+    margin-bottom:18px;
 }
 
 
-/* ============================= */
-/* IPHONE PEQUEÑO                */
-/* ============================= */
+.location-box{
+
+    width:min(100%,400px);
+
+    margin-top:30px;
+
+    padding:25px 20px;
+
+    border:
+        1px solid rgba(173,143,76,.35);
+
+    background:
+        rgba(255,255,255,.015);
+}
+
+
+.location-icon{
+
+    font-size:25px;
+
+    margin-bottom:14px;
+}
+
+
+.location-status{
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#81745a;
+
+    text-transform:uppercase;
+}
+
+
+.distance-label{
+
+    margin-top:25px;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#777;
+
+    text-transform:uppercase;
+}
+
+
+.distance{
+
+    margin-top:10px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:35px;
+
+    color:#d1af60;
+
+    letter-spacing:2px;
+}
+
+
+.accuracy{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* ============================== */
+/* RADAR                          */
+/* ============================== */
+
+.radar{
+
+    position:relative;
+
+    width:120px;
+    height:120px;
+
+    margin-top:30px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(184,150,75,.35);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+
+.radar::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:75%;
+    height:75%;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(184,150,75,.2);
+}
+
+
+.radar::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:35%;
+    height:35%;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(184,150,75,.2);
+}
+
+
+.radar-dot{
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d0ad5c;
+
+    box-shadow:
+        0 0 15px rgba(208,173,92,.8);
+
+    animation:
+        radarPulse 1.5s infinite;
+}
+
+
+@keyframes radarPulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+
+    50%{
+        transform:scale(1.7);
+        opacity:1;
+    }
+
+}
+
+
+/* ============================== */
+/* ARENA DESBLOQUEADA             */
+/* ============================== */
+
+.unlock{
+
+    font-family:'Cinzel',serif;
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+    color:#d3b36b;
+}
+
+
+.unlock-icon{
+
+    font-size:45px;
+
+    margin-bottom:25px;
+}
+
+
+/* ============================== */
+/* ERROR                          */
+/* ============================== */
+
+.error-message{
+
+    margin-top:20px;
+
+    max-width:350px;
+
+    color:#a98e55;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* ============================== */
+/* IPHONE PEQUEÑO                 */
+/* ============================== */
 
 @media(max-height:700px){
 
     .capitol-symbol{
-        width:95px;
-        height:95px;
 
-        margin-bottom:22px;
+        width:90px;
+        height:90px;
+
+        margin-bottom:20px;
     }
 
-    .text{
-        margin-top:18px;
 
-        line-height:1.65;
+    .text{
+
+        margin-top:16px;
+
+        line-height:1.6;
 
         font-size:13px;
     }
 
+
     button{
-        margin-top:25px;
+
+        margin-top:22px;
+    }
+
+
+    .radar{
+
+        width:90px;
+        height:90px;
+
+        margin-top:18px;
+    }
+
+
+    .location-box{
+
+        margin-top:18px;
+
+        padding:18px;
     }
 
 }
@@ -574,6 +841,7 @@ button:active{
 </style>
 
 </head>
+
 
 <body>
 
@@ -591,14 +859,15 @@ button:active{
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 1                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 1                     -->
+<!-- ============================== -->
 
 <section
     class="screen active"
     id="screen1"
 >
+
 
     <div class="capitol-symbol">
 
@@ -648,18 +917,20 @@ button:active{
 
     </button>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 2                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 2                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen2"
 >
+
 
     <div class="small">
 
@@ -673,18 +944,20 @@ button:active{
         id="terminal"
     ></div>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 3                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 3                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen3"
 >
+
 
     <div class="small">
 
@@ -701,6 +974,7 @@ button:active{
 
 
     <div class="identity">
+
 
         <div class="identity-label">
 
@@ -728,6 +1002,7 @@ button:active{
 
         </div>
 
+
     </div>
 
 
@@ -753,18 +1028,20 @@ button:active{
 
     </button>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 4                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 4                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen4"
 >
+
 
     <div class="small">
 
@@ -805,18 +1082,20 @@ button:active{
 
     </button>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 5                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 5                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen5"
 >
+
 
     <div class="small">
 
@@ -834,18 +1113,20 @@ button:active{
 
     </div>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 6                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 6                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen6"
 >
+
 
     <div class="warning">
 
@@ -911,20 +1192,22 @@ button:active{
 
     </button>
 
+
 </section>
 
 
 
-<!-- ================================= -->
-<!-- PANTALLA 7                        -->
-<!-- ================================= -->
+<!-- ============================== -->
+<!-- PANTALLA 7                     -->
+<!-- ============================== -->
 
 <section
     class="screen"
     id="screen7"
 >
 
-    <div class="final-emblem">
+
+    <div class="capitol-symbol">
 
         <img
             src="capitolio.png.webp"
@@ -957,24 +1240,200 @@ button:active{
 
     <p class="text">
 
-        Tu primera misión será
-        descubrir dónde comienzan
-        los Juegos.
-
+        Ha llegado el momento
+        de abandonar tu zona segura.
 
         <br><br>
 
+        El Capitolio necesita acceso
+        a tu posición para verificar
+        tu llegada a la Arena.
 
-        Prepárate.
+    </p>
 
+
+    <button
+        onclick="beginMission()"
+    >
+
+        Comenzar los Juegos
+
+    </button>
+
+
+</section>
+
+
+
+<!-- ============================== -->
+<!-- PANTALLA 8                     -->
+<!-- PRIMERA PRUEBA                  -->
+<!-- ============================== -->
+
+<section
+    class="screen"
+    id="screen8"
+>
+
+
+    <div class="phase-number">
+
+        FASE I · TRASLADO
+
+    </div>
+
+
+    <h2>
+
+        LOCALIZA LA ARENA
+
+    </h2>
+
+
+    <div class="radar">
+
+        <div class="radar-dot"></div>
+
+    </div>
+
+
+    <p class="text">
+
+        Tu primera misión
+        ha comenzado.
 
         <br><br>
 
+        Dirígete al punto indicado
+        por el Capitolio.
+
+        <br><br>
+
+        Tu posición será verificada
+        cuando llegues a la zona.
+
+    </p>
+
+
+    <div class="location-box">
+
+
+        <div class="location-icon">
+
+            ◉
+
+        </div>
+
+
+        <div
+            class="location-status"
+            id="locationStatus"
+        >
+
+            LOCALIZANDO TRIBUTO...
+
+        </div>
+
+
+        <div class="distance-label">
+
+            DISTANCIA A LA ARENA
+
+        </div>
+
+
+        <div
+            class="distance"
+            id="distance"
+        >
+
+            ---
+
+        </div>
+
+
+        <div
+            class="accuracy"
+            id="accuracy"
+        >
+
+            Esperando señal GPS
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        onclick="checkLocation()"
+    >
+
+        Actualizar posición
+
+    </button>
+
+
+    <div
+        class="error-message"
+        id="locationError"
+    ></div>
+
+
+</section>
+
+
+
+<!-- ============================== -->
+<!-- PANTALLA 9                     -->
+<!-- LLEGADA                         -->
+<!-- ============================== -->
+
+<section
+    class="screen"
+    id="screen9"
+>
+
+
+    <div class="unlock-icon">
+
+        ✓
+
+    </div>
+
+
+    <div class="small">
+
+        Posición confirmada
+
+    </div>
+
+
+    <div class="unlock">
+
+        ARENA LOCALIZADA
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <p class="text">
+
+        Has alcanzado
+        el perímetro establecido.
+
+        <br><br>
+
+        A partir de este punto
+        comienza la verdadera prueba.
+
+        <br><br>
 
         <span class="gold">
 
-            La primera pista
-            será revelada próximamente.
+            Bienvenido a la Arena.
 
         </span>
 
@@ -982,12 +1441,59 @@ button:active{
 
 
     <button
-        onclick="endDemo()"
+        onclick="checkpointOne()"
     >
 
-        Comenzar los Juegos
+        Entrar en la Arena
 
     </button>
+
+
+</section>
+
+
+
+<!-- ============================== -->
+<!-- PANTALLA 10                    -->
+<!-- PLACEHOLDER                     -->
+<!-- ============================== -->
+
+<section
+    class="screen"
+    id="screen10"
+>
+
+
+    <div class="small">
+
+        Sector I
+
+    </div>
+
+
+    <h1>
+
+        CHECKPOINT 01
+
+    </h1>
+
+
+    <div class="line"></div>
+
+
+    <p class="text">
+
+        El acceso al primer sector
+        ha sido desbloqueado.
+
+        <br><br>
+
+        Aquí comenzará
+        la primera prueba
+        dentro de la Arena.
+
+    </p>
+
 
 </section>
 
@@ -997,10 +1503,53 @@ button:active{
 
 
 /* ================================= */
+/* CONFIGURACIÓN DE LA ARENA         */
+/* ================================= */
+
+
+/*
+
+COORDENADAS DEL DESTINO:
+
+28.0582045
+-15.6882469
+
+*/
+
+
+const ARENA_LATITUDE = 28.0582045;
+
+const ARENA_LONGITUDE = -15.6882469;
+
+
+/*
+
+RADIO DE DESBLOQUEO EN METROS
+
+Puedes cambiar 100 por:
+
+50 = más preciso
+100 = recomendado
+150 = más permisivo
+
+*/
+
+const UNLOCK_RADIUS = 100;
+
+
+
+let watchID = null;
+
+let arenaUnlocked = false;
+
+
+
+/* ================================= */
 /* CAMBIAR PANTALLA                  */
 /* ================================= */
 
 function showScreen(number){
+
 
     document
         .querySelectorAll(".screen")
@@ -1018,9 +1567,11 @@ function showScreen(number){
 
     setTimeout(
         ()=>{
+
             next.classList.add("active");
+
         },
-        350
+        300
     );
 
 }
@@ -1028,10 +1579,11 @@ function showScreen(number){
 
 
 /* ================================= */
-/* TRANSMISIÓN                       */
+/* TRANSMISIÓN INICIAL               */
 /* ================================= */
 
 function startTransmission(){
+
 
     showScreen(2);
 
@@ -1069,7 +1621,9 @@ function startTransmission(){
 
     function addLine(){
 
+
         if(index < lines.length){
+
 
             const div =
                 document.createElement("div");
@@ -1086,13 +1640,16 @@ function startTransmission(){
 
 
             setTimeout(
+
                 addLine,
+
                 500 + Math.random() * 400
+
             );
 
-        }
 
-        else{
+        }else{
+
 
             const last =
                 document.createElement("div");
@@ -1120,6 +1677,7 @@ function startTransmission(){
                 1300
             );
 
+
         }
 
     }
@@ -1139,6 +1697,7 @@ function startTransmission(){
 /* ================================= */
 
 function reaping(){
+
 
     showScreen(5);
 
@@ -1160,25 +1719,30 @@ function reaping(){
         setInterval(
             ()=>{
 
+
                 number--;
 
 
                 if(number > 0){
 
+
                     count.textContent =
                         number;
 
-                }
 
-                else{
+                }else{
+
 
                     clearInterval(timer);
 
-                    count.textContent = "";
+
+                    count.textContent =
+                        "";
 
 
                     setTimeout(
                         ()=>{
+
 
                             flash();
 
@@ -1192,15 +1756,512 @@ function reaping(){
                                 180
                             );
 
+
                         },
                         400
                     );
 
+
                 }
+
 
             },
             1000
         );
+
+}
+
+
+
+/* ================================= */
+/* EMPEZAR MISIÓN                    */
+/* ================================= */
+
+function beginMission(){
+
+
+    showScreen(8);
+
+
+    setTimeout(
+        ()=>{
+
+            startTracking();
+
+        },
+        600
+    );
+
+}
+
+
+
+/* ================================= */
+/* COMPROBAR GEOLOCALIZACIÓN         */
+/* ================================= */
+
+function startTracking(){
+
+
+    const status =
+        document.getElementById(
+            "locationStatus"
+        );
+
+
+    const error =
+        document.getElementById(
+            "locationError"
+        );
+
+
+    if(!navigator.geolocation){
+
+
+        status.textContent =
+            "GPS NO DISPONIBLE";
+
+
+        error.textContent =
+            "Este dispositivo no permite utilizar la geolocalización.";
+
+
+        return;
+
+    }
+
+
+    status.textContent =
+        "SOLICITANDO ACCESO GPS...";
+
+
+    error.textContent = "";
+
+
+    if(watchID !== null){
+
+        navigator.geolocation.clearWatch(
+            watchID
+        );
+
+    }
+
+
+    watchID =
+        navigator.geolocation.watchPosition(
+
+            locationSuccess,
+
+            locationFailure,
+
+            {
+
+                enableHighAccuracy:true,
+
+                timeout:15000,
+
+                maximumAge:5000
+
+            }
+
+        );
+
+}
+
+
+
+/* ================================= */
+/* ACTUALIZAR POSICIÓN MANUALMENTE   */
+/* ================================= */
+
+function checkLocation(){
+
+
+    const status =
+        document.getElementById(
+            "locationStatus"
+        );
+
+
+    const error =
+        document.getElementById(
+            "locationError"
+        );
+
+
+    status.textContent =
+        "ACTUALIZANDO POSICIÓN...";
+
+
+    error.textContent = "";
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        locationSuccess,
+
+        locationFailure,
+
+        {
+
+            enableHighAccuracy:true,
+
+            timeout:15000,
+
+            maximumAge:0
+
+        }
+
+    );
+
+}
+
+
+
+/* ================================= */
+/* GPS CORRECTO                      */
+/* ================================= */
+
+function locationSuccess(position){
+
+
+    if(arenaUnlocked){
+
+        return;
+
+    }
+
+
+    const latitude =
+        position.coords.latitude;
+
+
+    const longitude =
+        position.coords.longitude;
+
+
+    const accuracy =
+        position.coords.accuracy;
+
+
+    const distance =
+        calculateDistance(
+
+            latitude,
+
+            longitude,
+
+            ARENA_LATITUDE,
+
+            ARENA_LONGITUDE
+
+        );
+
+
+    document.getElementById(
+        "locationStatus"
+    ).textContent =
+        "✓ POSICIÓN DEL TRIBUTO OBTENIDA";
+
+
+    document.getElementById(
+        "accuracy"
+    ).textContent =
+        "Precisión GPS aproximada: "
+        +
+        Math.round(accuracy)
+        +
+        " m";
+
+
+    updateDistanceDisplay(
+        distance
+    );
+
+
+    if(distance <= UNLOCK_RADIUS){
+
+
+        unlockArena();
+
+    }
+
+}
+
+
+
+/* ================================= */
+/* MOSTRAR DISTANCIA                 */
+/* ================================= */
+
+function updateDistanceDisplay(distance){
+
+
+    const element =
+        document.getElementById(
+            "distance"
+        );
+
+
+    if(distance >= 1000){
+
+
+        element.textContent =
+
+            (
+                distance / 1000
+            ).toFixed(1)
+
+            +
+
+            " km";
+
+
+    }else{
+
+
+        element.textContent =
+
+            Math.round(distance)
+
+            +
+
+            " m";
+
+    }
+
+}
+
+
+
+/* ================================= */
+/* ERROR GPS                         */
+/* ================================= */
+
+function locationFailure(error){
+
+
+    const status =
+        document.getElementById(
+            "locationStatus"
+        );
+
+
+    const message =
+        document.getElementById(
+            "locationError"
+        );
+
+
+    status.textContent =
+        "NO SE HA PODIDO LOCALIZAR";
+
+
+    if(error.code === 1){
+
+
+        message.innerHTML =
+
+            "El Capitolio necesita permiso para acceder a tu ubicación.<br><br>"
+            +
+            "En iPhone, permite el acceso a la ubicación para continuar.";
+
+
+    }
+
+    else if(error.code === 2){
+
+
+        message.textContent =
+
+            "No se ha podido determinar tu posición. Inténtalo de nuevo en unos segundos.";
+
+
+    }
+
+    else{
+
+
+        message.textContent =
+
+            "La señal GPS está tardando demasiado. Pulsa «Actualizar posición» para intentarlo de nuevo.";
+
+    }
+
+}
+
+
+
+/* ================================= */
+/* CALCULAR DISTANCIA                */
+/* FÓRMULA HAVERSINE                 */
+/* ================================= */
+
+function calculateDistance(
+
+    lat1,
+    lon1,
+    lat2,
+    lon2
+
+){
+
+
+    const earthRadius =
+        6371000;
+
+
+    const φ1 =
+        lat1 * Math.PI / 180;
+
+
+    const φ2 =
+        lat2 * Math.PI / 180;
+
+
+    const deltaLat =
+        (
+            lat2 - lat1
+        )
+        *
+        Math.PI / 180;
+
+
+    const deltaLon =
+        (
+            lon2 - lon1
+        )
+        *
+        Math.PI / 180;
+
+
+    const a =
+
+        Math.sin(
+            deltaLat / 2
+        )
+        *
+        Math.sin(
+            deltaLat / 2
+        )
+
+        +
+
+        Math.cos(φ1)
+
+        *
+
+        Math.cos(φ2)
+
+        *
+
+        Math.sin(
+            deltaLon / 2
+        )
+
+        *
+
+        Math.sin(
+            deltaLon / 2
+        );
+
+
+    const c =
+
+        2
+
+        *
+
+        Math.atan2(
+
+            Math.sqrt(a),
+
+            Math.sqrt(1-a)
+
+        );
+
+
+    return earthRadius * c;
+
+}
+
+
+
+/* ================================= */
+/* DESBLOQUEAR ARENA                 */
+/* ================================= */
+
+function unlockArena(){
+
+
+    if(arenaUnlocked){
+
+        return;
+
+    }
+
+
+    arenaUnlocked = true;
+
+
+    if(watchID !== null){
+
+
+        navigator.geolocation.clearWatch(
+            watchID
+        );
+
+
+        watchID = null;
+
+    }
+
+
+    flash();
+
+
+    if(
+        navigator.vibrate
+    ){
+
+        navigator.vibrate(
+            [150,100,250]
+        );
+
+    }
+
+
+    setTimeout(
+        ()=>{
+
+            showScreen(9);
+
+        },
+        350
+    );
+
+}
+
+
+
+/* ================================= */
+/* CHECKPOINT 1                      */
+/* ================================= */
+
+function checkpointOne(){
+
+
+    flash();
+
+
+    setTimeout(
+        ()=>{
+
+            showScreen(10);
+
+        },
+        300
+    );
 
 }
 
@@ -1212,33 +2273,27 @@ function reaping(){
 
 function flash(){
 
+
     const element =
         document.getElementById(
             "flash"
         );
 
 
-    element.classList.remove("go");
+    element.classList.remove(
+        "go"
+    );
+
 
     void element.offsetWidth;
 
-    element.classList.add("go");
 
-}
-
-
-
-/* ================================= */
-/* FIN DE LA DEMO                    */
-/* ================================= */
-
-function endDemo(){
-
-    alert(
-        "🏹 Aquí comenzará la primera prueba real de la Arena."
+    element.classList.add(
+        "go"
     );
 
 }
+
 
 </script>
 
