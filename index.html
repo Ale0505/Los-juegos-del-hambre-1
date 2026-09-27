@@ -1001,7 +1001,7 @@ button:active{
 
 
 <!-- ================================= -->
-<!-- MÚSICA DE FONDO                   -->
+<!-- AUDIO                             -->
 <!-- ================================= -->
 
 <audio
@@ -1011,6 +1011,17 @@ button:active{
 >
     <source
         src="Horn of Plenty.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<audio
+    id="clickSound"
+    preload="auto"
+>
+    <source
+        src="Click.mp3"
         type="audio/mpeg"
     >
 </audio>
@@ -1797,41 +1808,91 @@ let firstPosition = true;
 
 
 /* ================================= */
-/* MÚSICA                            */
+/* AUDIO                             */
 /* ================================= */
 
-function beginCeremony(){
+const backgroundMusic =
+    document.getElementById(
+        "backgroundMusic"
+    );
 
-    const music =
-        document.getElementById(
-            "backgroundMusic"
+const clickSound =
+    document.getElementById(
+        "clickSound"
+    );
+
+
+backgroundMusic.volume = 0.30;
+
+clickSound.volume = 0.50;
+
+
+/*
+    Reproduce el clic desde el inicio
+    cada vez que se toca un botón.
+*/
+
+function playClick(){
+
+    try{
+
+        clickSound.currentTime = 0;
+
+        clickSound.play();
+
+    }catch(error){
+
+        console.log(
+            "No se pudo reproducir el clic:",
+            error
         );
 
+    }
 
-    /*
-        Volumen entre 0 y 1.
-        0.30 = 30%
-    */
-
-    music.volume = 0.30;
+}
 
 
-    /*
-        En iPhone el audio puede comenzar
-        porque esta función se ejecuta
-        directamente al tocar el botón.
-    */
+/*
+    Aplicamos el sonido automáticamente
+    a TODOS los botones de la web.
+*/
 
-    music.play().catch(
-        error => {
+document
+    .querySelectorAll("button")
+    .forEach(
+        button => {
 
-            console.log(
-                "No se pudo iniciar el audio:",
-                error
+            button.addEventListener(
+                "click",
+                playClick
             );
 
         }
     );
+
+
+/* ================================= */
+/* INICIO CEREMONIA                  */
+/* ================================= */
+
+function beginCeremony(){
+
+    backgroundMusic.volume =
+        0.30;
+
+
+    backgroundMusic
+        .play()
+        .catch(
+            error => {
+
+                console.log(
+                    "No se pudo iniciar la música:",
+                    error
+                );
+
+            }
+        );
 
 
     showScreen(2);
@@ -1956,14 +2017,11 @@ function registerCitizen(){
     participant.firstName =
         firstName;
 
-
     participant.lastName =
         lastName;
 
-
     participant.birthDate =
         birthDate;
-
 
     participant.fullName =
         (
@@ -2187,7 +2245,7 @@ function startCountdown(){
 
 
 /* ================================= */
-/* SORTEO DE LA COSECHA              */
+/* SORTEO                            */
 /* ================================= */
 
 function startReaping(){
@@ -2274,7 +2332,7 @@ function startReaping(){
 
 
 /* ================================= */
-/* RESULTADO DE LA COSECHA           */
+/* RESULTADO                         */
 /* ================================= */
 
 function finishReaping(){
@@ -2359,7 +2417,7 @@ function beginMission(){
 
 
 /* ================================= */
-/* CREAR MAPA                        */
+/* MAPA                              */
 /* ================================= */
 
 function initializeMap(){
@@ -2836,8 +2894,21 @@ function openRoute(){
         "&dirflg=d";
 
 
-    window.location.href =
-        appleMapsURL;
+    /*
+        Pequeño retraso para que el
+        sonido Click.mp3 llegue a sonar
+        antes de abandonar Safari.
+    */
+
+    setTimeout(
+        ()=>{
+
+            window.location.href =
+                appleMapsURL;
+
+        },
+        120
+    );
 
 }
 
