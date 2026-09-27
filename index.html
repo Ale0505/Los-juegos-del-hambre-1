@@ -13,9 +13,22 @@
 
 <title>Los Juegos</title>
 
+
+<!-- LEAFLET -->
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
 
 *{
     margin:0;
@@ -24,42 +37,43 @@
     -webkit-tap-highlight-color:transparent;
 }
 
+
 html,
 body{
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     background:#020202;
+
     color:#eeeeee;
+
     font-family:'Montserrat',sans-serif;
 }
+
 
 body{
     min-height:100dvh;
 }
 
 
-/* ============================== */
-/* FONDO                          */
-/* ============================== */
+/* ================================= */
+/* FONDO                             */
+/* ================================= */
 
 .background{
 
     position:fixed;
+
     inset:0;
 
     background:
 
         radial-gradient(
-            circle at 50% 38%,
-            rgba(160,125,50,.11),
+            circle at 50% 35%,
+            rgba(160,125,50,.12),
             transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(95,70,25,.07),
-            transparent 40%
         ),
 
         linear-gradient(
@@ -75,9 +89,10 @@ body{
 .noise{
 
     position:fixed;
+
     inset:0;
 
-    opacity:.04;
+    opacity:.035;
 
     z-index:1;
 
@@ -86,10 +101,15 @@ body{
     background-image:
 
         repeating-linear-gradient(
+
             0deg,
+
             transparent,
+
             transparent 2px,
+
             rgba(255,255,255,.18) 3px
+
         );
 }
 
@@ -97,6 +117,7 @@ body{
 .vignette{
 
     position:fixed;
+
     inset:0;
 
     pointer-events:none;
@@ -104,44 +125,61 @@ body{
     z-index:2;
 
     box-shadow:
+
         inset 0 0 120px rgba(0,0,0,.9);
 }
 
 
-/* ============================== */
-/* PANTALLAS                      */
-/* ============================== */
+/* ================================= */
+/* PANTALLAS                         */
+/* ================================= */
 
 .screen{
 
     position:absolute;
+
     inset:0;
 
     min-height:100dvh;
 
     padding:
-        max(35px,env(safe-area-inset-top))
-        28px
-        max(35px,env(safe-area-inset-bottom));
+
+        max(30px,env(safe-area-inset-top))
+
+        25px
+
+        max(30px,env(safe-area-inset-bottom));
+
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
+
     text-align:center;
+
 
     opacity:0;
 
     pointer-events:none;
 
-    transform:scale(1.025);
+
+    transform:scale(1.02);
+
 
     transition:
+
         opacity .8s ease,
+
         transform .8s ease;
 
+
     z-index:5;
+
 
     overflow-y:auto;
 }
@@ -157,45 +195,55 @@ body{
 }
 
 
-/* ============================== */
-/* ESCUDO                         */
-/* ============================== */
+/* ================================= */
+/* ESCUDO                            */
+/* ================================= */
 
 .capitol-symbol{
 
-    width:135px;
-    height:135px;
+    width:125px;
+
+    height:125px;
+
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
-    margin-bottom:38px;
+
+    margin-bottom:30px;
+
 
     animation:
-        emblemEntrance 2.8s ease both,
-        emblemPulse 4s ease-in-out 2.8s infinite;
+
+        emblemEntrance 2.5s ease both,
+
+        emblemPulse 4s ease-in-out 2.5s infinite;
 }
 
 
 .capitol-symbol img{
 
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
+
     filter:
+
         sepia(1)
+
         saturate(.8)
-        brightness(1.05)
-        contrast(1.05)
+
+        brightness(1.08)
+
         drop-shadow(
-            0 0 8px rgba(195,160,75,.3)
-        )
-        drop-shadow(
-            0 0 25px rgba(160,125,45,.15)
+            0 0 15px
+            rgba(190,150,65,.25)
         );
 }
 
@@ -203,19 +251,23 @@ body{
 @keyframes emblemEntrance{
 
     0%{
-        opacity:0;
-        transform:scale(.75);
-        filter:blur(10px);
-    }
 
-    45%{
-        opacity:.25;
+        opacity:0;
+
+        transform:scale(.75);
+
+        filter:blur(10px);
+
     }
 
     100%{
+
         opacity:1;
+
         transform:scale(1);
+
         filter:blur(0);
+
     }
 
 }
@@ -224,21 +276,23 @@ body{
 @keyframes emblemPulse{
 
     0%,100%{
+
         transform:scale(1);
-        opacity:.92;
+
     }
 
     50%{
+
         transform:scale(1.025);
-        opacity:1;
+
     }
 
 }
 
 
-/* ============================== */
-/* TEXTOS                         */
-/* ============================== */
+/* ================================= */
+/* TEXTO                             */
+/* ================================= */
 
 .small{
 
@@ -262,7 +316,13 @@ h1{
 
     letter-spacing:4px;
 
-    font-size:clamp(29px,8vw,48px);
+    font-size:
+
+        clamp(
+            29px,
+            8vw,
+            48px
+        );
 
     color:#d3b36b;
 
@@ -278,7 +338,7 @@ h2{
 
     letter-spacing:3px;
 
-    font-size:24px;
+    font-size:23px;
 
     color:#d3b36b;
 
@@ -290,11 +350,11 @@ h2{
 
     max-width:430px;
 
-    margin-top:26px;
+    margin-top:24px;
 
     font-size:14px;
 
-    line-height:1.9;
+    line-height:1.8;
 
     font-weight:300;
 
@@ -316,35 +376,41 @@ h2{
 
     background:#94783e;
 
-    margin:25px auto;
+    margin:23px auto;
 }
 
 
-/* ============================== */
-/* BOTONES                        */
-/* ============================== */
+/* ================================= */
+/* BOTONES                           */
+/* ================================= */
 
 button{
 
-    margin-top:35px;
+    margin-top:30px;
 
     min-width:220px;
 
-    padding:17px 26px;
+    padding:16px 24px;
 
     background:
-        rgba(180,145,65,.015);
+
+        rgba(180,145,65,.02);
+
 
     border:
+
         1px solid #8e733a;
 
+
     color:#c6a45a;
+
 
     text-transform:uppercase;
 
     letter-spacing:3px;
 
     font-size:10px;
+
 
     border-radius:2px;
 
@@ -359,13 +425,14 @@ button:active{
     transform:scale(.96);
 
     background:
-        rgba(190,150,70,.09);
+
+        rgba(190,150,70,.1);
 }
 
 
-/* ============================== */
-/* TERMINAL                       */
-/* ============================== */
+/* ================================= */
+/* TERMINAL                          */
+/* ================================= */
 
 .terminal{
 
@@ -373,19 +440,29 @@ button:active{
 
     padding:25px 20px;
 
+
     border-top:
+
         1px solid #55472a;
 
+
     border-bottom:
+
         1px solid #55472a;
+
 
     text-align:left;
 
+
     font-family:
+
         "Courier New",
+
         monospace;
 
+
     color:#9c8b65;
+
 
     font-size:12px;
 
@@ -400,6 +477,7 @@ button:active{
     display:inline-block;
 
     width:7px;
+
     height:13px;
 
     background:#b69a5c;
@@ -409,6 +487,7 @@ button:active{
     vertical-align:-2px;
 
     animation:
+
         blink .8s infinite;
 }
 
@@ -416,28 +495,37 @@ button:active{
 @keyframes blink{
 
     50%{
+
         opacity:0;
+
     }
 
 }
 
 
-/* ============================== */
-/* IDENTIDAD                      */
-/* ============================== */
+/* ================================= */
+/* IDENTIDAD                         */
+/* ================================= */
 
 .identity{
 
     width:min(100%,400px);
 
+
     border:
-        1px solid rgba(173,143,76,.35);
 
-    padding:30px 20px;
+        1px solid
 
-    margin-top:28px;
+        rgba(173,143,76,.35);
+
+
+    padding:28px 20px;
+
+    margin-top:25px;
+
 
     background:
+
         rgba(255,255,255,.015);
 }
 
@@ -456,9 +544,12 @@ button:active{
 
     margin-top:12px;
 
+
     font-family:'Cinzel',serif;
 
+
     color:#d2b46c;
+
 
     font-size:22px;
 
@@ -468,7 +559,7 @@ button:active{
 
 .status{
 
-    margin-top:22px;
+    margin-top:20px;
 
     font-size:10px;
 
@@ -484,9 +575,9 @@ button:active{
 }
 
 
-/* ============================== */
-/* CUENTA ATRÁS                   */
-/* ============================== */
+/* ================================= */
+/* CUENTA ATRÁS                      */
+/* ================================= */
 
 .number{
 
@@ -496,8 +587,12 @@ button:active{
 
     color:#c7a85e;
 
+
     text-shadow:
-        0 0 35px rgba(197,168,94,.2);
+
+        0 0 35px
+
+        rgba(197,168,94,.2);
 }
 
 
@@ -516,13 +611,381 @@ button:active{
 .final-title{
 
     font-size:
-        clamp(38px,12vw,65px);
+
+        clamp(
+            38px,
+            12vw,
+            65px
+        );
 }
 
 
-/* ============================== */
-/* FLASH                          */
-/* ============================== */
+/* ================================= */
+/* FASE                              */
+/* ================================= */
+
+.phase-number{
+
+    font-family:'Cinzel',serif;
+
+    color:#78643b;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    margin-bottom:12px;
+}
+
+
+/* ================================= */
+/* MAPA                              */
+/* ================================= */
+
+.map-frame{
+
+    position:relative;
+
+    width:min(100%,430px);
+
+    height:310px;
+
+    margin-top:22px;
+
+    border:
+
+        1px solid
+
+        rgba(190,155,75,.5);
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+        0 0 35px
+
+        rgba(160,120,40,.08);
+}
+
+
+#map{
+
+    width:100%;
+
+    height:100%;
+
+    background:#090909;
+}
+
+
+/* oscurecemos mapa */
+
+.leaflet-tile{
+
+    filter:
+
+        grayscale(1)
+
+        brightness(.55)
+
+        contrast(1.15)
+
+        sepia(.15);
+}
+
+
+.leaflet-control-attribution{
+
+    font-size:7px !important;
+
+    background:
+
+        rgba(0,0,0,.7)
+
+        !important;
+
+    color:#777 !important;
+}
+
+
+.leaflet-control-attribution a{
+
+    color:#9d8754 !important;
+}
+
+
+/* ================================= */
+/* MARCADOR ARENA                    */
+/* ================================= */
+
+.arena-marker{
+
+    width:38px;
+
+    height:38px;
+
+
+    border-radius:50%;
+
+
+    border:
+
+        1px solid #d0ad5c;
+
+
+    background:
+
+        rgba(10,10,10,.9);
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    color:#d0ad5c;
+
+
+    font-size:17px;
+
+
+    box-shadow:
+
+        0 0 18px
+
+        rgba(208,173,92,.65);
+
+
+    animation:
+
+        arenaPulse 1.8s infinite;
+}
+
+
+@keyframes arenaPulse{
+
+    0%,100%{
+
+        box-shadow:
+
+            0 0 10px
+
+            rgba(208,173,92,.35);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+            0 0 28px
+
+            rgba(208,173,92,.9);
+
+    }
+
+}
+
+
+/* ================================= */
+/* POSICIÓN DEL TRIBUTO              */
+/* ================================= */
+
+.player-marker{
+
+    width:18px;
+
+    height:18px;
+
+
+    border-radius:50%;
+
+
+    background:#ffffff;
+
+
+    border:
+
+        4px solid
+
+        #a88b4c;
+
+
+    box-shadow:
+
+        0 0 15px
+
+        rgba(255,255,255,.7);
+}
+
+
+/* ================================= */
+/* INFORMACIÓN GPS                   */
+/* ================================= */
+
+.location-panel{
+
+    width:min(100%,430px);
+
+    margin-top:14px;
+
+    padding:17px 18px;
+
+
+    border:
+
+        1px solid
+
+        rgba(173,143,76,.25);
+
+
+    background:
+
+        rgba(255,255,255,.015);
+}
+
+
+.gps-status{
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#81745a;
+
+    text-transform:uppercase;
+}
+
+
+.distance-label{
+
+    margin-top:15px;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#666;
+
+    text-transform:uppercase;
+}
+
+
+.distance{
+
+    margin-top:5px;
+
+    font-family:'Cinzel',serif;
+
+    color:#d3b36b;
+
+    font-size:28px;
+
+    letter-spacing:2px;
+}
+
+
+.accuracy{
+
+    margin-top:7px;
+
+    font-size:9px;
+
+    color:#5f5f5f;
+}
+
+
+/* ================================= */
+/* BOTONES MAPA                      */
+/* ================================= */
+
+.map-buttons{
+
+    width:min(100%,430px);
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:12px;
+}
+
+
+.map-buttons button{
+
+    flex:1;
+
+    min-width:0;
+
+    margin-top:0;
+
+    padding:14px 8px;
+
+    letter-spacing:1.5px;
+}
+
+
+.route-button{
+
+    background:
+
+        rgba(190,150,70,.09)
+
+        !important;
+}
+
+
+/* ================================= */
+/* ERROR                             */
+/* ================================= */
+
+.error-message{
+
+    max-width:400px;
+
+    margin-top:12px;
+
+    color:#a98e55;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* ================================= */
+/* DESBLOQUEO                        */
+/* ================================= */
+
+.unlock-icon{
+
+    font-size:45px;
+
+    color:#d3b36b;
+
+    margin-bottom:25px;
+}
+
+
+.unlock{
+
+    font-family:'Cinzel',serif;
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+    color:#d3b36b;
+}
+
+
+/* ================================= */
+/* FLASH                             */
+/* ================================= */
 
 .flash{
 
@@ -543,297 +1006,70 @@ button:active{
 .flash.go{
 
     animation:
+
         flashAnimation .55s;
 }
 
 
 @keyframes flashAnimation{
 
-    0%{
-        opacity:0;
+    0%{opacity:0;}
+
+    18%{opacity:.85;}
+
+    100%{opacity:0;}
+
+}
+
+
+/* ================================= */
+/* IPHONE PEQUEÑO                    */
+/* ================================= */
+
+@media(max-height:750px){
+
+    .screen{
+
+        justify-content:flex-start;
+
+        padding-top:
+
+            max(
+                25px,
+                env(safe-area-inset-top)
+            );
     }
 
-    18%{
-        opacity:.85;
-    }
-
-    100%{
-        opacity:0;
-    }
-
-}
-
-
-/* ============================== */
-/* FASE 1                         */
-/* ============================== */
-
-.phase-number{
-
-    font-family:'Cinzel',serif;
-
-    color:#78643b;
-
-    font-size:11px;
-
-    letter-spacing:5px;
-
-    margin-bottom:18px;
-}
-
-
-.location-box{
-
-    width:min(100%,400px);
-
-    margin-top:30px;
-
-    padding:25px 20px;
-
-    border:
-        1px solid rgba(173,143,76,.35);
-
-    background:
-        rgba(255,255,255,.015);
-}
-
-
-.location-icon{
-
-    font-size:25px;
-
-    margin-bottom:14px;
-}
-
-
-.location-status{
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    color:#81745a;
-
-    text-transform:uppercase;
-}
-
-
-.distance-label{
-
-    margin-top:25px;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    color:#777;
-
-    text-transform:uppercase;
-}
-
-
-.distance{
-
-    margin-top:10px;
-
-    font-family:'Cinzel',serif;
-
-    font-size:35px;
-
-    color:#d1af60;
-
-    letter-spacing:2px;
-}
-
-
-.accuracy{
-
-    margin-top:10px;
-
-    color:#666;
-
-    font-size:10px;
-
-    letter-spacing:1px;
-}
-
-
-/* ============================== */
-/* RADAR                          */
-/* ============================== */
-
-.radar{
-
-    position:relative;
-
-    width:120px;
-    height:120px;
-
-    margin-top:30px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(184,150,75,.35);
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-}
-
-
-.radar::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:75%;
-    height:75%;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(184,150,75,.2);
-}
-
-
-.radar::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:35%;
-    height:35%;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(184,150,75,.2);
-}
-
-
-.radar-dot{
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:#d0ad5c;
-
-    box-shadow:
-        0 0 15px rgba(208,173,92,.8);
-
-    animation:
-        radarPulse 1.5s infinite;
-}
-
-
-@keyframes radarPulse{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:.7;
-    }
-
-    50%{
-        transform:scale(1.7);
-        opacity:1;
-    }
-
-}
-
-
-/* ============================== */
-/* ARENA DESBLOQUEADA             */
-/* ============================== */
-
-.unlock{
-
-    font-family:'Cinzel',serif;
-
-    font-size:28px;
-
-    letter-spacing:3px;
-
-    color:#d3b36b;
-}
-
-
-.unlock-icon{
-
-    font-size:45px;
-
-    margin-bottom:25px;
-}
-
-
-/* ============================== */
-/* ERROR                          */
-/* ============================== */
-
-.error-message{
-
-    margin-top:20px;
-
-    max-width:350px;
-
-    color:#a98e55;
-
-    font-size:12px;
-
-    line-height:1.7;
-}
-
-
-/* ============================== */
-/* IPHONE PEQUEÑO                 */
-/* ============================== */
-
-@media(max-height:700px){
 
     .capitol-symbol{
 
-        width:90px;
-        height:90px;
+        width:85px;
 
-        margin-bottom:20px;
+        height:85px;
+
+        margin-bottom:18px;
+    }
+
+
+    .map-frame{
+
+        height:250px;
+
+        margin-top:15px;
+    }
+
+
+    .location-panel{
+
+        padding:12px;
     }
 
 
     .text{
 
-        margin-top:16px;
+        font-size:13px;
 
         line-height:1.6;
-
-        font-size:13px;
-    }
-
-
-    button{
-
-        margin-top:22px;
-    }
-
-
-    .radar{
-
-        width:90px;
-        height:90px;
-
-        margin-top:18px;
-    }
-
-
-    .location-box{
-
-        margin-top:18px;
-
-        padding:18px;
     }
 
 }
@@ -859,9 +1095,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 1                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 1 · CAPITOLIO                     -->
+<!-- ================================= -->
 
 <section
     class="screen active"
@@ -873,7 +1109,7 @@ button:active{
 
         <img
             src="capitolio.png.webp"
-            alt="Emblema del Capitolio"
+            alt="Capitolio"
         >
 
     </div>
@@ -898,7 +1134,8 @@ button:active{
 
     <p class="text">
 
-        Se ha recibido una nueva comunicación.
+        Se ha recibido
+        una nueva comunicación.
 
         <br><br>
 
@@ -922,9 +1159,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 2                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 2 · SISTEMA                       -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -949,9 +1186,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 3                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 3 · IDENTIDAD                     -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1033,9 +1270,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 4                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 4 · SELECCIÓN                     -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1087,9 +1324,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 5                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 5 · CUENTA ATRÁS                  -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1118,9 +1355,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 6                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 6 · SAMUEL                        -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1197,9 +1434,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 7                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 7 · PREPARACIÓN                   -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1211,7 +1448,7 @@ button:active{
 
         <img
             src="capitolio.png.webp"
-            alt="Emblema del Capitolio"
+            alt="Capitolio"
         >
 
     </div>
@@ -1240,14 +1477,19 @@ button:active{
 
     <p class="text">
 
-        Ha llegado el momento
-        de abandonar tu zona segura.
+        El Capitolio ha marcado
+        el punto de entrada.
 
         <br><br>
 
-        El Capitolio necesita acceso
-        a tu posición para verificar
-        tu llegada a la Arena.
+        Tu posición será rastreada
+        durante el traslado.
+
+        <br><br>
+
+        Al alcanzar el perímetro,
+        el acceso a la Arena
+        será desbloqueado.
 
     </p>
 
@@ -1256,7 +1498,7 @@ button:active{
         onclick="beginMission()"
     >
 
-        Comenzar los Juegos
+        Mostrar destino
 
     </button>
 
@@ -1265,10 +1507,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 8                     -->
-<!-- PRIMERA PRUEBA                  -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 8 · MAPA                          -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1290,43 +1531,18 @@ button:active{
     </h2>
 
 
-    <div class="radar">
+    <div class="map-frame">
 
-        <div class="radar-dot"></div>
+        <div id="map"></div>
 
     </div>
 
 
-    <p class="text">
-
-        Tu primera misión
-        ha comenzado.
-
-        <br><br>
-
-        Dirígete al punto indicado
-        por el Capitolio.
-
-        <br><br>
-
-        Tu posición será verificada
-        cuando llegues a la zona.
-
-    </p>
-
-
-    <div class="location-box">
-
-
-        <div class="location-icon">
-
-            ◉
-
-        </div>
+    <div class="location-panel">
 
 
         <div
-            class="location-status"
+            class="gps-status"
             id="locationStatus"
         >
 
@@ -1365,13 +1581,29 @@ button:active{
     </div>
 
 
-    <button
-        onclick="checkLocation()"
-    >
+    <div class="map-buttons">
 
-        Actualizar posición
 
-    </button>
+        <button
+            onclick="checkLocation()"
+        >
+
+            Actualizar
+
+        </button>
+
+
+        <button
+            class="route-button"
+            onclick="openRoute()"
+        >
+
+            Iniciar ruta
+
+        </button>
+
+
+    </div>
 
 
     <div
@@ -1384,10 +1616,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 9                     -->
-<!-- LLEGADA                         -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 9 · LLEGADA                       -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1453,10 +1684,9 @@ button:active{
 
 
 
-<!-- ============================== -->
-<!-- PANTALLA 10                    -->
-<!-- PLACEHOLDER                     -->
-<!-- ============================== -->
+<!-- ================================= -->
+<!-- 10 · CHECKPOINT                   -->
+<!-- ================================= -->
 
 <section
     class="screen"
@@ -1503,49 +1733,48 @@ button:active{
 
 
 /* ================================= */
-/* CONFIGURACIÓN DE LA ARENA         */
+/* CONFIGURACIÓN                     */
 /* ================================= */
 
 
-/*
-
-COORDENADAS DEL DESTINO:
-
-28.0582045
--15.6882469
-
-*/
+const ARENA_LATITUDE =
+    28.0582045;
 
 
-const ARENA_LATITUDE = 28.0582045;
-
-const ARENA_LONGITUDE = -15.6882469;
+const ARENA_LONGITUDE =
+    -15.6882469;
 
 
 /*
 
-RADIO DE DESBLOQUEO EN METROS
-
-Puedes cambiar 100 por:
-
-50 = más preciso
-100 = recomendado
-150 = más permisivo
+RADIO PARA CONSIDERAR
+QUE SAMUEL HA LLEGADO.
 
 */
 
-const UNLOCK_RADIUS = 100;
+const UNLOCK_RADIUS =
+    100;
 
 
+
+let map = null;
+
+let playerMarker = null;
+
+let arenaMarker = null;
+
+let routeLine = null;
 
 let watchID = null;
 
 let arenaUnlocked = false;
 
+let firstPosition = true;
+
 
 
 /* ================================= */
-/* CAMBIAR PANTALLA                  */
+/* PANTALLAS                         */
 /* ================================= */
 
 function showScreen(number){
@@ -1555,7 +1784,9 @@ function showScreen(number){
         .querySelectorAll(".screen")
         .forEach(
             screen =>
-            screen.classList.remove("active")
+            screen.classList.remove(
+                "active"
+            )
         );
 
 
@@ -1568,7 +1799,9 @@ function showScreen(number){
     setTimeout(
         ()=>{
 
-            next.classList.add("active");
+            next.classList.add(
+                "active"
+            );
 
         },
         300
@@ -1579,7 +1812,7 @@ function showScreen(number){
 
 
 /* ================================= */
-/* TRANSMISIÓN INICIAL               */
+/* INTRO                             */
 /* ================================= */
 
 function startTransmission(){
@@ -1626,14 +1859,18 @@ function startTransmission(){
 
 
             const div =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             div.textContent =
                 lines[index];
 
 
-            terminal.appendChild(div);
+            terminal.appendChild(
+                div
+            );
 
 
             index++;
@@ -1643,7 +1880,8 @@ function startTransmission(){
 
                 addLine,
 
-                500 + Math.random() * 400
+                500 +
+                Math.random() * 400
 
             );
 
@@ -1652,7 +1890,9 @@ function startTransmission(){
 
 
             const last =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             last.className =
@@ -1663,7 +1903,9 @@ function startTransmission(){
                 "> ACCESO CONCEDIDO";
 
 
-            terminal.appendChild(last);
+            terminal.appendChild(
+                last
+            );
 
 
             setTimeout(
@@ -1674,9 +1916,8 @@ function startTransmission(){
                     showScreen(3);
 
                 },
-                1300
+                1200
             );
-
 
         }
 
@@ -1685,7 +1926,7 @@ function startTransmission(){
 
     setTimeout(
         addLine,
-        600
+        500
     );
 
 }
@@ -1693,7 +1934,7 @@ function startTransmission(){
 
 
 /* ================================= */
-/* CEREMONIA                         */
+/* SELECCIÓN                         */
 /* ================================= */
 
 function reaping(){
@@ -1733,7 +1974,9 @@ function reaping(){
                 }else{
 
 
-                    clearInterval(timer);
+                    clearInterval(
+                        timer
+                    );
 
 
                     count.textContent =
@@ -1743,9 +1986,7 @@ function reaping(){
                     setTimeout(
                         ()=>{
 
-
                             flash();
-
 
                             setTimeout(
                                 ()=>{
@@ -1756,14 +1997,11 @@ function reaping(){
                                 180
                             );
 
-
                         },
                         400
                     );
 
-
                 }
-
 
             },
             1000
@@ -1774,7 +2012,7 @@ function reaping(){
 
 
 /* ================================= */
-/* EMPEZAR MISIÓN                    */
+/* COMENZAR TRASLADO                 */
 /* ================================= */
 
 function beginMission(){
@@ -1786,10 +2024,12 @@ function beginMission(){
     setTimeout(
         ()=>{
 
+            initializeMap();
+
             startTracking();
 
         },
-        600
+        500
     );
 
 }
@@ -1797,7 +2037,133 @@ function beginMission(){
 
 
 /* ================================= */
-/* COMPROBAR GEOLOCALIZACIÓN         */
+/* CREAR MAPA                        */
+/* ================================= */
+
+function initializeMap(){
+
+
+    if(map !== null){
+
+
+        setTimeout(
+            ()=>{
+
+                map.invalidateSize();
+
+            },
+            300
+        );
+
+
+        return;
+
+    }
+
+
+    map =
+        L.map(
+            "map",
+            {
+
+                zoomControl:false,
+
+                attributionControl:true
+
+            }
+        );
+
+
+    map.setView(
+
+        [
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        ],
+
+        11
+
+    );
+
+
+    L.tileLayer(
+
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+
+        {
+
+            maxZoom:19,
+
+            attribution:
+                "&copy; OpenStreetMap"
+
+        }
+
+    ).addTo(map);
+
+
+
+    const arenaIcon =
+
+        L.divIcon(
+            {
+
+                className:"",
+
+                html:
+                    '<div class="arena-marker">◆</div>',
+
+                iconSize:[38,38],
+
+                iconAnchor:[19,19]
+
+            }
+        );
+
+
+    arenaMarker =
+
+        L.marker(
+
+            [
+                ARENA_LATITUDE,
+                ARENA_LONGITUDE
+            ],
+
+            {
+                icon:arenaIcon
+            }
+
+        )
+
+        .addTo(map);
+
+
+    arenaMarker.bindTooltip(
+
+        "ARENA",
+
+        {
+
+            permanent:true,
+
+            direction:"top",
+
+            offset:[0,-20],
+
+            className:
+                "arena-tooltip"
+
+        }
+
+    );
+
+}
+
+
+
+/* ================================= */
+/* GPS                               */
 /* ================================= */
 
 function startTracking(){
@@ -1809,21 +2175,11 @@ function startTracking(){
         );
 
 
-    const error =
-        document.getElementById(
-            "locationError"
-        );
-
-
     if(!navigator.geolocation){
 
 
         status.textContent =
             "GPS NO DISPONIBLE";
-
-
-        error.textContent =
-            "Este dispositivo no permite utilizar la geolocalización.";
 
 
         return;
@@ -1832,22 +2188,11 @@ function startTracking(){
 
 
     status.textContent =
-        "SOLICITANDO ACCESO GPS...";
-
-
-    error.textContent = "";
-
-
-    if(watchID !== null){
-
-        navigator.geolocation.clearWatch(
-            watchID
-        );
-
-    }
+        "LOCALIZANDO TRIBUTO...";
 
 
     watchID =
+
         navigator.geolocation.watchPosition(
 
             locationSuccess,
@@ -1860,7 +2205,7 @@ function startTracking(){
 
                 timeout:15000,
 
-                maximumAge:5000
+                maximumAge:3000
 
             }
 
@@ -1871,29 +2216,17 @@ function startTracking(){
 
 
 /* ================================= */
-/* ACTUALIZAR POSICIÓN MANUALMENTE   */
+/* ACTUALIZAR GPS                    */
 /* ================================= */
 
 function checkLocation(){
 
 
-    const status =
-        document.getElementById(
-            "locationStatus"
-        );
+    document.getElementById(
+        "locationStatus"
+    ).textContent =
 
-
-    const error =
-        document.getElementById(
-            "locationError"
-        );
-
-
-    status.textContent =
         "ACTUALIZANDO POSICIÓN...";
-
-
-    error.textContent = "";
 
 
     navigator.geolocation.getCurrentPosition(
@@ -1919,7 +2252,7 @@ function checkLocation(){
 
 
 /* ================================= */
-/* GPS CORRECTO                      */
+/* POSICIÓN RECIBIDA                 */
 /* ================================= */
 
 function locationSuccess(position){
@@ -1944,7 +2277,29 @@ function locationSuccess(position){
         position.coords.accuracy;
 
 
+
+    document.getElementById(
+        "locationStatus"
+    ).textContent =
+
+        "● POSICIÓN DEL TRIBUTO ACTIVA";
+
+
+
+    document.getElementById(
+        "accuracy"
+    ).textContent =
+
+        "Precisión GPS: ±"
+        +
+        Math.round(accuracy)
+        +
+        " m";
+
+
+
     const distance =
+
         calculateDistance(
 
             latitude,
@@ -1958,28 +2313,27 @@ function locationSuccess(position){
         );
 
 
-    document.getElementById(
-        "locationStatus"
-    ).textContent =
-        "✓ POSICIÓN DEL TRIBUTO OBTENIDA";
-
-
-    document.getElementById(
-        "accuracy"
-    ).textContent =
-        "Precisión GPS aproximada: "
-        +
-        Math.round(accuracy)
-        +
-        " m";
-
 
     updateDistanceDisplay(
         distance
     );
 
 
-    if(distance <= UNLOCK_RADIUS){
+
+    updateMap(
+
+        latitude,
+
+        longitude
+
+    );
+
+
+
+    if(
+        distance <=
+        UNLOCK_RADIUS
+    ){
 
 
         unlockArena();
@@ -1991,10 +2345,175 @@ function locationSuccess(position){
 
 
 /* ================================= */
-/* MOSTRAR DISTANCIA                 */
+/* ACTUALIZAR MAPA                   */
 /* ================================= */
 
-function updateDistanceDisplay(distance){
+function updateMap(
+
+    latitude,
+
+    longitude
+
+){
+
+
+    const playerIcon =
+
+        L.divIcon(
+            {
+
+                className:"",
+
+                html:
+                    '<div class="player-marker"></div>',
+
+                iconSize:[18,18],
+
+                iconAnchor:[9,9]
+
+            }
+        );
+
+
+
+    if(playerMarker === null){
+
+
+        playerMarker =
+
+            L.marker(
+
+                [
+                    latitude,
+                    longitude
+                ],
+
+                {
+                    icon:playerIcon
+                }
+
+            )
+
+            .addTo(map);
+
+
+    }else{
+
+
+        playerMarker.setLatLng(
+
+            [
+                latitude,
+                longitude
+            ]
+
+        );
+
+    }
+
+
+
+    if(routeLine !== null){
+
+
+        map.removeLayer(
+            routeLine
+        );
+
+    }
+
+
+
+    routeLine =
+
+        L.polyline(
+
+            [
+
+                [
+                    latitude,
+                    longitude
+                ],
+
+                [
+                    ARENA_LATITUDE,
+                    ARENA_LONGITUDE
+                ]
+
+            ],
+
+            {
+
+                color:"#b79a58",
+
+                weight:1,
+
+                opacity:.55,
+
+                dashArray:"6,10"
+
+            }
+
+        )
+
+        .addTo(map);
+
+
+
+    if(firstPosition){
+
+
+        const bounds =
+
+            L.latLngBounds(
+
+                [
+
+                    [
+                        latitude,
+                        longitude
+                    ],
+
+                    [
+                        ARENA_LATITUDE,
+                        ARENA_LONGITUDE
+                    ]
+
+                ]
+
+            );
+
+
+        map.fitBounds(
+
+            bounds,
+
+            {
+
+                padding:
+                    [45,45]
+
+            }
+
+        );
+
+
+        firstPosition =
+            false;
+
+    }
+
+}
+
+
+
+/* ================================= */
+/* DISTANCIA                         */
+/* ================================= */
+
+function updateDistanceDisplay(
+    distance
+){
 
 
     const element =
@@ -2022,7 +2541,9 @@ function updateDistanceDisplay(distance){
 
         element.textContent =
 
-            Math.round(distance)
+            Math.round(
+                distance
+            )
 
             +
 
@@ -2035,66 +2556,7 @@ function updateDistanceDisplay(distance){
 
 
 /* ================================= */
-/* ERROR GPS                         */
-/* ================================= */
-
-function locationFailure(error){
-
-
-    const status =
-        document.getElementById(
-            "locationStatus"
-        );
-
-
-    const message =
-        document.getElementById(
-            "locationError"
-        );
-
-
-    status.textContent =
-        "NO SE HA PODIDO LOCALIZAR";
-
-
-    if(error.code === 1){
-
-
-        message.innerHTML =
-
-            "El Capitolio necesita permiso para acceder a tu ubicación.<br><br>"
-            +
-            "En iPhone, permite el acceso a la ubicación para continuar.";
-
-
-    }
-
-    else if(error.code === 2){
-
-
-        message.textContent =
-
-            "No se ha podido determinar tu posición. Inténtalo de nuevo en unos segundos.";
-
-
-    }
-
-    else{
-
-
-        message.textContent =
-
-            "La señal GPS está tardando demasiado. Pulsa «Actualizar posición» para intentarlo de nuevo.";
-
-    }
-
-}
-
-
-
-/* ================================= */
-/* CALCULAR DISTANCIA                */
-/* FÓRMULA HAVERSINE                 */
+/* HAVERSINE                         */
 /* ================================= */
 
 function calculateDistance(
@@ -2120,19 +2582,26 @@ function calculateDistance(
 
 
     const deltaLat =
+
         (
             lat2 - lat1
         )
+
         *
+
         Math.PI / 180;
 
 
     const deltaLon =
+
         (
             lon2 - lon1
         )
+
         *
+
         Math.PI / 180;
+
 
 
     const a =
@@ -2140,7 +2609,9 @@ function calculateDistance(
         Math.sin(
             deltaLat / 2
         )
+
         *
+
         Math.sin(
             deltaLat / 2
         )
@@ -2166,6 +2637,7 @@ function calculateDistance(
         );
 
 
+
     const c =
 
         2
@@ -2181,14 +2653,109 @@ function calculateDistance(
         );
 
 
-    return earthRadius * c;
+
+    return
+
+        earthRadius * c;
 
 }
 
 
 
 /* ================================= */
-/* DESBLOQUEAR ARENA                 */
+/* ABRIR APPLE MAPS                  */
+/* ================================= */
+
+function openRoute(){
+
+
+    const destination =
+
+        ARENA_LATITUDE
+
+        +
+
+        ","
+
+        +
+
+        ARENA_LONGITUDE;
+
+
+
+    const appleMapsURL =
+
+        "https://maps.apple.com/?daddr="
+
+        +
+
+        destination
+
+        +
+
+        "&dirflg=d";
+
+
+
+    window.location.href =
+        appleMapsURL;
+
+}
+
+
+
+/* ================================= */
+/* ERROR GPS                         */
+/* ================================= */
+
+function locationFailure(error){
+
+
+    const status =
+
+        document.getElementById(
+            "locationStatus"
+        );
+
+
+    const message =
+
+        document.getElementById(
+            "locationError"
+        );
+
+
+    status.textContent =
+
+        "NO SE HA PODIDO LOCALIZAR";
+
+
+    if(error.code === 1){
+
+
+        message.innerHTML =
+
+            "Activa la localización para continuar.<br><br>"
+            +
+
+            "Safari → Ajustes del sitio web → Ubicación → Permitir";
+
+
+    }else{
+
+
+        message.textContent =
+
+            "No se ha podido obtener la señal GPS. Pulsa «Actualizar» para volver a intentarlo.";
+
+    }
+
+}
+
+
+
+/* ================================= */
+/* DESBLOQUEAR                       */
 /* ================================= */
 
 function unlockArena(){
@@ -2201,7 +2768,9 @@ function unlockArena(){
     }
 
 
-    arenaUnlocked = true;
+    arenaUnlocked =
+        true;
+
 
 
     if(watchID !== null){
@@ -2217,18 +2786,9 @@ function unlockArena(){
     }
 
 
+
     flash();
 
-
-    if(
-        navigator.vibrate
-    ){
-
-        navigator.vibrate(
-            [150,100,250]
-        );
-
-    }
 
 
     setTimeout(
@@ -2245,7 +2805,7 @@ function unlockArena(){
 
 
 /* ================================= */
-/* CHECKPOINT 1                      */
+/* CHECKPOINT                        */
 /* ================================= */
 
 function checkpointOne(){
@@ -2275,6 +2835,7 @@ function flash(){
 
 
     const element =
+
         document.getElementById(
             "flash"
         );
@@ -2297,6 +2858,6 @@ function flash(){
 
 </script>
 
-
 </body>
+
 </html>
