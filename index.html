@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -11,8 +10,7 @@
 
 <meta name="theme-color" content="#030303">
 
-<title>Los Juegos</title>
-
+<title>La Cosecha</title>
 
 <!-- LEAFLET -->
 <link
@@ -20,15 +18,11 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 
-<script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-
 
 *{
     margin:0;
@@ -37,21 +31,15 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-
 html,
 body{
     width:100%;
     height:100%;
-
     overflow:hidden;
-
     background:#020202;
-
     color:#eeeeee;
-
     font-family:'Montserrat',sans-serif;
 }
-
 
 body{
     min-height:100dvh;
@@ -63,19 +51,15 @@ body{
 /* ================================= */
 
 .background{
-
     position:fixed;
-
     inset:0;
 
     background:
-
         radial-gradient(
             circle at 50% 35%,
             rgba(160,125,50,.12),
             transparent 35%
         ),
-
         linear-gradient(
             180deg,
             #070707,
@@ -85,47 +69,29 @@ body{
     z-index:0;
 }
 
-
 .noise{
-
     position:fixed;
-
     inset:0;
-
     opacity:.035;
-
     z-index:1;
-
     pointer-events:none;
 
     background-image:
-
         repeating-linear-gradient(
-
             0deg,
-
             transparent,
-
             transparent 2px,
-
             rgba(255,255,255,.18) 3px
-
         );
 }
 
-
 .vignette{
-
     position:fixed;
-
     inset:0;
-
     pointer-events:none;
-
     z-index:2;
 
     box-shadow:
-
         inset 0 0 120px rgba(0,0,0,.9);
 }
 
@@ -135,62 +101,40 @@ body{
 /* ================================= */
 
 .screen{
-
     position:absolute;
-
     inset:0;
 
     min-height:100dvh;
 
     padding:
-
         max(30px,env(safe-area-inset-top))
-
         25px
-
         max(30px,env(safe-area-inset-bottom));
 
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
 
     text-align:center;
 
-
     opacity:0;
-
     pointer-events:none;
-
 
     transform:scale(1.02);
 
-
     transition:
-
         opacity .8s ease,
-
         transform .8s ease;
 
-
     z-index:5;
-
 
     overflow-y:auto;
 }
 
-
 .screen.active{
-
     opacity:1;
-
     pointer-events:auto;
-
     transform:scale(1);
 }
 
@@ -200,93 +144,59 @@ body{
 /* ================================= */
 
 .capitol-symbol{
-
     width:125px;
-
     height:125px;
 
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
 
     margin-bottom:30px;
 
-
     animation:
-
         emblemEntrance 2.5s ease both,
-
         emblemPulse 4s ease-in-out 2.5s infinite;
 }
 
-
 .capitol-symbol img{
-
     width:100%;
-
     height:100%;
-
     object-fit:contain;
 
-
     filter:
-
         sepia(1)
-
         saturate(.8)
-
         brightness(1.08)
-
         drop-shadow(
             0 0 15px
             rgba(190,150,65,.25)
         );
 }
 
-
 @keyframes emblemEntrance{
 
     0%{
-
         opacity:0;
-
         transform:scale(.75);
-
         filter:blur(10px);
-
     }
 
     100%{
-
         opacity:1;
-
         transform:scale(1);
-
         filter:blur(0);
-
     }
-
 }
-
 
 @keyframes emblemPulse{
 
     0%,100%{
-
         transform:scale(1);
-
     }
 
     50%{
-
         transform:scale(1.025);
-
     }
-
 }
 
 
@@ -295,29 +205,19 @@ body{
 /* ================================= */
 
 .small{
-
     color:#81745a;
-
     letter-spacing:4px;
-
     text-transform:uppercase;
-
     font-size:10px;
-
     margin-bottom:16px;
 }
 
-
 h1{
-
     font-family:'Cinzel',serif;
-
     font-weight:500;
-
     letter-spacing:4px;
 
     font-size:
-
         clamp(
             29px,
             8vw,
@@ -325,57 +225,35 @@ h1{
         );
 
     color:#d3b36b;
-
     line-height:1.25;
 }
 
-
 h2{
-
     font-family:'Cinzel',serif;
-
     font-weight:500;
-
     letter-spacing:3px;
-
     font-size:23px;
-
     color:#d3b36b;
-
     line-height:1.4;
 }
 
-
 .text{
-
     max-width:430px;
-
     margin-top:24px;
-
     font-size:14px;
-
     line-height:1.8;
-
     font-weight:300;
-
     color:#b8b8b8;
 }
 
-
 .gold{
-
     color:#d0ad5c;
 }
 
-
 .line{
-
     height:1px;
-
     width:55px;
-
     background:#94783e;
-
     margin:23px auto;
 }
 
@@ -385,48 +263,131 @@ h2{
 /* ================================= */
 
 button{
-
     margin-top:30px;
-
     min-width:220px;
-
     padding:16px 24px;
 
     background:
-
         rgba(180,145,65,.02);
 
-
     border:
-
         1px solid #8e733a;
-
 
     color:#c6a45a;
 
-
     text-transform:uppercase;
-
     letter-spacing:3px;
-
     font-size:10px;
 
-
     border-radius:2px;
-
     cursor:pointer;
 
     transition:.25s;
 }
 
-
 button:active{
-
     transform:scale(.96);
 
     background:
-
         rgba(190,150,70,.1);
+}
+
+
+/* ================================= */
+/* FORMULARIO                        */
+/* ================================= */
+
+.registration-box{
+    width:min(100%,410px);
+
+    margin-top:25px;
+
+    padding:25px 20px;
+
+    border:
+        1px solid
+        rgba(173,143,76,.35);
+
+    background:
+        rgba(255,255,255,.015);
+
+    text-align:left;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group:last-child{
+    margin-bottom:0;
+}
+
+.form-label{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#81745a;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.form-input{
+    width:100%;
+
+    padding:14px 12px;
+
+    border:
+        1px solid
+        rgba(173,143,76,.35);
+
+    border-radius:0;
+
+    outline:none;
+
+    background:
+        rgba(0,0,0,.45);
+
+    color:#d7c18b;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+    appearance:none;
+    -webkit-appearance:none;
+}
+
+.form-input:focus{
+    border-color:#b89b58;
+
+    box-shadow:
+        0 0 12px
+        rgba(184,155,88,.08);
+}
+
+.form-input::placeholder{
+    color:#454545;
+}
+
+.form-error{
+    min-height:16px;
+
+    margin-top:12px;
+
+    text-align:center;
+
+    color:#a98e55;
+
+    font-size:10px;
+
+    line-height:1.5;
 }
 
 
@@ -435,49 +396,34 @@ button:active{
 /* ================================= */
 
 .terminal{
-
     width:min(100%,390px);
 
     padding:25px 20px;
 
-
     border-top:
-
         1px solid #55472a;
-
 
     border-bottom:
-
         1px solid #55472a;
-
 
     text-align:left;
 
-
     font-family:
-
         "Courier New",
-
         monospace;
-
 
     color:#9c8b65;
 
-
     font-size:12px;
-
     line-height:2.1;
 }
 
-
 .cursor::after{
-
     content:"";
 
     display:inline-block;
 
     width:7px;
-
     height:13px;
 
     background:#b69a5c;
@@ -487,91 +433,158 @@ button:active{
     vertical-align:-2px;
 
     animation:
-
         blink .8s infinite;
 }
-
 
 @keyframes blink{
 
     50%{
-
         opacity:0;
-
     }
-
 }
 
 
 /* ================================= */
-/* IDENTIDAD                         */
+/* REGISTRO CONFIRMADO               */
 /* ================================= */
 
 .identity{
-
     width:min(100%,400px);
 
-
     border:
-
         1px solid
-
         rgba(173,143,76,.35);
-
 
     padding:28px 20px;
 
     margin-top:25px;
 
-
     background:
-
         rgba(255,255,255,.015);
 }
 
-
 .identity-label{
-
     font-size:9px;
-
     letter-spacing:3px;
-
     color:#6f644d;
 }
 
-
 .identity-name{
-
     margin-top:12px;
-
 
     font-family:'Cinzel',serif;
 
-
     color:#d2b46c;
 
-
     font-size:22px;
-
     letter-spacing:2px;
 }
 
-
 .status{
-
     margin-top:20px;
 
     font-size:10px;
-
     letter-spacing:3px;
 
     color:#8f8f8f;
 }
 
-
 .status span{
-
     color:#b89b58;
+}
+
+
+/* ================================= */
+/* COSECHA / SORTEO                  */
+/* ================================= */
+
+.reaping-box{
+    width:min(100%,410px);
+
+    height:165px;
+
+    margin-top:28px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-top:
+        1px solid
+        rgba(173,143,76,.35);
+
+    border-bottom:
+        1px solid
+        rgba(173,143,76,.35);
+
+    background:
+        rgba(255,255,255,.01);
+}
+
+.reaping-box::before,
+.reaping-box::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    height:55px;
+
+    z-index:2;
+
+    pointer-events:none;
+}
+
+.reaping-box::before{
+    top:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #030303,
+            transparent
+        );
+}
+
+.reaping-box::after{
+    bottom:0;
+
+    background:
+        linear-gradient(
+            to top,
+            #030303,
+            transparent
+        );
+}
+
+.random-name{
+    font-family:'Cinzel',serif;
+
+    color:#c5a75f;
+
+    font-size:
+        clamp(
+            21px,
+            6vw,
+            30px
+        );
+
+    letter-spacing:2px;
+
+    transition:
+        opacity .15s ease,
+        transform .15s ease;
+}
+
+.random-name.switching{
+    opacity:.25;
+    transform:scale(.96);
 }
 
 
@@ -580,42 +593,37 @@ button:active{
 /* ================================= */
 
 .number{
-
     font-family:'Cinzel',serif;
 
     font-size:90px;
 
     color:#c7a85e;
 
-
     text-shadow:
-
         0 0 35px
-
         rgba(197,168,94,.2);
 }
 
 
+/* ================================= */
+/* TRIBUTO                           */
+/* ================================= */
+
 .warning{
-
     font-size:10px;
-
     letter-spacing:4px;
-
     color:#896e3a;
-
     margin-bottom:22px;
 }
 
-
 .final-title{
+    max-width:500px;
 
     font-size:
-
         clamp(
-            38px,
-            12vw,
-            65px
+            35px,
+            10vw,
+            60px
         );
 }
 
@@ -625,7 +633,6 @@ button:active{
 /* ================================= */
 
 .phase-number{
-
     font-family:'Cinzel',serif;
 
     color:#78643b;
@@ -643,7 +650,6 @@ button:active{
 /* ================================= */
 
 .map-frame{
-
     position:relative;
 
     width:min(100%,430px);
@@ -653,65 +659,41 @@ button:active{
     margin-top:22px;
 
     border:
-
         1px solid
-
         rgba(190,155,75,.5);
-
 
     overflow:hidden;
 
-
     box-shadow:
-
         0 0 35px
-
         rgba(160,120,40,.08);
 }
 
-
 #map{
-
     width:100%;
-
     height:100%;
-
     background:#090909;
 }
 
-
-/* oscurecemos mapa */
-
 .leaflet-tile{
-
     filter:
-
         grayscale(1)
-
         brightness(.55)
-
         contrast(1.15)
-
         sepia(.15);
 }
 
-
 .leaflet-control-attribution{
-
     font-size:7px !important;
 
     background:
-
         rgba(0,0,0,.7)
-
         !important;
 
     color:#777 !important;
 }
 
-
 .leaflet-control-attribution a{
-
     color:#9d8754 !important;
 }
 
@@ -721,136 +703,91 @@ button:active{
 /* ================================= */
 
 .arena-marker{
-
     width:38px;
-
     height:38px;
-
 
     border-radius:50%;
 
-
     border:
-
         1px solid #d0ad5c;
 
-
     background:
-
         rgba(10,10,10,.9);
 
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
 
     color:#d0ad5c;
 
-
     font-size:17px;
 
-
     box-shadow:
-
         0 0 18px
-
         rgba(208,173,92,.65);
 
-
     animation:
-
         arenaPulse 1.8s infinite;
 }
-
 
 @keyframes arenaPulse{
 
     0%,100%{
-
         box-shadow:
-
             0 0 10px
-
             rgba(208,173,92,.35);
-
     }
 
     50%{
-
         box-shadow:
-
             0 0 28px
-
             rgba(208,173,92,.9);
-
     }
-
 }
 
 
 /* ================================= */
-/* POSICIÓN DEL TRIBUTO              */
+/* POSICIÓN                          */
 /* ================================= */
 
 .player-marker{
-
     width:18px;
-
     height:18px;
-
 
     border-radius:50%;
 
-
     background:#ffffff;
 
-
     border:
-
         4px solid
-
         #a88b4c;
 
-
     box-shadow:
-
         0 0 15px
-
         rgba(255,255,255,.7);
 }
 
 
 /* ================================= */
-/* INFORMACIÓN GPS                   */
+/* GPS                               */
 /* ================================= */
 
 .location-panel{
-
     width:min(100%,430px);
 
     margin-top:14px;
 
     padding:17px 18px;
 
-
     border:
-
         1px solid
-
         rgba(173,143,76,.25);
 
-
     background:
-
         rgba(255,255,255,.015);
 }
 
-
 .gps-status{
-
     font-size:9px;
 
     letter-spacing:2px;
@@ -860,9 +797,7 @@ button:active{
     text-transform:uppercase;
 }
 
-
 .distance-label{
-
     margin-top:15px;
 
     font-size:8px;
@@ -874,9 +809,7 @@ button:active{
     text-transform:uppercase;
 }
 
-
 .distance{
-
     margin-top:5px;
 
     font-family:'Cinzel',serif;
@@ -888,9 +821,7 @@ button:active{
     letter-spacing:2px;
 }
 
-
 .accuracy{
-
     margin-top:7px;
 
     font-size:9px;
@@ -904,7 +835,6 @@ button:active{
 /* ================================= */
 
 .map-buttons{
-
     width:min(100%,430px);
 
     display:flex;
@@ -914,9 +844,7 @@ button:active{
     margin-top:12px;
 }
 
-
 .map-buttons button{
-
     flex:1;
 
     min-width:0;
@@ -928,23 +856,18 @@ button:active{
     letter-spacing:1.5px;
 }
 
-
 .route-button{
-
     background:
-
         rgba(190,150,70,.09)
-
         !important;
 }
 
 
 /* ================================= */
-/* ERROR                             */
+/* ERROR GPS                         */
 /* ================================= */
 
 .error-message{
-
     max-width:400px;
 
     margin-top:12px;
@@ -962,7 +885,6 @@ button:active{
 /* ================================= */
 
 .unlock-icon{
-
     font-size:45px;
 
     color:#d3b36b;
@@ -970,9 +892,7 @@ button:active{
     margin-bottom:25px;
 }
 
-
 .unlock{
-
     font-family:'Cinzel',serif;
 
     font-size:28px;
@@ -988,7 +908,6 @@ button:active{
 /* ================================= */
 
 .flash{
-
     position:fixed;
 
     inset:0;
@@ -1002,76 +921,75 @@ button:active{
     opacity:0;
 }
 
-
 .flash.go{
-
     animation:
-
         flashAnimation .55s;
 }
 
-
 @keyframes flashAnimation{
 
-    0%{opacity:0;}
+    0%{
+        opacity:0;
+    }
 
-    18%{opacity:.85;}
+    18%{
+        opacity:.85;
+    }
 
-    100%{opacity:0;}
-
+    100%{
+        opacity:0;
+    }
 }
 
 
 /* ================================= */
-/* IPHONE PEQUEÑO                    */
+/* IPHONE / PANTALLAS PEQUEÑAS       */
 /* ================================= */
 
 @media(max-height:750px){
 
     .screen{
+        justify-content:center;
 
-        justify-content:flex-start;
-
-        padding-top:
-
-            max(
-                25px,
-                env(safe-area-inset-top)
-            );
+        padding:
+            max(20px,env(safe-area-inset-top))
+            22px
+            max(20px,env(safe-area-inset-bottom));
     }
 
-
     .capitol-symbol{
-
         width:85px;
-
         height:85px;
-
         margin-bottom:18px;
     }
 
-
     .map-frame{
-
-        height:250px;
-
+        height:235px;
         margin-top:15px;
     }
 
-
     .location-panel{
-
         padding:12px;
     }
 
-
     .text{
-
         font-size:13px;
-
         line-height:1.6;
     }
 
+    .registration-box{
+        padding:18px;
+        margin-top:18px;
+    }
+
+    .form-group{
+        margin-bottom:14px;
+    }
+
+    .reaping-box{
+        height:130px;
+        margin-top:20px;
+    }
 }
 
 </style>
@@ -1081,11 +999,8 @@ button:active{
 
 <body>
 
-
 <div class="background"></div>
-
 <div class="noise"></div>
-
 <div class="vignette"></div>
 
 <div
@@ -1096,14 +1011,13 @@ button:active{
 
 
 <!-- ================================= -->
-<!-- 1 · CAPITOLIO                     -->
+<!-- 1 · LA COSECHA                    -->
 <!-- ================================= -->
 
 <section
     class="screen active"
     id="screen1"
 >
-
 
     <div class="capitol-symbol">
 
@@ -1116,16 +1030,12 @@ button:active{
 
 
     <div class="small">
-
-        Transmisión oficial
-
+        Capitolio · Registro oficial
     </div>
 
 
     <h1>
-
-        CAPITOLIO
-
+        LA COSECHA
     </h1>
 
 
@@ -1134,33 +1044,34 @@ button:active{
 
     <p class="text">
 
-        Se ha recibido
-        una nueva comunicación.
+        Ha llegado el día.
 
         <br><br>
 
-        Esta transmisión está destinada
-        exclusivamente al ciudadano
-        identificado por el sistema.
+        Todos los ciudadanos convocados
+        deberán presentarse ante
+        el sistema de selección.
+
+        <br><br>
+
+        El registro para la ceremonia
+        ya está abierto.
 
     </p>
 
 
     <button
-        onclick="startTransmission()"
+        onclick="showScreen(2)"
     >
-
-        Abrir transmisión
-
+        Iniciar ceremonia
     </button>
-
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 2 · SISTEMA                       -->
+<!-- 2 · REGISTRO                      -->
 <!-- ================================= -->
 
 <section
@@ -1168,11 +1079,114 @@ button:active{
     id="screen2"
 >
 
+    <div class="small">
+        Registro de ciudadanos
+    </div>
+
+
+    <h2>
+        IDENTIFICACIÓN
+    </h2>
+
+
+    <p
+        class="text"
+        style="margin-top:12px"
+    >
+        Introduce tus datos para
+        acceder a la Cosecha.
+    </p>
+
+
+    <div class="registration-box">
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="firstName"
+            >
+                Nombre
+            </label>
+
+            <input
+                class="form-input"
+                id="firstName"
+                type="text"
+                placeholder="Introduce tu nombre"
+                autocomplete="given-name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="lastName"
+            >
+                Apellidos
+            </label>
+
+            <input
+                class="form-input"
+                id="lastName"
+                type="text"
+                placeholder="Introduce tus apellidos"
+                autocomplete="family-name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="birthDate"
+            >
+                Fecha de nacimiento
+            </label>
+
+            <input
+                class="form-input"
+                id="birthDate"
+                type="date"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="form-error"
+        id="formError"
+    ></div>
+
+
+    <button
+        onclick="registerCitizen()"
+    >
+        Registrar ciudadano
+    </button>
+
+</section>
+
+
+
+<!-- ================================= -->
+<!-- 3 · SISTEMA                       -->
+<!-- ================================= -->
+
+<section
+    class="screen"
+    id="screen3"
+>
 
     <div class="small">
-
-        Sistema central · Conectando
-
+        Sistema central · Capitolio
     </div>
 
 
@@ -1181,49 +1195,41 @@ button:active{
         id="terminal"
     ></div>
 
-
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 3 · IDENTIDAD                     -->
+<!-- 4 · REGISTRO CONFIRMADO           -->
 <!-- ================================= -->
 
 <section
     class="screen"
-    id="screen3"
+    id="screen4"
 >
 
-
     <div class="small">
-
-        Registro de ciudadano
-
+        Registro completado
     </div>
 
 
     <h2>
-
-        IDENTIDAD CONFIRMADA
-
+        CIUDADANO REGISTRADO
     </h2>
 
 
     <div class="identity">
 
-
         <div class="identity-label">
-
-            SUJETO
-
+            CIUDADANO
         </div>
 
 
-        <div class="identity-name">
-
-            SAMUEL ELUZAY
-
+        <div
+            class="identity-name"
+            id="registeredName"
+        >
+            ---
         </div>
 
 
@@ -1232,100 +1238,39 @@ button:active{
             ESTADO ·
 
             <span>
-
-                SELECCIONADO
-
+                ELEGIBLE
             </span>
 
         </div>
-
 
     </div>
 
 
     <p class="text">
 
-        Tu nombre ha sido introducido
-        en el sistema.
+        Tu nombre ha sido añadido
+        oficialmente al registro.
 
         <br><br>
 
-        A partir de este momento,
-        abandonar el proceso
-        no es una opción.
+        La Ceremonia de la Cosecha
+        está preparada para comenzar.
 
     </p>
 
 
     <button
-        onclick="showScreen(4)"
+        onclick="prepareReaping()"
     >
-
-        Continuar
-
+        Acceder a la Cosecha
     </button>
-
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 4 · SELECCIÓN                     -->
-<!-- ================================= -->
-
-<section
-    class="screen"
-    id="screen4"
->
-
-
-    <div class="small">
-
-        Ceremonia de selección
-
-    </div>
-
-
-    <p
-        class="text"
-        style="margin-top:0"
-    >
-
-        Ha llegado el momento.
-
-    </p>
-
-
-    <div class="line"></div>
-
-
-    <h1>
-
-        EL TRIBUTO
-
-        <br>
-
-        SELECCIONADO ES...
-
-    </h1>
-
-
-    <button
-        onclick="reaping()"
-    >
-
-        Iniciar selección
-
-    </button>
-
-
-</section>
-
-
-
-<!-- ================================= -->
-<!-- 5 · CUENTA ATRÁS                  -->
+<!-- 5 · PREPARACIÓN COSECHA           -->
 <!-- ================================= -->
 
 <section
@@ -1333,30 +1278,48 @@ button:active{
     id="screen5"
 >
 
-
     <div class="small">
-
-        Seleccionando tributo
-
+        Ceremonia oficial
     </div>
 
 
-    <div
-        class="number"
-        id="count"
+    <h1>
+        LA COSECHA
+    </h1>
+
+
+    <div class="line"></div>
+
+
+    <p class="text">
+
+        El registro ha sido cerrado.
+
+        <br><br>
+
+        El sistema seleccionará
+        a uno de los ciudadanos
+        registrados.
+
+        <br><br>
+
+        El resultado será definitivo.
+
+    </p>
+
+
+    <button
+        onclick="startCountdown()"
     >
-
-        3
-
-    </div>
-
+        Iniciar selección
+    </button>
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 6 · SAMUEL                        -->
+<!-- 6 · CUENTA ATRÁS                  -->
 <!-- ================================= -->
 
 <section
@@ -1364,18 +1327,132 @@ button:active{
     id="screen6"
 >
 
+    <div class="small">
+        Iniciando Cosecha
+    </div>
 
-    <div class="warning">
 
-        ⚠ TRIBUTO CONFIRMADO
+    <div
+        class="number"
+        id="count"
+    >
+        3
+    </div>
+
+</section>
+
+
+
+<!-- ================================= -->
+<!-- 7 · SORTEO                        -->
+<!-- ================================= -->
+
+<section
+    class="screen"
+    id="screen7"
+>
+
+    <div class="small">
+        Selección en curso
+    </div>
+
+
+    <h2>
+        SELECCIONANDO TRIBUTO
+    </h2>
+
+
+    <div class="reaping-box">
+
+        <div
+            class="random-name"
+            id="randomName"
+        >
+            ---
+        </div>
 
     </div>
 
 
-    <h1 class="final-title">
+    <p class="text">
+        El Capitolio está procesando
+        el registro de ciudadanos.
+    </p>
 
-        SAMUEL
+</section>
 
+
+
+<!-- ================================= -->
+<!-- 8 · REVELACIÓN                    -->
+<!-- ================================= -->
+
+<section
+    class="screen"
+    id="screen8"
+>
+
+    <div class="warning">
+        ⚠ SELECCIÓN FINALIZADA
+    </div>
+
+
+    <div class="small">
+        El tributo seleccionado es
+    </div>
+
+
+    <h1
+        class="final-title"
+        id="selectedTribute"
+    >
+        ---
+    </h1>
+
+
+    <div class="line"></div>
+
+
+    <div class="status">
+
+        ESTADO ·
+
+        <span>
+            TRIBUTO CONFIRMADO
+        </span>
+
+    </div>
+
+
+    <button
+        onclick="showScreen(9)"
+    >
+        Continuar
+    </button>
+
+</section>
+
+
+
+<!-- ================================= -->
+<!-- 9 · LOS JUEGOS                    -->
+<!-- ================================= -->
+
+<section
+    class="screen"
+    id="screen9"
+>
+
+    <div class="small">
+        Tributo confirmado
+    </div>
+
+
+    <h1
+        class="final-title"
+        id="tributeGameName"
+    >
+        ---
     </h1>
 
 
@@ -1389,60 +1466,46 @@ button:active{
         edición extraordinaria de
 
         <span class="gold">
-
             Los Juegos.
-
         </span>
 
-
         <br><br>
-
 
         En algún lugar de la isla
         se ha preparado una Arena.
 
-
         <br><br>
-
 
         En ella encontrarás
         diferentes sectores,
         pruebas y suministros.
 
-
         <br><br>
 
-
-        Solo aquellos capaces
-        de completar todos
-        los checkpoints podrán
-        llegar hasta el regalo final.
+        Completa todos los checkpoints
+        para alcanzar el objetivo final.
 
     </p>
 
 
     <button
-        onclick="showScreen(7)"
+        onclick="showScreen(10)"
     >
-
         Aceptar destino
-
     </button>
-
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 7 · PREPARACIÓN                   -->
+<!-- 10 · PROTOCOLO TRASLADO           -->
 <!-- ================================= -->
 
 <section
     class="screen"
-    id="screen7"
+    id="screen10"
 >
-
 
     <div class="capitol-symbol">
 
@@ -1455,9 +1518,7 @@ button:active{
 
 
     <div class="small">
-
         Protocolo de traslado
-
     </div>
 
 
@@ -1497,64 +1558,49 @@ button:active{
     <button
         onclick="beginMission()"
     >
-
         Mostrar destino
-
     </button>
-
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 8 · MAPA                          -->
+<!-- 11 · MAPA                         -->
 <!-- ================================= -->
 
 <section
     class="screen"
-    id="screen8"
+    id="screen11"
 >
 
-
     <div class="phase-number">
-
         FASE I · TRASLADO
-
     </div>
 
 
     <h2>
-
         LOCALIZA LA ARENA
-
     </h2>
 
 
     <div class="map-frame">
-
         <div id="map"></div>
-
     </div>
 
 
     <div class="location-panel">
 
-
         <div
             class="gps-status"
             id="locationStatus"
         >
-
             LOCALIZANDO TRIBUTO...
-
         </div>
 
 
         <div class="distance-label">
-
             DISTANCIA A LA ARENA
-
         </div>
 
 
@@ -1562,9 +1608,7 @@ button:active{
             class="distance"
             id="distance"
         >
-
             ---
-
         </div>
 
 
@@ -1572,24 +1616,18 @@ button:active{
             class="accuracy"
             id="accuracy"
         >
-
             Esperando señal GPS
-
         </div>
-
 
     </div>
 
 
     <div class="map-buttons">
 
-
         <button
             onclick="checkLocation()"
         >
-
             Actualizar
-
         </button>
 
 
@@ -1597,11 +1635,8 @@ button:active{
             class="route-button"
             onclick="openRoute()"
         >
-
             Iniciar ruta
-
         </button>
-
 
     </div>
 
@@ -1611,39 +1646,31 @@ button:active{
         id="locationError"
     ></div>
 
-
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 9 · LLEGADA                       -->
+<!-- 12 · LLEGADA                      -->
 <!-- ================================= -->
 
 <section
     class="screen"
-    id="screen9"
+    id="screen12"
 >
 
-
     <div class="unlock-icon">
-
         ✓
-
     </div>
 
 
     <div class="small">
-
         Posición confirmada
-
     </div>
 
 
     <div class="unlock">
-
         ARENA LOCALIZADA
-
     </div>
 
 
@@ -1663,9 +1690,7 @@ button:active{
         <br><br>
 
         <span class="gold">
-
             Bienvenido a la Arena.
-
         </span>
 
     </p>
@@ -1674,37 +1699,29 @@ button:active{
     <button
         onclick="checkpointOne()"
     >
-
         Entrar en la Arena
-
     </button>
-
 
 </section>
 
 
 
 <!-- ================================= -->
-<!-- 10 · CHECKPOINT                   -->
+<!-- 13 · CHECKPOINT                   -->
 <!-- ================================= -->
 
 <section
     class="screen"
-    id="screen10"
+    id="screen13"
 >
 
-
     <div class="small">
-
         Sector I
-
     </div>
 
 
     <h1>
-
         CHECKPOINT 01
-
     </h1>
 
 
@@ -1724,53 +1741,71 @@ button:active{
 
     </p>
 
-
 </section>
 
 
 
 <script>
 
-
 /* ================================= */
 /* CONFIGURACIÓN                     */
 /* ================================= */
 
-
 const ARENA_LATITUDE =
     28.0582045;
 
-
 const ARENA_LONGITUDE =
     -15.6882469;
-
-
-/*
-
-RADIO PARA CONSIDERAR
-QUE SAMUEL HA LLEGADO.
-
-*/
 
 const UNLOCK_RADIUS =
     100;
 
 
+let participant = {
+    firstName:"",
+    lastName:"",
+    birthDate:"",
+    fullName:""
+};
+
 
 let map = null;
-
 let playerMarker = null;
-
 let arenaMarker = null;
-
 let routeLine = null;
-
 let watchID = null;
-
 let arenaUnlocked = false;
-
 let firstPosition = true;
 
+
+/* ================================= */
+/* NOMBRES FICTICIOS PARA COSECHA    */
+/* ================================= */
+
+const fakeNames = [
+
+    "LUCÍA MENDOZA",
+    "MARCOS VEGA",
+    "CARLA MEDINA",
+    "ÁLVARO SANTANA",
+    "DANIEL SUÁREZ",
+    "MARTA HERRERA",
+    "ADRIÁN NAVARRO",
+    "PAULA CABRERA",
+    "IVÁN TORRES",
+    "CLAUDIA RAMOS",
+    "MARIO DELGADO",
+    "SARA MOLINA",
+    "HUGO MARTÍN",
+    "LAURA REYES",
+    "ÁLEX ROMERO",
+    "ELENA CASTRO",
+    "DIEGO ORTEGA",
+    "NOA GARCÍA",
+    "PABLO MORALES",
+    "AINA MARTÍNEZ"
+
+];
 
 
 /* ================================= */
@@ -1778,7 +1813,6 @@ let firstPosition = true;
 /* ================================= */
 
 function showScreen(number){
-
 
     document
         .querySelectorAll(".screen")
@@ -1810,15 +1844,104 @@ function showScreen(number){
 }
 
 
+/* ================================= */
+/* REGISTRO                          */
+/* ================================= */
+
+function registerCitizen(){
+
+    const firstName =
+        document
+            .getElementById("firstName")
+            .value
+            .trim();
+
+
+    const lastName =
+        document
+            .getElementById("lastName")
+            .value
+            .trim();
+
+
+    const birthDate =
+        document
+            .getElementById("birthDate")
+            .value;
+
+
+    const error =
+        document
+            .getElementById("formError");
+
+
+    error.textContent = "";
+
+
+    if(
+        firstName === "" ||
+        lastName === "" ||
+        birthDate === ""
+    ){
+
+        error.textContent =
+            "Todos los campos son obligatorios para acceder a la Cosecha.";
+
+        return;
+
+    }
+
+
+    participant.firstName =
+        firstName;
+
+
+    participant.lastName =
+        lastName;
+
+
+    participant.birthDate =
+        birthDate;
+
+
+    participant.fullName =
+        (
+            firstName +
+            " " +
+            lastName
+        ).toUpperCase();
+
+
+    document
+        .getElementById("registeredName")
+        .textContent =
+        participant.fullName;
+
+
+    document
+        .getElementById("selectedTribute")
+        .textContent =
+        participant.fullName;
+
+
+    document
+        .getElementById("tributeGameName")
+        .textContent =
+        participant.fullName;
+
+
+    startRegistration();
+
+}
+
 
 /* ================================= */
-/* INTRO                             */
+/* TERMINAL REGISTRO                 */
 /* ================================= */
 
-function startTransmission(){
+function startRegistration(){
 
-
-    showScreen(2);
+    showScreen(3);
 
 
     const terminal =
@@ -1832,19 +1955,21 @@ function startTransmission(){
 
     const lines = [
 
-        "> ESTABLECIENDO CONEXIÓN SEGURA...",
+        "> CONECTANDO CON EL CAPITOLIO...",
 
-        "> LOCALIZANDO DISPOSITIVO...",
+        "> VERIFICANDO IDENTIDAD...",
 
-        "> DISPOSITIVO IDENTIFICADO",
-
-        "> VERIFICANDO CIUDADANO...",
+        "> CIUDADANO IDENTIFICADO",
 
         "> CONSULTANDO REGISTRO...",
 
-        "> ARCHIVO ENCONTRADO",
+        "> COMPROBANDO ELEGIBILIDAD...",
 
-        "> CARGANDO IDENTIDAD..."
+        "> ESTADO: ELEGIBLE",
+
+        "> AÑADIENDO NOMBRE A LA COSECHA...",
+
+        "> REGISTRO COMPLETADO"
 
     ];
 
@@ -1854,9 +1979,7 @@ function startTransmission(){
 
     function addLine(){
 
-
         if(index < lines.length){
-
 
             const div =
                 document.createElement(
@@ -1877,17 +2000,11 @@ function startTransmission(){
 
 
             setTimeout(
-
                 addLine,
-
-                500 +
-                Math.random() * 400
-
+                350 + Math.random() * 350
             );
 
-
         }else{
-
 
             const last =
                 document.createElement(
@@ -1913,10 +2030,10 @@ function startTransmission(){
 
                     flash();
 
-                    showScreen(3);
+                    showScreen(4);
 
                 },
-                1200
+                1100
             );
 
         }
@@ -1926,21 +2043,30 @@ function startTransmission(){
 
     setTimeout(
         addLine,
-        500
+        400
     );
 
 }
 
 
-
 /* ================================= */
-/* SELECCIÓN                         */
+/* PREPARAR COSECHA                  */
 /* ================================= */
 
-function reaping(){
-
+function prepareReaping(){
 
     showScreen(5);
+
+}
+
+
+/* ================================= */
+/* CUENTA ATRÁS                      */
+/* ================================= */
+
+function startCountdown(){
+
+    showScreen(6);
 
 
     const count =
@@ -1960,42 +2086,31 @@ function reaping(){
         setInterval(
             ()=>{
 
-
                 number--;
 
 
                 if(number > 0){
 
-
                     count.textContent =
                         number;
 
-
                 }else{
-
 
                     clearInterval(
                         timer
                     );
 
 
-                    count.textContent =
-                        "";
+                    count.textContent = "";
+
+
+                    flash();
 
 
                     setTimeout(
                         ()=>{
 
-                            flash();
-
-                            setTimeout(
-                                ()=>{
-
-                                    showScreen(6);
-
-                                },
-                                180
-                            );
+                            startReaping();
 
                         },
                         400
@@ -2010,6 +2125,169 @@ function reaping(){
 }
 
 
+/* ================================= */
+/* SORTEO DE LA COSECHA              */
+/* ================================= */
+
+function startReaping(){
+
+    showScreen(7);
+
+
+    const display =
+        document.getElementById(
+            "randomName"
+        );
+
+
+    let iterations = 0;
+
+
+    /*
+        Cada valor representa
+        cuánto tarda en cambiar
+        el siguiente nombre.
+
+        Empieza rápido y va
+        desacelerando.
+    */
+
+    const speeds = [
+
+        80,80,80,80,80,
+        90,90,90,100,100,
+        110,120,130,140,
+        160,180,210,240,
+        280,330,400,500,
+        650,800
+
+    ];
+
+
+    function nextName(){
+
+        display.classList.add(
+            "switching"
+        );
+
+
+        setTimeout(
+            ()=>{
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random() *
+                        fakeNames.length
+                    );
+
+
+                display.textContent =
+                    fakeNames[randomIndex];
+
+
+                display.classList.remove(
+                    "switching"
+                );
+
+
+                iterations++;
+
+
+                if(
+                    iterations <
+                    speeds.length
+                ){
+
+                    setTimeout(
+                        nextName,
+                        speeds[iterations]
+                    );
+
+                }else{
+
+                    finishReaping();
+
+                }
+
+            },
+            60
+        );
+
+    }
+
+
+    nextName();
+
+}
+
+
+/* ================================= */
+/* RESULTADO                         */
+/* ================================= */
+
+function finishReaping(){
+
+    const display =
+        document.getElementById(
+            "randomName"
+        );
+
+
+    /*
+        Última fase:
+        aparece el nombre real
+        introducido en el registro.
+    */
+
+    setTimeout(
+        ()=>{
+
+            display.classList.add(
+                "switching"
+            );
+
+
+            setTimeout(
+                ()=>{
+
+                    display.textContent =
+                        participant.fullName;
+
+
+                    display.classList.remove(
+                        "switching"
+                    );
+
+
+                    setTimeout(
+                        ()=>{
+
+                            flash();
+
+
+                            setTimeout(
+                                ()=>{
+
+                                    showScreen(8);
+
+                                },
+                                300
+                            );
+
+                        },
+                        1800
+                    );
+
+                },
+                200
+            );
+
+        },
+        600
+    );
+
+}
+
 
 /* ================================= */
 /* COMENZAR TRASLADO                 */
@@ -2017,8 +2295,7 @@ function reaping(){
 
 function beginMission(){
 
-
-    showScreen(8);
+    showScreen(11);
 
 
     setTimeout(
@@ -2035,16 +2312,13 @@ function beginMission(){
 }
 
 
-
 /* ================================= */
 /* CREAR MAPA                        */
 /* ================================= */
 
 function initializeMap(){
 
-
     if(map !== null){
-
 
         setTimeout(
             ()=>{
@@ -2055,7 +2329,6 @@ function initializeMap(){
             300
         );
 
-
         return;
 
     }
@@ -2065,101 +2338,65 @@ function initializeMap(){
         L.map(
             "map",
             {
-
                 zoomControl:false,
-
                 attributionControl:true
-
             }
         );
 
 
     map.setView(
-
         [
             ARENA_LATITUDE,
             ARENA_LONGITUDE
         ],
-
         11
-
     );
 
 
     L.tileLayer(
-
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-
         {
-
             maxZoom:19,
-
-            attribution:
-                "&copy; OpenStreetMap"
-
+            attribution:"&copy; OpenStreetMap"
         }
-
     ).addTo(map);
 
 
-
     const arenaIcon =
-
         L.divIcon(
             {
-
                 className:"",
-
                 html:
                     '<div class="arena-marker">◆</div>',
-
                 iconSize:[38,38],
-
                 iconAnchor:[19,19]
-
             }
         );
 
 
     arenaMarker =
-
         L.marker(
-
             [
                 ARENA_LATITUDE,
                 ARENA_LONGITUDE
             ],
-
             {
                 icon:arenaIcon
             }
-
         )
-
         .addTo(map);
 
 
     arenaMarker.bindTooltip(
-
         "ARENA",
-
         {
-
             permanent:true,
-
             direction:"top",
-
-            offset:[0,-20],
-
-            className:
-                "arena-tooltip"
-
+            offset:[0,-20]
         }
-
     );
 
 }
-
 
 
 /* ================================= */
@@ -2167,7 +2404,6 @@ function initializeMap(){
 /* ================================= */
 
 function startTracking(){
-
 
     const status =
         document.getElementById(
@@ -2177,10 +2413,8 @@ function startTracking(){
 
     if(!navigator.geolocation){
 
-
         status.textContent =
             "GPS NO DISPONIBLE";
-
 
         return;
 
@@ -2192,27 +2426,17 @@ function startTracking(){
 
 
     watchID =
-
         navigator.geolocation.watchPosition(
-
             locationSuccess,
-
             locationFailure,
-
             {
-
                 enableHighAccuracy:true,
-
                 timeout:15000,
-
                 maximumAge:3000
-
             }
-
         );
 
 }
-
 
 
 /* ================================= */
@@ -2221,34 +2445,25 @@ function startTracking(){
 
 function checkLocation(){
 
-
-    document.getElementById(
-        "locationStatus"
-    ).textContent =
-
+    document
+        .getElementById(
+            "locationStatus"
+        )
+        .textContent =
         "ACTUALIZANDO POSICIÓN...";
 
 
     navigator.geolocation.getCurrentPosition(
-
         locationSuccess,
-
         locationFailure,
-
         {
-
             enableHighAccuracy:true,
-
             timeout:15000,
-
             maximumAge:0
-
         }
-
     );
 
 }
-
 
 
 /* ================================= */
@@ -2257,11 +2472,8 @@ function checkLocation(){
 
 function locationSuccess(position){
 
-
     if(arenaUnlocked){
-
         return;
-
     }
 
 
@@ -2277,41 +2489,38 @@ function locationSuccess(position){
         position.coords.accuracy;
 
 
-
-    document.getElementById(
-        "locationStatus"
-    ).textContent =
-
+    document
+        .getElementById(
+            "locationStatus"
+        )
+        .textContent =
         "● POSICIÓN DEL TRIBUTO ACTIVA";
 
 
-
-    document.getElementById(
-        "accuracy"
-    ).textContent =
-
-        "Precisión GPS: ±"
-        +
-        Math.round(accuracy)
-        +
+    document
+        .getElementById(
+            "accuracy"
+        )
+        .textContent =
+        "Precisión GPS: ±" +
+        Math.round(accuracy) +
         " m";
 
 
+    document
+        .getElementById(
+            "locationError"
+        )
+        .textContent = "";
+
 
     const distance =
-
         calculateDistance(
-
             latitude,
-
             longitude,
-
             ARENA_LATITUDE,
-
             ARENA_LONGITUDE
-
         );
-
 
 
     updateDistanceDisplay(
@@ -2319,22 +2528,16 @@ function locationSuccess(position){
     );
 
 
-
     updateMap(
-
         latitude,
-
         longitude
-
     );
-
 
 
     if(
         distance <=
         UNLOCK_RADIUS
     ){
-
 
         unlockArena();
 
@@ -2343,78 +2546,54 @@ function locationSuccess(position){
 }
 
 
-
 /* ================================= */
 /* ACTUALIZAR MAPA                   */
 /* ================================= */
 
 function updateMap(
-
     latitude,
-
     longitude
-
 ){
 
-
     const playerIcon =
-
         L.divIcon(
             {
-
                 className:"",
-
                 html:
                     '<div class="player-marker"></div>',
-
                 iconSize:[18,18],
-
                 iconAnchor:[9,9]
-
             }
         );
 
 
-
     if(playerMarker === null){
 
-
         playerMarker =
-
             L.marker(
-
                 [
                     latitude,
                     longitude
                 ],
-
                 {
                     icon:playerIcon
                 }
-
             )
-
             .addTo(map);
-
 
     }else{
 
-
         playerMarker.setLatLng(
-
             [
                 latitude,
                 longitude
             ]
-
         );
 
     }
 
 
-
     if(routeLine !== null){
-
 
         map.removeLayer(
             routeLine
@@ -2423,78 +2602,50 @@ function updateMap(
     }
 
 
-
     routeLine =
-
         L.polyline(
-
             [
-
                 [
                     latitude,
                     longitude
                 ],
-
                 [
                     ARENA_LATITUDE,
                     ARENA_LONGITUDE
                 ]
-
             ],
-
             {
-
                 color:"#b79a58",
-
                 weight:1,
-
                 opacity:.55,
-
                 dashArray:"6,10"
-
             }
-
         )
-
         .addTo(map);
-
 
 
     if(firstPosition){
 
-
         const bounds =
-
             L.latLngBounds(
-
                 [
-
                     [
                         latitude,
                         longitude
                     ],
-
                     [
                         ARENA_LATITUDE,
                         ARENA_LONGITUDE
                     ]
-
                 ]
-
             );
 
 
         map.fitBounds(
-
             bounds,
-
             {
-
-                padding:
-                    [45,45]
-
+                padding:[45,45]
             }
-
         );
 
 
@@ -2506,7 +2657,6 @@ function updateMap(
 }
 
 
-
 /* ================================= */
 /* DISTANCIA                         */
 /* ================================= */
@@ -2514,7 +2664,6 @@ function updateMap(
 function updateDistanceDisplay(
     distance
 ){
-
 
     const element =
         document.getElementById(
@@ -2524,29 +2673,18 @@ function updateDistanceDisplay(
 
     if(distance >= 1000){
 
-
         element.textContent =
-
             (
                 distance / 1000
             ).toFixed(1)
-
             +
-
             " km";
-
 
     }else{
 
-
         element.textContent =
-
-            Math.round(
-                distance
-            )
-
+            Math.round(distance)
             +
-
             " m";
 
     }
@@ -2554,147 +2692,102 @@ function updateDistanceDisplay(
 }
 
 
-
 /* ================================= */
-/* HAVERSINE                         */
+/* CÁLCULO HAVERSINE                 */
 /* ================================= */
 
 function calculateDistance(
-
     lat1,
     lon1,
     lat2,
     lon2
-
 ){
-
 
     const earthRadius =
         6371000;
 
 
-    const φ1 =
+    const phi1 =
         lat1 * Math.PI / 180;
 
 
-    const φ2 =
+    const phi2 =
         lat2 * Math.PI / 180;
 
 
     const deltaLat =
-
         (
             lat2 - lat1
         )
-
         *
-
         Math.PI / 180;
 
 
     const deltaLon =
-
         (
             lon2 - lon1
         )
-
         *
-
         Math.PI / 180;
 
 
-
     const a =
-
         Math.sin(
             deltaLat / 2
         )
-
         *
-
         Math.sin(
             deltaLat / 2
         )
-
         +
-
-        Math.cos(φ1)
-
+        Math.cos(phi1)
         *
-
-        Math.cos(φ2)
-
+        Math.cos(phi2)
         *
-
         Math.sin(
             deltaLon / 2
         )
-
         *
-
         Math.sin(
             deltaLon / 2
         );
-
 
 
     const c =
-
         2
-
         *
-
         Math.atan2(
-
             Math.sqrt(a),
-
             Math.sqrt(1-a)
-
         );
 
 
-
     return
-
         earthRadius * c;
 
 }
 
 
-
 /* ================================= */
-/* ABRIR APPLE MAPS                  */
+/* APPLE MAPS                        */
 /* ================================= */
 
 function openRoute(){
 
-
     const destination =
-
         ARENA_LATITUDE
-
         +
-
         ","
-
         +
-
         ARENA_LONGITUDE;
 
 
-
     const appleMapsURL =
-
         "https://maps.apple.com/?daddr="
-
         +
-
         destination
-
         +
-
         "&dirflg=d";
-
 
 
     window.location.href =
@@ -2703,49 +2796,38 @@ function openRoute(){
 }
 
 
-
 /* ================================= */
 /* ERROR GPS                         */
 /* ================================= */
 
 function locationFailure(error){
 
-
     const status =
-
         document.getElementById(
             "locationStatus"
         );
 
 
     const message =
-
         document.getElementById(
             "locationError"
         );
 
 
     status.textContent =
-
         "NO SE HA PODIDO LOCALIZAR";
 
 
     if(error.code === 1){
 
-
         message.innerHTML =
-
             "Activa la localización para continuar.<br><br>"
             +
-
             "Safari → Ajustes del sitio web → Ubicación → Permitir";
-
 
     }else{
 
-
         message.textContent =
-
             "No se ha podido obtener la señal GPS. Pulsa «Actualizar» para volver a intentarlo.";
 
     }
@@ -2753,18 +2835,14 @@ function locationFailure(error){
 }
 
 
-
 /* ================================= */
-/* DESBLOQUEAR                       */
+/* DESBLOQUEAR ARENA                 */
 /* ================================= */
 
 function unlockArena(){
 
-
     if(arenaUnlocked){
-
         return;
-
     }
 
 
@@ -2772,29 +2850,35 @@ function unlockArena(){
         true;
 
 
-
     if(watchID !== null){
-
 
         navigator.geolocation.clearWatch(
             watchID
         );
-
 
         watchID = null;
 
     }
 
 
-
     flash();
 
+
+    if(
+        "vibrate" in navigator
+    ){
+
+        navigator.vibrate(
+            [150,100,250]
+        );
+
+    }
 
 
     setTimeout(
         ()=>{
 
-            showScreen(9);
+            showScreen(12);
 
         },
         350
@@ -2803,13 +2887,11 @@ function unlockArena(){
 }
 
 
-
 /* ================================= */
 /* CHECKPOINT                        */
 /* ================================= */
 
 function checkpointOne(){
-
 
     flash();
 
@@ -2817,7 +2899,7 @@ function checkpointOne(){
     setTimeout(
         ()=>{
 
-            showScreen(10);
+            showScreen(13);
 
         },
         300
@@ -2826,16 +2908,13 @@ function checkpointOne(){
 }
 
 
-
 /* ================================= */
 /* FLASH                             */
 /* ================================= */
 
 function flash(){
 
-
     const element =
-
         document.getElementById(
             "flash"
         );
@@ -2855,9 +2934,7 @@ function flash(){
 
 }
 
-
 </script>
 
 </body>
-
 </html>
