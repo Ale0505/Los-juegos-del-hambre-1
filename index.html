@@ -999,6 +999,23 @@ button:active{
 
 <body>
 
+
+<!-- ================================= -->
+<!-- MÚSICA DE FONDO                   -->
+<!-- ================================= -->
+
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+    <source
+        src="Horn of Plenty.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
 <div class="background"></div>
 <div class="noise"></div>
 <div class="vignette"></div>
@@ -1061,7 +1078,7 @@ button:active{
 
 
     <button
-        onclick="showScreen(2)"
+        onclick="beginCeremony()"
     >
         Iniciar ceremonia
     </button>
@@ -1747,6 +1764,7 @@ button:active{
 
 <script>
 
+
 /* ================================= */
 /* CONFIGURACIÓN                     */
 /* ================================= */
@@ -1779,7 +1797,50 @@ let firstPosition = true;
 
 
 /* ================================= */
-/* NOMBRES FICTICIOS PARA COSECHA    */
+/* MÚSICA                            */
+/* ================================= */
+
+function beginCeremony(){
+
+    const music =
+        document.getElementById(
+            "backgroundMusic"
+        );
+
+
+    /*
+        Volumen entre 0 y 1.
+        0.30 = 30%
+    */
+
+    music.volume = 0.30;
+
+
+    /*
+        En iPhone el audio puede comenzar
+        porque esta función se ejecuta
+        directamente al tocar el botón.
+    */
+
+    music.play().catch(
+        error => {
+
+            console.log(
+                "No se pudo iniciar el audio:",
+                error
+            );
+
+        }
+    );
+
+
+    showScreen(2);
+
+}
+
+
+/* ================================= */
+/* NOMBRES FICTICIOS                 */
 /* ================================= */
 
 const fakeNames = [
@@ -2143,15 +2204,6 @@ function startReaping(){
     let iterations = 0;
 
 
-    /*
-        Cada valor representa
-        cuánto tarda en cambiar
-        el siguiente nombre.
-
-        Empieza rápido y va
-        desacelerando.
-    */
-
     const speeds = [
 
         80,80,80,80,80,
@@ -2222,7 +2274,7 @@ function startReaping(){
 
 
 /* ================================= */
-/* RESULTADO                         */
+/* RESULTADO DE LA COSECHA           */
 /* ================================= */
 
 function finishReaping(){
@@ -2232,12 +2284,6 @@ function finishReaping(){
             "randomName"
         );
 
-
-    /*
-        Última fase:
-        aparece el nombre real
-        introducido en el registro.
-    */
 
     setTimeout(
         ()=>{
@@ -2693,7 +2739,7 @@ function updateDistanceDisplay(
 
 
 /* ================================= */
-/* CÁLCULO HAVERSINE                 */
+/* HAVERSINE                         */
 /* ================================= */
 
 function calculateDistance(
