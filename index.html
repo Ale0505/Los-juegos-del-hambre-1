@@ -2,21 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#030303">
 
 <title>La Cosecha</title>
 
-<link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
@@ -30,13 +21,12 @@
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
     background:#020202;
-    color:#eeeeee;
+    color:#eee;
     font-family:'Montserrat',sans-serif;
 }
 
@@ -44,24 +34,12 @@ body{
     min-height:100dvh;
 }
 
-/* ================================= */
-/* FONDO                             */
-/* ================================= */
-
 .background{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(160,125,50,.12),
-            transparent 35%
-        ),
-        linear-gradient(
-            180deg,
-            #070707,
-            #010101
-        );
+        radial-gradient(circle at 50% 35%,rgba(160,125,50,.12),transparent 35%),
+        linear-gradient(180deg,#070707,#010101);
     z-index:0;
 }
 
@@ -85,18 +63,12 @@ body{
     inset:0;
     pointer-events:none;
     z-index:2;
-    box-shadow:
-        inset 0 0 120px rgba(0,0,0,.9);
+    box-shadow:inset 0 0 120px rgba(0,0,0,.9);
 }
-
-/* ================================= */
-/* PANTALLAS                         */
-/* ================================= */
 
 .screen{
     position:absolute;
     inset:0;
-
     min-height:100dvh;
 
     padding:
@@ -131,9 +103,7 @@ body{
     transform:scale(1);
 }
 
-/* ================================= */
-/* SÍMBOLO CAPITOLIO                 */
-/* ================================= */
+/* CAPITOLIO */
 
 .capitol-symbol{
     width:125px;
@@ -163,10 +133,7 @@ body{
         sepia(1)
         saturate(.8)
         brightness(1.08)
-        drop-shadow(
-            0 0 15px
-            rgba(190,150,65,.25)
-        );
+        drop-shadow(0 0 15px rgba(190,150,65,.25));
 
     pointer-events:none;
 }
@@ -198,18 +165,11 @@ body{
 }
 
 @keyframes emblemPulse{
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.025);
-    }
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.025);}
 }
 
-/* ================================= */
-/* TEXTO                             */
-/* ================================= */
+/* TEXTO */
 
 .small{
     color:#81745a;
@@ -223,14 +183,7 @@ h1{
     font-family:'Cinzel',serif;
     font-weight:500;
     letter-spacing:4px;
-
-    font-size:
-        clamp(
-            29px,
-            8vw,
-            48px
-        );
-
+    font-size:clamp(29px,8vw,48px);
     color:#d3b36b;
     line-height:1.25;
 }
@@ -264,20 +217,15 @@ h2{
     margin:23px auto;
 }
 
-/* ================================= */
-/* BOTONES                           */
-/* ================================= */
+/* BOTONES */
 
 button{
     margin-top:30px;
     min-width:220px;
     padding:16px 24px;
 
-    background:
-        rgba(180,145,65,.02);
-
-    border:
-        1px solid #8e733a;
+    background:rgba(180,145,65,.02);
+    border:1px solid #8e733a;
 
     color:#c6a45a;
 
@@ -295,8 +243,7 @@ button{
 
 button:active{
     transform:scale(.96);
-    background:
-        rgba(190,150,70,.1);
+    background:rgba(190,150,70,.1);
 }
 
 button:disabled{
@@ -307,23 +254,15 @@ button:disabled{
     color:#6d6659;
 }
 
-/* ================================= */
-/* FORMULARIO                        */
-/* ================================= */
+/* FORMULARIO */
 
 .registration-box{
     width:min(100%,410px);
-
     margin-top:25px;
-
     padding:25px 20px;
 
-    border:
-        1px solid
-        rgba(173,143,76,.35);
-
-    background:
-        rgba(255,255,255,.015);
+    border:1px solid rgba(173,143,76,.35);
+    background:rgba(255,255,255,.015);
 
     text-align:left;
 }
@@ -338,40 +277,27 @@ button:disabled{
 
 .form-label{
     display:block;
-
     margin-bottom:8px;
-
     color:#81745a;
-
     font-size:9px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
 .form-input{
     width:100%;
-
     padding:14px 12px;
 
-    border:
-        1px solid
-        rgba(173,143,76,.35);
-
+    border:1px solid rgba(173,143,76,.35);
     border-radius:0;
 
     outline:none;
 
-    background:
-        rgba(0,0,0,.45);
-
+    background:rgba(0,0,0,.45);
     color:#d7c18b;
 
     font-family:'Montserrat',sans-serif;
-
     font-size:14px;
-
     letter-spacing:1px;
 
     appearance:none;
@@ -380,10 +306,7 @@ button:disabled{
 
 .form-input:focus{
     border-color:#b89b58;
-
-    box-shadow:
-        0 0 12px
-        rgba(184,155,88,.08);
+    box-shadow:0 0 12px rgba(184,155,88,.08);
 }
 
 .form-input::placeholder{
@@ -392,86 +315,53 @@ button:disabled{
 
 .form-error{
     min-height:16px;
-
     margin-top:12px;
-
     text-align:center;
-
     color:#a98e55;
-
     font-size:10px;
-
     line-height:1.5;
 }
 
-/* ================================= */
-/* TERMINAL                          */
-/* ================================= */
+/* TERMINAL */
 
 .terminal{
     width:min(100%,390px);
-
     padding:25px 20px;
 
-    border-top:
-        1px solid #55472a;
-
-    border-bottom:
-        1px solid #55472a;
+    border-top:1px solid #55472a;
+    border-bottom:1px solid #55472a;
 
     text-align:left;
 
-    font-family:
-        "Courier New",
-        monospace;
-
+    font-family:"Courier New",monospace;
     color:#9c8b65;
-
     font-size:12px;
     line-height:2.1;
 }
 
 .cursor::after{
     content:"";
-
     display:inline-block;
-
     width:7px;
     height:13px;
-
     background:#b69a5c;
-
     margin-left:5px;
-
     vertical-align:-2px;
-
-    animation:
-        blink .8s infinite;
+    animation:blink .8s infinite;
 }
 
 @keyframes blink{
-    50%{
-        opacity:0;
-    }
+    50%{opacity:0;}
 }
 
-/* ================================= */
-/* IDENTIDAD                         */
-/* ================================= */
+/* IDENTIDAD */
 
 .identity{
     width:min(100%,400px);
-
-    border:
-        1px solid
-        rgba(173,143,76,.35);
-
+    border:1px solid rgba(173,143,76,.35);
     padding:28px 20px;
-
     margin-top:25px;
-
-    background:
-        rgba(255,255,255,.015);
+    background:rgba(255,255,255,.015);
 }
 
 .identity-label{
@@ -482,21 +372,16 @@ button:disabled{
 
 .identity-name{
     margin-top:12px;
-
     font-family:'Cinzel',serif;
-
     color:#d2b46c;
-
     font-size:22px;
     letter-spacing:2px;
 }
 
 .status{
     margin-top:20px;
-
     font-size:10px;
     letter-spacing:3px;
-
     color:#8f8f8f;
 }
 
@@ -504,15 +389,11 @@ button:disabled{
     color:#b89b58;
 }
 
-/* ================================= */
-/* COSECHA                           */
-/* ================================= */
+/* COSECHA */
 
 .reaping-box{
     width:min(100%,410px);
-
     height:165px;
-
     margin-top:28px;
 
     position:relative;
@@ -523,68 +404,37 @@ button:disabled{
 
     overflow:hidden;
 
-    border-top:
-        1px solid
-        rgba(173,143,76,.35);
+    border-top:1px solid rgba(173,143,76,.35);
+    border-bottom:1px solid rgba(173,143,76,.35);
 
-    border-bottom:
-        1px solid
-        rgba(173,143,76,.35);
-
-    background:
-        rgba(255,255,255,.01);
+    background:rgba(255,255,255,.01);
 }
 
 .reaping-box::before,
 .reaping-box::after{
     content:"";
-
     position:absolute;
-
     left:0;
     right:0;
-
     height:55px;
-
     z-index:2;
-
     pointer-events:none;
 }
 
 .reaping-box::before{
     top:0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #030303,
-            transparent
-        );
+    background:linear-gradient(to bottom,#030303,transparent);
 }
 
 .reaping-box::after{
     bottom:0;
-
-    background:
-        linear-gradient(
-            to top,
-            #030303,
-            transparent
-        );
+    background:linear-gradient(to top,#030303,transparent);
 }
 
 .random-name{
     font-family:'Cinzel',serif;
-
     color:#c5a75f;
-
-    font-size:
-        clamp(
-            21px,
-            6vw,
-            30px
-        );
-
+    font-size:clamp(21px,6vw,30px);
     letter-spacing:2px;
 
     transition:
@@ -597,25 +447,12 @@ button:disabled{
     transform:scale(.96);
 }
 
-/* ================================= */
-/* CUENTA ATRÁS                      */
-/* ================================= */
-
 .number{
     font-family:'Cinzel',serif;
-
     font-size:90px;
-
     color:#c7a85e;
-
-    text-shadow:
-        0 0 35px
-        rgba(197,168,94,.2);
+    text-shadow:0 0 35px rgba(197,168,94,.2);
 }
-
-/* ================================= */
-/* TRIBUTO                           */
-/* ================================= */
 
 .warning{
     font-size:10px;
@@ -626,49 +463,29 @@ button:disabled{
 
 .final-title{
     max-width:500px;
-
-    font-size:
-        clamp(
-            35px,
-            10vw,
-            60px
-        );
+    font-size:clamp(35px,10vw,60px);
 }
 
 .phase-number{
     font-family:'Cinzel',serif;
-
     color:#78643b;
-
     font-size:10px;
-
     letter-spacing:5px;
-
     margin-bottom:12px;
 }
 
-/* ================================= */
-/* MAPA                              */
-/* ================================= */
+/* MAPA */
 
 .map-frame{
     position:relative;
-
     width:min(100%,430px);
-
     height:310px;
-
     margin-top:22px;
 
-    border:
-        1px solid
-        rgba(190,155,75,.5);
-
+    border:1px solid rgba(190,155,75,.5);
     overflow:hidden;
 
-    box-shadow:
-        0 0 35px
-        rgba(160,120,40,.08);
+    box-shadow:0 0 35px rgba(160,120,40,.08);
 }
 
 #map{
@@ -687,11 +504,7 @@ button:disabled{
 
 .leaflet-control-attribution{
     font-size:7px !important;
-
-    background:
-        rgba(0,0,0,.7)
-        !important;
-
+    background:rgba(0,0,0,.7) !important;
     color:#777 !important;
 }
 
@@ -699,32 +512,22 @@ button:disabled{
     color:#9d8754 !important;
 }
 
-/* ================================= */
-/* MARCADOR ARENA                    */
-/* ================================= */
-
 .arena-marker{
     width:46px;
     height:46px;
 
     border-radius:50%;
+    border:1px solid #d0ad5c;
 
-    border:
-        1px solid #d0ad5c;
-
-    background:
-        rgba(10,10,10,.92);
+    background:rgba(10,10,10,.92);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    box-shadow:
-        0 0 18px
-        rgba(208,173,92,.65);
+    box-shadow:0 0 18px rgba(208,173,92,.65);
 
-    animation:
-        arenaPulse 1.8s infinite;
+    animation:arenaPulse 1.8s infinite;
 }
 
 .arena-marker img{
@@ -740,15 +543,11 @@ button:disabled{
 
 @keyframes arenaPulse{
     0%,100%{
-        box-shadow:
-            0 0 10px
-            rgba(208,173,92,.35);
+        box-shadow:0 0 10px rgba(208,173,92,.35);
     }
 
     50%{
-        box-shadow:
-            0 0 28px
-            rgba(208,173,92,.9);
+        box-shadow:0 0 28px rgba(208,173,92,.9);
     }
 }
 
@@ -758,144 +557,95 @@ button:disabled{
 
     border-radius:50%;
 
-    background:#ffffff;
+    background:#fff;
+    border:4px solid #a88b4c;
 
-    border:
-        4px solid
-        #a88b4c;
-
-    box-shadow:
-        0 0 15px
-        rgba(255,255,255,.7);
+    box-shadow:0 0 15px rgba(255,255,255,.7);
 }
 
-/* ================================= */
-/* GPS                               */
-/* ================================= */
+/* GPS */
 
 .location-panel{
     width:min(100%,430px);
-
     margin-top:14px;
-
     padding:17px 18px;
 
-    border:
-        1px solid
-        rgba(173,143,76,.25);
-
-    background:
-        rgba(255,255,255,.015);
+    border:1px solid rgba(173,143,76,.25);
+    background:rgba(255,255,255,.015);
 }
 
 .gps-status{
     font-size:9px;
-
     letter-spacing:2px;
-
     color:#81745a;
-
     text-transform:uppercase;
 }
 
 .distance-label{
     margin-top:15px;
-
     font-size:8px;
-
     letter-spacing:3px;
-
     color:#666;
-
     text-transform:uppercase;
 }
 
 .distance{
     margin-top:5px;
-
     font-family:'Cinzel',serif;
-
     color:#d3b36b;
-
     font-size:28px;
-
     letter-spacing:2px;
 }
 
 .accuracy{
     margin-top:7px;
-
     font-size:9px;
-
     color:#5f5f5f;
 }
 
 .map-buttons{
     width:min(100%,430px);
-
     display:flex;
-
     gap:10px;
-
     margin-top:12px;
 }
 
 .map-buttons button{
     flex:1;
-
     min-width:0;
-
     margin-top:0;
-
     padding:14px 8px;
-
     letter-spacing:1.5px;
 }
 
 .route-button{
-    background:
-        rgba(190,150,70,.09)
-        !important;
+    background:rgba(190,150,70,.09)!important;
 }
 
 .error-message{
     max-width:400px;
-
     margin-top:12px;
-
     color:#a98e55;
-
     font-size:11px;
-
     line-height:1.6;
 }
 
-/* ================================= */
-/* LLEGADA                           */
-/* ================================= */
+/* ACCESO */
 
 .unlock{
     font-family:'Cinzel',serif;
-
     font-size:28px;
-
     letter-spacing:3px;
-
     color:#d3b36b;
 }
 
 .access-panel{
     width:min(100%,400px);
-
     margin-top:22px;
     padding:18px;
 
-    border:
-        1px solid
-        rgba(173,143,76,.28);
-
-    background:
-        rgba(255,255,255,.015);
+    border:1px solid rgba(173,143,76,.28);
+    background:rgba(255,255,255,.015);
 }
 
 .access-distance-label{
@@ -907,21 +657,16 @@ button:disabled{
 
 .access-distance{
     margin-top:7px;
-
     color:#d0ad5c;
-
     font-family:'Cinzel',serif;
     font-size:28px;
 }
 
 .lock-status{
     margin-top:10px;
-
     color:#777;
-
     font-size:9px;
     letter-spacing:2px;
-
     text-transform:uppercase;
 }
 
@@ -929,74 +674,50 @@ button:disabled{
     color:#c7a85e;
 }
 
-/* ================================= */
-/* DISTRITO                          */
-/* ================================= */
+/* DISTRITO */
 
 .district-card{
     width:min(100%,410px);
-
     margin-top:25px;
     padding:24px 20px;
 
-    border:
-        1px solid
-        rgba(173,143,76,.35);
-
-    background:
-        rgba(255,255,255,.015);
+    border:1px solid rgba(173,143,76,.35);
+    background:rgba(255,255,255,.015);
 }
 
 .district-number{
     color:#d0ad5c;
-
     font-family:'Cinzel',serif;
-
     font-size:46px;
-
     letter-spacing:4px;
 }
 
 .transmission{
     margin-top:13px;
-
     color:#7e735b;
-
     font-size:9px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
 .supply-status{
     margin-top:20px;
-
     padding-top:18px;
 
-    border-top:
-        1px solid
-        rgba(173,143,76,.18);
+    border-top:1px solid rgba(173,143,76,.18);
 
     color:#aaa;
-
     font-size:12px;
-
     line-height:1.7;
 }
 
-/* ================================= */
-/* BRÚJULA PROVISIONAL               */
-/* ================================= */
+/* BRÚJULA */
 
 .compass{
     width:210px;
     height:210px;
 
-    border:
-        1px solid
-        rgba(208,173,92,.45);
-
+    border:1px solid rgba(208,173,92,.45);
     border-radius:50%;
 
     display:flex;
@@ -1014,51 +735,32 @@ button:disabled{
     transform:rotate(25deg);
 }
 
-/* ================================= */
-/* FLASH                             */
-/* ================================= */
+/* FLASH */
 
 .flash{
     position:fixed;
-
     inset:0;
-
     background:#d5c49d;
-
     z-index:100;
-
     pointer-events:none;
-
     opacity:0;
 }
 
 .flash.go{
-    animation:
-        flashAnimation .55s;
+    animation:flashAnimation .55s;
 }
 
 @keyframes flashAnimation{
-    0%{
-        opacity:0;
-    }
-
-    18%{
-        opacity:.85;
-    }
-
-    100%{
-        opacity:0;
-    }
+    0%{opacity:0;}
+    18%{opacity:.85;}
+    100%{opacity:0;}
 }
 
-/* ================================= */
-/* ADMIN                             */
-/* ================================= */
+/* ADMIN */
 
 .admin-overlay{
     position:fixed;
     inset:0;
-
     z-index:500;
 
     display:none;
@@ -1071,11 +773,9 @@ button:disabled{
         20px
         max(25px,env(safe-area-inset-bottom));
 
-    background:
-        rgba(0,0,0,.94);
+    background:rgba(0,0,0,.94);
 
-    backdrop-filter:
-        blur(8px);
+    backdrop-filter:blur(8px);
 
     overflow-y:auto;
 }
@@ -1087,9 +787,7 @@ button:disabled{
 .admin-box{
     width:min(100%,460px);
 
-    border:
-        1px solid
-        rgba(208,173,92,.45);
+    border:1px solid rgba(208,173,92,.45);
 
     padding:25px 20px;
 
@@ -1100,23 +798,16 @@ button:disabled{
 
 .admin-title{
     font-family:'Cinzel',serif;
-
     color:#d0ad5c;
-
     font-size:20px;
-
     letter-spacing:3px;
 }
 
 .admin-subtitle{
     margin-top:8px;
-
     color:#625a48;
-
     font-size:8px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
@@ -1126,33 +817,26 @@ button:disabled{
 
 .admin-pin input{
     width:100%;
-
     padding:15px;
 
     text-align:center;
 
     background:#000;
 
-    border:
-        1px solid
-        rgba(173,143,76,.4);
+    border:1px solid rgba(173,143,76,.4);
 
     color:#d0ad5c;
 
     outline:none;
 
     font-size:18px;
-
     letter-spacing:8px;
 }
 
 .admin-error{
     min-height:16px;
-
     margin-top:10px;
-
     color:#9b764d;
-
     font-size:10px;
 }
 
@@ -1162,94 +846,64 @@ button:disabled{
 
 .admin-section{
     margin-top:25px;
-
     padding-top:20px;
 
-    border-top:
-        1px solid
-        rgba(173,143,76,.18);
+    border-top:1px solid rgba(173,143,76,.18);
 
     text-align:left;
 }
 
 .admin-section-title{
     margin-bottom:12px;
-
     color:#76684a;
-
     font-size:8px;
-
     letter-spacing:3px;
-
     text-transform:uppercase;
 }
 
 .admin-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:8px;
 }
 
 .admin-grid button{
     min-width:0;
     width:100%;
-
     margin:0;
-
     padding:12px 7px;
-
     font-size:8px;
-
     letter-spacing:1px;
 }
 
 .admin-toggle{
     width:100%;
-
     display:flex;
-
     justify-content:space-between;
     align-items:center;
-
     gap:15px;
-
     padding:13px 0;
-
     color:#aaa;
-
     font-size:11px;
 }
 
 .admin-switch{
-    min-width:90px !important;
-
-    margin:0 !important;
-
-    padding:10px !important;
-
-    font-size:8px !important;
-
-    letter-spacing:1px !important;
+    min-width:90px!important;
+    margin:0!important;
+    padding:10px!important;
+    font-size:8px!important;
+    letter-spacing:1px!important;
 }
 
 .admin-switch.active{
-    background:
-        rgba(190,150,70,.15);
-
+    background:rgba(190,150,70,.15);
     color:#d0ad5c;
 }
 
 .admin-danger{
-    border-color:#6b4b3c !important;
-    color:#a47c68 !important;
+    border-color:#6b4b3c!important;
+    color:#a47c68!important;
 }
-
-/* ================================= */
-/* PANTALLAS PEQUEÑAS                */
-/* ================================= */
 
 @media(max-height:750px){
 
@@ -1323,71 +977,32 @@ button:disabled{
 
 <body>
 
-<!-- ================================= -->
-<!-- AUDIO GLOBAL                     -->
-<!-- ================================= -->
-
-<!--
-    Esta música comienza con el primer
-    toque del usuario y permanece en loop
-    durante TODA la experiencia.
--->
-
-<audio
-    id="backgroundMusic"
-    loop
-    preload="auto"
->
-    <source
-        src="Horn of Plenty.mp3"
-        type="audio/mpeg"
-    >
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="Horn of Plenty.mp3" type="audio/mpeg">
 </audio>
 
-<audio
-    id="clickSound"
-    preload="auto"
->
-    <source
-        src="Click.mp3"
-        type="audio/mpeg"
-    >
+<audio id="clickSound" preload="auto">
+    <source src="Click.mp3" type="audio/mpeg">
 </audio>
 
 <div class="background"></div>
 <div class="noise"></div>
 <div class="vignette"></div>
+<div class="flash" id="flash"></div>
 
-<div
-    class="flash"
-    id="flash"
-></div>
+<!-- 1 -->
 
-<!-- ================================= -->
-<!-- 1 · LA COSECHA                    -->
-<!-- ================================= -->
-
-<section
-    class="screen active"
-    id="screen1"
->
+<section class="screen active" id="screen1">
 
     <div class="capitol-symbol admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="small">
         Capitolio · Registro oficial
     </div>
 
-    <h1>
-        LA COSECHA
-    </h1>
+    <h1>LA COSECHA</h1>
 
     <div class="line"></div>
 
@@ -1408,47 +1023,31 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="beginCeremony()"
-    >
+    <button onclick="beginCeremony()">
         Iniciar ceremonia
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 2 · IDENTIFICACIÓN                -->
-<!-- ================================= -->
+<!-- 2 -->
 
-<section
-    class="screen"
-    id="screen2"
->
+<section class="screen" id="screen2">
 
     <div class="small">
         Registro de ciudadanos
     </div>
 
-    <h2>
-        IDENTIFICACIÓN
-    </h2>
+    <h2>IDENTIFICACIÓN</h2>
 
-    <p
-        class="text"
-        style="margin-top:12px"
-    >
-        Introduce tus datos para
-        acceder a la Cosecha.
+    <p class="text" style="margin-top:12px">
+        Introduce tus datos para acceder a la Cosecha.
     </p>
 
     <div class="registration-box">
 
         <div class="form-group">
 
-            <label
-                class="form-label"
-                for="firstName"
-            >
+            <label class="form-label" for="firstName">
                 Nombre
             </label>
 
@@ -1464,10 +1063,7 @@ button:disabled{
 
         <div class="form-group">
 
-            <label
-                class="form-label"
-                for="lastName"
-            >
+            <label class="form-label" for="lastName">
                 Apellidos
             </label>
 
@@ -1483,10 +1079,7 @@ button:disabled{
 
         <div class="form-group">
 
-            <label
-                class="form-label"
-                for="birthDate"
-            >
+            <label class="form-label" for="birthDate">
                 Fecha de nacimiento
             </label>
 
@@ -1500,47 +1093,29 @@ button:disabled{
 
     </div>
 
-    <div
-        class="form-error"
-        id="formError"
-    ></div>
+    <div class="form-error" id="formError"></div>
 
-    <button
-        onclick="registerCitizen()"
-    >
+    <button onclick="registerCitizen()">
         Registrar ciudadano
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 3 · SISTEMA                       -->
-<!-- ================================= -->
+<!-- 3 -->
 
-<section
-    class="screen"
-    id="screen3"
->
+<section class="screen" id="screen3">
 
     <div class="small">
         Sistema central · Capitolio
     </div>
 
-    <div
-        class="terminal"
-        id="terminal"
-    ></div>
+    <div class="terminal" id="terminal"></div>
 
 </section>
 
-<!-- ================================= -->
-<!-- 4 · REGISTRO                      -->
-<!-- ================================= -->
+<!-- 4 -->
 
-<section
-    class="screen"
-    id="screen4"
->
+<section class="screen" id="screen4">
 
     <div class="small">
         Registro completado
@@ -1556,10 +1131,7 @@ button:disabled{
             CIUDADANO
         </div>
 
-        <div
-            class="identity-name"
-            id="registeredName"
-        >
+        <div class="identity-name" id="registeredName">
             ---
         </div>
 
@@ -1587,22 +1159,15 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="prepareReaping()"
-    >
+    <button onclick="prepareReaping()">
         Acceder a la Cosecha
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 5 · COSECHA                       -->
-<!-- ================================= -->
+<!-- 5 -->
 
-<section
-    class="screen"
-    id="screen5"
->
+<section class="screen" id="screen5">
 
     <div class="small">
         Ceremonia oficial
@@ -1630,44 +1195,29 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="startCountdown()"
-    >
+    <button onclick="startCountdown()">
         Iniciar selección
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 6 · CUENTA ATRÁS                  -->
-<!-- ================================= -->
+<!-- 6 -->
 
-<section
-    class="screen"
-    id="screen6"
->
+<section class="screen" id="screen6">
 
     <div class="small">
         Iniciando Cosecha
     </div>
 
-    <div
-        class="number"
-        id="count"
-    >
+    <div class="number" id="count">
         3
     </div>
 
 </section>
 
-<!-- ================================= -->
-<!-- 7 · SORTEO                        -->
-<!-- ================================= -->
+<!-- 7 -->
 
-<section
-    class="screen"
-    id="screen7"
->
+<section class="screen" id="screen7">
 
     <div class="small">
         Selección en curso
@@ -1679,32 +1229,22 @@ button:disabled{
 
     <div class="reaping-box">
 
-        <div
-            class="random-name"
-            id="randomName"
-        >
+        <div class="random-name" id="randomName">
             ---
         </div>
 
     </div>
 
     <p class="text">
-
         El Capitolio está procesando
         el registro de ciudadanos.
-
     </p>
 
 </section>
 
-<!-- ================================= -->
-<!-- 8 · TRIBUTO                       -->
-<!-- ================================= -->
+<!-- 8 -->
 
-<section
-    class="screen"
-    id="screen8"
->
+<section class="screen" id="screen8">
 
     <div class="warning">
         ⚠ SELECCIÓN FINALIZADA
@@ -1714,10 +1254,7 @@ button:disabled{
         El tributo seleccionado es
     </div>
 
-    <h1
-        class="final-title"
-        id="selectedTribute"
-    >
+    <h1 class="final-title" id="selectedTribute">
         ---
     </h1>
 
@@ -1733,31 +1270,21 @@ button:disabled{
 
     </div>
 
-    <button
-        onclick="showScreen(9)"
-    >
+    <button onclick="showScreen(9)">
         Continuar
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 9 · JUEGOS                        -->
-<!-- ================================= -->
+<!-- 9 -->
 
-<section
-    class="screen"
-    id="screen9"
->
+<section class="screen" id="screen9">
 
     <div class="small">
         Tributo confirmado
     </div>
 
-    <h1
-        class="final-title"
-        id="tributeGameName"
-    >
+    <h1 class="final-title" id="tributeGameName">
         ---
     </h1>
 
@@ -1791,30 +1318,18 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="showScreen(10)"
-    >
+    <button onclick="showScreen(10)">
         Aceptar destino
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 10 · TRASLADO                     -->
-<!-- ================================= -->
+<!-- 10 -->
 
-<section
-    class="screen"
-    id="screen10"
->
+<section class="screen" id="screen10">
 
     <div class="capitol-symbol admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="small">
@@ -1822,13 +1337,9 @@ button:disabled{
     </div>
 
     <h1>
-
         LA ARENA
-
         <br>
-
         TE ESPERA
-
     </h1>
 
     <div class="line"></div>
@@ -1851,22 +1362,15 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="beginMission()"
-    >
+    <button onclick="beginMission()">
         Mostrar destino
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 11 · MAPA                         -->
-<!-- ================================= -->
+<!-- 11 -->
 
-<section
-    class="screen"
-    id="screen11"
->
+<section class="screen" id="screen11">
 
     <div class="phase-number">
         FASE I · TRASLADO
@@ -1882,10 +1386,7 @@ button:disabled{
 
     <div class="location-panel">
 
-        <div
-            class="gps-status"
-            id="locationStatus"
-        >
+        <div class="gps-status" id="locationStatus">
             LOCALIZANDO TRIBUTO...
         </div>
 
@@ -1893,17 +1394,11 @@ button:disabled{
             DISTANCIA A LA ARENA
         </div>
 
-        <div
-            class="distance"
-            id="distance"
-        >
+        <div class="distance" id="distance">
             ---
         </div>
 
-        <div
-            class="accuracy"
-            id="accuracy"
-        >
+        <div class="accuracy" id="accuracy">
             Esperando señal GPS
         </div>
 
@@ -1911,44 +1406,26 @@ button:disabled{
 
     <div class="map-buttons">
 
-        <button
-            onclick="checkLocation()"
-        >
+        <button onclick="checkLocation()">
             Actualizar
         </button>
 
-        <button
-            class="route-button"
-            onclick="openRoute()"
-        >
+        <button class="route-button" onclick="openRoute()">
             Iniciar ruta
         </button>
 
     </div>
 
-    <div
-        class="error-message"
-        id="locationError"
-    ></div>
+    <div class="error-message" id="locationError"></div>
 
 </section>
 
-<!-- ================================= -->
-<!-- 12 · PERÍMETRO                    -->
-<!-- ================================= -->
+<!-- 12 -->
 
-<section
-    class="screen"
-    id="screen12"
->
+<section class="screen" id="screen12">
 
     <div class="capitol-symbol medium admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="small">
@@ -1980,17 +1457,11 @@ button:disabled{
             DISTANCIA AL ACCESO
         </div>
 
-        <div
-            class="access-distance"
-            id="accessDistance"
-        >
+        <div class="access-distance" id="accessDistance">
             ---
         </div>
 
-        <div
-            class="lock-status"
-            id="arenaLockStatus"
-        >
+        <div class="lock-status" id="arenaLockStatus">
             🔒 ACCESO BLOQUEADO
         </div>
 
@@ -2006,22 +1477,12 @@ button:disabled{
 
 </section>
 
-<!-- ================================= -->
-<!-- 13 · BRIEFING                     -->
-<!-- ================================= -->
+<!-- 13 -->
 
-<section
-    class="screen"
-    id="screen13"
->
+<section class="screen" id="screen13">
 
     <div class="capitol-symbol medium admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="small">
@@ -2071,30 +1532,18 @@ button:disabled{
 
     </p>
 
-    <button
-        onclick="startGames()"
-    >
+    <button onclick="startGames()">
         Comenzar los Juegos
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 14 · DISTRITO 04                  -->
-<!-- ================================= -->
+<!-- 14 -->
 
-<section
-    class="screen"
-    id="screen14"
->
+<section class="screen" id="screen14">
 
     <div class="capitol-symbol small-symbol admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="small">
@@ -2134,30 +1583,18 @@ button:disabled{
 
     </div>
 
-    <button
-        onclick="showScreen(15)"
-    >
+    <button onclick="showScreen(15)">
         Localizar suministro
     </button>
 
 </section>
 
-<!-- ================================= -->
-<!-- 15 · BRÚJULA                      -->
-<!-- ================================= -->
+<!-- 15 -->
 
-<section
-    class="screen"
-    id="screen15"
->
+<section class="screen" id="screen15">
 
     <div class="capitol-symbol small-symbol admin-trigger">
-
-        <img
-            src="capitolio.png.webp"
-            alt="Símbolo del Capitolio"
-        >
-
+        <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
     </div>
 
     <div class="phase-number">
@@ -2206,14 +1643,9 @@ button:disabled{
 
 </section>
 
-<!-- ================================= -->
-<!-- ADMIN                             -->
-<!-- ================================= -->
+<!-- ADMIN -->
 
-<div
-    class="admin-overlay"
-    id="adminOverlay"
->
+<div class="admin-overlay" id="adminOverlay">
 
     <div class="admin-box">
 
@@ -2221,12 +1653,7 @@ button:disabled{
             class="capitol-symbol small-symbol"
             style="margin-left:auto;margin-right:auto;"
         >
-
-            <img
-                src="capitolio.png.webp"
-                alt="Símbolo del Capitolio"
-            >
-
+            <img src="capitolio.png.webp" alt="Símbolo del Capitolio">
         </div>
 
         <div class="admin-title">
@@ -2237,10 +1664,7 @@ button:disabled{
             Administración del sistema
         </div>
 
-        <div
-            class="admin-pin"
-            id="adminLogin"
-        >
+        <div class="admin-pin" id="adminLogin">
 
             <input
                 id="adminPin"
@@ -2250,29 +1674,19 @@ button:disabled{
                 placeholder="•••"
             >
 
-            <div
-                class="admin-error"
-                id="adminError"
-            ></div>
+            <div class="admin-error" id="adminError"></div>
 
-            <button
-                onclick="unlockAdmin()"
-            >
+            <button onclick="unlockAdmin()">
                 Autorizar acceso
             </button>
 
-            <button
-                onclick="closeAdmin()"
-            >
+            <button onclick="closeAdmin()">
                 Cancelar
             </button>
 
         </div>
 
-        <div
-            class="admin-content"
-            id="adminContent"
-        >
+        <div class="admin-content" id="adminContent">
 
             <div class="admin-section">
 
@@ -2362,21 +1776,15 @@ button:disabled{
 
                 <div class="admin-grid">
 
-                    <button
-                        onclick="simulatePerimeter()"
-                    >
+                    <button onclick="simulatePerimeter()">
                         Simular 80 m
                     </button>
 
-                    <button
-                        onclick="simulateNearEntrance()"
-                    >
+                    <button onclick="simulateNearEntrance()">
                         Simular 20 m
                     </button>
 
-                    <button
-                        onclick="simulateExactEntrance()"
-                    >
+                    <button onclick="simulateExactEntrance()">
                         Simular 3 m
                     </button>
 
@@ -2399,9 +1807,7 @@ button:disabled{
                         Restablecer
                     </button>
 
-                    <button
-                        onclick="closeAdmin()"
-                    >
+                    <button onclick="closeAdmin()">
                         Cerrar panel
                     </button>
 
@@ -2421,20 +1827,17 @@ button:disabled{
 /* CONFIGURACIÓN                     */
 /* ================================= */
 
-const ARENA_LATITUDE =
-    28.0582045;
+/*
+    NUEVA LOCALIZACIÓN DE LA ARENA
+*/
 
-const ARENA_LONGITUDE =
-    -15.6882469;
+const ARENA_LATITUDE = 27.9251845;
+const ARENA_LONGITUDE = -15.3946295;
 
-const PERIMETER_RADIUS =
-    100;
+const PERIMETER_RADIUS = 100;
+const ENTRANCE_RADIUS = 5;
 
-const ENTRANCE_RADIUS =
-    5;
-
-const ADMIN_PIN =
-    "017";
+const ADMIN_PIN = "017";
 
 let participant = {
     firstName:"",
@@ -2459,34 +1862,20 @@ let gpsBypass = false;
 
 let currentScreen = 1;
 
-/* ================================= */
-/* AUDIO GLOBAL                      */
-/* ================================= */
+/* AUDIO */
 
 const backgroundMusic =
-    document.getElementById(
-        "backgroundMusic"
-    );
+    document.getElementById("backgroundMusic");
 
 const clickSound =
-    document.getElementById(
-        "clickSound"
-    );
+    document.getElementById("clickSound");
 
 backgroundMusic.volume = 0.30;
 clickSound.volume = 0.50;
 
-/*
-    Mantiene Horn of Plenty activa
-    durante toda la experiencia una
-    vez iniciada.
-*/
-
 function ensureBackgroundMusic(){
 
-    if(
-        backgroundMusic.paused
-    ){
+    if(backgroundMusic.paused){
 
         backgroundMusic
             .play()
@@ -2510,52 +1899,31 @@ function playClick(){
 
 }
 
-/*
-    Todos los botones mantienen la
-    música y reproducen Click.mp3.
-*/
-
 document
     .querySelectorAll("button")
-    .forEach(
-        button => {
+    .forEach(button => {
 
-            button.addEventListener(
-                "click",
-                ()=>{
+        button.addEventListener(
+            "click",
+            ()=>{
 
-                    playClick();
+                playClick();
 
-                    /*
-                        La música solo podrá arrancar
-                        después de la ceremonia.
-                    */
-
-                    if(
-                        currentScreen !== 1
-                    ){
-
-                        ensureBackgroundMusic();
-
-                    }
-
+                if(currentScreen !== 1){
+                    ensureBackgroundMusic();
                 }
-            );
 
-        }
-    );
+            }
+        );
 
-/* ================================= */
-/* INICIO CEREMONIA                  */
-/* ================================= */
+    });
+
+/* INICIO */
 
 function beginCeremony(){
 
-    backgroundMusic.volume =
-        0.30;
-
-    backgroundMusic.loop =
-        true;
+    backgroundMusic.volume = 0.30;
+    backgroundMusic.loop = true;
 
     backgroundMusic
         .play()
@@ -2565,9 +1933,7 @@ function beginCeremony(){
 
 }
 
-/* ================================= */
-/* NOMBRES                           */
-/* ================================= */
+/* NOMBRES */
 
 const fakeNames = [
 
@@ -2594,22 +1960,16 @@ const fakeNames = [
 
 ];
 
-/* ================================= */
-/* PANTALLAS                         */
-/* ================================= */
+/* PANTALLAS */
 
 function showScreen(number){
 
-    currentScreen =
-        number;
+    currentScreen = number;
 
     document
         .querySelectorAll(".screen")
-        .forEach(
-            screen =>
-                screen.classList.remove(
-                    "active"
-                )
+        .forEach(screen =>
+            screen.classList.remove("active")
         );
 
     const next =
@@ -2620,20 +1980,10 @@ function showScreen(number){
     setTimeout(
         ()=>{
 
-            next.classList.add(
-                "active"
-            );
-
-            /*
-                Si la ceremonia ya empezó,
-                comprobamos que la música
-                siga reproduciéndose.
-            */
+            next.classList.add("active");
 
             if(number !== 1){
-
                 ensureBackgroundMusic();
-
             }
 
             if(
@@ -2654,9 +2004,7 @@ function showScreen(number){
 
 }
 
-/* ================================= */
-/* REGISTRO                          */
-/* ================================= */
+/* REGISTRO */
 
 function registerCitizen(){
 
@@ -2678,8 +2026,7 @@ function registerCitizen(){
             .value;
 
     const error =
-        document
-            .getElementById("formError");
+        document.getElementById("formError");
 
     error.textContent = "";
 
@@ -2695,14 +2042,9 @@ function registerCitizen(){
         return;
     }
 
-    participant.firstName =
-        firstName;
-
-    participant.lastName =
-        lastName;
-
-    participant.birthDate =
-        birthDate;
+    participant.firstName = firstName;
+    participant.lastName = lastName;
+    participant.birthDate = birthDate;
 
     participant.fullName =
         (
@@ -2724,40 +2066,27 @@ function updateParticipantUI(){
         "TRIBUTO DE PRUEBA";
 
     document
-        .getElementById(
-            "registeredName"
-        )
-        .textContent =
-        name;
+        .getElementById("registeredName")
+        .textContent = name;
 
     document
-        .getElementById(
-            "selectedTribute"
-        )
-        .textContent =
-        name;
+        .getElementById("selectedTribute")
+        .textContent = name;
 
     document
-        .getElementById(
-            "tributeGameName"
-        )
-        .textContent =
-        name;
+        .getElementById("tributeGameName")
+        .textContent = name;
 
 }
 
-/* ================================= */
-/* TERMINAL                          */
-/* ================================= */
+/* TERMINAL */
 
 function startRegistration(){
 
     showScreen(3);
 
     const terminal =
-        document.getElementById(
-            "terminal"
-        );
+        document.getElementById("terminal");
 
     terminal.innerHTML = "";
 
@@ -2781,16 +2110,12 @@ function startRegistration(){
         if(index < lines.length){
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
             div.textContent =
                 lines[index];
 
-            terminal.appendChild(
-                div
-            );
+            terminal.appendChild(div);
 
             index++;
 
@@ -2802,25 +2127,19 @@ function startRegistration(){
         }else{
 
             const last =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
-            last.className =
-                "cursor";
+            last.className = "cursor";
 
             last.textContent =
                 "> ACCESO CONCEDIDO";
 
-            terminal.appendChild(
-                last
-            );
+            terminal.appendChild(last);
 
             setTimeout(
                 ()=>{
 
                     flash();
-
                     showScreen(4);
 
                 },
@@ -2831,21 +2150,14 @@ function startRegistration(){
 
     }
 
-    setTimeout(
-        addLine,
-        400
-    );
+    setTimeout(addLine,400);
 
 }
 
-/* ================================= */
-/* COSECHA                           */
-/* ================================= */
+/* COSECHA */
 
 function prepareReaping(){
-
     showScreen(5);
-
 }
 
 function startCountdown(){
@@ -2853,14 +2165,11 @@ function startCountdown(){
     showScreen(6);
 
     const count =
-        document.getElementById(
-            "count"
-        );
+        document.getElementById("count");
 
     let number = 3;
 
-    count.textContent =
-        number;
+    count.textContent = number;
 
     const timer =
         setInterval(
@@ -2875,9 +2184,7 @@ function startCountdown(){
 
                 }else{
 
-                    clearInterval(
-                        timer
-                    );
+                    clearInterval(timer);
 
                     count.textContent = "";
 
@@ -3017,9 +2324,7 @@ function finishReaping(){
 
 }
 
-/* ================================= */
-/* MISIÓN                            */
-/* ================================= */
+/* MISIÓN */
 
 function beginMission(){
 
@@ -3029,7 +2334,6 @@ function beginMission(){
         ()=>{
 
             initializeMap();
-
             startTracking();
 
         },
@@ -3038,9 +2342,7 @@ function beginMission(){
 
 }
 
-/* ================================= */
-/* MAPA                              */
-/* ================================= */
+/* MAPA */
 
 function initializeMap(){
 
@@ -3079,11 +2381,6 @@ function initializeMap(){
         }
     ).addTo(map);
 
-    /*
-        El marcador de la Arena utiliza
-        también el símbolo del Capitolio.
-    */
-
     const arenaIcon =
         L.divIcon(
             {
@@ -3120,9 +2417,7 @@ function initializeMap(){
 
 }
 
-/* ================================= */
-/* GPS                               */
-/* ================================= */
+/* GPS */
 
 function startTracking(){
 
@@ -3256,31 +2551,21 @@ function locationSuccess(position){
 
 }
 
-/* ================================= */
-/* ARENA                             */
-/* ================================= */
+/* ARENA */
 
-function processArenaDistance(
-    distance
-){
+function processArenaDistance(distance){
 
     if(
-        distance <=
-        PERIMETER_RADIUS &&
+        distance <= PERIMETER_RADIUS &&
         !perimeterReached
     ){
 
-        perimeterReached =
-            true;
+        perimeterReached = true;
 
         flash();
 
         setTimeout(
-            ()=>{
-
-                showScreen(12);
-
-            },
+            ()=>showScreen(12),
             350
         );
 
@@ -3295,8 +2580,7 @@ function processArenaDistance(
     }
 
     if(
-        distance <=
-        ENTRANCE_RADIUS &&
+        distance <= ENTRANCE_RADIUS &&
         !entranceUnlocked
     ){
 
@@ -3306,9 +2590,7 @@ function processArenaDistance(
 
 }
 
-function updateAccessDistance(
-    distance
-){
+function updateAccessDistance(distance){
 
     const element =
         document.getElementById(
@@ -3318,9 +2600,7 @@ function updateAccessDistance(
     if(distance >= 1000){
 
         element.textContent =
-            (
-                distance / 1000
-            ).toFixed(1)
+            (distance / 1000).toFixed(1)
             +
             " km";
 
@@ -3337,8 +2617,7 @@ function updateAccessDistance(
 
 function unlockEntrance(){
 
-    entranceUnlocked =
-        true;
+    entranceUnlocked = true;
 
     const button =
         document.getElementById(
@@ -3350,21 +2629,16 @@ function unlockEntrance(){
             "arenaLockStatus"
         );
 
-    button.disabled =
-        false;
+    button.disabled = false;
 
     status.textContent =
         "🔓 ACCESO CONFIRMADO";
 
-    status.classList.add(
-        "open"
-    );
+    status.classList.add("open");
 
     flash();
 
-    if(
-        "vibrate" in navigator
-    ){
+    if("vibrate" in navigator){
 
         navigator.vibrate(
             [120,80,220]
@@ -3386,38 +2660,26 @@ function enterArena(){
     flash();
 
     setTimeout(
-        ()=>{
-
-            showScreen(13);
-
-        },
+        ()=>showScreen(13),
         300
     );
 
 }
 
-/* ================================= */
-/* JUEGOS                            */
-/* ================================= */
+/* JUEGOS */
 
 function startGames(){
 
     flash();
 
     setTimeout(
-        ()=>{
-
-            showScreen(14);
-
-        },
+        ()=>showScreen(14),
         350
     );
 
 }
 
-/* ================================= */
-/* MAPA JUGADOR                      */
-/* ================================= */
+/* MAPA JUGADOR */
 
 function updateMap(
     latitude,
@@ -3516,20 +2778,15 @@ function updateMap(
             }
         );
 
-        firstPosition =
-            false;
+        firstPosition = false;
 
     }
 
 }
 
-/* ================================= */
-/* DISTANCIA                         */
-/* ================================= */
+/* DISTANCIA */
 
-function updateDistanceDisplay(
-    distance
-){
+function updateDistanceDisplay(distance){
 
     const element =
         document.getElementById(
@@ -3539,9 +2796,7 @@ function updateDistanceDisplay(
     if(distance >= 1000){
 
         element.textContent =
-            (
-                distance / 1000
-            ).toFixed(1)
+            (distance / 1000).toFixed(1)
             +
             " km";
 
@@ -3563,8 +2818,7 @@ function calculateDistance(
     lon2
 ){
 
-    const earthRadius =
-        6371000;
+    const earthRadius = 6371000;
 
     const phi1 =
         lat1 * Math.PI / 180;
@@ -3573,39 +2827,27 @@ function calculateDistance(
         lat2 * Math.PI / 180;
 
     const deltaLat =
-        (
-            lat2 - lat1
-        )
+        (lat2-lat1)
         *
         Math.PI / 180;
 
     const deltaLon =
-        (
-            lon2 - lon1
-        )
+        (lon2-lon1)
         *
         Math.PI / 180;
 
     const a =
-        Math.sin(
-            deltaLat / 2
-        )
+        Math.sin(deltaLat/2)
         *
-        Math.sin(
-            deltaLat / 2
-        )
+        Math.sin(deltaLat/2)
         +
         Math.cos(phi1)
         *
         Math.cos(phi2)
         *
-        Math.sin(
-            deltaLon / 2
-        )
+        Math.sin(deltaLon/2)
         *
-        Math.sin(
-            deltaLon / 2
-        );
+        Math.sin(deltaLon/2);
 
     const c =
         2
@@ -3615,14 +2857,11 @@ function calculateDistance(
             Math.sqrt(1-a)
         );
 
-    return
-        earthRadius * c;
+    return earthRadius * c;
 
 }
 
-/* ================================= */
-/* APPLE MAPS                        */
-/* ================================= */
+/* APPLE MAPS */
 
 function openRoute(){
 
@@ -3652,9 +2891,7 @@ function openRoute(){
 
 }
 
-/* ================================= */
-/* ERROR GPS                         */
-/* ================================= */
+/* ERROR GPS */
 
 function locationFailure(error){
 
@@ -3687,9 +2924,7 @@ function locationFailure(error){
 
 }
 
-/* ================================= */
-/* FLASH                             */
-/* ================================= */
+/* FLASH */
 
 function flash(){
 
@@ -3698,29 +2933,20 @@ function flash(){
             "flash"
         );
 
-    element.classList.remove(
-        "go"
-    );
+    element.classList.remove("go");
 
     void element.offsetWidth;
 
-    element.classList.add(
-        "go"
-    );
+    element.classList.add("go");
 
 }
 
-/* ================================= */
-/* ADMIN OCULTO                      */
-/* ================================= */
+/* ADMIN OCULTO */
 
-let adminHoldTimer =
-    null;
+let adminHoldTimer = null;
 
 document
-    .querySelectorAll(
-        ".admin-trigger"
-    )
+    .querySelectorAll(".admin-trigger")
     .forEach(
         trigger => {
 
@@ -3766,11 +2992,7 @@ function startAdminHold(){
 
     adminHoldTimer =
         setTimeout(
-            ()=>{
-
-                openAdmin();
-
-            },
+            ()=>openAdmin(),
             3000
         );
 
@@ -3778,16 +3000,13 @@ function startAdminHold(){
 
 function cancelAdminHold(){
 
-    if(
-        adminHoldTimer !== null
-    ){
+    if(adminHoldTimer !== null){
 
         clearTimeout(
             adminHoldTimer
         );
 
-        adminHoldTimer =
-            null;
+        adminHoldTimer = null;
 
     }
 
@@ -3799,9 +3018,7 @@ function openAdmin(){
         .getElementById(
             "adminOverlay"
         )
-        .classList.add(
-            "open"
-        );
+        .classList.add("open");
 
     document
         .getElementById(
@@ -3823,9 +3040,7 @@ function closeAdmin(){
         .getElementById(
             "adminOverlay"
         )
-        .classList.remove(
-            "open"
-        );
+        .classList.remove("open");
 
 }
 
@@ -3838,10 +3053,7 @@ function unlockAdmin(){
             )
             .value;
 
-    if(
-        pin !==
-        ADMIN_PIN
-    ){
+    if(pin !== ADMIN_PIN){
 
         document
             .getElementById(
@@ -3851,7 +3063,6 @@ function unlockAdmin(){
             "ACCESO DENEGADO";
 
         return;
-
     }
 
     document
@@ -3921,9 +3132,7 @@ function updateGPSAdminButton(){
 
 }
 
-/* ================================= */
-/* ADMIN NAVEGACIÓN                  */
-/* ================================= */
+/* ADMIN NAVEGACIÓN */
 
 function adminGo(screen){
 
@@ -3970,22 +3179,16 @@ function adminMap(){
 
 function adminPerimeter(){
 
-    gpsBypass =
-        true;
+    gpsBypass = true;
 
     updateGPSAdminButton();
 
-    perimeterReached =
-        true;
-
-    entranceUnlocked =
-        false;
+    perimeterReached = true;
+    entranceUnlocked = false;
 
     prepareLockedEntrance();
 
-    updateAccessDistance(
-        80
-    );
+    updateAccessDistance(80);
 
     closeAdmin();
 
@@ -3995,22 +3198,16 @@ function adminPerimeter(){
 
 function adminEntrance(){
 
-    gpsBypass =
-        true;
+    gpsBypass = true;
 
     updateGPSAdminButton();
 
-    perimeterReached =
-        true;
-
-    entranceUnlocked =
-        false;
+    perimeterReached = true;
+    entranceUnlocked = false;
 
     prepareLockedEntrance();
 
-    updateAccessDistance(
-        3
-    );
+    updateAccessDistance(3);
 
     unlockEntrance();
 
@@ -4032,8 +3229,7 @@ function prepareLockedEntrance(){
             "arenaLockStatus"
         );
 
-    button.disabled =
-        true;
+    button.disabled = true;
 
     status.textContent =
         "🔒 ACCESO BLOQUEADO";
@@ -4044,28 +3240,20 @@ function prepareLockedEntrance(){
 
 }
 
-/* ================================= */
-/* SIMULACIÓN GPS                    */
-/* ================================= */
+/* SIMULACIÓN GPS */
 
 function simulatePerimeter(){
 
-    gpsBypass =
-        true;
+    gpsBypass = true;
 
     updateGPSAdminButton();
 
-    perimeterReached =
-        true;
-
-    entranceUnlocked =
-        false;
+    perimeterReached = true;
+    entranceUnlocked = false;
 
     prepareLockedEntrance();
 
-    updateAccessDistance(
-        80
-    );
+    updateAccessDistance(80);
 
     closeAdmin();
 
@@ -4075,22 +3263,16 @@ function simulatePerimeter(){
 
 function simulateNearEntrance(){
 
-    gpsBypass =
-        true;
+    gpsBypass = true;
 
     updateGPSAdminButton();
 
-    perimeterReached =
-        true;
-
-    entranceUnlocked =
-        false;
+    perimeterReached = true;
+    entranceUnlocked = false;
 
     prepareLockedEntrance();
 
-    updateAccessDistance(
-        20
-    );
+    updateAccessDistance(20);
 
     closeAdmin();
 
@@ -4100,22 +3282,16 @@ function simulateNearEntrance(){
 
 function simulateExactEntrance(){
 
-    gpsBypass =
-        true;
+    gpsBypass = true;
 
     updateGPSAdminButton();
 
-    perimeterReached =
-        true;
-
-    entranceUnlocked =
-        false;
+    perimeterReached = true;
+    entranceUnlocked = false;
 
     prepareLockedEntrance();
 
-    updateAccessDistance(
-        3
-    );
+    updateAccessDistance(3);
 
     unlockEntrance();
 
@@ -4125,31 +3301,19 @@ function simulateExactEntrance(){
 
 }
 
-/* ================================= */
-/* RESET                             */
-/* ================================= */
+/* RESET */
 
 function resetGame(){
 
-    if(
-        watchID !== null
-    ){
+    if(watchID !== null){
 
         navigator.geolocation.clearWatch(
             watchID
         );
 
-        watchID =
-            null;
+        watchID = null;
 
     }
-
-    /*
-        Al restablecer la partida
-        detenemos la música porque
-        volvemos a estar ANTES de
-        pulsar Iniciar ceremonia.
-    */
 
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
@@ -4161,17 +3325,12 @@ function resetGame(){
         fullName:""
     };
 
-    perimeterReached =
-        false;
+    perimeterReached = false;
+    entranceUnlocked = false;
 
-    entranceUnlocked =
-        false;
+    gpsBypass = false;
 
-    gpsBypass =
-        false;
-
-    firstPosition =
-        true;
+    firstPosition = true;
 
     document
         .getElementById(
@@ -4201,9 +3360,7 @@ function resetGame(){
 
 }
 
-/* ================================= */
-/* PIN CON ENTER                     */
-/* ================================= */
+/* PIN ENTER */
 
 document
     .getElementById(
@@ -4213,10 +3370,7 @@ document
         "keydown",
         event => {
 
-            if(
-                event.key ===
-                "Enter"
-            ){
+            if(event.key === "Enter"){
 
                 unlockAdmin();
 
