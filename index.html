@@ -51,7 +51,6 @@ body{
 .background{
     position:fixed;
     inset:0;
-
     background:
         radial-gradient(
             circle at 50% 35%,
@@ -63,7 +62,6 @@ body{
             #070707,
             #010101
         );
-
     z-index:0;
 }
 
@@ -73,7 +71,6 @@ body{
     opacity:.035;
     z-index:1;
     pointer-events:none;
-
     background-image:
         repeating-linear-gradient(
             0deg,
@@ -88,7 +85,6 @@ body{
     inset:0;
     pointer-events:none;
     z-index:2;
-
     box-shadow:
         inset 0 0 120px rgba(0,0,0,.9);
 }
@@ -136,7 +132,7 @@ body{
 }
 
 /* ================================= */
-/* ESCUDO                            */
+/* SÍMBOLO CAPITOLIO                 */
 /* ================================= */
 
 .capitol-symbol{
@@ -173,6 +169,18 @@ body{
         );
 
     pointer-events:none;
+}
+
+.capitol-symbol.medium{
+    width:90px;
+    height:90px;
+    margin-bottom:24px;
+}
+
+.capitol-symbol.small-symbol{
+    width:65px;
+    height:65px;
+    margin-bottom:20px;
 }
 
 @keyframes emblemEntrance{
@@ -287,7 +295,6 @@ button{
 
 button:active{
     transform:scale(.96);
-
     background:
         rgba(190,150,70,.1);
 }
@@ -628,10 +635,6 @@ button:disabled{
         );
 }
 
-/* ================================= */
-/* FASE                              */
-/* ================================= */
-
 .phase-number{
     font-family:'Cinzel',serif;
 
@@ -697,12 +700,12 @@ button:disabled{
 }
 
 /* ================================= */
-/* MARCADORES                        */
+/* MARCADOR ARENA                    */
 /* ================================= */
 
 .arena-marker{
-    width:38px;
-    height:38px;
+    width:46px;
+    height:46px;
 
     border-radius:50%;
 
@@ -710,15 +713,11 @@ button:disabled{
         1px solid #d0ad5c;
 
     background:
-        rgba(10,10,10,.9);
+        rgba(10,10,10,.92);
 
     display:flex;
     align-items:center;
     justify-content:center;
-
-    color:#d0ad5c;
-
-    font-size:17px;
 
     box-shadow:
         0 0 18px
@@ -726,6 +725,17 @@ button:disabled{
 
     animation:
         arenaPulse 1.8s infinite;
+}
+
+.arena-marker img{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+
+    filter:
+        sepia(1)
+        saturate(.8)
+        brightness(1.1);
 }
 
 @keyframes arenaPulse{
@@ -861,16 +871,8 @@ button:disabled{
 }
 
 /* ================================= */
-/* LLEGADA / ACCESO                  */
+/* LLEGADA                           */
 /* ================================= */
-
-.unlock-icon{
-    font-size:45px;
-
-    color:#d3b36b;
-
-    margin-bottom:25px;
-}
 
 .unlock{
     font-family:'Cinzel',serif;
@@ -928,38 +930,7 @@ button:disabled{
 }
 
 /* ================================= */
-/* BRIEFING                          */
-/* ================================= */
-
-.briefing-symbol{
-    width:70px;
-    height:70px;
-
-    border:
-        1px solid
-        rgba(208,173,92,.55);
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    margin-bottom:25px;
-
-    font-family:'Cinzel',serif;
-
-    color:#d0ad5c;
-
-    font-size:25px;
-
-    box-shadow:
-        0 0 30px
-        rgba(208,173,92,.08);
-}
-
-/* ================================= */
-/* DISTRITO / ALIJO                  */
+/* DISTRITO                          */
 /* ================================= */
 
 .district-card{
@@ -1012,6 +983,35 @@ button:disabled{
     font-size:12px;
 
     line-height:1.7;
+}
+
+/* ================================= */
+/* BRÚJULA PROVISIONAL               */
+/* ================================= */
+
+.compass{
+    width:210px;
+    height:210px;
+
+    border:
+        1px solid
+        rgba(208,173,92,.45);
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:10px;
+
+    position:relative;
+}
+
+.compass-arrow{
+    font-size:55px;
+    color:#d0ad5c;
+    transform:rotate(25deg);
 }
 
 /* ================================= */
@@ -1242,18 +1242,13 @@ button:disabled{
     color:#d0ad5c;
 }
 
-.admin-close{
-    width:100%;
-    margin-top:20px;
-}
-
 .admin-danger{
     border-color:#6b4b3c !important;
     color:#a47c68 !important;
 }
 
 /* ================================= */
-/* PEQUEÑAS                          */
+/* PANTALLAS PEQUEÑAS                */
 /* ================================= */
 
 @media(max-height:750px){
@@ -1271,6 +1266,18 @@ button:disabled{
         width:85px;
         height:85px;
         margin-bottom:18px;
+    }
+
+    .capitol-symbol.medium{
+        width:68px;
+        height:68px;
+        margin-bottom:15px;
+    }
+
+    .capitol-symbol.small-symbol{
+        width:55px;
+        height:55px;
+        margin-bottom:13px;
     }
 
     .map-frame{
@@ -1317,8 +1324,14 @@ button:disabled{
 <body>
 
 <!-- ================================= -->
-<!-- AUDIO                             -->
+<!-- AUDIO GLOBAL                     -->
 <!-- ================================= -->
+
+<!--
+    Esta música comienza con el primer
+    toque del usuario y permanece en loop
+    durante TODA la experiencia.
+-->
 
 <audio
     id="backgroundMusic"
@@ -1351,7 +1364,7 @@ button:disabled{
 ></div>
 
 <!-- ================================= -->
-<!-- 1 · COSECHA                       -->
+<!-- 1 · LA COSECHA                    -->
 <!-- ================================= -->
 
 <section
@@ -1363,7 +1376,7 @@ button:disabled{
 
         <img
             src="capitolio.png.webp"
-            alt="Capitolio"
+            alt="Símbolo del Capitolio"
         >
 
     </div>
@@ -1404,7 +1417,7 @@ button:disabled{
 </section>
 
 <!-- ================================= -->
-<!-- 2 · REGISTRO                      -->
+<!-- 2 · IDENTIFICACIÓN                -->
 <!-- ================================= -->
 
 <section
@@ -1521,7 +1534,7 @@ button:disabled{
 </section>
 
 <!-- ================================= -->
-<!-- 4 · REGISTRO OK                   -->
+<!-- 4 · REGISTRO                      -->
 <!-- ================================= -->
 
 <section
@@ -1676,8 +1689,10 @@ button:disabled{
     </div>
 
     <p class="text">
+
         El Capitolio está procesando
         el registro de ciudadanos.
+
     </p>
 
 </section>
@@ -1797,7 +1812,7 @@ button:disabled{
 
         <img
             src="capitolio.png.webp"
-            alt="Capitolio"
+            alt="Símbolo del Capitolio"
         >
 
     </div>
@@ -1830,9 +1845,9 @@ button:disabled{
 
         <br><br>
 
-        Al alcanzar el perímetro,
-        el acceso a la Arena
-        será desbloqueado.
+        Al alcanzar el perímetro
+        podrás aproximarte
+        al acceso de la Arena.
 
     </p>
 
@@ -1927,8 +1942,13 @@ button:disabled{
     id="screen12"
 >
 
-    <div class="unlock-icon">
-        ◆
+    <div class="capitol-symbol medium admin-trigger">
+
+        <img
+            src="capitolio.png.webp"
+            alt="Símbolo del Capitolio"
+        >
+
     </div>
 
     <div class="small">
@@ -1995,8 +2015,13 @@ button:disabled{
     id="screen13"
 >
 
-    <div class="briefing-symbol">
-        ◆
+    <div class="capitol-symbol medium admin-trigger">
+
+        <img
+            src="capitolio.png.webp"
+            alt="Símbolo del Capitolio"
+        >
+
     </div>
 
     <div class="small">
@@ -2019,9 +2044,11 @@ button:disabled{
         <br><br>
 
         Algunos
+
         <span class="gold">
             Distritos
         </span>
+
         han decidido enviar ayuda
         a los tributos, ocultando
         suministros en distintos
@@ -2053,13 +2080,22 @@ button:disabled{
 </section>
 
 <!-- ================================= -->
-<!-- 14 · PRIMER DISTRITO              -->
+<!-- 14 · DISTRITO 04                  -->
 <!-- ================================= -->
 
 <section
     class="screen"
     id="screen14"
 >
+
+    <div class="capitol-symbol small-symbol admin-trigger">
+
+        <img
+            src="capitolio.png.webp"
+            alt="Símbolo del Capitolio"
+        >
+
+    </div>
 
     <div class="small">
         Transmisión recibida
@@ -2107,13 +2143,22 @@ button:disabled{
 </section>
 
 <!-- ================================= -->
-<!-- 15 · BRÚJULA PROVISIONAL          -->
+<!-- 15 · BRÚJULA                      -->
 <!-- ================================= -->
 
 <section
     class="screen"
     id="screen15"
 >
+
+    <div class="capitol-symbol small-symbol admin-trigger">
+
+        <img
+            src="capitolio.png.webp"
+            alt="Símbolo del Capitolio"
+        >
+
+    </div>
 
     <div class="phase-number">
         SUMINISTRO ACTIVO
@@ -2131,27 +2176,9 @@ button:disabled{
 
     <div class="line"></div>
 
-    <div
-        style="
-            width:210px;
-            height:210px;
-            border:1px solid rgba(208,173,92,.45);
-            border-radius:50%;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            margin-top:10px;
-            position:relative;
-        "
-    >
+    <div class="compass">
 
-        <div
-            style="
-                font-size:55px;
-                color:#d0ad5c;
-                transform:rotate(25deg);
-            "
-        >
+        <div class="compass-arrow">
             ↑
         </div>
 
@@ -2167,15 +2194,13 @@ button:disabled{
 
     <p class="text">
 
-        La brújula del Capitolio
-        se activará aquí.
+        La señal del Distrito
+        ha sido detectada.
 
         <br><br>
 
-        En el siguiente paso
-        conectaremos esta pantalla
-        con las coordenadas reales
-        del primer alijo.
+        Sigue la dirección indicada
+        para localizar el suministro.
 
     </p>
 
@@ -2191,6 +2216,18 @@ button:disabled{
 >
 
     <div class="admin-box">
+
+        <div
+            class="capitol-symbol small-symbol"
+            style="margin-left:auto;margin-right:auto;"
+        >
+
+            <img
+                src="capitolio.png.webp"
+                alt="Símbolo del Capitolio"
+            >
+
+        </div>
 
         <div class="admin-title">
             CAPITOLIO
@@ -2390,18 +2427,8 @@ const ARENA_LATITUDE =
 const ARENA_LONGITUDE =
     -15.6882469;
 
-/*
-    A 100 metros se considera
-    alcanzado el perímetro.
-*/
-
 const PERIMETER_RADIUS =
     100;
-
-/*
-    Aproximadamente a 5 metros
-    se permite entrar.
-*/
 
 const ENTRANCE_RADIUS =
     5;
@@ -2433,7 +2460,7 @@ let gpsBypass = false;
 let currentScreen = 1;
 
 /* ================================= */
-/* AUDIO                             */
+/* AUDIO GLOBAL                      */
 /* ================================= */
 
 const backgroundMusic =
@@ -2449,6 +2476,26 @@ const clickSound =
 backgroundMusic.volume = 0.30;
 clickSound.volume = 0.50;
 
+/*
+    Mantiene Horn of Plenty activa
+    durante toda la experiencia una
+    vez iniciada.
+*/
+
+function ensureBackgroundMusic(){
+
+    if(
+        backgroundMusic.paused
+    ){
+
+        backgroundMusic
+            .play()
+            .catch(()=>{});
+
+    }
+
+}
+
 function playClick(){
 
     try{
@@ -2463,6 +2510,11 @@ function playClick(){
 
 }
 
+/*
+    Todos los botones mantienen la
+    música y reproducen Click.mp3.
+*/
+
 document
     .querySelectorAll("button")
     .forEach(
@@ -2470,20 +2522,40 @@ document
 
             button.addEventListener(
                 "click",
-                playClick
+                ()=>{
+
+                    playClick();
+
+                    /*
+                        La música solo podrá arrancar
+                        después de la ceremonia.
+                    */
+
+                    if(
+                        currentScreen !== 1
+                    ){
+
+                        ensureBackgroundMusic();
+
+                    }
+
+                }
             );
 
         }
     );
 
 /* ================================= */
-/* INICIO                            */
+/* INICIO CEREMONIA                  */
 /* ================================= */
 
 function beginCeremony(){
 
     backgroundMusic.volume =
         0.30;
+
+    backgroundMusic.loop =
+        true;
 
     backgroundMusic
         .play()
@@ -2551,6 +2623,18 @@ function showScreen(number){
             next.classList.add(
                 "active"
             );
+
+            /*
+                Si la ceremonia ya empezó,
+                comprobamos que la música
+                siga reproduciéndose.
+            */
+
+            if(number !== 1){
+
+                ensureBackgroundMusic();
+
+            }
 
             if(
                 number === 11 &&
@@ -2640,17 +2724,23 @@ function updateParticipantUI(){
         "TRIBUTO DE PRUEBA";
 
     document
-        .getElementById("registeredName")
+        .getElementById(
+            "registeredName"
+        )
         .textContent =
         name;
 
     document
-        .getElementById("selectedTribute")
+        .getElementById(
+            "selectedTribute"
+        )
         .textContent =
         name;
 
     document
-        .getElementById("tributeGameName")
+        .getElementById(
+            "tributeGameName"
+        )
         .textContent =
         name;
 
@@ -2730,6 +2820,7 @@ function startRegistration(){
                 ()=>{
 
                     flash();
+
                     showScreen(4);
 
                 },
@@ -2938,6 +3029,7 @@ function beginMission(){
         ()=>{
 
             initializeMap();
+
             startTracking();
 
         },
@@ -2987,14 +3079,21 @@ function initializeMap(){
         }
     ).addTo(map);
 
+    /*
+        El marcador de la Arena utiliza
+        también el símbolo del Capitolio.
+    */
+
     const arenaIcon =
         L.divIcon(
             {
                 className:"",
                 html:
-                    '<div class="arena-marker">◆</div>',
-                iconSize:[38,38],
-                iconAnchor:[19,19]
+                    '<div class="arena-marker">' +
+                    '<img src="capitolio.png.webp" alt="">' +
+                    '</div>',
+                iconSize:[46,46],
+                iconAnchor:[23,23]
             }
         );
 
@@ -3015,7 +3114,7 @@ function initializeMap(){
         {
             permanent:true,
             direction:"top",
-            offset:[0,-20]
+            offset:[0,-24]
         }
     );
 
@@ -3158,17 +3257,16 @@ function locationSuccess(position){
 }
 
 /* ================================= */
-/* LÓGICA ARENA                      */
+/* ARENA                             */
 /* ================================= */
 
-function processArenaDistance(distance){
-
-    /*
-        Antes de alcanzar el perímetro.
-    */
+function processArenaDistance(
+    distance
+){
 
     if(
-        distance <= PERIMETER_RADIUS &&
+        distance <=
+        PERIMETER_RADIUS &&
         !perimeterReached
     ){
 
@@ -3188,12 +3286,6 @@ function processArenaDistance(distance){
 
     }
 
-    /*
-        Si ya estamos dentro del
-        perímetro seguimos mostrando
-        la distancia al acceso.
-    */
-
     if(perimeterReached){
 
         updateAccessDistance(
@@ -3202,13 +3294,9 @@ function processArenaDistance(distance){
 
     }
 
-    /*
-        Cuando estamos suficientemente
-        cerca desbloqueamos la entrada.
-    */
-
     if(
-        distance <= ENTRANCE_RADIUS &&
+        distance <=
+        ENTRANCE_RADIUS &&
         !entranceUnlocked
     ){
 
@@ -3218,7 +3306,9 @@ function processArenaDistance(distance){
 
 }
 
-function updateAccessDistance(distance){
+function updateAccessDistance(
+    distance
+){
 
     const element =
         document.getElementById(
@@ -3296,14 +3386,18 @@ function enterArena(){
     flash();
 
     setTimeout(
-        ()=>showScreen(13),
+        ()=>{
+
+            showScreen(13);
+
+        },
         300
     );
 
 }
 
 /* ================================= */
-/* INICIAR JUEGOS                    */
+/* JUEGOS                            */
 /* ================================= */
 
 function startGames(){
@@ -3311,7 +3405,11 @@ function startGames(){
     flash();
 
     setTimeout(
-        ()=>showScreen(14),
+        ()=>{
+
+            showScreen(14);
+
+        },
         350
     );
 
@@ -3613,10 +3711,11 @@ function flash(){
 }
 
 /* ================================= */
-/* ADMIN · PULSACIÓN OCULTA          */
+/* ADMIN OCULTO                      */
 /* ================================= */
 
-let adminHoldTimer = null;
+let adminHoldTimer =
+    null;
 
 document
     .querySelectorAll(
@@ -3679,7 +3778,9 @@ function startAdminHold(){
 
 function cancelAdminHold(){
 
-    if(adminHoldTimer !== null){
+    if(
+        adminHoldTimer !== null
+    ){
 
         clearTimeout(
             adminHoldTimer
@@ -3691,10 +3792,6 @@ function cancelAdminHold(){
     }
 
 }
-
-/* ================================= */
-/* ADMIN                             */
-/* ================================= */
 
 function openAdmin(){
 
@@ -3741,7 +3838,10 @@ function unlockAdmin(){
             )
             .value;
 
-    if(pin !== ADMIN_PIN){
+    if(
+        pin !==
+        ADMIN_PIN
+    ){
 
         document
             .getElementById(
@@ -3751,6 +3851,7 @@ function unlockAdmin(){
             "ACCESO DENEGADO";
 
         return;
+
     }
 
     document
@@ -3774,6 +3875,25 @@ function toggleGPSBypass(){
     gpsBypass =
         !gpsBypass;
 
+    updateGPSAdminButton();
+
+    if(
+        gpsBypass &&
+        watchID !== null
+    ){
+
+        navigator.geolocation.clearWatch(
+            watchID
+        );
+
+        watchID = null;
+
+    }
+
+}
+
+function updateGPSAdminButton(){
+
     const button =
         document.getElementById(
             "gpsBypassButton"
@@ -3787,16 +3907,6 @@ function toggleGPSBypass(){
         button.classList.add(
             "active"
         );
-
-        if(watchID !== null){
-
-            navigator.geolocation.clearWatch(
-                watchID
-            );
-
-            watchID = null;
-
-        }
 
     }else{
 
@@ -3812,7 +3922,7 @@ function toggleGPSBypass(){
 }
 
 /* ================================= */
-/* ADMIN · NAVEGACIÓN                */
+/* ADMIN NAVEGACIÓN                  */
 /* ================================= */
 
 function adminGo(screen){
@@ -3910,35 +4020,6 @@ function adminEntrance(){
 
 }
 
-function updateGPSAdminButton(){
-
-    const button =
-        document.getElementById(
-            "gpsBypassButton"
-        );
-
-    if(gpsBypass){
-
-        button.textContent =
-            "IGNORADAS";
-
-        button.classList.add(
-            "active"
-        );
-
-    }else{
-
-        button.textContent =
-            "ACTIVAS";
-
-        button.classList.remove(
-            "active"
-        );
-
-    }
-
-}
-
 function prepareLockedEntrance(){
 
     const button =
@@ -3964,7 +4045,7 @@ function prepareLockedEntrance(){
 }
 
 /* ================================= */
-/* ADMIN · SIMULACIÓN GPS            */
+/* SIMULACIÓN GPS                    */
 /* ================================= */
 
 function simulatePerimeter(){
@@ -4045,20 +4126,33 @@ function simulateExactEntrance(){
 }
 
 /* ================================= */
-/* ADMIN · RESET                     */
+/* RESET                             */
 /* ================================= */
 
 function resetGame(){
 
-    if(watchID !== null){
+    if(
+        watchID !== null
+    ){
 
         navigator.geolocation.clearWatch(
             watchID
         );
 
-        watchID = null;
+        watchID =
+            null;
 
     }
+
+    /*
+        Al restablecer la partida
+        detenemos la música porque
+        volvemos a estar ANTES de
+        pulsar Iniciar ceremonia.
+    */
+
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
 
     participant = {
         firstName:"",
@@ -4119,7 +4213,10 @@ document
         "keydown",
         event => {
 
-            if(event.key === "Enter"){
+            if(
+                event.key ===
+                "Enter"
+            ){
 
                 unlockAdmin();
 
