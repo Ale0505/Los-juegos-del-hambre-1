@@ -66,10 +66,6 @@ body{
     box-shadow:inset 0 0 120px rgba(0,0,0,.9);
 }
 
-/* ========================= */
-/* PANTALLAS                 */
-/* ========================= */
-
 .screen{
     position:absolute;
     inset:0;
@@ -93,10 +89,6 @@ body{
     pointer-events:auto;
     transform:scale(1);
 }
-
-/* ========================= */
-/* CAPITOLIO                 */
-/* ========================= */
 
 .capitol-symbol{
     width:125px;
@@ -144,7 +136,6 @@ body{
         transform:scale(.75);
         filter:blur(10px);
     }
-
     100%{
         opacity:1;
         transform:scale(1);
@@ -156,10 +147,6 @@ body{
     0%,100%{transform:scale(1);}
     50%{transform:scale(1.025);}
 }
-
-/* ========================= */
-/* TEXTO                     */
-/* ========================= */
 
 .small{
     color:#81745a;
@@ -215,10 +202,6 @@ h2{
     margin-bottom:12px;
 }
 
-/* ========================= */
-/* BOTONES                   */
-/* ========================= */
-
 button{
     margin-top:30px;
     min-width:220px;
@@ -248,9 +231,20 @@ button:disabled{
     color:#6d6659;
 }
 
-/* ========================= */
-/* FORMULARIO                */
-/* ========================= */
+.double-buttons{
+    width:min(100%,400px);
+    display:flex;
+    gap:10px;
+    margin-top:25px;
+}
+
+.double-buttons button{
+    flex:1;
+    min-width:0;
+    margin-top:0;
+    padding:15px 10px;
+    letter-spacing:1.5px;
+}
 
 .registration-box{
     width:min(100%,410px);
@@ -293,22 +287,13 @@ button:disabled{
     border-color:#b89b58;
 }
 
-.form-input::placeholder{
-    color:#454545;
-}
-
 .form-error{
     min-height:16px;
     margin-top:12px;
     text-align:center;
     color:#a98e55;
     font-size:10px;
-    line-height:1.5;
 }
-
-/* ========================= */
-/* TERMINAL                  */
-/* ========================= */
 
 .terminal{
     width:min(100%,390px);
@@ -336,10 +321,6 @@ button:disabled{
 @keyframes blink{
     50%{opacity:0;}
 }
-
-/* ========================= */
-/* IDENTIDAD                 */
-/* ========================= */
 
 .identity{
     width:min(100%,400px);
@@ -374,22 +355,15 @@ button:disabled{
     color:#b89b58;
 }
 
-/* ========================= */
-/* COSECHA                   */
-/* ========================= */
-
 .reaping-box{
     width:min(100%,410px);
     height:165px;
     margin-top:28px;
-    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
-    overflow:hidden;
     border-top:1px solid rgba(173,143,76,.35);
     border-bottom:1px solid rgba(173,143,76,.35);
-    background:rgba(255,255,255,.01);
 }
 
 .random-name{
@@ -397,12 +371,6 @@ button:disabled{
     color:#c5a75f;
     font-size:clamp(21px,6vw,30px);
     letter-spacing:2px;
-    transition:.15s;
-}
-
-.random-name.switching{
-    opacity:.25;
-    transform:scale(.96);
 }
 
 .number{
@@ -423,12 +391,7 @@ button:disabled{
     font-size:clamp(35px,10vw,60px);
 }
 
-/* ========================= */
-/* MAPA                      */
-/* ========================= */
-
 .map-frame{
-    position:relative;
     width:min(100%,430px);
     height:300px;
     margin-top:22px;
@@ -446,33 +409,21 @@ button:disabled{
     filter:grayscale(1) brightness(.55) contrast(1.15) sepia(.15);
 }
 
-.leaflet-control-attribution{
-    font-size:7px!important;
-    background:rgba(0,0,0,.7)!important;
-    color:#777!important;
-}
-
-.leaflet-control-attribution a{
-    color:#9d8754!important;
-}
-
 .arena-marker{
     width:46px;
     height:46px;
     border-radius:50%;
     border:1px solid #d0ad5c;
-    background:rgba(10,10,10,.92);
+    background:#090909;
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:0 0 18px rgba(208,173,92,.65);
 }
 
 .arena-marker img{
     width:32px;
     height:32px;
     object-fit:contain;
-    filter:sepia(1) saturate(.8) brightness(1.1);
 }
 
 .player-marker{
@@ -481,14 +432,10 @@ button:disabled{
     border-radius:50%;
     background:#fff;
     border:4px solid #a88b4c;
-    box-shadow:0 0 15px rgba(255,255,255,.7);
 }
 
-/* ========================= */
-/* GPS                       */
-/* ========================= */
-
-.location-panel{
+.location-panel,
+.access-panel{
     width:min(100%,430px);
     margin-top:14px;
     padding:18px;
@@ -496,11 +443,11 @@ button:disabled{
     background:rgba(255,255,255,.015);
 }
 
-.gps-status{
+.gps-status,
+.access-distance-label{
     font-size:9px;
     letter-spacing:2px;
     color:#81745a;
-    text-transform:uppercase;
 }
 
 .distance-label{
@@ -508,15 +455,14 @@ button:disabled{
     font-size:8px;
     letter-spacing:3px;
     color:#666;
-    text-transform:uppercase;
 }
 
-.distance{
+.distance,
+.access-distance{
     margin-top:7px;
     font-family:'Cinzel',serif;
     color:#d3b36b;
-    font-size:32px;
-    letter-spacing:2px;
+    font-size:30px;
 }
 
 .accuracy{
@@ -537,27 +483,13 @@ button:disabled{
     min-width:0;
     margin-top:0;
     padding:13px 8px;
-    letter-spacing:1.5px;
 }
-
-.error-message{
-    max-width:400px;
-    margin-top:10px;
-    color:#a98e55;
-    font-size:11px;
-    line-height:1.6;
-}
-
-/* ========================= */
-/* BRÚJULA                   */
-/* ========================= */
 
 .approach-navigation{
     width:min(100%,400px);
     margin-top:15px;
     padding:15px;
     border:1px solid rgba(173,143,76,.22);
-    background:rgba(255,255,255,.01);
     display:flex;
     align-items:center;
     gap:17px;
@@ -570,8 +502,6 @@ button:disabled{
     flex:0 0 92px;
     border-radius:50%;
     border:1px solid rgba(208,173,92,.45);
-    background:
-        radial-gradient(circle,rgba(208,173,92,.04),transparent 65%);
 }
 
 .approach-compass::before{
@@ -610,7 +540,6 @@ button:disabled{
     margin-top:-31px;
     transform-origin:50% 50%;
     transition:transform .18s linear;
-    z-index:5;
 }
 
 .arrow-tip{
@@ -623,17 +552,15 @@ button:disabled{
     border-left:7px solid transparent;
     border-right:7px solid transparent;
     border-bottom:25px solid #d0ad5c;
-    filter:drop-shadow(0 0 6px rgba(208,173,92,.5));
 }
 
 .arrow-tail{
     position:absolute;
     top:26px;
     left:50%;
-    transform:translateX(-50%);
     width:2px;
     height:25px;
-    background:linear-gradient(to bottom,#a88b4c,rgba(168,139,76,.15));
+    background:#a88b4c;
 }
 
 .compass-center{
@@ -645,7 +572,6 @@ button:disabled{
     height:8px;
     border-radius:50%;
     background:#d0ad5c;
-    z-index:6;
 }
 
 .approach-info{
@@ -656,9 +582,7 @@ button:disabled{
 .approach-label{
     color:#625a48;
     font-size:8px;
-    line-height:1.5;
     letter-spacing:2.5px;
-    text-transform:uppercase;
 }
 
 .approach-instruction{
@@ -666,7 +590,6 @@ button:disabled{
     font-family:'Cinzel',serif;
     color:#c9aa61;
     font-size:13px;
-    line-height:1.45;
 }
 
 .approach-sensor{
@@ -675,36 +598,11 @@ button:disabled{
     font-size:8px;
 }
 
-/* ========================= */
-/* ACCESO / ALIJO            */
-/* ========================= */
-
 .unlock{
     font-family:'Cinzel',serif;
     font-size:28px;
     letter-spacing:3px;
     color:#d3b36b;
-}
-
-.access-panel{
-    width:min(100%,400px);
-    margin-top:18px;
-    padding:16px;
-    border:1px solid rgba(173,143,76,.28);
-    background:rgba(255,255,255,.015);
-}
-
-.access-distance-label{
-    color:#686868;
-    font-size:8px;
-    letter-spacing:3px;
-}
-
-.access-distance{
-    margin-top:7px;
-    color:#d0ad5c;
-    font-family:'Cinzel',serif;
-    font-size:28px;
 }
 
 .lock-status{
@@ -723,14 +621,12 @@ button:disabled{
     margin-top:25px;
     padding:24px 20px;
     border:1px solid rgba(173,143,76,.35);
-    background:rgba(255,255,255,.015);
 }
 
 .district-number{
     color:#d0ad5c;
     font-family:'Cinzel',serif;
     font-size:52px;
-    letter-spacing:4px;
 }
 
 .transmission{
@@ -738,7 +634,6 @@ button:disabled{
     color:#7e735b;
     font-size:9px;
     letter-spacing:3px;
-    text-transform:uppercase;
 }
 
 .supply-status{
@@ -750,23 +645,17 @@ button:disabled{
     line-height:1.7;
 }
 
-/* ========================= */
-/* CÓDIGO MEDALLA            */
-/* ========================= */
-
 .code-panel{
     width:min(100%,400px);
     margin-top:20px;
     padding:22px;
     border:1px solid rgba(173,143,76,.3);
-    background:rgba(255,255,255,.015);
 }
 
 .code-label{
     font-size:8px;
     letter-spacing:3px;
     color:#77694b;
-    text-transform:uppercase;
 }
 
 .code-input{
@@ -788,7 +677,6 @@ button:disabled{
     margin-top:12px;
     color:#8d7650;
     font-size:9px;
-    letter-spacing:2px;
 }
 
 .success-mark{
@@ -797,10 +685,6 @@ button:disabled{
     color:#d0ad5c;
     margin:15px 0;
 }
-
-/* ========================= */
-/* FLASH                     */
-/* ========================= */
 
 .flash{
     position:fixed;
@@ -821,10 +705,6 @@ button:disabled{
     100%{opacity:0;}
 }
 
-/* ========================= */
-/* ADMIN                     */
-/* ========================= */
-
 .admin-overlay{
     position:fixed;
     inset:0;
@@ -834,7 +714,6 @@ button:disabled{
     justify-content:center;
     padding:25px 20px;
     background:rgba(0,0,0,.95);
-    overflow-y:auto;
 }
 
 .admin-overlay.open{
@@ -846,14 +725,12 @@ button:disabled{
     border:1px solid rgba(208,173,92,.45);
     padding:25px 20px;
     background:#050505;
-    text-align:center;
 }
 
 .admin-title{
     font-family:'Cinzel',serif;
     color:#d0ad5c;
     font-size:20px;
-    letter-spacing:3px;
 }
 
 .admin-pin input{
@@ -864,15 +741,11 @@ button:disabled{
     background:#000;
     border:1px solid #756139;
     color:#d0ad5c;
-    font-size:18px;
-    letter-spacing:8px;
 }
 
 .admin-error{
     min-height:15px;
     margin-top:10px;
-    color:#a47c68;
-    font-size:10px;
 }
 
 .admin-content{
@@ -896,29 +769,13 @@ button:disabled{
     margin:0;
     padding:11px 5px;
     font-size:8px;
-    letter-spacing:1px;
 }
 
-/* ========================= */
-/* RESPONSIVE                */
-/* ========================= */
-
 @media(max-height:750px){
-
     .capitol-symbol{
         width:80px;
         height:80px;
         margin-bottom:16px;
-    }
-
-    .capitol-symbol.medium{
-        width:65px;
-        height:65px;
-    }
-
-    .capitol-symbol.small-symbol{
-        width:50px;
-        height:50px;
     }
 
     .map-frame{
@@ -929,18 +786,6 @@ button:disabled{
         font-size:13px;
         line-height:1.55;
     }
-
-    .approach-compass{
-        width:75px;
-        height:75px;
-        flex-basis:75px;
-    }
-
-    .district-card{
-        margin-top:15px;
-        padding:17px;
-    }
-
 }
 
 </style>
@@ -962,9 +807,7 @@ button:disabled{
 <div class="flash" id="flash"></div>
 
 
-<!-- =============================================== -->
-<!-- 1 · INICIO                                      -->
-<!-- =============================================== -->
+<!-- 1 -->
 
 <section class="screen active" id="screen1">
 
@@ -972,9 +815,7 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Capitolio · Registro oficial
-    </div>
+    <div class="small">Capitolio · Registro oficial</div>
 
     <h1>LA COSECHA</h1>
 
@@ -988,22 +829,16 @@ button:disabled{
         El registro para la ceremonia ya está abierto.
     </p>
 
-    <button onclick="beginCeremony()">
-        Iniciar ceremonia
-    </button>
+    <button onclick="beginCeremony()">Iniciar ceremonia</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 2 · REGISTRO                                    -->
-<!-- =============================================== -->
+<!-- 2 -->
 
 <section class="screen" id="screen2">
 
-    <div class="small">
-        Registro de ciudadanos
-    </div>
+    <div class="small">Registro de ciudadanos</div>
 
     <h2>IDENTIFICACIÓN</h2>
 
@@ -1028,49 +863,35 @@ button:disabled{
 
     <div class="form-error" id="formError"></div>
 
-    <button onclick="registerCitizen()">
-        Registrar ciudadano
-    </button>
+    <button onclick="registerCitizen()">Registrar ciudadano</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 3 · VERIFICACIÓN                                -->
-<!-- =============================================== -->
+<!-- 3 -->
 
 <section class="screen" id="screen3">
 
-    <div class="small">
-        Sistema central · Capitolio
-    </div>
+    <div class="small">Sistema central · Capitolio</div>
 
     <div class="terminal" id="terminal"></div>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 4 · REGISTRADO                                  -->
-<!-- =============================================== -->
+<!-- 4 -->
 
 <section class="screen" id="screen4">
 
-    <div class="small">
-        Registro completado
-    </div>
+    <div class="small">Registro completado</div>
 
     <h2>CIUDADANO REGISTRADO</h2>
 
     <div class="identity">
 
-        <div class="identity-label">
-            CIUDADANO
-        </div>
+        <div class="identity-label">CIUDADANO</div>
 
-        <div class="identity-name" id="registeredName">
-            ---
-        </div>
+        <div class="identity-name" id="registeredName">---</div>
 
         <div class="status">
             ESTADO · <span>ELEGIBLE</span>
@@ -1078,22 +899,16 @@ button:disabled{
 
     </div>
 
-    <button onclick="showScreen(5)">
-        Acceder a la Cosecha
-    </button>
+    <button onclick="showScreen(5)">Acceder a la Cosecha</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 5 · COSECHA                                     -->
-<!-- =============================================== -->
+<!-- 5 -->
 
 <section class="screen" id="screen5">
 
-    <div class="small">
-        Ceremonia oficial
-    </div>
+    <div class="small">Ceremonia oficial</div>
 
     <h1>LA COSECHA</h1>
 
@@ -1107,93 +922,63 @@ button:disabled{
         El resultado será definitivo.
     </p>
 
-    <button onclick="startCountdown()">
-        Iniciar selección
-    </button>
+    <button onclick="startCountdown()">Iniciar selección</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 6 · CUENTA ATRÁS                                -->
-<!-- =============================================== -->
+<!-- 6 -->
 
 <section class="screen" id="screen6">
 
-    <div class="small">
-        Iniciando Cosecha
-    </div>
+    <div class="small">Iniciando Cosecha</div>
 
-    <div class="number" id="count">
-        3
-    </div>
+    <div class="number" id="count">3</div>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 7 · SELECCIÓN                                   -->
-<!-- =============================================== -->
+<!-- 7 -->
 
 <section class="screen" id="screen7">
 
-    <div class="small">
-        Selección en curso
-    </div>
+    <div class="small">Selección en curso</div>
 
     <h2>SELECCIONANDO TRIBUTO</h2>
 
     <div class="reaping-box">
-        <div class="random-name" id="randomName">
-            ---
-        </div>
+        <div class="random-name" id="randomName">---</div>
     </div>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 8 · TRIBUTO                                     -->
-<!-- =============================================== -->
+<!-- 8 -->
 
 <section class="screen" id="screen8">
 
-    <div class="warning">
-        ⚠ SELECCIÓN FINALIZADA
-    </div>
+    <div class="warning">⚠ SELECCIÓN FINALIZADA</div>
 
-    <div class="small">
-        El tributo seleccionado es
-    </div>
+    <div class="small">El tributo seleccionado es</div>
 
-    <h1 class="final-title" id="selectedTribute">
-        ---
-    </h1>
+    <h1 class="final-title" id="selectedTribute">---</h1>
 
     <div class="status">
         ESTADO · <span>TRIBUTO CONFIRMADO</span>
     </div>
 
-    <button onclick="showScreen(9)">
-        Continuar
-    </button>
+    <button onclick="showScreen(9)">Continuar</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 9 · INTRODUCCIÓN                                -->
-<!-- =============================================== -->
+<!-- 9 -->
 
 <section class="screen" id="screen9">
 
-    <div class="small">
-        Tributo confirmado
-    </div>
+    <div class="small">Tributo confirmado</div>
 
-    <h1 class="final-title" id="tributeGameName">
-        ---
-    </h1>
+    <h1 class="final-title" id="tributeGameName">---</h1>
 
     <div class="line"></div>
 
@@ -1208,16 +993,12 @@ button:disabled{
         Completa todos los checkpoints para alcanzar el objetivo final.
     </p>
 
-    <button onclick="showScreen(10)">
-        Aceptar destino
-    </button>
+    <button onclick="showScreen(10)">Aceptar destino</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 10 · TRASLADO                                   -->
-<!-- =============================================== -->
+<!-- 10 -->
 
 <section class="screen" id="screen10">
 
@@ -1225,13 +1006,9 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Protocolo de traslado
-    </div>
+    <div class="small">Protocolo de traslado</div>
 
-    <h1>
-        LA ARENA<br>TE ESPERA
-    </h1>
+    <h1>LA ARENA<br>TE ESPERA</h1>
 
     <div class="line"></div>
 
@@ -1243,22 +1020,16 @@ button:disabled{
         Al alcanzar el perímetro podrás aproximarte al acceso de la Arena.
     </p>
 
-    <button onclick="beginMission()">
-        Mostrar destino
-    </button>
+    <button onclick="beginMission()">Mostrar destino</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 11 · MAPA                                       -->
-<!-- =============================================== -->
+<!-- 11 -->
 
 <section class="screen" id="screen11">
 
-    <div class="phase-number">
-        FASE I · TRASLADO
-    </div>
+    <div class="phase-number">FASE I · TRASLADO</div>
 
     <h2>LOCALIZA LA ARENA</h2>
 
@@ -1276,9 +1047,7 @@ button:disabled{
             DISTANCIA A LA ARENA
         </div>
 
-        <div class="distance" id="distance">
-            ---
-        </div>
+        <div class="distance" id="distance">---</div>
 
         <div class="accuracy" id="accuracy">
             Esperando señal GPS
@@ -1288,24 +1057,16 @@ button:disabled{
 
     <div class="map-buttons">
 
-        <button onclick="checkLocation()">
-            Actualizar
-        </button>
+        <button onclick="checkLocation()">Actualizar</button>
 
-        <button onclick="openRoute()">
-            Iniciar ruta
-        </button>
+        <button onclick="openRoute()">Iniciar ruta</button>
 
     </div>
-
-    <div class="error-message" id="locationError"></div>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 12 · ENTRADA EXACTA                             -->
-<!-- =============================================== -->
+<!-- 12 -->
 
 <section class="screen" id="screen12">
 
@@ -1313,13 +1074,9 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Perímetro alcanzado
-    </div>
+    <div class="small">Perímetro alcanzado</div>
 
-    <div class="unlock">
-        ARENA LOCALIZADA
-    </div>
+    <div class="unlock">ARENA LOCALIZADA</div>
 
     <div class="line"></div>
 
@@ -1333,9 +1090,7 @@ button:disabled{
             DISTANCIA AL ACCESO
         </div>
 
-        <div class="access-distance" id="accessDistance">
-            ---
-        </div>
+        <div class="access-distance" id="accessDistance">---</div>
 
         <div class="lock-status" id="arenaLockStatus">
             🔒 ACCESO BLOQUEADO
@@ -1384,9 +1139,7 @@ button:disabled{
 </section>
 
 
-<!-- =============================================== -->
-<!-- 13 · JUEGOS                                     -->
-<!-- =============================================== -->
+<!-- 13 -->
 
 <section class="screen" id="screen13">
 
@@ -1394,13 +1147,9 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Protocolo de supervivencia
-    </div>
+    <div class="small">Protocolo de supervivencia</div>
 
-    <h1>
-        LOS JUEGOS<br>HAN COMENZADO
-    </h1>
+    <h1>LOS JUEGOS<br>HAN COMENZADO</h1>
 
     <div class="line"></div>
 
@@ -1418,16 +1167,12 @@ button:disabled{
         </span>
     </p>
 
-    <button onclick="startGames()">
-        Comenzar los Juegos
-    </button>
+    <button onclick="startGames()">Comenzar los Juegos</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 14 · TRANSMISIÓN DISTRITO                       -->
-<!-- =============================================== -->
+<!-- 14 -->
 
 <section class="screen" id="screen14">
 
@@ -1435,27 +1180,17 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Transmisión recibida
-    </div>
+    <div class="small">Transmisión recibida</div>
 
-    <h2>
-        ENVÍO DE SUMINISTROS
-    </h2>
+    <h2>ENVÍO DE SUMINISTROS</h2>
 
     <div class="district-card">
 
-        <div class="transmission">
-            Señal procedente de
-        </div>
+        <div class="transmission">Señal procedente de</div>
 
-        <div class="district-number" id="transmissionDistrict">
-            01
-        </div>
+        <div class="district-number" id="transmissionDistrict">01</div>
 
-        <div class="transmission">
-            DISTRITO
-        </div>
+        <div class="transmission">DISTRITO</div>
 
         <div class="supply-status">
             Un Distrito ha decidido ayudarte.
@@ -1465,16 +1200,12 @@ button:disabled{
 
     </div>
 
-    <button onclick="locateCurrentCache()">
-        Localizar suministro
-    </button>
+    <button onclick="locateCurrentCache()">Localizar suministro</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 15 · LOCALIZACIÓN ALIJO                         -->
-<!-- =============================================== -->
+<!-- 15 -->
 
 <section class="screen" id="screen15">
 
@@ -1482,17 +1213,13 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="phase-number">
-        SUMINISTRO ACTIVO
-    </div>
+    <div class="phase-number">SUMINISTRO ACTIVO</div>
 
     <div class="small">
         DISTRITO <span id="cacheDistrict">01</span>
     </div>
 
-    <h1>
-        LOCALIZA<br>EL ALIJO
-    </h1>
+    <h1>LOCALIZA<br>EL ALIJO</h1>
 
     <div class="access-panel">
 
@@ -1524,17 +1251,13 @@ button:disabled{
 
         <div class="approach-info">
 
-            <div class="approach-label">
-                DIRECCIÓN AL ALIJO
-            </div>
+            <div class="approach-label">DIRECCIÓN AL ALIJO</div>
 
             <div class="approach-instruction" id="cacheInstruction">
                 ESPERANDO UBICACIÓN
             </div>
 
-            <div class="approach-sensor">
-                SEÑAL DEL DISTRITO
-            </div>
+            <div class="approach-sensor">SEÑAL DEL DISTRITO</div>
 
         </div>
 
@@ -1551,9 +1274,7 @@ button:disabled{
 </section>
 
 
-<!-- =============================================== -->
-<!-- 16 · CÓDIGO MEDALLA                             -->
-<!-- =============================================== -->
+<!-- 16 -->
 
 <section class="screen" id="screen16">
 
@@ -1561,9 +1282,7 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Suministro localizado
-    </div>
+    <div class="small">Suministro localizado</div>
 
     <h2>
         ALIJO DEL DISTRITO
@@ -1582,9 +1301,7 @@ button:disabled{
 
     <div class="code-panel">
 
-        <div class="code-label">
-            CÓDIGO DE LA MEDALLA
-        </div>
+        <div class="code-label">CÓDIGO DE LA MEDALLA</div>
 
         <input
             id="medalCode"
@@ -1600,16 +1317,12 @@ button:disabled{
 
     </div>
 
-    <button onclick="validateMedalCode()">
-        Verificar medalla
-    </button>
+    <button onclick="validateMedalCode()">Verificar medalla</button>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 17 · RECUPERADO                                 -->
-<!-- =============================================== -->
+<!-- 17 · ALIJO RECUPERADO -->
 
 <section class="screen" id="screen17">
 
@@ -1617,17 +1330,11 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Código confirmado
-    </div>
+    <div class="small">Código confirmado</div>
 
-    <div class="success-mark">
-        ✓
-    </div>
+    <div class="success-mark">✓</div>
 
-    <h2>
-        ALIJO RECUPERADO
-    </h2>
+    <h2>ALIJO RECUPERADO</h2>
 
     <div class="line"></div>
 
@@ -1641,16 +1348,24 @@ button:disabled{
         La medalla ha sido validada por el Capitolio.
     </p>
 
-    <button onclick="nextCache()">
-        Esperar nueva transmisión
-    </button>
+    <!-- NUEVOS BOTONES -->
+
+    <div class="double-buttons">
+
+        <button onclick="equipMedal()">
+            Equipar
+        </button>
+
+        <button onclick="nextCache()">
+            Siguiente alijo
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- =============================================== -->
-<!-- 18 · TODOS RECUPERADOS                          -->
-<!-- =============================================== -->
+<!-- 18 -->
 
 <section class="screen" id="screen18">
 
@@ -1658,13 +1373,9 @@ button:disabled{
         <img src="capitolio.png.webp">
     </div>
 
-    <div class="small">
-        Transmisión del Capitolio
-    </div>
+    <div class="small">Transmisión del Capitolio</div>
 
-    <h1>
-        TODOS LOS ALIJOS<br>RECUPERADOS
-    </h1>
+    <h1>TODOS LOS ALIJOS<br>RECUPERADOS</h1>
 
     <div class="line"></div>
 
@@ -1681,17 +1392,13 @@ button:disabled{
 </section>
 
 
-<!-- =============================================== -->
-<!-- ADMIN                                           -->
-<!-- =============================================== -->
+<!-- ADMIN -->
 
 <div class="admin-overlay" id="adminOverlay">
 
     <div class="admin-box">
 
-        <div class="admin-title">
-            CAPITOLIO
-        </div>
+        <div class="admin-title">CAPITOLIO</div>
 
         <div class="small" style="margin-top:10px">
             Administración
@@ -1709,13 +1416,8 @@ button:disabled{
 
             <div class="admin-error" id="adminError"></div>
 
-            <button onclick="unlockAdmin()">
-                Autorizar acceso
-            </button>
-
-            <button onclick="closeAdmin()">
-                Cancelar
-            </button>
+            <button onclick="unlockAdmin()">Autorizar acceso</button>
+            <button onclick="closeAdmin()">Cancelar</button>
 
         </div>
 
@@ -1723,9 +1425,7 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="small">
-                    Fases
-                </div>
+                <div class="small">Fases</div>
 
                 <div class="admin-grid">
 
@@ -1744,9 +1444,7 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="small">
-                    Probar Distritos
-                </div>
+                <div class="small">Probar Distritos</div>
 
                 <div class="admin-grid">
 
@@ -1764,13 +1462,8 @@ button:disabled{
 
                 <div class="admin-grid">
 
-                    <button onclick="resetGame()">
-                        Reiniciar partida
-                    </button>
-
-                    <button onclick="closeAdmin()">
-                        Cerrar
-                    </button>
+                    <button onclick="resetGame()">Reiniciar partida</button>
+                    <button onclick="closeAdmin()">Cerrar</button>
 
                 </div>
 
@@ -1785,36 +1478,28 @@ button:disabled{
 
 <script>
 
-/* ================================================= */
-/* CONFIGURACIÓN                                     */
-/* ================================================= */
-
-/*
-    COORDENADA ACTUAL DE LA ARENA.
-    NO ES DEFINITIVA.
-*/
+/* =============================== */
+/* CONFIGURACIÓN                   */
+/* =============================== */
 
 const ARENA_LATITUDE = 27.9252373;
 const ARENA_LONGITUDE = -15.3949688;
 
 const PERIMETER_RADIUS = 100;
 const ENTRANCE_RADIUS = 5;
-
 const CACHE_RADIUS = 5;
 
 const ADMIN_PIN = "017";
 
-/*
-    CLAVE UTILIZADA PARA GUARDAR LA PARTIDA
-    EN SAFARI / IPHONE.
-*/
-
 const SAVE_KEY = "capitolio_hunger_games_save_v1";
 
+const MEDAL_STORAGE_URL =
+    "https://ale0505.github.io/Almacenamiento-medallas/";
 
-/* ================================================= */
-/* DISTRITOS                                         */
-/* ================================================= */
+
+/* =============================== */
+/* DISTRITOS                       */
+/* =============================== */
 
 const DISTRICTS = [
 
@@ -1856,17 +1541,15 @@ const DISTRICTS = [
 ];
 
 
-/* ================================================= */
-/* ESTADO DEL JUEGO                                  */
-/* ================================================= */
+/* =============================== */
+/* ESTADO                          */
+/* =============================== */
 
 let participant = {
-
     firstName:"",
     lastName:"",
     birthDate:"",
     fullName:""
-
 };
 
 let currentScreen = 1;
@@ -1898,18 +1581,11 @@ let orientationEnabled = false;
 let firstPosition = true;
 
 
-/* ================================================= */
-/* GUARDADO AUTOMÁTICO                              */
-/* ================================================= */
+/* =============================== */
+/* GUARDAR                         */
+/* =============================== */
 
 function saveGame(){
-
-    /*
-        Las pantallas 3, 6 y 7 son animaciones.
-        Si se recarga justo ahí, guardamos una
-        pantalla estable para evitar quedarse
-        atrapado en mitad de una animación.
-    */
 
     let safeScreen = currentScreen;
 
@@ -1956,21 +1632,14 @@ function saveGame(){
             JSON.stringify(gameState)
         );
 
-    }catch(error){
-
-        console.log(
-            "No se pudo guardar la partida",
-            error
-        );
-
-    }
+    }catch(error){}
 
 }
 
 
-/* ================================================= */
-/* CARGAR PARTIDA                                    */
-/* ================================================= */
+/* =============================== */
+/* CARGAR                          */
+/* =============================== */
 
 function loadGame(){
 
@@ -1979,9 +1648,7 @@ function loadGame(){
     try{
 
         saved =
-            localStorage.getItem(
-                SAVE_KEY
-            );
+            localStorage.getItem(SAVE_KEY);
 
     }catch(error){
 
@@ -2021,28 +1688,20 @@ function loadGame(){
 
         }
 
-        if(
-            Number.isInteger(
-                data.currentCacheIndex
-            )
-        ){
+        if(Number.isInteger(data.currentCacheIndex)){
 
             currentCacheIndex =
                 Math.max(
                     0,
                     Math.min(
-                        DISTRICTS.length-1,
+                        DISTRICTS.length - 1,
                         data.currentCacheIndex
                     )
                 );
 
         }
 
-        if(
-            Array.isArray(
-                data.recoveredCaches
-            )
-        ){
+        if(Array.isArray(data.recoveredCaches)){
 
             recoveredCaches =
                 data.recoveredCaches;
@@ -2050,28 +1709,16 @@ function loadGame(){
         }
 
         perimeterReached =
-            Boolean(
-                data.perimeterReached
-            );
+            Boolean(data.perimeterReached);
 
         entranceUnlocked =
-            Boolean(
-                data.entranceUnlocked
-            );
+            Boolean(data.entranceUnlocked);
 
         cacheReached =
-            Boolean(
-                data.cacheReached
-            );
+            Boolean(data.cacheReached);
 
         currentScreen =
             Number(data.screen) || 1;
-
-        /*
-            Seguridad adicional:
-            nunca restauramos una pantalla
-            de animación.
-        */
 
         if(currentScreen === 3){
             currentScreen = 4;
@@ -2088,11 +1735,6 @@ function loadGame(){
 
     }catch(error){
 
-        console.log(
-            "Partida guardada dañada",
-            error
-        );
-
         return false;
 
     }
@@ -2100,88 +1742,54 @@ function loadGame(){
 }
 
 
-/* ================================================= */
-/* RESTAURAR INTERFAZ                                */
-/* ================================================= */
+/* =============================== */
+/* RESTAURAR                       */
+/* =============================== */
 
 function restoreGameInterface(){
 
     updateParticipantUI();
 
-    /*
-        Restauramos los campos del formulario
-        por si el jugador vuelve a esa pantalla.
-    */
-
-    document.getElementById(
-        "firstName"
-    ).value =
+    document.getElementById("firstName").value =
         participant.firstName;
 
-    document.getElementById(
-        "lastName"
-    ).value =
+    document.getElementById("lastName").value =
         participant.lastName;
 
-    document.getElementById(
-        "birthDate"
-    ).value =
+    document.getElementById("birthDate").value =
         participant.birthDate;
 
     prepareCurrentDistrict();
 
-    /*
-        Restauramos el acceso a la Arena.
-    */
-
     if(entranceUnlocked){
 
-        const button =
-            document.getElementById(
-                "enterArenaButton"
-            );
+        document.getElementById(
+            "enterArenaButton"
+        ).disabled = false;
 
-        const status =
-            document.getElementById(
-                "arenaLockStatus"
-            );
-
-        button.disabled = false;
-
-        status.textContent =
+        document.getElementById(
+            "arenaLockStatus"
+        ).textContent =
             "🔓 ACCESO CONFIRMADO";
 
-        status.classList.add(
-            "open"
-        );
+        document.getElementById(
+            "arenaLockStatus"
+        ).classList.add("open");
 
     }
 
-    /*
-        Quitamos active de todas y activamos
-        directamente la pantalla guardada.
-    */
+    document.querySelectorAll(".screen").forEach(screen=>{
+        screen.classList.remove("active");
+    });
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen=>{
-
-            screen.classList.remove(
-                "active"
-            );
-
-        });
-
-    const restoredScreen =
+    const restored =
         document.getElementById(
             "screen"+currentScreen
         );
 
-    if(restoredScreen){
+    if(restored){
 
-        restoredScreen.classList.add(
-            "active"
-        );
+        restored.classList.add("active");
 
     }else{
 
@@ -2189,16 +1797,9 @@ function restoreGameInterface(){
 
         document.getElementById(
             "screen1"
-        ).classList.add(
-            "active"
-        );
+        ).classList.add("active");
 
     }
-
-    /*
-        Si vuelve directamente a una pantalla
-        que necesita GPS, reactivamos el sistema.
-    */
 
     if(
         currentScreen === 11 ||
@@ -2206,55 +1807,43 @@ function restoreGameInterface(){
         currentScreen === 15
     ){
 
-        /*
-            En iPhone el permiso de orientación
-            puede necesitar de nuevo una pulsación,
-            pero el GPS sí puede arrancar.
-        */
-
         startTracking();
 
     }
 
     if(currentScreen === 11){
 
-        setTimeout(()=>{
-
-            initializeMap();
-
-        },400);
+        setTimeout(
+            initializeMap,
+            400
+        );
 
     }
 
     if(currentScreen === 15){
 
-        setTimeout(()=>{
-
-            updateCurrentCacheGPS();
-
-        },400);
+        setTimeout(
+            updateCurrentCacheGPS,
+            400
+        );
 
     }
 
 }
 
 
-/* ================================================= */
-/* AUDIO                                             */
-/* ================================================= */
+/* =============================== */
+/* AUDIO                           */
+/* =============================== */
 
 const backgroundMusic =
-    document.getElementById(
-        "backgroundMusic"
-    );
+    document.getElementById("backgroundMusic");
 
 const clickSound =
-    document.getElementById(
-        "clickSound"
-    );
+    document.getElementById("clickSound");
 
-backgroundMusic.volume = 0.30;
-clickSound.volume = 0.50;
+backgroundMusic.volume = .30;
+clickSound.volume = .50;
 
 function playClick(){
 
@@ -2262,9 +1851,7 @@ function playClick(){
 
         clickSound.currentTime = 0;
 
-        clickSound.play().catch(
-            ()=>{}
-        );
+        clickSound.play().catch(()=>{});
 
     }catch(error){}
 
@@ -2274,80 +1861,50 @@ function ensureBackgroundMusic(){
 
     if(backgroundMusic.paused){
 
-        backgroundMusic
-            .play()
-            .catch(()=>{});
+        backgroundMusic.play().catch(()=>{});
 
     }
 
 }
 
-document
-    .querySelectorAll("button")
-    .forEach(button=>{
+document.querySelectorAll("button").forEach(button=>{
 
-        button.addEventListener(
-            "click",
-            ()=>{
+    button.addEventListener("click",()=>{
 
-                playClick();
+        playClick();
 
-                /*
-                    Esto también permite que,
-                    si se ha restaurado una partida,
-                    la música vuelva a empezar en
-                    la primera interacción.
-                */
+        if(currentScreen !== 1){
 
-                if(currentScreen !== 1){
+            ensureBackgroundMusic();
 
-                    ensureBackgroundMusic();
-
-                }
-
-            }
-        );
+        }
 
     });
 
+});
+
 function beginCeremony(){
 
-    backgroundMusic.volume = 0.30;
-    backgroundMusic.loop = true;
-
-    backgroundMusic
-        .play()
-        .catch(()=>{});
+    backgroundMusic.play().catch(()=>{});
 
     showScreen(2);
 
 }
 
 
-/* ================================================= */
-/* PANTALLAS                                         */
-/* ================================================= */
+/* =============================== */
+/* PANTALLAS                       */
+/* =============================== */
 
 function showScreen(number){
 
     currentScreen = number;
 
-    /*
-        Guardamos ANTES de realizar
-        la transición visual.
-    */
-
     saveGame();
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen=>{
-
-            screen.classList.remove(
-                "active"
-            );
-
-        });
+    document.querySelectorAll(".screen").forEach(screen=>{
+        screen.classList.remove("active");
+    });
 
     setTimeout(()=>{
 
@@ -2358,22 +1915,11 @@ function showScreen(number){
 
         if(screen){
 
-            screen.classList.add(
-                "active"
-            );
+            screen.classList.add("active");
 
         }
 
-        if(number !== 1){
-
-            ensureBackgroundMusic();
-
-        }
-
-        if(
-            number === 11 &&
-            map
-        ){
+        if(number === 11 && map){
 
             setTimeout(
                 ()=>map.invalidateSize(),
@@ -2387,35 +1933,26 @@ function showScreen(number){
 }
 
 
-/* ================================================= */
-/* REGISTRO                                          */
-/* ================================================= */
+/* =============================== */
+/* REGISTRO                        */
+/* =============================== */
 
 function registerCitizen(){
 
     const firstName =
-        document
-            .getElementById("firstName")
-            .value
-            .trim();
+        document.getElementById(
+            "firstName"
+        ).value.trim();
 
     const lastName =
-        document
-            .getElementById("lastName")
-            .value
-            .trim();
+        document.getElementById(
+            "lastName"
+        ).value.trim();
 
     const birthDate =
-        document
-            .getElementById("birthDate")
-            .value;
-
-    const error =
         document.getElementById(
-            "formError"
-        );
-
-    error.textContent = "";
+            "birthDate"
+        ).value;
 
     if(
         !firstName ||
@@ -2423,28 +1960,22 @@ function registerCitizen(){
         !birthDate
     ){
 
-        error.textContent =
+        document.getElementById(
+            "formError"
+        ).textContent =
             "Todos los campos son obligatorios.";
 
         return;
 
     }
 
-    participant.firstName =
-        firstName;
-
-    participant.lastName =
-        lastName;
-
-    participant.birthDate =
-        birthDate;
+    participant.firstName = firstName;
+    participant.lastName = lastName;
+    participant.birthDate = birthDate;
 
     participant.fullName =
-        (
-            firstName+
-            " "+
-            lastName
-        ).toUpperCase();
+        (firstName+" "+lastName)
+        .toUpperCase();
 
     updateParticipantUI();
 
@@ -2462,53 +1993,41 @@ function updateParticipantUI(){
 
     document.getElementById(
         "registeredName"
-    ).textContent =
-        name;
+    ).textContent = name;
 
     document.getElementById(
         "selectedTribute"
-    ).textContent =
-        name;
+    ).textContent = name;
 
     document.getElementById(
         "tributeGameName"
-    ).textContent =
-        name;
+    ).textContent = name;
 
 }
 
 
-/* ================================================= */
-/* TERMINAL                                          */
-/* ================================================= */
+/* =============================== */
+/* TERMINAL                        */
+/* =============================== */
 
 function startRegistration(){
 
     showScreen(3);
 
     const terminal =
-        document.getElementById(
-            "terminal"
-        );
+        document.getElementById("terminal");
 
     terminal.innerHTML = "";
 
     const lines = [
 
         "> CONECTANDO CON EL CAPITOLIO...",
-
         "> VERIFICANDO IDENTIDAD...",
-
         "> CIUDADANO IDENTIFICADO",
-
         "> CONSULTANDO REGISTRO...",
-
         "> COMPROBANDO ELEGIBILIDAD...",
-
         "> ESTADO: ELEGIBLE",
-
         "> AÑADIENDO NOMBRE A LA COSECHA...",
-
         "> REGISTRO COMPLETADO"
 
     ];
@@ -2520,67 +2039,37 @@ function startRegistration(){
         if(i < lines.length){
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
-            div.textContent =
-                lines[i];
+            div.textContent = lines[i];
 
-            terminal.appendChild(
-                div
-            );
+            terminal.appendChild(div);
 
             i++;
 
-            setTimeout(
-                next,
-                400
-            );
+            setTimeout(next,400);
 
         }else{
 
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-            div.className =
-                "cursor";
-
-            div.textContent =
-                "> ACCESO CONCEDIDO";
-
-            terminal.appendChild(
-                div
+            setTimeout(
+                ()=>showScreen(4),
+                800
             );
-
-            setTimeout(()=>{
-
-                flash();
-
-                showScreen(4);
-
-            },1000);
 
         }
 
     }
 
-    setTimeout(
-        next,
-        400
-    );
+    next();
 
 }
 
 
-/* ================================================= */
-/* COSECHA                                           */
-/* ================================================= */
+/* =============================== */
+/* COSECHA                         */
+/* =============================== */
 
 const fakeNames = [
-
     "LUCÍA MENDOZA",
     "MARCOS VEGA",
     "CARLA MEDINA",
@@ -2590,13 +2079,7 @@ const fakeNames = [
     "ADRIÁN NAVARRO",
     "PAULA CABRERA",
     "IVÁN TORRES",
-    "CLAUDIA RAMOS",
-    "MARIO DELGADO",
-    "SARA MOLINA",
-    "HUGO MARTÍN",
-    "LAURA REYES",
-    "DIEGO ORTEGA"
-
+    "CLAUDIA RAMOS"
 ];
 
 function startCountdown(){
@@ -2606,12 +2089,9 @@ function startCountdown(){
     let number = 3;
 
     const display =
-        document.getElementById(
-            "count"
-        );
+        document.getElementById("count");
 
-    display.textContent =
-        number;
+    display.textContent = number;
 
     const timer =
         setInterval(()=>{
@@ -2625,19 +2105,9 @@ function startCountdown(){
 
             }else{
 
-                clearInterval(
-                    timer
-                );
+                clearInterval(timer);
 
-                display.textContent =
-                    "";
-
-                flash();
-
-                setTimeout(
-                    startReaping,
-                    400
-                );
+                startReaping();
 
             }
 
@@ -2658,58 +2128,35 @@ function startReaping(){
 
     function change(){
 
-        display.classList.add(
-            "switching"
-        );
+        display.textContent =
+            fakeNames[
+                Math.floor(
+                    Math.random()*
+                    fakeNames.length
+                )
+            ];
 
-        setTimeout(()=>{
+        count++;
 
-            display.textContent =
-                fakeNames[
-                    Math.floor(
-                        Math.random() *
-                        fakeNames.length
-                    )
-                ];
+        if(count < 22){
 
-            display.classList.remove(
-                "switching"
+            setTimeout(
+                change,
+                100+(count*15)
             );
 
-            count++;
+        }else{
 
-            if(count < 22){
+            display.textContent =
+                participant.fullName ||
+                "TRIBUTO";
 
-                const delay =
-                    70 +
-                    (count*18);
+            setTimeout(
+                ()=>showScreen(8),
+                1500
+            );
 
-                setTimeout(
-                    change,
-                    delay
-                );
-
-            }else{
-
-                setTimeout(()=>{
-
-                    display.textContent =
-                        participant.fullName ||
-                        "TRIBUTO";
-
-                    setTimeout(()=>{
-
-                        flash();
-
-                        showScreen(8);
-
-                    },1600);
-
-                },500);
-
-            }
-
-        },60);
+        }
 
     }
 
@@ -2718,9 +2165,9 @@ function startReaping(){
 }
 
 
-/* ================================================= */
-/* ORIENTACIÓN IPHONE                                */
-/* ================================================= */
+/* =============================== */
+/* ORIENTACIÓN                     */
+/* =============================== */
 
 async function requestOrientationPermission(){
 
@@ -2740,10 +2187,7 @@ async function requestOrientationPermission(){
                     await DeviceOrientationEvent
                         .requestPermission();
 
-                if(
-                    permission ===
-                    "granted"
-                ){
+                if(permission === "granted"){
 
                     enableOrientation();
 
@@ -2804,25 +2248,17 @@ function handleOrientation(event){
     }
 
     currentHeading =
-        normalizeAngle(
-            heading
-        );
-
-    document.getElementById(
-        "approachSensor"
-    ).textContent =
-        "SEÑAL DE ORIENTACIÓN ACTIVA";
+        normalizeAngle(heading);
 
     updateArenaCompass();
-
     updateCacheCompass();
 
 }
 
 
-/* ================================================= */
-/* INICIAR MISIÓN                                    */
-/* ================================================= */
+/* =============================== */
+/* MISIÓN                          */
+/* =============================== */
 
 async function beginMission(){
 
@@ -2833,7 +2269,6 @@ async function beginMission(){
     setTimeout(()=>{
 
         initializeMap();
-
         startTracking();
 
     },400);
@@ -2841,19 +2276,15 @@ async function beginMission(){
 }
 
 
-/* ================================================= */
-/* MAPA                                              */
-/* ================================================= */
+/* =============================== */
+/* MAPA                            */
+/* =============================== */
 
 function initializeMap(){
 
     if(map){
 
-        setTimeout(
-            ()=>map.invalidateSize(),
-            200
-        );
-
+        map.invalidateSize();
         return;
 
     }
@@ -2867,25 +2298,19 @@ function initializeMap(){
         );
 
     map.setView(
-
         [
             ARENA_LATITUDE,
             ARENA_LONGITUDE
         ],
-
         12
-
     );
 
     L.tileLayer(
-
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-
         {
             maxZoom:19,
             attribution:"&copy; OpenStreetMap"
         }
-
     ).addTo(map);
 
     const arenaIcon =
@@ -2899,31 +2324,27 @@ function initializeMap(){
                 '</div>',
 
             iconSize:[46,46],
-
             iconAnchor:[23,23]
 
         });
 
     arenaMarker =
         L.marker(
-
             [
                 ARENA_LATITUDE,
                 ARENA_LONGITUDE
             ],
-
             {
                 icon:arenaIcon
             }
-
         ).addTo(map);
 
 }
 
 
-/* ================================================= */
-/* GPS                                               */
-/* ================================================= */
+/* =============================== */
+/* GPS                             */
+/* =============================== */
 
 function startTracking(){
 
@@ -2934,9 +2355,7 @@ function startTracking(){
     if(watchID !== null){
 
         navigator.geolocation
-            .clearWatch(
-                watchID
-            );
+            .clearWatch(watchID);
 
     }
 
@@ -2946,7 +2365,7 @@ function startTracking(){
 
                 locationSuccess,
 
-                locationFailure,
+                ()=>{},
 
                 {
                     enableHighAccuracy:true,
@@ -2960,23 +2379,14 @@ function startTracking(){
 
 function checkLocation(){
 
-    if(!navigator.geolocation){
-        return;
-    }
-
     navigator.geolocation
         .getCurrentPosition(
-
             locationSuccess,
-
-            locationFailure,
-
+            ()=>{},
             {
                 enableHighAccuracy:true,
-                timeout:15000,
                 maximumAge:0
             }
-
         );
 
 }
@@ -3004,36 +2414,28 @@ function locationSuccess(position){
         Math.round(accuracy)+
         " m";
 
-    document.getElementById(
-        "locationError"
-    ).textContent =
-        "";
-
-    const arenaDistance =
+    const distance =
         calculateDistance(
-
             currentLatitude,
             currentLongitude,
-
             ARENA_LATITUDE,
             ARENA_LONGITUDE
-
         );
 
     arenaTargetBearing =
         calculateBearing(
-
             currentLatitude,
             currentLongitude,
-
             ARENA_LATITUDE,
             ARENA_LONGITUDE
-
         );
 
-    updateDistanceDisplay(
-        arenaDistance
-    );
+    document.getElementById(
+        "distance"
+    ).textContent =
+        distance >= 1000
+        ? (distance/1000).toFixed(1)+" km"
+        : Math.round(distance)+" m";
 
     updateMap(
         currentLatitude,
@@ -3042,9 +2444,7 @@ function locationSuccess(position){
 
     updateArenaCompass();
 
-    processArenaDistance(
-        arenaDistance
-    );
+    processArenaDistance(distance);
 
     if(currentScreen === 15){
 
@@ -3053,25 +2453,6 @@ function locationSuccess(position){
     }
 
 }
-
-function locationFailure(){
-
-    document.getElementById(
-        "locationStatus"
-    ).textContent =
-        "NO SE HA PODIDO LOCALIZAR";
-
-    document.getElementById(
-        "locationError"
-    ).textContent =
-        "Comprueba que Safari tiene permiso para acceder a tu ubicación.";
-
-}
-
-
-/* ================================================= */
-/* ACTUALIZAR MAPA                                   */
-/* ================================================= */
 
 function updateMap(lat,lon){
 
@@ -3088,7 +2469,6 @@ function updateMap(lat,lon){
                 '<div class="player-marker"></div>',
 
             iconSize:[18,18],
-
             iconAnchor:[9,9]
 
         });
@@ -3097,13 +2477,10 @@ function updateMap(lat,lon){
 
         playerMarker =
             L.marker(
-
                 [lat,lon],
-
                 {
                     icon:playerIcon
                 }
-
             ).addTo(map);
 
     }else{
@@ -3114,100 +2491,12 @@ function updateMap(lat,lon){
 
     }
 
-    if(routeLine){
-
-        map.removeLayer(
-            routeLine
-        );
-
-    }
-
-    routeLine =
-        L.polyline(
-
-            [
-
-                [lat,lon],
-
-                [
-                    ARENA_LATITUDE,
-                    ARENA_LONGITUDE
-                ]
-
-            ],
-
-            {
-                color:"#b79a58",
-                weight:1,
-                opacity:.55,
-                dashArray:"6,10"
-            }
-
-        ).addTo(map);
-
-    if(firstPosition){
-
-        const bounds =
-            L.latLngBounds(
-
-                [
-
-                    [lat,lon],
-
-                    [
-                        ARENA_LATITUDE,
-                        ARENA_LONGITUDE
-                    ]
-
-                ]
-
-            );
-
-        map.fitBounds(
-
-            bounds,
-
-            {
-                padding:[45,45]
-            }
-
-        );
-
-        firstPosition =
-            false;
-
-    }
-
 }
 
 
-/* ================================================= */
-/* DISTANCIA ARENA                                   */
-/* ================================================= */
-
-function updateDistanceDisplay(distance){
-
-    const element =
-        document.getElementById(
-            "distance"
-        );
-
-    if(distance >= 1000){
-
-        element.textContent =
-            (distance/1000)
-                .toFixed(1)+
-            " km";
-
-    }else{
-
-        element.textContent =
-            Math.round(distance)+
-            " m";
-
-    }
-
-}
+/* =============================== */
+/* ARENA                           */
+/* =============================== */
 
 function processArenaDistance(distance){
 
@@ -3216,17 +2505,11 @@ function processArenaDistance(distance){
         !perimeterReached
     ){
 
-        perimeterReached =
-            true;
+        perimeterReached = true;
 
         saveGame();
 
-        flash();
-
-        setTimeout(
-            ()=>showScreen(12),
-            350
-        );
+        showScreen(12);
 
     }
 
@@ -3235,8 +2518,7 @@ function processArenaDistance(distance){
         document.getElementById(
             "accessDistance"
         ).textContent =
-            Math.round(distance)+
-            " m";
+            Math.round(distance)+" m";
 
     }
 
@@ -3251,76 +2533,41 @@ function processArenaDistance(distance){
 
 }
 
-
-/* ================================================= */
-/* DESBLOQUEAR ENTRADA                               */
-/* ================================================= */
-
 function unlockEntrance(){
 
-    entranceUnlocked =
-        true;
-
-    const button =
-        document.getElementById(
-            "enterArenaButton"
-        );
-
-    const status =
-        document.getElementById(
-            "arenaLockStatus"
-        );
-
-    button.disabled =
-        false;
-
-    status.textContent =
-        "🔓 ACCESO CONFIRMADO";
-
-    status.classList.add(
-        "open"
-    );
+    entranceUnlocked = true;
 
     document.getElementById(
-        "approachInstruction"
+        "enterArenaButton"
+    ).disabled = false;
+
+    document.getElementById(
+        "arenaLockStatus"
     ).textContent =
-        "PUNTO DE ENTRADA ALCANZADO";
+        "🔓 ACCESO CONFIRMADO";
+
+    document.getElementById(
+        "arenaLockStatus"
+    ).classList.add("open");
 
     saveGame();
-
-    flash();
-
-    if(
-        "vibrate" in navigator
-    ){
-
-        navigator.vibrate(
-            [120,80,220]
-        );
-
-    }
 
 }
 
 function enterArena(){
 
-    if(!entranceUnlocked){
-        return;
+    if(entranceUnlocked){
+
+        showScreen(13);
+
     }
-
-    flash();
-
-    setTimeout(
-        ()=>showScreen(13),
-        300
-    );
 
 }
 
 
-/* ================================================= */
-/* BRÚJULA ARENA                                     */
-/* ================================================= */
+/* =============================== */
+/* BRÚJULA ARENA                   */
+/* =============================== */
 
 function updateArenaCompass(){
 
@@ -3333,47 +2580,31 @@ function updateArenaCompass(){
 
     const relative =
         normalizeAngle(
-
-            arenaTargetBearing -
-            currentHeading
-
+            arenaTargetBearing-currentHeading
         );
 
     document.getElementById(
         "approachCompassArrow"
     ).style.transform =
-        "rotate("+
-        relative+
-        "deg)";
+        "rotate("+relative+"deg)";
 
     document.getElementById(
         "approachInstruction"
     ).textContent =
-        getDirectionText(
-            relative,
-            "acceso"
-        );
+        getDirectionText(relative);
 
 }
 
 
-/* ================================================= */
-/* COMIENZO DE ALIJOS                                */
-/* ================================================= */
+/* =============================== */
+/* DISTRITOS                       */
+/* =============================== */
 
 function startGames(){
 
-    /*
-        Solo lo ponemos en 0 si todavía
-        no hay ningún progreso de alijos.
-    */
+    if(recoveredCaches.length === 0){
 
-    if(
-        recoveredCaches.length === 0
-    ){
-
-        currentCacheIndex =
-            0;
+        currentCacheIndex = 0;
 
     }
 
@@ -3381,19 +2612,9 @@ function startGames(){
 
     saveGame();
 
-    flash();
-
-    setTimeout(
-        ()=>showScreen(14),
-        350
-    );
+    showScreen(14);
 
 }
-
-
-/* ================================================= */
-/* ALIJO ACTUAL                                      */
-/* ================================================= */
 
 function getCurrentCache(){
 
@@ -3413,56 +2634,45 @@ function prepareCurrentDistrict(){
     }
 
     const number =
-        String(
-            cache.district
-        ).padStart(
-            2,
-            "0"
-        );
+        String(cache.district)
+        .padStart(2,"0");
 
     document.getElementById(
         "transmissionDistrict"
-    ).textContent =
-        number;
+    ).textContent = number;
 
     document.getElementById(
         "cacheDistrict"
-    ).textContent =
-        number;
+    ).textContent = number;
 
     document.getElementById(
         "codeDistrict"
-    ).textContent =
-        number;
+    ).textContent = number;
 
     document.getElementById(
         "recoveredDistrict"
-    ).textContent =
-        number;
+    ).textContent = number;
 
     document.getElementById(
         "medalCode"
-    ).value =
-        "";
+    ).value = "";
 
     document.getElementById(
         "codeMessage"
-    ).textContent =
-        "";
+    ).textContent = "";
 
 }
 
 
-/* ================================================= */
-/* LOCALIZAR ALIJO                                   */
-/* ================================================= */
+/* =============================== */
+/* LOCALIZAR ALIJO                 */
+/* =============================== */
 
 async function locateCurrentCache(){
 
     await requestOrientationPermission();
 
-    cacheReached =
-        false;
+    cacheReached = false;
 
     prepareCurrentDistrict();
 
@@ -3470,20 +2680,14 @@ async function locateCurrentCache(){
 
     showScreen(15);
 
-    setTimeout(()=>{
+    startTracking();
 
-        startTracking();
-
-        updateCurrentCacheGPS();
-
-    },300);
+    setTimeout(
+        updateCurrentCacheGPS,
+        300
+    );
 
 }
-
-
-/* ================================================= */
-/* GPS ALIJO                                         */
-/* ================================================= */
 
 function updateCurrentCacheGPS(){
 
@@ -3493,10 +2697,6 @@ function updateCurrentCacheGPS(){
     if(!cache){
         return;
     }
-
-    /*
-        TODAVÍA NO HAY COORDENADAS.
-    */
 
     if(
         cache.latitude === null ||
@@ -3514,14 +2714,6 @@ function updateCurrentCacheGPS(){
             "ESPERANDO UBICACIÓN";
 
         document.getElementById(
-            "cacheLocationMessage"
-        ).innerHTML =
-            "La ubicación del alijo del "+
-            "<span class='gold'>Distrito "+
-            cache.district+
-            "</span> todavía no ha sido asignada.";
-
-        document.getElementById(
             "testCacheButton"
         ).style.display =
             "block";
@@ -3529,11 +2721,6 @@ function updateCurrentCacheGPS(){
         return;
 
     }
-
-    /*
-        CUANDO AÑADAMOS LAS COORDENADAS,
-        EL BOTÓN DE SIMULACIÓN DESAPARECERÁ.
-    */
 
     document.getElementById(
         "testCacheButton"
@@ -3544,48 +2731,29 @@ function updateCurrentCacheGPS(){
         currentLatitude === null ||
         currentLongitude === null
     ){
-
-        document.getElementById(
-            "cacheDistance"
-        ).textContent =
-            "LOCALIZANDO...";
-
         return;
-
     }
 
     const distance =
         calculateDistance(
-
             currentLatitude,
             currentLongitude,
-
             cache.latitude,
             cache.longitude
-
         );
 
     cacheTargetBearing =
         calculateBearing(
-
             currentLatitude,
             currentLongitude,
-
             cache.latitude,
             cache.longitude
-
         );
 
     document.getElementById(
         "cacheDistance"
     ).textContent =
-        Math.round(distance)+
-        " m";
-
-    document.getElementById(
-        "cacheLocationMessage"
-    ).textContent =
-        "Sigue la señal del Distrito hasta localizar el suministro.";
+        Math.round(distance)+" m";
 
     updateCacheCompass();
 
@@ -3594,36 +2762,15 @@ function updateCurrentCacheGPS(){
         !cacheReached
     ){
 
-        cacheReached =
-            true;
+        cacheReached = true;
 
         saveGame();
 
-        flash();
-
-        if(
-            "vibrate" in navigator
-        ){
-
-            navigator.vibrate(
-                [120,80,220]
-            );
-
-        }
-
-        setTimeout(
-            ()=>showScreen(16),
-            500
-        );
+        showScreen(16);
 
     }
 
 }
-
-
-/* ================================================= */
-/* BRÚJULA ALIJO                                     */
-/* ================================================= */
 
 function updateCacheCompass(){
 
@@ -3636,139 +2783,69 @@ function updateCacheCompass(){
 
     const relative =
         normalizeAngle(
-
-            cacheTargetBearing -
-            currentHeading
-
+            cacheTargetBearing-currentHeading
         );
 
     document.getElementById(
         "cacheCompassArrow"
     ).style.transform =
-        "rotate("+
-        relative+
-        "deg)";
+        "rotate("+relative+"deg)";
 
     document.getElementById(
         "cacheInstruction"
     ).textContent =
-        getDirectionText(
-            relative,
-            "objetivo"
-        );
+        getDirectionText(relative);
 
 }
 
+function getDirectionText(angle){
 
-/* ================================================= */
-/* INDICACIONES                                      */
-/* ================================================= */
-
-function getDirectionText(
-    angle,
-    target
-){
-
-    const word =
-        target === "acceso"
-        ? "EL ACCESO"
-        : "EL OBJETIVO";
-
-    if(
-        angle <= 15 ||
-        angle >= 345
-    ){
-
+    if(angle <= 15 || angle >= 345){
         return "CONTINÚA DE FRENTE";
-
     }
 
-    if(
-        angle > 15 &&
-        angle < 70
-    ){
-
+    if(angle < 70){
         return "DESPLÁZATE HACIA LA DERECHA";
-
     }
 
-    if(
-        angle >= 70 &&
-        angle <= 110
-    ){
-
-        return word+
-            " ESTÁ A TU DERECHA";
-
+    if(angle <= 110){
+        return "EL OBJETIVO ESTÁ A TU DERECHA";
     }
 
-    if(
-        angle > 110 &&
-        angle < 165
-    ){
-
+    if(angle < 165){
         return "GIRA HACIA LA DERECHA";
-
     }
 
-    if(
-        angle >= 165 &&
-        angle <= 195
-    ){
-
-        return word+
-            " ESTÁ DETRÁS DE TI";
-
+    if(angle <= 195){
+        return "EL OBJETIVO ESTÁ DETRÁS DE TI";
     }
 
-    if(
-        angle > 195 &&
-        angle < 250
-    ){
-
+    if(angle < 250){
         return "GIRA HACIA LA IZQUIERDA";
-
     }
 
-    if(
-        angle >= 250 &&
-        angle <= 290
-    ){
-
-        return word+
-            " ESTÁ A TU IZQUIERDA";
-
+    if(angle <= 290){
+        return "EL OBJETIVO ESTÁ A TU IZQUIERDA";
     }
 
     return "DESPLÁZATE HACIA LA IZQUIERDA";
 
 }
 
-
-/* ================================================= */
-/* SIMULACIÓN ALIJO                                  */
-/* ================================================= */
-
 function simulateCacheFound(){
 
-    cacheReached =
-        true;
+    cacheReached = true;
 
     saveGame();
 
-    flash();
-
-    setTimeout(
-        ()=>showScreen(16),
-        400
-    );
+    showScreen(16);
 
 }
 
 
-/* ================================================= */
-/* VALIDAR MEDALLA                                   */
-/* ================================================= */
+/* =============================== */
+/* CÓDIGO MEDALLA                  */
+/* =============================== */
 
 function validateMedalCode(){
 
@@ -3788,7 +2865,7 @@ function validateMedalCode(){
     const enteredCode =
         input.value.trim();
 
-    if(enteredCode === ""){
+    if(!enteredCode){
 
         message.textContent =
             "INTRODUCE EL CÓDIGO DE LA MEDALLA";
@@ -3797,34 +2874,16 @@ function validateMedalCode(){
 
     }
 
-    if(
-        enteredCode !==
-        cache.code
-    ){
+    if(enteredCode !== cache.code){
 
         message.textContent =
             "ACCESO DENEGADO · CÓDIGO INCORRECTO";
 
-        input.value =
-            "";
-
-        if(
-            "vibrate" in navigator
-        ){
-
-            navigator.vibrate(
-                150
-            );
-
-        }
+        input.value = "";
 
         return;
 
     }
-
-    /*
-        CÓDIGO CORRECTO
-    */
 
     message.textContent =
         "CÓDIGO CONFIRMADO";
@@ -3844,62 +2903,75 @@ function validateMedalCode(){
     document.getElementById(
         "recoveredDistrict"
     ).textContent =
-        String(
-            cache.district
-        ).padStart(
-            2,
-            "0"
-        );
+        String(cache.district)
+        .padStart(2,"0");
+
+    /*
+        IMPORTANTE:
+        Guardamos que la medalla ya está
+        recuperada ANTES de pasar de pantalla.
+    */
 
     saveGame();
 
     flash();
 
-    if(
-        "vibrate" in navigator
-    ){
-
-        navigator.vibrate(
-            [100,60,100,60,250]
-        );
-
-    }
-
     setTimeout(
         ()=>showScreen(17),
-        600
+        500
     );
 
 }
 
 
-/* ================================================= */
-/* SIGUIENTE DISTRITO                                */
-/* ================================================= */
+/* =============================== */
+/* EQUIPAR MEDALLA                 */
+/* =============================== */
+
+function equipMedal(){
+
+    /*
+        No avanza al siguiente Distrito.
+        Solo guarda el progreso y abre
+        el almacén de medallas.
+    */
+
+    saveGame();
+
+    setTimeout(()=>{
+
+        window.location.href =
+            MEDAL_STORAGE_URL;
+
+    },120);
+
+}
+
+
+/* =============================== */
+/* SIGUIENTE ALIJO                 */
+/* =============================== */
 
 function nextCache(){
 
-    /*
-        Comprobación adicional:
-        el Distrito actual debe estar
-        marcado como recuperado.
-    */
-
     const current =
         getCurrentCache();
+
+    /*
+        Solo permite continuar si el código
+        del Distrito actual ya fue validado.
+    */
 
     if(
         !recoveredCaches.includes(
             current.district
         )
     ){
-
         return;
-
     }
 
     /*
-        SI ERA EL ÚLTIMO ALIJO
+        ÚLTIMO DISTRITO
     */
 
     if(
@@ -3909,28 +2981,21 @@ function nextCache(){
 
         saveGame();
 
-        flash();
-
-        setTimeout(
-            ()=>showScreen(18),
-            400
-        );
+        showScreen(18);
 
         return;
 
     }
 
     /*
-        AVANZAMOS AL SIGUIENTE
+        SIGUIENTE DISTRITO
     */
 
     currentCacheIndex++;
 
-    cacheReached =
-        false;
+    cacheReached = false;
 
-    cacheTargetBearing =
-        null;
+    cacheTargetBearing = null;
 
     prepareCurrentDistrict();
 
@@ -3940,15 +3005,15 @@ function nextCache(){
 
     setTimeout(
         ()=>showScreen(14),
-        450
+        400
     );
 
 }
 
 
-/* ================================================= */
-/* MATEMÁTICAS GPS                                   */
-/* ================================================= */
+/* =============================== */
+/* GPS MATEMÁTICAS                 */
+/* =============================== */
 
 function calculateDistance(
     lat1,
@@ -3957,8 +3022,7 @@ function calculateDistance(
     lon2
 ){
 
-    const R =
-        6371000;
+    const R = 6371000;
 
     const p1 =
         lat1*Math.PI/180;
@@ -3967,12 +3031,10 @@ function calculateDistance(
         lat2*Math.PI/180;
 
     const dp =
-        (lat2-lat1)*
-        Math.PI/180;
+        (lat2-lat1)*Math.PI/180;
 
     const dl =
-        (lon2-lon1)*
-        Math.PI/180;
+        (lon2-lon1)*Math.PI/180;
 
     const a =
         Math.sin(dp/2)*
@@ -4006,8 +3068,7 @@ function calculateBearing(
         lat2*Math.PI/180;
 
     const dl =
-        (lon2-lon1)*
-        Math.PI/180;
+        (lon2-lon1)*Math.PI/180;
 
     const y =
         Math.sin(dl)*
@@ -4022,13 +3083,8 @@ function calculateBearing(
         Math.cos(dl);
 
     return normalizeAngle(
-
-        Math.atan2(
-            y,
-            x
-        )*
+        Math.atan2(y,x)*
         180/Math.PI
-
     );
 
 }
@@ -4042,9 +3098,9 @@ function normalizeAngle(angle){
 }
 
 
-/* ================================================= */
-/* APPLE MAPS                                        */
-/* ================================================= */
+/* =============================== */
+/* APPLE MAPS                      */
+/* =============================== */
 
 function openRoute(){
 
@@ -4053,90 +3109,68 @@ function openRoute(){
         ","+
         ARENA_LONGITUDE;
 
-    const url =
-        "https://maps.apple.com/?daddr="+
-        destination+
-        "&dirflg=d";
-
     setTimeout(()=>{
 
         window.location.href =
-            url;
+            "https://maps.apple.com/?daddr="+
+            destination+
+            "&dirflg=d";
 
     },120);
 
 }
 
 
-/* ================================================= */
-/* FLASH                                             */
-/* ================================================= */
+/* =============================== */
+/* FLASH                           */
+/* =============================== */
 
 function flash(){
 
     const element =
-        document.getElementById(
-            "flash"
-        );
+        document.getElementById("flash");
 
-    element.classList.remove(
-        "go"
-    );
+    element.classList.remove("go");
 
     void element.offsetWidth;
 
-    element.classList.add(
-        "go"
-    );
+    element.classList.add("go");
 
 }
 
 
-/* ================================================= */
-/* ADMIN                                             */
-/* ================================================= */
+/* =============================== */
+/* ADMIN                           */
+/* =============================== */
 
-let adminHoldTimer =
-    null;
+let adminHoldTimer = null;
 
-document
-    .querySelectorAll(
-        ".admin-trigger"
-    )
-    .forEach(trigger=>{
+document.querySelectorAll(
+    ".admin-trigger"
+).forEach(trigger=>{
 
-        trigger.addEventListener(
-            "touchstart",
-            startAdminHold,
-            {passive:true}
-        );
+    trigger.addEventListener(
+        "touchstart",
+        startAdminHold,
+        {passive:true}
+    );
 
-        trigger.addEventListener(
-            "touchend",
-            cancelAdminHold
-        );
+    trigger.addEventListener(
+        "touchend",
+        cancelAdminHold
+    );
 
-        trigger.addEventListener(
-            "touchcancel",
-            cancelAdminHold
-        );
+    trigger.addEventListener(
+        "mousedown",
+        startAdminHold
+    );
 
-        trigger.addEventListener(
-            "mousedown",
-            startAdminHold
-        );
+    trigger.addEventListener(
+        "mouseup",
+        cancelAdminHold
+    );
 
-        trigger.addEventListener(
-            "mouseup",
-            cancelAdminHold
-        );
-
-        trigger.addEventListener(
-            "mouseleave",
-            cancelAdminHold
-        );
-
-    });
+});
 
 function startAdminHold(){
 
@@ -4152,16 +3186,13 @@ function startAdminHold(){
 
 function cancelAdminHold(){
 
-    if(
-        adminHoldTimer !== null
-    ){
+    if(adminHoldTimer){
 
         clearTimeout(
             adminHoldTimer
         );
 
-        adminHoldTimer =
-            null;
+        adminHoldTimer = null;
 
     }
 
@@ -4171,9 +3202,7 @@ function openAdmin(){
 
     document.getElementById(
         "adminOverlay"
-    ).classList.add(
-        "open"
-    );
+    ).classList.add("open");
 
 }
 
@@ -4181,9 +3210,7 @@ function closeAdmin(){
 
     document.getElementById(
         "adminOverlay"
-    ).classList.remove(
-        "open"
-    );
+    ).classList.remove("open");
 
 }
 
@@ -4194,9 +3221,7 @@ function unlockAdmin(){
             "adminPin"
         ).value;
 
-    if(
-        pin !== ADMIN_PIN
-    ){
+    if(pin !== ADMIN_PIN){
 
         document.getElementById(
             "adminError"
@@ -4225,9 +3250,7 @@ function adminGo(number){
 
     closeAdmin();
 
-    showScreen(
-        number
-    );
+    showScreen(number);
 
 }
 
@@ -4240,7 +3263,6 @@ function adminMap(){
     setTimeout(()=>{
 
         initializeMap();
-
         startTracking();
 
     },400);
@@ -4249,26 +3271,14 @@ function adminMap(){
 
 function adminPerimeter(){
 
-    perimeterReached =
-        true;
+    perimeterReached = true;
 
-    entranceUnlocked =
-        false;
+    entranceUnlocked = false;
 
     document.getElementById(
         "accessDistance"
     ).textContent =
         "80 m";
-
-    document.getElementById(
-        "enterArenaButton"
-    ).disabled =
-        true;
-
-    document.getElementById(
-        "arenaLockStatus"
-    ).textContent =
-        "🔒 ACCESO BLOQUEADO";
 
     saveGame();
 
@@ -4280,11 +3290,9 @@ function adminPerimeter(){
 
 function adminEntrance(){
 
-    perimeterReached =
-        true;
+    perimeterReached = true;
 
-    entranceUnlocked =
-        true;
+    entranceUnlocked = true;
 
     document.getElementById(
         "accessDistance"
@@ -4297,15 +3305,8 @@ function adminEntrance(){
         "🔓 ACCESO CONFIRMADO";
 
     document.getElementById(
-        "arenaLockStatus"
-    ).classList.add(
-        "open"
-    );
-
-    document.getElementById(
         "enterArenaButton"
-    ).disabled =
-        false;
+    ).disabled = false;
 
     saveGame();
 
@@ -4323,23 +3324,15 @@ function adminCache(){
 
     showScreen(15);
 
-    setTimeout(
-        updateCurrentCacheGPS,
-        300
-    );
-
 }
 
 function adminSetCache(index){
 
-    currentCacheIndex =
-        index;
+    currentCacheIndex = index;
 
-    cacheReached =
-        false;
+    cacheReached = false;
 
-    cacheTargetBearing =
-        null;
+    cacheTargetBearing = null;
 
     prepareCurrentDistrict();
 
@@ -4352,16 +3345,11 @@ function adminSetCache(index){
 }
 
 
-/* ================================================= */
-/* REINICIAR PARTIDA                                 */
-/* ================================================= */
+/* =============================== */
+/* RESET                           */
+/* =============================== */
 
 function resetGame(){
-
-    /*
-        ESTE ES EL ÚNICO SITIO DONDE
-        BORRAMOS EL PROGRESO GUARDADO.
-    */
 
     try{
 
@@ -4371,227 +3359,86 @@ function resetGame(){
 
     }catch(error){}
 
-    if(
-        watchID !== null
-    ){
+    if(watchID !== null){
 
         navigator.geolocation
-            .clearWatch(
-                watchID
-            );
+            .clearWatch(watchID);
 
-        watchID =
-            null;
+        watchID = null;
 
     }
 
     participant = {
-
         firstName:"",
         lastName:"",
         birthDate:"",
         fullName:""
-
     };
 
-    currentCacheIndex =
-        0;
+    currentCacheIndex = 0;
 
-    recoveredCaches =
-        [];
+    recoveredCaches = [];
 
-    cacheReached =
-        false;
+    perimeterReached = false;
+    entranceUnlocked = false;
+    cacheReached = false;
 
-    perimeterReached =
-        false;
+    currentLatitude = null;
+    currentLongitude = null;
+    currentHeading = null;
 
-    entranceUnlocked =
-        false;
-
-    currentLatitude =
-        null;
-
-    currentLongitude =
-        null;
-
-    currentHeading =
-        null;
-
-    arenaTargetBearing =
-        null;
-
-    cacheTargetBearing =
-        null;
-
-    firstPosition =
-        true;
-
-    backgroundMusic.pause();
-
-    backgroundMusic.currentTime =
-        0;
+    arenaTargetBearing = null;
+    cacheTargetBearing = null;
 
     document.getElementById(
         "firstName"
-    ).value =
-        "";
+    ).value = "";
 
     document.getElementById(
         "lastName"
-    ).value =
-        "";
+    ).value = "";
 
     document.getElementById(
         "birthDate"
-    ).value =
-        "";
-
-    document.getElementById(
-        "medalCode"
-    ).value =
-        "";
-
-    document.getElementById(
-        "codeMessage"
-    ).textContent =
-        "";
+    ).value = "";
 
     document.getElementById(
         "enterArenaButton"
-    ).disabled =
-        true;
+    ).disabled = true;
 
     document.getElementById(
         "arenaLockStatus"
     ).textContent =
         "🔒 ACCESO BLOQUEADO";
 
-    document.getElementById(
-        "arenaLockStatus"
-    ).classList.remove(
-        "open"
-    );
+    backgroundMusic.pause();
 
-    document.getElementById(
-        "distance"
-    ).textContent =
-        "---";
-
-    document.getElementById(
-        "accessDistance"
-    ).textContent =
-        "---";
-
-    document.getElementById(
-        "locationStatus"
-    ).textContent =
-        "LOCALIZANDO TRIBUTO...";
-
-    document.getElementById(
-        "accuracy"
-    ).textContent =
-        "Esperando señal GPS";
-
-    prepareCurrentDistrict();
+    backgroundMusic.currentTime = 0;
 
     closeAdmin();
 
-    /*
-        No usamos showScreen aquí antes de
-        limpiar el guardado porque volvería
-        a crear inmediatamente una partida.
-    */
+    currentScreen = 1;
 
-    currentScreen =
-        1;
+    document.querySelectorAll(
+        ".screen"
+    ).forEach(screen=>{
 
-    document
-        .querySelectorAll(
-            ".screen"
-        )
-        .forEach(screen=>{
+        screen.classList.remove(
+            "active"
+        );
 
-            screen.classList.remove(
-                "active"
-            );
-
-        });
+    });
 
     document.getElementById(
         "screen1"
-    ).classList.add(
-        "active"
-    );
+    ).classList.add("active");
 
 }
 
 
-/* ================================================= */
-/* PIN CON ENTER                                     */
-/* ================================================= */
-
-document.getElementById(
-    "adminPin"
-).addEventListener(
-    "keydown",
-    event=>{
-
-        if(
-            event.key ===
-            "Enter"
-        ){
-
-            unlockAdmin();
-
-        }
-
-    }
-);
-
-
-/* ================================================= */
-/* INICIO DE LA WEB                                  */
-/* ================================================= */
-
-/*
-    Esta parte se ejecuta automáticamente
-    cada vez que se abre o recarga la web.
-*/
-
-window.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
-
-        const hasSavedGame =
-            loadGame();
-
-        if(hasSavedGame){
-
-            restoreGameInterface();
-
-        }else{
-
-            currentScreen =
-                1;
-
-            prepareCurrentDistrict();
-
-        }
-
-    }
-);
-
-
-/* ================================================= */
-/* GUARDADO EXTRA AL CERRAR                          */
-/* ================================================= */
-
-/*
-    Si Safari manda la página a segundo plano
-    o el usuario cierra la pestaña, hacemos
-    un último guardado.
-*/
+/* =============================== */
+/* GUARDADO AL SALIR               */
+/* =============================== */
 
 document.addEventListener(
     "visibilitychange",
@@ -4611,9 +3458,27 @@ document.addEventListener(
 
 window.addEventListener(
     "pagehide",
+    saveGame
+);
+
+
+/* =============================== */
+/* INICIO                          */
+/* =============================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
     ()=>{
 
-        saveGame();
+        if(loadGame()){
+
+            restoreGameInterface();
+
+        }else{
+
+            prepareCurrentDistrict();
+
+        }
 
     }
 );
