@@ -307,21 +307,6 @@ button:disabled{
     line-height:2.1;
 }
 
-.cursor::after{
-    content:"";
-    display:inline-block;
-    width:7px;
-    height:13px;
-    background:#b69a5c;
-    margin-left:5px;
-    vertical-align:-2px;
-    animation:blink .8s infinite;
-}
-
-@keyframes blink{
-    50%{opacity:0;}
-}
-
 .identity{
     width:min(100%,400px);
     border:1px solid rgba(173,143,76,.35);
@@ -626,7 +611,9 @@ button:disabled{
 .district-number{
     color:#d0ad5c;
     font-family:'Cinzel',serif;
-    font-size:52px;
+    font-size:42px;
+    line-height:1.25;
+    word-break:break-word;
 }
 
 .transmission{
@@ -725,6 +712,8 @@ button:disabled{
     border:1px solid rgba(208,173,92,.45);
     padding:25px 20px;
     background:#050505;
+    max-height:90dvh;
+    overflow-y:auto;
 }
 
 .admin-title{
@@ -806,6 +795,7 @@ button:disabled{
 <div class="vignette"></div>
 <div class="flash" id="flash"></div>
 
+
 <!-- 1 -->
 
 <section class="screen active" id="screen1">
@@ -831,6 +821,7 @@ button:disabled{
     <button onclick="beginCeremony()">Iniciar ceremonia</button>
 
 </section>
+
 
 <!-- 2 -->
 
@@ -865,6 +856,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 3 -->
 
 <section class="screen" id="screen3">
@@ -874,6 +866,7 @@ button:disabled{
     <div class="terminal" id="terminal"></div>
 
 </section>
+
 
 <!-- 4 -->
 
@@ -899,6 +892,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 5 -->
 
 <section class="screen" id="screen5">
@@ -921,6 +915,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 6 -->
 
 <section class="screen" id="screen6">
@@ -930,6 +925,7 @@ button:disabled{
     <div class="number" id="count">3</div>
 
 </section>
+
 
 <!-- 7 -->
 
@@ -944,6 +940,7 @@ button:disabled{
     </div>
 
 </section>
+
 
 <!-- 8 -->
 
@@ -962,6 +959,7 @@ button:disabled{
     <button onclick="showScreen(9)">Continuar</button>
 
 </section>
+
 
 <!-- 9 -->
 
@@ -988,6 +986,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 10 -->
 
 <section class="screen" id="screen10">
@@ -1013,6 +1012,7 @@ button:disabled{
     <button onclick="beginMission()">Mostrar destino</button>
 
 </section>
+
 
 <!-- 11 -->
 
@@ -1053,6 +1053,7 @@ button:disabled{
     </div>
 
 </section>
+
 
 <!-- 12 -->
 
@@ -1126,7 +1127,8 @@ button:disabled{
 
 </section>
 
-<!-- 13 · BRIEFING NUEVO -->
+
+<!-- 13 · BRIEFING -->
 
 <section class="screen" id="screen13">
 
@@ -1144,8 +1146,9 @@ button:disabled{
         Para sobrevivir en la Arena necesitarás algo más que suerte.
         <br><br>
 
-        Algunos <span class="gold">Distritos han decidido enviar ayuda</span>,
-        ocultando suministros en distintos puntos de la Arena.
+        El <span class="gold">Capitolio</span> y algunos
+        <span class="gold">Distritos</span> han enviado suministros,
+        ocultándolos en distintos puntos de la Arena.
         <br><br>
 
         La brújula te guiará hasta cada <span class="gold">alijo</span>.
@@ -1167,7 +1170,7 @@ button:disabled{
         Regresa a la Arena y continúa hacia el siguiente alijo.
         <br><br>
 
-        Repite el proceso hasta recuperar todos los suministros enviados por los Distritos.
+        Repite el proceso hasta recuperar todos los suministros.
         <br><br>
 
         <span class="gold">
@@ -1178,6 +1181,7 @@ button:disabled{
     <button onclick="startGames()">Comenzar los Juegos</button>
 
 </section>
+
 
 <!-- 14 -->
 
@@ -1193,14 +1197,20 @@ button:disabled{
 
     <div class="district-card">
 
-        <div class="transmission">Señal procedente de</div>
+        <div class="transmission" id="transmissionOriginLabel">
+            Señal procedente de
+        </div>
 
-        <div class="district-number" id="transmissionDistrict">01</div>
+        <div class="district-number" id="transmissionDistrict">
+            CAPITOLIO
+        </div>
 
-        <div class="transmission">DISTRITO</div>
+        <div class="transmission" id="transmissionType">
+            SUMINISTRO OFICIAL
+        </div>
 
-        <div class="supply-status">
-            Un Distrito ha decidido ayudarte.
+        <div class="supply-status" id="transmissionDescription">
+            El Capitolio ha autorizado un suministro para el tributo.
             <br><br>
             Se ha detectado un alijo oculto en algún punto de la Arena.
         </div>
@@ -1210,6 +1220,7 @@ button:disabled{
     <button onclick="locateCurrentCache()">Localizar suministro</button>
 
 </section>
+
 
 <!-- 15 -->
 
@@ -1221,8 +1232,8 @@ button:disabled{
 
     <div class="phase-number">SUMINISTRO ACTIVO</div>
 
-    <div class="small">
-        DISTRITO <span id="cacheDistrict">01</span>
+    <div class="small" id="cacheOrigin">
+        CAPITOLIO
     </div>
 
     <h1>LOCALIZA<br>EL ALIJO</h1>
@@ -1263,7 +1274,9 @@ button:disabled{
                 ESPERANDO UBICACIÓN
             </div>
 
-            <div class="approach-sensor">SEÑAL DEL DISTRITO</div>
+            <div class="approach-sensor" id="cacheSignal">
+                SEÑAL DEL CAPITOLIO
+            </div>
 
         </div>
 
@@ -1279,6 +1292,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 16 -->
 
 <section class="screen" id="screen16">
@@ -1289,17 +1303,16 @@ button:disabled{
 
     <div class="small">Suministro localizado</div>
 
-    <h2>
-        ALIJO DEL DISTRITO
-        <span id="codeDistrict">01</span>
+    <h2 id="codeTitle">
+        ALIJO DEL CAPITOLIO
     </h2>
 
     <div class="line"></div>
 
-    <p class="text">
+    <p class="text" id="codeDescription">
         Has localizado el suministro.
         <br><br>
-        Recupera la medalla del Distrito.
+        Recupera la medalla del Capitolio.
         <br><br>
         Introduce el código grabado en ella para confirmar la recuperación.
     </p>
@@ -1326,6 +1339,7 @@ button:disabled{
 
 </section>
 
+
 <!-- 17 -->
 
 <section class="screen" id="screen17">
@@ -1342,14 +1356,10 @@ button:disabled{
 
     <div class="line"></div>
 
-    <p class="text">
-        Suministro del
-        <span class="gold">
-            Distrito <span id="recoveredDistrict">01</span>
-        </span>
-        confirmado.
+    <p class="text" id="recoveredText">
+        Suministro del <span class="gold">Capitolio</span> confirmado.
         <br><br>
-        La medalla ha sido validada por el Capitolio.
+        La medalla ha sido validada.
     </p>
 
     <div class="double-buttons">
@@ -1358,13 +1368,14 @@ button:disabled{
             Equipar
         </button>
 
-        <button onclick="nextCache()">
+        <button onclick="nextCache()" id="nextCacheButton">
             Siguiente alijo
         </button>
 
     </div>
 
 </section>
+
 
 <!-- 18 -->
 
@@ -1381,7 +1392,8 @@ button:disabled{
     <div class="line"></div>
 
     <p class="text">
-        Los suministros de los Distritos 1, 2, 8, 11 y 12 han sido recuperados.
+        El suministro del Capitolio y los suministros de los
+        Distritos 1, 2, 8, 11 y 12 han sido recuperados.
         <br><br>
         Todas las medallas han sido verificadas.
         <br><br>
@@ -1391,6 +1403,7 @@ button:disabled{
     </p>
 
 </section>
+
 
 <!-- ADMIN -->
 
@@ -1444,15 +1457,16 @@ button:disabled{
 
             <div class="admin-section">
 
-                <div class="small">Probar Distritos</div>
+                <div class="small">Probar alijos</div>
 
                 <div class="admin-grid">
 
-                    <button onclick="adminSetCache(0)">Distrito 1</button>
-                    <button onclick="adminSetCache(1)">Distrito 2</button>
-                    <button onclick="adminSetCache(2)">Distrito 8</button>
-                    <button onclick="adminSetCache(3)">Distrito 11</button>
-                    <button onclick="adminSetCache(4)">Distrito 12</button>
+                    <button onclick="adminSetCache(0)">Capitolio</button>
+                    <button onclick="adminSetCache(1)">Distrito 1</button>
+                    <button onclick="adminSetCache(2)">Distrito 2</button>
+                    <button onclick="adminSetCache(3)">Distrito 8</button>
+                    <button onclick="adminSetCache(4)">Distrito 11</button>
+                    <button onclick="adminSetCache(5)">Distrito 12</button>
 
                 </div>
 
@@ -1475,9 +1489,12 @@ button:disabled{
 
 </div>
 
+
 <script>
 
-/* CONFIGURACIÓN */
+/* ================================= */
+/* CONFIGURACIÓN                     */
+/* ================================= */
 
 const ARENA_LATITUDE = 27.9252373;
 const ARENA_LONGITUDE = -15.3949688;
@@ -1494,11 +1511,24 @@ const MEDAL_STORAGE_URL =
     "https://ale0505.github.io/Almacenamiento-medallas/";
 
 
-/* DISTRITOS */
+/* ================================= */
+/* ALIJOS                            */
+/* ================================= */
 
 const DISTRICTS = [
 
     {
+        type:"capitol",
+        name:"Capitolio",
+        district:null,
+        code:"2025",
+        latitude:null,
+        longitude:null
+    },
+
+    {
+        type:"district",
+        name:"Distrito 1",
         district:1,
         code:"1847",
         latitude:null,
@@ -1506,6 +1536,8 @@ const DISTRICTS = [
     },
 
     {
+        type:"district",
+        name:"Distrito 2",
         district:2,
         code:"2714",
         latitude:null,
@@ -1513,6 +1545,8 @@ const DISTRICTS = [
     },
 
     {
+        type:"district",
+        name:"Distrito 8",
         district:8,
         code:"8265",
         latitude:null,
@@ -1520,6 +1554,8 @@ const DISTRICTS = [
     },
 
     {
+        type:"district",
+        name:"Distrito 11",
         district:11,
         code:"1172",
         latitude:null,
@@ -1527,6 +1563,8 @@ const DISTRICTS = [
     },
 
     {
+        type:"district",
+        name:"Distrito 12",
         district:12,
         code:"1259",
         latitude:null,
@@ -1536,7 +1574,9 @@ const DISTRICTS = [
 ];
 
 
-/* ESTADO */
+/* ================================= */
+/* ESTADO                            */
+/* ================================= */
 
 let participant = {
     firstName:"",
@@ -1546,7 +1586,9 @@ let participant = {
 };
 
 let currentScreen = 1;
+
 let currentCacheIndex = 0;
+
 let recoveredCaches = [];
 
 let perimeterReached = false;
@@ -1569,7 +1611,24 @@ let cacheTargetBearing = null;
 let orientationEnabled = false;
 
 
-/* GUARDADO */
+/* ================================= */
+/* IDENTIFICADOR ÚNICO DEL ALIJO     */
+/* ================================= */
+
+function getCacheId(cache){
+
+    if(cache.type === "capitol"){
+        return "capitol";
+    }
+
+    return "district-"+cache.district;
+
+}
+
+
+/* ================================= */
+/* GUARDAR                           */
+/* ================================= */
 
 function saveGame(){
 
@@ -1579,13 +1638,17 @@ function saveGame(){
         safeScreen = 4;
     }
 
-    if(currentScreen === 6 || currentScreen === 7){
+    if(
+        currentScreen === 6 ||
+        currentScreen === 7
+    ){
         safeScreen = 5;
     }
 
     const gameState = {
 
-        version:1,
+        version:2,
+
         screen:safeScreen,
 
         participant:{
@@ -1596,10 +1659,13 @@ function saveGame(){
         },
 
         currentCacheIndex:currentCacheIndex,
+
         recoveredCaches:recoveredCaches,
 
         perimeterReached:perimeterReached,
+
         entranceUnlocked:entranceUnlocked,
+
         cacheReached:cacheReached
 
     };
@@ -1616,16 +1682,23 @@ function saveGame(){
 }
 
 
-/* CARGAR */
+/* ================================= */
+/* CARGAR                            */
+/* ================================= */
 
 function loadGame(){
 
-    let saved;
+    let saved = null;
 
     try{
-        saved = localStorage.getItem(SAVE_KEY);
+
+        saved =
+            localStorage.getItem(SAVE_KEY);
+
     }catch(error){
+
         return false;
+
     }
 
     if(!saved){
@@ -1634,9 +1707,10 @@ function loadGame(){
 
     try{
 
-        const data = JSON.parse(saved);
+        const data =
+            JSON.parse(saved);
 
-        if(!data || data.version !== 1){
+        if(!data){
             return false;
         }
 
@@ -1656,21 +1730,52 @@ function loadGame(){
 
         }
 
-        if(Number.isInteger(data.currentCacheIndex)){
+        /*
+        Si existe una partida de la versión anterior,
+        conservamos el progreso general pero añadimos
+        correctamente el Capitolio como primer alijo.
+        */
 
-            currentCacheIndex =
-                Math.max(
-                    0,
-                    Math.min(
-                        DISTRICTS.length-1,
-                        data.currentCacheIndex
-                    )
-                );
+        if(data.version === 1){
 
-        }
+            currentCacheIndex = 0;
 
-        if(Array.isArray(data.recoveredCaches)){
-            recoveredCaches = data.recoveredCaches;
+            recoveredCaches = [];
+
+            if(Array.isArray(data.recoveredCaches)){
+
+                data.recoveredCaches.forEach(item=>{
+
+                    recoveredCaches.push(
+                        "district-"+item
+                    );
+
+                });
+
+            }
+
+        }else{
+
+            if(Number.isInteger(data.currentCacheIndex)){
+
+                currentCacheIndex =
+                    Math.max(
+                        0,
+                        Math.min(
+                            DISTRICTS.length-1,
+                            data.currentCacheIndex
+                        )
+                    );
+
+            }
+
+            if(Array.isArray(data.recoveredCaches)){
+
+                recoveredCaches =
+                    data.recoveredCaches;
+
+            }
+
         }
 
         perimeterReached =
@@ -1685,11 +1790,31 @@ function loadGame(){
         currentScreen =
             Number(data.screen) || 1;
 
+        /*
+        Si el jugador estaba ya en los alijos
+        con la versión anterior, vuelve al briefing
+        para empezar el nuevo orden por Capitolio.
+        */
+
+        if(
+            data.version === 1 &&
+            currentScreen >= 14
+        ){
+
+            currentScreen = 13;
+            currentCacheIndex = 0;
+            cacheReached = false;
+
+        }
+
         if(currentScreen === 3){
             currentScreen = 4;
         }
 
-        if(currentScreen === 6 || currentScreen === 7){
+        if(
+            currentScreen === 6 ||
+            currentScreen === 7
+        ){
             currentScreen = 5;
         }
 
@@ -1704,7 +1829,9 @@ function loadGame(){
 }
 
 
-/* RESTAURAR */
+/* ================================= */
+/* RESTAURAR                         */
+/* ================================= */
 
 function restoreGameInterface(){
 
@@ -1766,21 +1893,35 @@ function restoreGameInterface(){
         currentScreen === 12 ||
         currentScreen === 15
     ){
+
         startTracking();
+
     }
 
     if(currentScreen === 11){
-        setTimeout(initializeMap,400);
+
+        setTimeout(
+            initializeMap,
+            400
+        );
+
     }
 
     if(currentScreen === 15){
-        setTimeout(updateCurrentCacheGPS,400);
+
+        setTimeout(
+            updateCurrentCacheGPS,
+            400
+        );
+
     }
 
 }
 
 
-/* AUDIO */
+/* ================================= */
+/* AUDIO                             */
+/* ================================= */
 
 const backgroundMusic =
     document.getElementById("backgroundMusic");
@@ -1796,6 +1937,7 @@ function playClick(){
     try{
 
         clickSound.currentTime = 0;
+
         clickSound.play().catch(()=>{});
 
     }catch(error){}
@@ -1805,7 +1947,9 @@ function playClick(){
 function ensureBackgroundMusic(){
 
     if(backgroundMusic.paused){
+
         backgroundMusic.play().catch(()=>{});
+
     }
 
 }
@@ -1817,7 +1961,9 @@ document.querySelectorAll("button").forEach(button=>{
         playClick();
 
         if(currentScreen !== 1){
+
             ensureBackgroundMusic();
+
         }
 
     });
@@ -1833,7 +1979,9 @@ function beginCeremony(){
 }
 
 
-/* PANTALLAS */
+/* ================================= */
+/* PANTALLAS                         */
+/* ================================= */
 
 function showScreen(number){
 
@@ -1853,11 +2001,18 @@ function showScreen(number){
             );
 
         if(screen){
+
             screen.classList.add("active");
+
         }
 
         if(number === 11 && map){
-            setTimeout(()=>map.invalidateSize(),300);
+
+            setTimeout(
+                ()=>map.invalidateSize(),
+                300
+            );
+
         }
 
     },250);
@@ -1865,7 +2020,9 @@ function showScreen(number){
 }
 
 
-/* REGISTRO */
+/* ================================= */
+/* REGISTRO                          */
+/* ================================= */
 
 function registerCitizen(){
 
@@ -1884,7 +2041,11 @@ function registerCitizen(){
             "birthDate"
         ).value;
 
-    if(!firstName || !lastName || !birthDate){
+    if(
+        !firstName ||
+        !lastName ||
+        !birthDate
+    ){
 
         document.getElementById(
             "formError"
@@ -1900,7 +2061,8 @@ function registerCitizen(){
     participant.birthDate = birthDate;
 
     participant.fullName =
-        (firstName+" "+lastName).toUpperCase();
+        (firstName+" "+lastName)
+        .toUpperCase();
 
     updateParticipantUI();
 
@@ -1931,7 +2093,9 @@ function updateParticipantUI(){
 }
 
 
-/* TERMINAL */
+/* ================================= */
+/* TERMINAL                          */
+/* ================================= */
 
 function startRegistration(){
 
@@ -1943,6 +2107,7 @@ function startRegistration(){
     terminal.innerHTML = "";
 
     const lines = [
+
         "> CONECTANDO CON EL CAPITOLIO...",
         "> VERIFICANDO IDENTIDAD...",
         "> CIUDADANO IDENTIFICADO",
@@ -1951,6 +2116,7 @@ function startRegistration(){
         "> ESTADO: ELEGIBLE",
         "> AÑADIENDO NOMBRE A LA COSECHA...",
         "> REGISTRO COMPLETADO"
+
     ];
 
     let i = 0;
@@ -1986,7 +2152,9 @@ function startRegistration(){
 }
 
 
-/* COSECHA */
+/* ================================= */
+/* COSECHA                           */
+/* ================================= */
 
 const fakeNames = [
     "LUCÍA MENDOZA",
@@ -2019,7 +2187,8 @@ function startCountdown(){
 
             if(number > 0){
 
-                display.textContent = number;
+                display.textContent =
+                    number;
 
             }else{
 
@@ -2049,7 +2218,8 @@ function startReaping(){
         display.textContent =
             fakeNames[
                 Math.floor(
-                    Math.random()*fakeNames.length
+                    Math.random()*
+                    fakeNames.length
                 )
             ];
 
@@ -2082,13 +2252,18 @@ function startReaping(){
 }
 
 
-/* ORIENTACIÓN */
+/* ================================= */
+/* ORIENTACIÓN                       */
+/* ================================= */
 
 async function requestOrientationPermission(){
 
     try{
 
-        if(typeof DeviceOrientationEvent !== "undefined"){
+        if(
+            typeof DeviceOrientationEvent !==
+            "undefined"
+        ){
 
             if(
                 typeof DeviceOrientationEvent.requestPermission ===
@@ -2096,10 +2271,13 @@ async function requestOrientationPermission(){
             ){
 
                 const permission =
-                    await DeviceOrientationEvent.requestPermission();
+                    await DeviceOrientationEvent
+                        .requestPermission();
 
                 if(permission === "granted"){
+
                     enableOrientation();
+
                 }
 
             }else{
@@ -2134,13 +2312,21 @@ function handleOrientation(event){
 
     let heading = null;
 
-    if(typeof event.webkitCompassHeading === "number"){
+    if(
+        typeof event.webkitCompassHeading ===
+        "number"
+    ){
 
-        heading = event.webkitCompassHeading;
+        heading =
+            event.webkitCompassHeading;
 
-    }else if(typeof event.alpha === "number"){
+    }else if(
+        typeof event.alpha ===
+        "number"
+    ){
 
-        heading = 360-event.alpha;
+        heading =
+            360-event.alpha;
 
     }
 
@@ -2162,7 +2348,9 @@ function handleOrientation(event){
 }
 
 
-/* MISIÓN */
+/* ================================= */
+/* MISIÓN                            */
+/* ================================= */
 
 async function beginMission(){
 
@@ -2180,7 +2368,9 @@ async function beginMission(){
 }
 
 
-/* MAPA */
+/* ================================= */
+/* MAPA                              */
+/* ================================= */
 
 function initializeMap(){
 
@@ -2244,7 +2434,9 @@ function initializeMap(){
 }
 
 
-/* GPS */
+/* ================================= */
+/* GPS                               */
+/* ================================= */
 
 function startTracking(){
 
@@ -2254,39 +2446,40 @@ function startTracking(){
 
     if(watchID !== null){
 
-        navigator.geolocation.clearWatch(
-            watchID
-        );
+        navigator.geolocation
+            .clearWatch(watchID);
 
     }
 
     watchID =
-        navigator.geolocation.watchPosition(
+        navigator.geolocation
+            .watchPosition(
 
-            locationSuccess,
+                locationSuccess,
 
-            ()=>{},
+                ()=>{},
 
-            {
-                enableHighAccuracy:true,
-                timeout:15000,
-                maximumAge:2000
-            }
+                {
+                    enableHighAccuracy:true,
+                    timeout:15000,
+                    maximumAge:2000
+                }
 
-        );
+            );
 
 }
 
 function checkLocation(){
 
-    navigator.geolocation.getCurrentPosition(
-        locationSuccess,
-        ()=>{},
-        {
-            enableHighAccuracy:true,
-            maximumAge:0
-        }
-    );
+    navigator.geolocation
+        .getCurrentPosition(
+            locationSuccess,
+            ()=>{},
+            {
+                enableHighAccuracy:true,
+                maximumAge:0
+            }
+        );
 
 }
 
@@ -2346,7 +2539,9 @@ function locationSuccess(position){
     processArenaDistance(distance);
 
     if(currentScreen === 15){
+
         updateCurrentCacheGPS();
+
     }
 
 }
@@ -2391,7 +2586,9 @@ function updateMap(lat,lon){
 }
 
 
-/* ARENA */
+/* ================================= */
+/* ARENA                             */
+/* ================================= */
 
 function processArenaDistance(distance){
 
@@ -2467,7 +2664,9 @@ function enterArena(){
 }
 
 
-/* BRÚJULA ARENA */
+/* ================================= */
+/* BRÚJULA ARENA                     */
+/* ================================= */
 
 function updateArenaCompass(){
 
@@ -2496,11 +2695,20 @@ function updateArenaCompass(){
 }
 
 
-/* DISTRITOS */
+/* ================================= */
+/* ALIJOS                            */
+/* ================================= */
 
 function startGames(){
 
-    if(recoveredCaches.length === 0){
+    /*
+    Los Juegos siempre empiezan por el Capitolio
+    si todavía no se ha recuperado.
+    */
+
+    if(
+        !recoveredCaches.includes("capitol")
+    ){
 
         currentCacheIndex = 0;
 
@@ -2527,6 +2735,11 @@ function getCurrentCache(){
 
 }
 
+
+/* ================================= */
+/* PREPARAR ALIJO                    */
+/* ================================= */
+
 function prepareCurrentDistrict(){
 
     const cache =
@@ -2536,25 +2749,119 @@ function prepareCurrentDistrict(){
         return;
     }
 
-    const number =
-        String(cache.district)
-        .padStart(2,"0");
+    const isCapitol =
+        cache.type === "capitol";
+
+    /*
+    TRANSMISIÓN
+    */
 
     document.getElementById(
         "transmissionDistrict"
-    ).textContent = number;
+    ).textContent =
+        isCapitol
+        ? "CAPITOLIO"
+        : String(cache.district).padStart(2,"0");
 
     document.getElementById(
-        "cacheDistrict"
-    ).textContent = number;
+        "transmissionType"
+    ).textContent =
+        isCapitol
+        ? "SUMINISTRO OFICIAL"
+        : "DISTRITO";
 
     document.getElementById(
-        "codeDistrict"
-    ).textContent = number;
+        "transmissionDescription"
+    ).innerHTML =
+        isCapitol
+        ?
+        "El Capitolio ha autorizado un suministro para el tributo."+
+        "<br><br>"+
+        "Se ha detectado un alijo oculto en algún punto de la Arena."
+        :
+        "Un Distrito ha decidido ayudarte."+
+        "<br><br>"+
+        "Se ha detectado un alijo oculto en algún punto de la Arena.";
+
+    /*
+    BÚSQUEDA
+    */
 
     document.getElementById(
-        "recoveredDistrict"
-    ).textContent = number;
+        "cacheOrigin"
+    ).textContent =
+        isCapitol
+        ? "CAPITOLIO"
+        : "DISTRITO "+
+          String(cache.district).padStart(2,"0");
+
+    document.getElementById(
+        "cacheSignal"
+    ).textContent =
+        isCapitol
+        ? "SEÑAL DEL CAPITOLIO"
+        : "SEÑAL DEL DISTRITO "+
+          cache.district;
+
+    /*
+    CÓDIGO
+    */
+
+    document.getElementById(
+        "codeTitle"
+    ).textContent =
+        isCapitol
+        ? "ALIJO DEL CAPITOLIO"
+        : "ALIJO DEL DISTRITO "+
+          String(cache.district).padStart(2,"0");
+
+    document.getElementById(
+        "codeDescription"
+    ).innerHTML =
+        "Has localizado el suministro."+
+        "<br><br>"+
+        "Recupera la medalla "+
+        (
+            isCapitol
+            ? "del Capitolio."
+            : "del Distrito "+cache.district+"."
+        )+
+        "<br><br>"+
+        "Introduce el código grabado en ella para confirmar la recuperación.";
+
+    /*
+    RECUPERADO
+    */
+
+    document.getElementById(
+        "recoveredText"
+    ).innerHTML =
+        isCapitol
+        ?
+        'Suministro del <span class="gold">Capitolio</span> confirmado.'+
+        '<br><br>'+
+        'La medalla ha sido validada.'
+        :
+        'Suministro del <span class="gold">Distrito '+
+        cache.district+
+        '</span> confirmado.'+
+        '<br><br>'+
+        'La medalla ha sido validada por el Capitolio.';
+
+    /*
+    ÚLTIMO ALIJO
+    */
+
+    document.getElementById(
+        "nextCacheButton"
+    ).textContent =
+        currentCacheIndex === DISTRICTS.length-1
+        ? "Finalizar"
+        : "Siguiente alijo";
+
+    /*
+    LIMPIAR CÓDIGO
+    */
 
     document.getElementById(
         "medalCode"
@@ -2567,7 +2874,9 @@ function prepareCurrentDistrict(){
 }
 
 
-/* LOCALIZAR ALIJO */
+/* ================================= */
+/* LOCALIZAR ALIJO                   */
+/* ================================= */
 
 async function locateCurrentCache(){
 
@@ -2599,6 +2908,9 @@ function updateCurrentCacheGPS(){
         return;
     }
 
+    const isCapitol =
+        cache.type === "capitol";
+
     if(
         cache.latitude === null ||
         cache.longitude === null
@@ -2617,10 +2929,15 @@ function updateCurrentCacheGPS(){
         document.getElementById(
             "cacheLocationMessage"
         ).innerHTML =
-            "La ubicación del alijo del "+
-            "<span class='gold'>Distrito "+
-            cache.district+
-            "</span> todavía no ha sido asignada.";
+            "La ubicación del alijo "+
+            (
+                isCapitol
+                ? "del <span class='gold'>Capitolio</span>"
+                : "del <span class='gold'>Distrito "+
+                  cache.district+
+                  "</span>"
+            )+
+            " todavía no ha sido asignada.";
 
         document.getElementById(
             "testCacheButton"
@@ -2667,7 +2984,7 @@ function updateCurrentCacheGPS(){
     document.getElementById(
         "cacheLocationMessage"
     ).textContent =
-        "Sigue la señal del Distrito hasta localizar el suministro.";
+        "Sigue la señal hasta localizar el suministro.";
 
     updateCacheCompass();
 
@@ -2682,6 +2999,14 @@ function updateCurrentCacheGPS(){
 
         flash();
 
+        if("vibrate" in navigator){
+
+            navigator.vibrate(
+                [100,60,200]
+            );
+
+        }
+
         setTimeout(
             ()=>showScreen(16),
             500
@@ -2690,6 +3015,11 @@ function updateCurrentCacheGPS(){
     }
 
 }
+
+
+/* ================================= */
+/* BRÚJULA ALIJO                     */
+/* ================================= */
 
 function updateCacheCompass(){
 
@@ -2716,6 +3046,11 @@ function updateCacheCompass(){
         getDirectionText(relative);
 
 }
+
+
+/* ================================= */
+/* DIRECCIONES                       */
+/* ================================= */
 
 function getDirectionText(angle){
 
@@ -2751,6 +3086,11 @@ function getDirectionText(angle){
 
 }
 
+
+/* ================================= */
+/* SIMULACIÓN                        */
+/* ================================= */
+
 function simulateCacheFound(){
 
     cacheReached = true;
@@ -2767,7 +3107,9 @@ function simulateCacheFound(){
 }
 
 
-/* CÓDIGO MEDALLA */
+/* ================================= */
+/* VALIDAR MEDALLA                   */
+/* ================================= */
 
 function validateMedalCode(){
 
@@ -2787,7 +3129,7 @@ function validateMedalCode(){
     const enteredCode =
         input.value.trim();
 
-    if(!enteredCode){
+    if(enteredCode === ""){
 
         message.textContent =
             "INTRODUCE EL CÓDIGO DE LA MEDALLA";
@@ -2803,6 +3145,12 @@ function validateMedalCode(){
 
         input.value = "";
 
+        if("vibrate" in navigator){
+
+            navigator.vibrate(150);
+
+        }
+
         return;
 
     }
@@ -2810,39 +3158,54 @@ function validateMedalCode(){
     message.textContent =
         "CÓDIGO CONFIRMADO";
 
+    const cacheId =
+        getCacheId(cache);
+
     if(
         !recoveredCaches.includes(
-            cache.district
+            cacheId
         )
     ){
 
         recoveredCaches.push(
-            cache.district
+            cacheId
         );
 
     }
 
-    document.getElementById(
-        "recoveredDistrict"
-    ).textContent =
-        String(cache.district)
-        .padStart(2,"0");
+    prepareCurrentDistrict();
 
     saveGame();
 
     flash();
 
+    if("vibrate" in navigator){
+
+        navigator.vibrate(
+            [100,60,100,60,250]
+        );
+
+    }
+
     setTimeout(
         ()=>showScreen(17),
-        500
+        600
     );
 
 }
 
 
-/* EQUIPAR */
+/* ================================= */
+/* EQUIPAR                           */
+/* ================================= */
 
 function equipMedal(){
+
+    /*
+    Guarda la partida antes de salir.
+    Al volver a esta web permanecerá
+    en ALIJO RECUPERADO.
+    */
 
     saveGame();
 
@@ -2856,20 +3219,38 @@ function equipMedal(){
 }
 
 
-/* SIGUIENTE ALIJO */
+/* ================================= */
+/* SIGUIENTE ALIJO                   */
+/* ================================= */
 
 function nextCache(){
 
     const current =
         getCurrentCache();
 
+    if(!current){
+        return;
+    }
+
+    const currentId =
+        getCacheId(current);
+
+    /*
+    No se puede avanzar sin validar
+    primero el código.
+    */
+
     if(
         !recoveredCaches.includes(
-            current.district
+            currentId
         )
     ){
         return;
     }
+
+    /*
+    Último alijo.
+    */
 
     if(
         currentCacheIndex >=
@@ -2889,9 +3270,20 @@ function nextCache(){
 
     }
 
+    /*
+    Avanzar:
+    Capitolio
+    → Distrito 1
+    → Distrito 2
+    → Distrito 8
+    → Distrito 11
+    → Distrito 12
+    */
+
     currentCacheIndex++;
 
     cacheReached = false;
+
     cacheTargetBearing = null;
 
     prepareCurrentDistrict();
@@ -2908,7 +3300,9 @@ function nextCache(){
 }
 
 
-/* GPS MATEMÁTICAS */
+/* ================================= */
+/* DISTANCIA                         */
+/* ================================= */
 
 function calculateDistance(
     lat1,
@@ -2948,6 +3342,11 @@ function calculateDistance(
         );
 
 }
+
+
+/* ================================= */
+/* RUMBO                             */
+/* ================================= */
 
 function calculateBearing(
     lat1,
@@ -2993,7 +3392,9 @@ function normalizeAngle(angle){
 }
 
 
-/* APPLE MAPS */
+/* ================================= */
+/* APPLE MAPS                        */
+/* ================================= */
 
 function openRoute(){
 
@@ -3014,7 +3415,9 @@ function openRoute(){
 }
 
 
-/* FLASH */
+/* ================================= */
+/* FLASH                             */
+/* ================================= */
 
 function flash(){
 
@@ -3030,7 +3433,9 @@ function flash(){
 }
 
 
-/* ADMIN */
+/* ================================= */
+/* ADMIN                             */
+/* ================================= */
 
 let adminHoldTimer = null;
 
@@ -3171,6 +3576,7 @@ function adminMap(){
 function adminPerimeter(){
 
     perimeterReached = true;
+
     entranceUnlocked = false;
 
     document.getElementById(
@@ -3188,6 +3594,10 @@ function adminPerimeter(){
     ).textContent =
         "🔒 ACCESO BLOQUEADO";
 
+    document.getElementById(
+        "arenaLockStatus"
+    ).classList.remove("open");
+
     saveGame();
 
     closeAdmin();
@@ -3199,6 +3609,7 @@ function adminPerimeter(){
 function adminEntrance(){
 
     perimeterReached = true;
+
     entranceUnlocked = true;
 
     document.getElementById(
@@ -3247,6 +3658,7 @@ function adminSetCache(index){
     currentCacheIndex = index;
 
     cacheReached = false;
+
     cacheTargetBearing = null;
 
     prepareCurrentDistrict();
@@ -3260,7 +3672,9 @@ function adminSetCache(index){
 }
 
 
-/* RESET */
+/* ================================= */
+/* RESET                             */
+/* ================================= */
 
 function resetGame(){
 
@@ -3274,9 +3688,8 @@ function resetGame(){
 
     if(watchID !== null){
 
-        navigator.geolocation.clearWatch(
-            watchID
-        );
+        navigator.geolocation
+            .clearWatch(watchID);
 
         watchID = null;
 
@@ -3290,6 +3703,7 @@ function resetGame(){
     };
 
     currentCacheIndex = 0;
+
     recoveredCaches = [];
 
     perimeterReached = false;
@@ -3329,6 +3743,7 @@ function resetGame(){
     ).classList.remove("open");
 
     backgroundMusic.pause();
+
     backgroundMusic.currentTime = 0;
 
     closeAdmin();
@@ -3352,7 +3767,9 @@ function resetGame(){
 }
 
 
-/* GUARDADO AL SALIR */
+/* ================================= */
+/* GUARDAR AL SALIR                  */
+/* ================================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -3376,7 +3793,9 @@ window.addEventListener(
 );
 
 
-/* INICIO */
+/* ================================= */
+/* INICIO                            */
+/* ================================= */
 
 window.addEventListener(
     "DOMContentLoaded",
