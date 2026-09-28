@@ -806,7 +806,6 @@ button:disabled{
 <div class="vignette"></div>
 <div class="flash" id="flash"></div>
 
-
 <!-- 1 -->
 
 <section class="screen active" id="screen1">
@@ -832,7 +831,6 @@ button:disabled{
     <button onclick="beginCeremony()">Iniciar ceremonia</button>
 
 </section>
-
 
 <!-- 2 -->
 
@@ -867,7 +865,6 @@ button:disabled{
 
 </section>
 
-
 <!-- 3 -->
 
 <section class="screen" id="screen3">
@@ -877,7 +874,6 @@ button:disabled{
     <div class="terminal" id="terminal"></div>
 
 </section>
-
 
 <!-- 4 -->
 
@@ -903,7 +899,6 @@ button:disabled{
 
 </section>
 
-
 <!-- 5 -->
 
 <section class="screen" id="screen5">
@@ -926,7 +921,6 @@ button:disabled{
 
 </section>
 
-
 <!-- 6 -->
 
 <section class="screen" id="screen6">
@@ -936,7 +930,6 @@ button:disabled{
     <div class="number" id="count">3</div>
 
 </section>
-
 
 <!-- 7 -->
 
@@ -951,7 +944,6 @@ button:disabled{
     </div>
 
 </section>
-
 
 <!-- 8 -->
 
@@ -970,7 +962,6 @@ button:disabled{
     <button onclick="showScreen(9)">Continuar</button>
 
 </section>
-
 
 <!-- 9 -->
 
@@ -997,7 +988,6 @@ button:disabled{
 
 </section>
 
-
 <!-- 10 -->
 
 <section class="screen" id="screen10">
@@ -1023,7 +1013,6 @@ button:disabled{
     <button onclick="beginMission()">Mostrar destino</button>
 
 </section>
-
 
 <!-- 11 -->
 
@@ -1064,7 +1053,6 @@ button:disabled{
     </div>
 
 </section>
-
 
 <!-- 12 -->
 
@@ -1138,8 +1126,7 @@ button:disabled{
 
 </section>
 
-
-<!-- 13 -->
+<!-- 13 · BRIEFING NUEVO -->
 
 <section class="screen" id="screen13">
 
@@ -1156,21 +1143,41 @@ button:disabled{
     <p class="text">
         Para sobrevivir en la Arena necesitarás algo más que suerte.
         <br><br>
-        Algunos <span class="gold">Distritos</span> han decidido enviar ayuda a los tributos, ocultando suministros en distintos puntos de la Arena.
+
+        Algunos <span class="gold">Distritos han decidido enviar ayuda</span>,
+        ocultando suministros en distintos puntos de la Arena.
         <br><br>
-        Localiza los alijos.<br>
-        Recupera los suministros.<br>
-        Sigue las señales.
+
+        La brújula te guiará hasta cada <span class="gold">alijo</span>.
         <br><br>
+
+        <span class="gold">RECUPERA LA MEDALLA</span><br>
+        Cada alijo contiene una medalla con un código de acceso único.
+        <br><br>
+
+        <span class="gold">INTRODUCE EL CÓDIGO</span><br>
+        Utilízalo para confirmar que has encontrado el suministro.
+        <br><br>
+
+        <span class="gold">EQUÍPATE</span><br>
+        Una vez validado el código, equipa la medalla y los suministros obtenidos.
+        <br><br>
+
+        <span class="gold">VUELVE A LA BRÚJULA</span><br>
+        Regresa a la Arena y continúa hacia el siguiente alijo.
+        <br><br>
+
+        Repite el proceso hasta recuperar todos los suministros enviados por los Distritos.
+        <br><br>
+
         <span class="gold">
-            Encuéntralos todos para alcanzar la victoria.
+            Encuéntralos todos. Equípate. Sobrevive.
         </span>
     </p>
 
     <button onclick="startGames()">Comenzar los Juegos</button>
 
 </section>
-
 
 <!-- 14 -->
 
@@ -1203,7 +1210,6 @@ button:disabled{
     <button onclick="locateCurrentCache()">Localizar suministro</button>
 
 </section>
-
 
 <!-- 15 -->
 
@@ -1273,7 +1279,6 @@ button:disabled{
 
 </section>
 
-
 <!-- 16 -->
 
 <section class="screen" id="screen16">
@@ -1321,8 +1326,7 @@ button:disabled{
 
 </section>
 
-
-<!-- 17 · ALIJO RECUPERADO -->
+<!-- 17 -->
 
 <section class="screen" id="screen17">
 
@@ -1348,8 +1352,6 @@ button:disabled{
         La medalla ha sido validada por el Capitolio.
     </p>
 
-    <!-- NUEVOS BOTONES -->
-
     <div class="double-buttons">
 
         <button onclick="equipMedal()">
@@ -1363,7 +1365,6 @@ button:disabled{
     </div>
 
 </section>
-
 
 <!-- 18 -->
 
@@ -1390,7 +1391,6 @@ button:disabled{
     </p>
 
 </section>
-
 
 <!-- ADMIN -->
 
@@ -1475,12 +1475,9 @@ button:disabled{
 
 </div>
 
-
 <script>
 
-/* =============================== */
-/* CONFIGURACIÓN                   */
-/* =============================== */
+/* CONFIGURACIÓN */
 
 const ARENA_LATITUDE = 27.9252373;
 const ARENA_LONGITUDE = -15.3949688;
@@ -1497,9 +1494,7 @@ const MEDAL_STORAGE_URL =
     "https://ale0505.github.io/Almacenamiento-medallas/";
 
 
-/* =============================== */
-/* DISTRITOS                       */
-/* =============================== */
+/* DISTRITOS */
 
 const DISTRICTS = [
 
@@ -1541,9 +1536,7 @@ const DISTRICTS = [
 ];
 
 
-/* =============================== */
-/* ESTADO                          */
-/* =============================== */
+/* ESTADO */
 
 let participant = {
     firstName:"",
@@ -1553,9 +1546,7 @@ let participant = {
 };
 
 let currentScreen = 1;
-
 let currentCacheIndex = 0;
-
 let recoveredCaches = [];
 
 let perimeterReached = false;
@@ -1565,7 +1556,6 @@ let cacheReached = false;
 let map = null;
 let playerMarker = null;
 let arenaMarker = null;
-let routeLine = null;
 
 let watchID = null;
 
@@ -1578,12 +1568,8 @@ let cacheTargetBearing = null;
 
 let orientationEnabled = false;
 
-let firstPosition = true;
 
-
-/* =============================== */
-/* GUARDAR                         */
-/* =============================== */
+/* GUARDADO */
 
 function saveGame(){
 
@@ -1593,17 +1579,13 @@ function saveGame(){
         safeScreen = 4;
     }
 
-    if(
-        currentScreen === 6 ||
-        currentScreen === 7
-    ){
+    if(currentScreen === 6 || currentScreen === 7){
         safeScreen = 5;
     }
 
     const gameState = {
 
         version:1,
-
         screen:safeScreen,
 
         participant:{
@@ -1614,13 +1596,10 @@ function saveGame(){
         },
 
         currentCacheIndex:currentCacheIndex,
-
         recoveredCaches:recoveredCaches,
 
         perimeterReached:perimeterReached,
-
         entranceUnlocked:entranceUnlocked,
-
         cacheReached:cacheReached
 
     };
@@ -1637,23 +1616,16 @@ function saveGame(){
 }
 
 
-/* =============================== */
-/* CARGAR                          */
-/* =============================== */
+/* CARGAR */
 
 function loadGame(){
 
-    let saved = null;
+    let saved;
 
     try{
-
-        saved =
-            localStorage.getItem(SAVE_KEY);
-
+        saved = localStorage.getItem(SAVE_KEY);
     }catch(error){
-
         return false;
-
     }
 
     if(!saved){
@@ -1662,13 +1634,9 @@ function loadGame(){
 
     try{
 
-        const data =
-            JSON.parse(saved);
+        const data = JSON.parse(saved);
 
-        if(
-            !data ||
-            data.version !== 1
-        ){
+        if(!data || data.version !== 1){
             return false;
         }
 
@@ -1694,7 +1662,7 @@ function loadGame(){
                 Math.max(
                     0,
                     Math.min(
-                        DISTRICTS.length - 1,
+                        DISTRICTS.length-1,
                         data.currentCacheIndex
                     )
                 );
@@ -1702,10 +1670,7 @@ function loadGame(){
         }
 
         if(Array.isArray(data.recoveredCaches)){
-
-            recoveredCaches =
-                data.recoveredCaches;
-
+            recoveredCaches = data.recoveredCaches;
         }
 
         perimeterReached =
@@ -1724,10 +1689,7 @@ function loadGame(){
             currentScreen = 4;
         }
 
-        if(
-            currentScreen === 6 ||
-            currentScreen === 7
-        ){
+        if(currentScreen === 6 || currentScreen === 7){
             currentScreen = 5;
         }
 
@@ -1742,9 +1704,7 @@ function loadGame(){
 }
 
 
-/* =============================== */
-/* RESTAURAR                       */
-/* =============================== */
+/* RESTAURAR */
 
 function restoreGameInterface(){
 
@@ -1806,35 +1766,21 @@ function restoreGameInterface(){
         currentScreen === 12 ||
         currentScreen === 15
     ){
-
         startTracking();
-
     }
 
     if(currentScreen === 11){
-
-        setTimeout(
-            initializeMap,
-            400
-        );
-
+        setTimeout(initializeMap,400);
     }
 
     if(currentScreen === 15){
-
-        setTimeout(
-            updateCurrentCacheGPS,
-            400
-        );
-
+        setTimeout(updateCurrentCacheGPS,400);
     }
 
 }
 
 
-/* =============================== */
-/* AUDIO                           */
-/* =============================== */
+/* AUDIO */
 
 const backgroundMusic =
     document.getElementById("backgroundMusic");
@@ -1850,7 +1796,6 @@ function playClick(){
     try{
 
         clickSound.currentTime = 0;
-
         clickSound.play().catch(()=>{});
 
     }catch(error){}
@@ -1860,9 +1805,7 @@ function playClick(){
 function ensureBackgroundMusic(){
 
     if(backgroundMusic.paused){
-
         backgroundMusic.play().catch(()=>{});
-
     }
 
 }
@@ -1874,9 +1817,7 @@ document.querySelectorAll("button").forEach(button=>{
         playClick();
 
         if(currentScreen !== 1){
-
             ensureBackgroundMusic();
-
         }
 
     });
@@ -1892,9 +1833,7 @@ function beginCeremony(){
 }
 
 
-/* =============================== */
-/* PANTALLAS                       */
-/* =============================== */
+/* PANTALLAS */
 
 function showScreen(number){
 
@@ -1914,18 +1853,11 @@ function showScreen(number){
             );
 
         if(screen){
-
             screen.classList.add("active");
-
         }
 
         if(number === 11 && map){
-
-            setTimeout(
-                ()=>map.invalidateSize(),
-                300
-            );
-
+            setTimeout(()=>map.invalidateSize(),300);
         }
 
     },250);
@@ -1933,9 +1865,7 @@ function showScreen(number){
 }
 
 
-/* =============================== */
-/* REGISTRO                        */
-/* =============================== */
+/* REGISTRO */
 
 function registerCitizen(){
 
@@ -1954,11 +1884,7 @@ function registerCitizen(){
             "birthDate"
         ).value;
 
-    if(
-        !firstName ||
-        !lastName ||
-        !birthDate
-    ){
+    if(!firstName || !lastName || !birthDate){
 
         document.getElementById(
             "formError"
@@ -1974,8 +1900,7 @@ function registerCitizen(){
     participant.birthDate = birthDate;
 
     participant.fullName =
-        (firstName+" "+lastName)
-        .toUpperCase();
+        (firstName+" "+lastName).toUpperCase();
 
     updateParticipantUI();
 
@@ -2006,9 +1931,7 @@ function updateParticipantUI(){
 }
 
 
-/* =============================== */
-/* TERMINAL                        */
-/* =============================== */
+/* TERMINAL */
 
 function startRegistration(){
 
@@ -2020,7 +1943,6 @@ function startRegistration(){
     terminal.innerHTML = "";
 
     const lines = [
-
         "> CONECTANDO CON EL CAPITOLIO...",
         "> VERIFICANDO IDENTIDAD...",
         "> CIUDADANO IDENTIFICADO",
@@ -2029,7 +1951,6 @@ function startRegistration(){
         "> ESTADO: ELEGIBLE",
         "> AÑADIENDO NOMBRE A LA COSECHA...",
         "> REGISTRO COMPLETADO"
-
     ];
 
     let i = 0;
@@ -2065,9 +1986,7 @@ function startRegistration(){
 }
 
 
-/* =============================== */
-/* COSECHA                         */
-/* =============================== */
+/* COSECHA */
 
 const fakeNames = [
     "LUCÍA MENDOZA",
@@ -2100,8 +2019,7 @@ function startCountdown(){
 
             if(number > 0){
 
-                display.textContent =
-                    number;
+                display.textContent = number;
 
             }else{
 
@@ -2131,8 +2049,7 @@ function startReaping(){
         display.textContent =
             fakeNames[
                 Math.floor(
-                    Math.random()*
-                    fakeNames.length
+                    Math.random()*fakeNames.length
                 )
             ];
 
@@ -2165,18 +2082,13 @@ function startReaping(){
 }
 
 
-/* =============================== */
-/* ORIENTACIÓN                     */
-/* =============================== */
+/* ORIENTACIÓN */
 
 async function requestOrientationPermission(){
 
     try{
 
-        if(
-            typeof DeviceOrientationEvent !==
-            "undefined"
-        ){
+        if(typeof DeviceOrientationEvent !== "undefined"){
 
             if(
                 typeof DeviceOrientationEvent.requestPermission ===
@@ -2184,13 +2096,10 @@ async function requestOrientationPermission(){
             ){
 
                 const permission =
-                    await DeviceOrientationEvent
-                        .requestPermission();
+                    await DeviceOrientationEvent.requestPermission();
 
                 if(permission === "granted"){
-
                     enableOrientation();
-
                 }
 
             }else{
@@ -2225,21 +2134,13 @@ function handleOrientation(event){
 
     let heading = null;
 
-    if(
-        typeof event.webkitCompassHeading ===
-        "number"
-    ){
+    if(typeof event.webkitCompassHeading === "number"){
 
-        heading =
-            event.webkitCompassHeading;
+        heading = event.webkitCompassHeading;
 
-    }else if(
-        typeof event.alpha ===
-        "number"
-    ){
+    }else if(typeof event.alpha === "number"){
 
-        heading =
-            360-event.alpha;
+        heading = 360-event.alpha;
 
     }
 
@@ -2250,15 +2151,18 @@ function handleOrientation(event){
     currentHeading =
         normalizeAngle(heading);
 
+    document.getElementById(
+        "approachSensor"
+    ).textContent =
+        "SEÑAL DE ORIENTACIÓN ACTIVA";
+
     updateArenaCompass();
     updateCacheCompass();
 
 }
 
 
-/* =============================== */
-/* MISIÓN                          */
-/* =============================== */
+/* MISIÓN */
 
 async function beginMission(){
 
@@ -2276,9 +2180,7 @@ async function beginMission(){
 }
 
 
-/* =============================== */
-/* MAPA                            */
-/* =============================== */
+/* MAPA */
 
 function initializeMap(){
 
@@ -2342,9 +2244,7 @@ function initializeMap(){
 }
 
 
-/* =============================== */
-/* GPS                             */
-/* =============================== */
+/* GPS */
 
 function startTracking(){
 
@@ -2354,40 +2254,39 @@ function startTracking(){
 
     if(watchID !== null){
 
-        navigator.geolocation
-            .clearWatch(watchID);
+        navigator.geolocation.clearWatch(
+            watchID
+        );
 
     }
 
     watchID =
-        navigator.geolocation
-            .watchPosition(
+        navigator.geolocation.watchPosition(
 
-                locationSuccess,
+            locationSuccess,
 
-                ()=>{},
+            ()=>{},
 
-                {
-                    enableHighAccuracy:true,
-                    timeout:15000,
-                    maximumAge:2000
-                }
+            {
+                enableHighAccuracy:true,
+                timeout:15000,
+                maximumAge:2000
+            }
 
-            );
+        );
 
 }
 
 function checkLocation(){
 
-    navigator.geolocation
-        .getCurrentPosition(
-            locationSuccess,
-            ()=>{},
-            {
-                enableHighAccuracy:true,
-                maximumAge:0
-            }
-        );
+    navigator.geolocation.getCurrentPosition(
+        locationSuccess,
+        ()=>{},
+        {
+            enableHighAccuracy:true,
+            maximumAge:0
+        }
+    );
 
 }
 
@@ -2447,9 +2346,7 @@ function locationSuccess(position){
     processArenaDistance(distance);
 
     if(currentScreen === 15){
-
         updateCurrentCacheGPS();
-
     }
 
 }
@@ -2494,9 +2391,7 @@ function updateMap(lat,lon){
 }
 
 
-/* =============================== */
-/* ARENA                           */
-/* =============================== */
+/* ARENA */
 
 function processArenaDistance(distance){
 
@@ -2509,7 +2404,12 @@ function processArenaDistance(distance){
 
         saveGame();
 
-        showScreen(12);
+        flash();
+
+        setTimeout(
+            ()=>showScreen(12),
+            350
+        );
 
     }
 
@@ -2552,6 +2452,8 @@ function unlockEntrance(){
 
     saveGame();
 
+    flash();
+
 }
 
 function enterArena(){
@@ -2565,9 +2467,7 @@ function enterArena(){
 }
 
 
-/* =============================== */
-/* BRÚJULA ARENA                   */
-/* =============================== */
+/* BRÚJULA ARENA */
 
 function updateArenaCompass(){
 
@@ -2596,9 +2496,7 @@ function updateArenaCompass(){
 }
 
 
-/* =============================== */
-/* DISTRITOS                       */
-/* =============================== */
+/* DISTRITOS */
 
 function startGames(){
 
@@ -2612,7 +2510,12 @@ function startGames(){
 
     saveGame();
 
-    showScreen(14);
+    flash();
+
+    setTimeout(
+        ()=>showScreen(14),
+        350
+    );
 
 }
 
@@ -2664,9 +2567,7 @@ function prepareCurrentDistrict(){
 }
 
 
-/* =============================== */
-/* LOCALIZAR ALIJO                 */
-/* =============================== */
+/* LOCALIZAR ALIJO */
 
 async function locateCurrentCache(){
 
@@ -2714,6 +2615,14 @@ function updateCurrentCacheGPS(){
             "ESPERANDO UBICACIÓN";
 
         document.getElementById(
+            "cacheLocationMessage"
+        ).innerHTML =
+            "La ubicación del alijo del "+
+            "<span class='gold'>Distrito "+
+            cache.district+
+            "</span> todavía no ha sido asignada.";
+
+        document.getElementById(
             "testCacheButton"
         ).style.display =
             "block";
@@ -2755,6 +2664,11 @@ function updateCurrentCacheGPS(){
     ).textContent =
         Math.round(distance)+" m";
 
+    document.getElementById(
+        "cacheLocationMessage"
+    ).textContent =
+        "Sigue la señal del Distrito hasta localizar el suministro.";
+
     updateCacheCompass();
 
     if(
@@ -2766,7 +2680,12 @@ function updateCurrentCacheGPS(){
 
         saveGame();
 
-        showScreen(16);
+        flash();
+
+        setTimeout(
+            ()=>showScreen(16),
+            500
+        );
 
     }
 
@@ -2838,14 +2757,17 @@ function simulateCacheFound(){
 
     saveGame();
 
-    showScreen(16);
+    flash();
+
+    setTimeout(
+        ()=>showScreen(16),
+        400
+    );
 
 }
 
 
-/* =============================== */
-/* CÓDIGO MEDALLA                  */
-/* =============================== */
+/* CÓDIGO MEDALLA */
 
 function validateMedalCode(){
 
@@ -2906,12 +2828,6 @@ function validateMedalCode(){
         String(cache.district)
         .padStart(2,"0");
 
-    /*
-        IMPORTANTE:
-        Guardamos que la medalla ya está
-        recuperada ANTES de pasar de pantalla.
-    */
-
     saveGame();
 
     flash();
@@ -2924,17 +2840,9 @@ function validateMedalCode(){
 }
 
 
-/* =============================== */
-/* EQUIPAR MEDALLA                 */
-/* =============================== */
+/* EQUIPAR */
 
 function equipMedal(){
-
-    /*
-        No avanza al siguiente Distrito.
-        Solo guarda el progreso y abre
-        el almacén de medallas.
-    */
 
     saveGame();
 
@@ -2948,19 +2856,12 @@ function equipMedal(){
 }
 
 
-/* =============================== */
-/* SIGUIENTE ALIJO                 */
-/* =============================== */
+/* SIGUIENTE ALIJO */
 
 function nextCache(){
 
     const current =
         getCurrentCache();
-
-    /*
-        Solo permite continuar si el código
-        del Distrito actual ya fue validado.
-    */
 
     if(
         !recoveredCaches.includes(
@@ -2970,10 +2871,6 @@ function nextCache(){
         return;
     }
 
-    /*
-        ÚLTIMO DISTRITO
-    */
-
     if(
         currentCacheIndex >=
         DISTRICTS.length-1
@@ -2981,20 +2878,20 @@ function nextCache(){
 
         saveGame();
 
-        showScreen(18);
+        flash();
+
+        setTimeout(
+            ()=>showScreen(18),
+            400
+        );
 
         return;
 
     }
 
-    /*
-        SIGUIENTE DISTRITO
-    */
-
     currentCacheIndex++;
 
     cacheReached = false;
-
     cacheTargetBearing = null;
 
     prepareCurrentDistrict();
@@ -3011,9 +2908,7 @@ function nextCache(){
 }
 
 
-/* =============================== */
-/* GPS MATEMÁTICAS                 */
-/* =============================== */
+/* GPS MATEMÁTICAS */
 
 function calculateDistance(
     lat1,
@@ -3098,9 +2993,7 @@ function normalizeAngle(angle){
 }
 
 
-/* =============================== */
-/* APPLE MAPS                      */
-/* =============================== */
+/* APPLE MAPS */
 
 function openRoute(){
 
@@ -3121,9 +3014,7 @@ function openRoute(){
 }
 
 
-/* =============================== */
-/* FLASH                           */
-/* =============================== */
+/* FLASH */
 
 function flash(){
 
@@ -3139,9 +3030,7 @@ function flash(){
 }
 
 
-/* =============================== */
-/* ADMIN                           */
-/* =============================== */
+/* ADMIN */
 
 let adminHoldTimer = null;
 
@@ -3161,12 +3050,22 @@ document.querySelectorAll(
     );
 
     trigger.addEventListener(
+        "touchcancel",
+        cancelAdminHold
+    );
+
+    trigger.addEventListener(
         "mousedown",
         startAdminHold
     );
 
     trigger.addEventListener(
         "mouseup",
+        cancelAdminHold
+    );
+
+    trigger.addEventListener(
+        "mouseleave",
         cancelAdminHold
     );
 
@@ -3272,13 +3171,22 @@ function adminMap(){
 function adminPerimeter(){
 
     perimeterReached = true;
-
     entranceUnlocked = false;
 
     document.getElementById(
         "accessDistance"
     ).textContent =
         "80 m";
+
+    document.getElementById(
+        "enterArenaButton"
+    ).disabled =
+        true;
+
+    document.getElementById(
+        "arenaLockStatus"
+    ).textContent =
+        "🔒 ACCESO BLOQUEADO";
 
     saveGame();
 
@@ -3291,7 +3199,6 @@ function adminPerimeter(){
 function adminEntrance(){
 
     perimeterReached = true;
-
     entranceUnlocked = true;
 
     document.getElementById(
@@ -3303,6 +3210,10 @@ function adminEntrance(){
         "arenaLockStatus"
     ).textContent =
         "🔓 ACCESO CONFIRMADO";
+
+    document.getElementById(
+        "arenaLockStatus"
+    ).classList.add("open");
 
     document.getElementById(
         "enterArenaButton"
@@ -3324,6 +3235,11 @@ function adminCache(){
 
     showScreen(15);
 
+    setTimeout(
+        updateCurrentCacheGPS,
+        300
+    );
+
 }
 
 function adminSetCache(index){
@@ -3331,7 +3247,6 @@ function adminSetCache(index){
     currentCacheIndex = index;
 
     cacheReached = false;
-
     cacheTargetBearing = null;
 
     prepareCurrentDistrict();
@@ -3345,9 +3260,7 @@ function adminSetCache(index){
 }
 
 
-/* =============================== */
-/* RESET                           */
-/* =============================== */
+/* RESET */
 
 function resetGame(){
 
@@ -3361,8 +3274,9 @@ function resetGame(){
 
     if(watchID !== null){
 
-        navigator.geolocation
-            .clearWatch(watchID);
+        navigator.geolocation.clearWatch(
+            watchID
+        );
 
         watchID = null;
 
@@ -3376,7 +3290,6 @@ function resetGame(){
     };
 
     currentCacheIndex = 0;
-
     recoveredCaches = [];
 
     perimeterReached = false;
@@ -3411,8 +3324,11 @@ function resetGame(){
     ).textContent =
         "🔒 ACCESO BLOQUEADO";
 
-    backgroundMusic.pause();
+    document.getElementById(
+        "arenaLockStatus"
+    ).classList.remove("open");
 
+    backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
 
     closeAdmin();
@@ -3436,9 +3352,7 @@ function resetGame(){
 }
 
 
-/* =============================== */
-/* GUARDADO AL SALIR               */
-/* =============================== */
+/* GUARDADO AL SALIR */
 
 document.addEventListener(
     "visibilitychange",
@@ -3462,9 +3376,7 @@ window.addEventListener(
 );
 
 
-/* =============================== */
-/* INICIO                          */
-/* =============================== */
+/* INICIO */
 
 window.addEventListener(
     "DOMContentLoaded",
