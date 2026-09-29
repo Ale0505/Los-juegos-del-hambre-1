@@ -30,9 +30,7 @@ html,body{
     font-family:'Montserrat',sans-serif;
 }
 
-body{
-    min-height:100dvh;
-}
+body{min-height:100dvh;}
 
 .background{
     position:fixed;
@@ -113,9 +111,6 @@ body{
         brightness(1.08)
         drop-shadow(0 0 15px rgba(190,150,65,.25));
     pointer-events:none;
-    user-select:none;
-    -webkit-user-select:none;
-    -webkit-touch-callout:none;
 }
 
 .capitol-symbol.medium{
@@ -165,9 +160,7 @@ h2{
     color:#b8b8b8;
 }
 
-.gold{
-    color:#d0ad5c;
-}
+.gold{color:#d0ad5c;}
 
 .line{
     height:1px;
@@ -204,9 +197,7 @@ button:active{
     background:rgba(190,150,70,.1);
 }
 
-button:disabled{
-    opacity:.3;
-}
+button:disabled{opacity:.3;}
 
 .double-buttons{
     width:min(100%,400px);
@@ -252,9 +243,7 @@ button:disabled{
     border:1px solid rgba(173,143,76,.35);
 }
 
-.form-group{
-    margin-bottom:20px;
-}
+.form-group{margin-bottom:20px;}
 
 .form-label{
     display:block;
@@ -322,9 +311,7 @@ button:disabled{
     color:#8f8f8f;
 }
 
-.status span{
-    color:#b89b58;
-}
+.status span{color:#b89b58;}
 
 .reaping-box{
     width:min(100%,410px);
@@ -573,9 +560,7 @@ button:disabled{
     letter-spacing:2px;
 }
 
-.lock-status.open{
-    color:#c7a85e;
-}
+.lock-status.open{color:#c7a85e;}
 
 .district-card{
     width:min(100%,410px);
@@ -656,9 +641,7 @@ button:disabled{
     opacity:0;
 }
 
-.flash.go{
-    animation:flashAnimation .55s ease;
-}
+.flash.go{animation:flashAnimation .55s ease;}
 
 @keyframes flashAnimation{
     0%{opacity:0;}
@@ -679,9 +662,7 @@ button:disabled{
     background:rgba(0,0,0,.97);
 }
 
-.admin-overlay.open{
-    display:flex;
-}
+.admin-overlay.open{display:flex;}
 
 .admin-box{
     width:min(100%,470px);
@@ -713,9 +694,7 @@ button:disabled{
     margin-top:10px;
 }
 
-.admin-content{
-    display:none;
-}
+.admin-content{display:none;}
 
 .admin-section{
     margin-top:20px;
@@ -771,9 +750,7 @@ button:disabled{
         margin-bottom:16px;
     }
 
-    .map-frame{
-        height:230px;
-    }
+    .map-frame{height:230px;}
 
     .text{
         font-size:13px;
@@ -865,7 +842,6 @@ button:disabled{
 <section class="screen" id="screen3">
 
     <div class="small">Sistema central · Capitolio</div>
-
     <div class="terminal" id="terminal"></div>
 
 </section>
@@ -919,11 +895,8 @@ button:disabled{
 <!-- 6 -->
 
 <section class="screen" id="screen6">
-
     <div class="small">Iniciando Cosecha</div>
-
     <div class="number" id="count">3</div>
-
 </section>
 
 <!-- 7 -->
@@ -1038,11 +1011,8 @@ button:disabled{
     </div>
 
     <div class="map-buttons">
-
         <button onclick="checkLocation()">Actualizar</button>
-
         <button onclick="openRoute()">Iniciar ruta</button>
-
     </div>
 
 </section>
@@ -1117,7 +1087,7 @@ button:disabled{
 
 </section>
 
-<!-- 13 - BRIEFING -->
+<!-- 13 -->
 
 <section class="screen" id="screen13">
 
@@ -1187,8 +1157,6 @@ button:disabled{
         </span>
 
     </p>
-
-    <!-- NUEVO: EQUIPARSE ANTES DE EMPEZAR -->
 
     <div class="preparation-box">
 
@@ -1450,7 +1418,6 @@ button:disabled{
             <div class="admin-error" id="adminError"></div>
 
             <button onclick="unlockAdmin()">Autorizar acceso</button>
-
             <button onclick="closeAdmin()">Cancelar</button>
 
         </div>
@@ -1462,14 +1429,12 @@ button:disabled{
                 <div class="admin-section-title">COSECHA</div>
 
                 <div class="admin-grid">
-
                     <button onclick="adminGo(1)">Inicio</button>
                     <button onclick="adminGo(2)">Registro</button>
                     <button onclick="adminCitizen()">Registrado</button>
                     <button onclick="adminGo(5)">Cosecha</button>
                     <button onclick="adminSelected()">Tributo elegido</button>
                     <button onclick="adminGo(9)">Explicación</button>
-
                 </div>
 
             </div>
@@ -1479,14 +1444,12 @@ button:disabled{
                 <div class="admin-section-title">ARENA</div>
 
                 <div class="admin-grid">
-
                     <button onclick="adminGo(10)">Traslado</button>
                     <button onclick="adminMap()">Mapa</button>
                     <button onclick="adminPerimeter()">Perímetro</button>
                     <button onclick="adminEntrance()">Entrada desbloqueada</button>
                     <button onclick="adminGo(13)">Briefing</button>
                     <button onclick="adminGo(18)">Final</button>
-
                 </div>
 
             </div>
@@ -1496,12 +1459,10 @@ button:disabled{
                 <div class="admin-section-title">ALIJO ACTUAL</div>
 
                 <div class="admin-grid">
-
                     <button onclick="adminTransmission()">Transmisión</button>
                     <button onclick="adminCache()">Brújula</button>
                     <button onclick="adminCacheFound()">Alijo encontrado</button>
                     <button onclick="adminCodeAccepted()">Código aceptado</button>
-
                 </div>
 
             </div>
@@ -1511,14 +1472,12 @@ button:disabled{
                 <div class="admin-section-title">SELECCIONAR ALIJO</div>
 
                 <div class="admin-grid">
-
                     <button onclick="adminSetCache(0)">Capitolio</button>
                     <button onclick="adminSetCache(1)">Distrito 1</button>
                     <button onclick="adminSetCache(2)">Distrito 2</button>
                     <button onclick="adminSetCache(3)">Distrito 8</button>
                     <button onclick="adminSetCache(4)">Distrito 11</button>
                     <button onclick="adminSetCache(5)">Distrito 12</button>
-
                 </div>
 
             </div>
@@ -1530,12 +1489,10 @@ button:disabled{
                 </div>
 
                 <div class="admin-grid">
-
                     <button onclick="adminForceArena()">Forzar entrada</button>
                     <button onclick="adminForceCache()">Forzar alijo</button>
                     <button onclick="adminForceCurrentCode()">Validar código</button>
                     <button onclick="adminCompleteAll()">Completar alijos</button>
-
                 </div>
 
             </div>
@@ -1578,7 +1535,16 @@ const SAVE_KEY = "capitolio_hunger_games_save_v1";
 const MEDAL_STORAGE_URL =
 "https://ale0505.github.io/Almacenamiento-medallas/";
 
-/* ALIJOS */
+/*
+ORDEN OFICIAL DE SUMINISTROS
+
+0 CAPITOLIO
+1 DISTRITO 1
+2 DISTRITO 2
+3 DISTRITO 8
+4 DISTRITO 11
+5 DISTRITO 12
+*/
 
 const DISTRICTS = [
 
@@ -1680,7 +1646,7 @@ function getCacheId(cache){
     return "district-" + cache.district;
 }
 
-/* GUARDADO */
+/* GUARDAR */
 
 function saveGame(){
 
@@ -1695,7 +1661,6 @@ function saveGame(){
     }
 
     const state = {
-
         version:2,
         screen:safeScreen,
         participant:participant,
@@ -1704,32 +1669,31 @@ function saveGame(){
         perimeterReached:perimeterReached,
         entranceUnlocked:entranceUnlocked,
         cacheReached:cacheReached
-
     };
 
     try{
-
         localStorage.setItem(
             SAVE_KEY,
             JSON.stringify(state)
         );
-
     }catch(error){}
 }
 
-/* CARGA */
+/* CARGAR */
 
 function loadGame(){
 
     try{
 
-        const saved = localStorage.getItem(SAVE_KEY);
+        const saved =
+            localStorage.getItem(SAVE_KEY);
 
         if(!saved){
             return false;
         }
 
-        const data = JSON.parse(saved);
+        const data =
+            JSON.parse(saved);
 
         if(!data){
             return false;
@@ -1761,27 +1725,33 @@ function loadGame(){
 
             if(Number.isInteger(data.currentCacheIndex)){
 
-                currentCacheIndex = Math.max(
-                    0,
-                    Math.min(
-                        DISTRICTS.length - 1,
-                        data.currentCacheIndex
-                    )
-                );
+                currentCacheIndex =
+                    Math.max(
+                        0,
+                        Math.min(
+                            DISTRICTS.length - 1,
+                            data.currentCacheIndex
+                        )
+                    );
 
             }
 
             if(Array.isArray(data.recoveredCaches)){
                 recoveredCaches = data.recoveredCaches;
             }
-
         }
 
-        perimeterReached = Boolean(data.perimeterReached);
-        entranceUnlocked = Boolean(data.entranceUnlocked);
-        cacheReached = Boolean(data.cacheReached);
+        perimeterReached =
+            Boolean(data.perimeterReached);
 
-        currentScreen = Number(data.screen) || 1;
+        entranceUnlocked =
+            Boolean(data.entranceUnlocked);
+
+        cacheReached =
+            Boolean(data.cacheReached);
+
+        currentScreen =
+            Number(data.screen) || 1;
 
         if(data.version === 1 && currentScreen >= 14){
 
@@ -1834,7 +1804,9 @@ function restoreGameInterface(){
     });
 
     const screen =
-        document.getElementById("screen" + currentScreen);
+        document.getElementById(
+            "screen" + currentScreen
+        );
 
     if(screen){
 
@@ -1843,7 +1815,9 @@ function restoreGameInterface(){
     }else{
 
         currentScreen = 1;
-        document.getElementById("screen1").classList.add("active");
+
+        document.getElementById("screen1")
+            .classList.add("active");
 
     }
 
@@ -1878,10 +1852,11 @@ clickSound.volume = .50;
 function playClick(){
 
     try{
+
         clickSound.currentTime = 0;
         clickSound.play().catch(()=>{});
-    }catch(error){}
 
+    }catch(error){}
 }
 
 function ensureBackgroundMusic(){
@@ -1889,7 +1864,6 @@ function ensureBackgroundMusic(){
     if(backgroundMusic.paused){
         backgroundMusic.play().catch(()=>{});
     }
-
 }
 
 document.querySelectorAll("button").forEach(button => {
@@ -1928,7 +1902,9 @@ function showScreen(number){
     setTimeout(() => {
 
         const screen =
-            document.getElementById("screen" + number);
+            document.getElementById(
+                "screen" + number
+            );
 
         if(screen){
             screen.classList.add("active");
@@ -1978,13 +1954,16 @@ function updateParticipantUI(){
 function registerCitizen(){
 
     const firstName =
-        document.getElementById("firstName").value.trim();
+        document.getElementById("firstName")
+        .value.trim();
 
     const lastName =
-        document.getElementById("lastName").value.trim();
+        document.getElementById("lastName")
+        .value.trim();
 
     const birthDate =
-        document.getElementById("birthDate").value;
+        document.getElementById("birthDate")
+        .value;
 
     if(!firstName || !lastName || !birthDate){
 
@@ -1999,7 +1978,8 @@ function registerCitizen(){
     participant.birthDate = birthDate;
 
     participant.fullName =
-        (firstName + " " + lastName).toUpperCase();
+        (firstName + " " + lastName)
+        .toUpperCase();
 
     updateParticipantUI();
     saveGame();
@@ -2034,9 +2014,11 @@ function startRegistration(){
 
         if(index < lines.length){
 
-            const div = document.createElement("div");
+            const div =
+                document.createElement("div");
 
-            div.textContent = lines[index];
+            div.textContent =
+                lines[index];
 
             terminal.appendChild(div);
 
@@ -2083,22 +2065,25 @@ function startCountdown(){
 
     display.textContent = number;
 
-    const timer = setInterval(() => {
+    const timer =
+        setInterval(() => {
 
-        number--;
+            number--;
 
-        if(number > 0){
+            if(number > 0){
 
-            display.textContent = number;
+                display.textContent =
+                    number;
 
-        }else{
+            }else{
 
-            clearInterval(timer);
-            startReaping();
+                clearInterval(timer);
 
-        }
+                startReaping();
 
-    },1000);
+            }
+
+        },1000);
 }
 
 function startReaping(){
@@ -2132,7 +2117,8 @@ function startReaping(){
         }else{
 
             display.textContent =
-                participant.fullName || "TRIBUTO";
+                participant.fullName ||
+                "TRIBUTO";
 
             setTimeout(
                 () => showScreen(8),
@@ -2196,11 +2182,13 @@ function handleOrientation(event){
 
     if(typeof event.webkitCompassHeading === "number"){
 
-        heading = event.webkitCompassHeading;
+        heading =
+            event.webkitCompassHeading;
 
     }else if(typeof event.alpha === "number"){
 
-        heading = 360 - event.alpha;
+        heading =
+            360 - event.alpha;
 
     }
 
@@ -2208,7 +2196,8 @@ function handleOrientation(event){
         return;
     }
 
-    currentHeading = normalizeAngle(heading);
+    currentHeading =
+        normalizeAngle(heading);
 
     document.getElementById("approachSensor").textContent =
         "SEÑAL DE ORIENTACIÓN ACTIVA";
@@ -2240,18 +2229,23 @@ function initializeMap(){
     if(map){
 
         map.invalidateSize();
-        return;
 
+        return;
     }
 
     map =
         L.map(
             "map",
-            {zoomControl:false}
+            {
+                zoomControl:false
+            }
         );
 
     map.setView(
-        [ARENA_LATITUDE,ARENA_LONGITUDE],
+        [
+            ARENA_LATITUDE,
+            ARENA_LONGITUDE
+        ],
         12
     );
 
@@ -2280,8 +2274,13 @@ function initializeMap(){
 
     arenaMarker =
         L.marker(
-            [ARENA_LATITUDE,ARENA_LONGITUDE],
-            {icon:arenaIcon}
+            [
+                ARENA_LATITUDE,
+                ARENA_LONGITUDE
+            ],
+            {
+                icon:arenaIcon
+            }
         )
         .addTo(map);
 }
@@ -2296,7 +2295,9 @@ function startTracking(){
 
     if(watchID !== null){
 
-        navigator.geolocation.clearWatch(watchID);
+        navigator.geolocation.clearWatch(
+            watchID
+        );
 
     }
 
@@ -2304,6 +2305,7 @@ function startTracking(){
         navigator.geolocation.watchPosition(
 
             locationSuccess,
+
             locationFailure,
 
             {
@@ -2330,6 +2332,7 @@ function checkLocation(){
     navigator.geolocation.getCurrentPosition(
 
         locationSuccess,
+
         locationFailure,
 
         {
@@ -2343,10 +2346,14 @@ function checkLocation(){
 
 function locationSuccess(position){
 
-    currentLatitude = position.coords.latitude;
-    currentLongitude = position.coords.longitude;
+    currentLatitude =
+        position.coords.latitude;
 
-    const accuracy = position.coords.accuracy;
+    currentLongitude =
+        position.coords.longitude;
+
+    const accuracy =
+        position.coords.accuracy;
 
     document.getElementById("locationStatus").textContent =
         "● POSICIÓN DEL TRIBUTO ACTIVA";
@@ -2374,8 +2381,10 @@ function locationSuccess(position){
 
     document.getElementById("distance").textContent =
         distance >= 1000
-        ? (distance / 1000).toFixed(1) + " km"
-        : Math.round(distance) + " m";
+        ?
+        (distance / 1000).toFixed(1) + " km"
+        :
+        Math.round(distance) + " m";
 
     updateMap(
         currentLatitude,
@@ -2391,7 +2400,7 @@ function locationSuccess(position){
     }
 }
 
-/* MAPA JUGADOR */
+/* MARCADOR */
 
 function updateMap(lat,lon){
 
@@ -2417,13 +2426,17 @@ function updateMap(lat,lon){
         playerMarker =
             L.marker(
                 [lat,lon],
-                {icon:playerIcon}
+                {
+                    icon:playerIcon
+                }
             )
             .addTo(map);
 
     }else{
 
-        playerMarker.setLatLng([lat,lon]);
+        playerMarker.setLatLng(
+            [lat,lon]
+        );
 
     }
 }
@@ -2475,9 +2488,8 @@ function unlockEntranceUI(){
     document.getElementById("arenaLockStatus").textContent =
         "🔓 ACCESO CONFIRMADO";
 
-    document.getElementById("arenaLockStatus").classList.add(
-        "open"
-    );
+    document.getElementById("arenaLockStatus")
+        .classList.add("open");
 }
 
 function unlockEntrance(){
@@ -2515,23 +2527,17 @@ function updateArenaCompass(){
         );
 
     document.getElementById("approachCompassArrow").style.transform =
-        "rotate(" + relative + "deg)";
+        "rotate(" +
+        relative +
+        "deg)";
 
     document.getElementById("approachInstruction").textContent =
         getDirectionText(relative);
 }
 
-/* ================================= */
-/* NUEVO - INVENTARIO DESDE BRIEFING */
-/* ================================= */
+/* INVENTARIO DESDE BRIEFING */
 
 function openInventory(){
-
-    /*
-    Se guarda la pantalla 13 antes de salir.
-    Al volver desde el inventario,
-    continuará exactamente en el briefing.
-    */
 
     saveGame();
 
@@ -2543,36 +2549,66 @@ function openInventory(){
     },120);
 }
 
-/* INICIAR JUEGOS */
+/* ================================= */
+/* INICIAR JUEGOS - CORREGIDO        */
+/* ================================= */
 
 function startGames(){
 
+    /*
+    SI EL CAPITOLIO TODAVÍA NO HA SIDO
+    RECUPERADO, SIEMPRE EMPEZAMOS POR ÉL.
+
+    Esto evita que un índice antiguo mande
+    directamente al Distrito 1.
+
+    ORDEN:
+    Capitolio
+    Distrito 1
+    Distrito 2
+    Distrito 8
+    Distrito 11
+    Distrito 12
+    */
+
     if(!recoveredCaches.includes("capitol")){
+
         currentCacheIndex = 0;
+
+        cacheReached = false;
+
+        cacheTargetBearing = null;
+
     }
 
     prepareCurrentDistrict();
 
     saveGame();
+
     flash();
 
-    setTimeout(
-        () => showScreen(14),
-        350
-    );
+    setTimeout(() => {
+
+        showScreen(14);
+
+    },350);
 }
 
 /* ALIJO ACTUAL */
 
 function getCurrentCache(){
-    return DISTRICTS[currentCacheIndex];
+
+    return DISTRICTS[
+        currentCacheIndex
+    ];
 }
 
 /* PREPARAR ALIJO */
 
 function prepareCurrentDistrict(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
     if(!cache){
         return;
@@ -2583,20 +2619,25 @@ function prepareCurrentDistrict(){
 
     document.getElementById("transmissionDistrict").textContent =
         isCapitol
-        ? "CAPITOLIO"
-        : "DISTRITO " + String(cache.district).padStart(2,"0");
+        ?
+        "CAPITOLIO"
+        :
+        "DISTRITO " +
+        String(cache.district).padStart(2,"0");
 
     document.getElementById("transmissionType").textContent =
         isCapitol
-        ? "SUMINISTRO OFICIAL"
-        : "TRANSMISIÓN DE DISTRITO";
+        ?
+        "SUMINISTRO OFICIAL"
+        :
+        "TRANSMISIÓN DE DISTRITO";
 
     document.getElementById("transmissionDescription").innerHTML =
         isCapitol
         ?
-        "El Capitolio ha autorizado un suministro para el tributo." +
+        "El Capitolio ha autorizado el primer suministro para el tributo." +
         "<br><br>" +
-        "Se ha detectado un alijo oculto en algún punto de la Arena."
+        "Localiza el alijo antes de continuar hacia los Distritos."
         :
         "El Distrito " +
         cache.district +
@@ -2606,18 +2647,27 @@ function prepareCurrentDistrict(){
 
     document.getElementById("cacheOrigin").textContent =
         isCapitol
-        ? "CAPITOLIO"
-        : "DISTRITO " + String(cache.district).padStart(2,"0");
+        ?
+        "CAPITOLIO"
+        :
+        "DISTRITO " +
+        String(cache.district).padStart(2,"0");
 
     document.getElementById("cacheSignal").textContent =
         isCapitol
-        ? "SEÑAL DEL CAPITOLIO"
-        : "SEÑAL DEL DISTRITO " + cache.district;
+        ?
+        "SEÑAL DEL CAPITOLIO"
+        :
+        "SEÑAL DEL DISTRITO " +
+        cache.district;
 
     document.getElementById("codeTitle").textContent =
         isCapitol
-        ? "ALIJO DEL CAPITOLIO"
-        : "ALIJO DEL DISTRITO " + String(cache.district).padStart(2,"0");
+        ?
+        "ALIJO DEL CAPITOLIO"
+        :
+        "ALIJO DEL DISTRITO " +
+        String(cache.district).padStart(2,"0");
 
     document.getElementById("codeDescription").innerHTML =
         "Has localizado el suministro." +
@@ -2625,8 +2675,12 @@ function prepareCurrentDistrict(){
         "Recupera la medalla " +
         (
             isCapitol
-            ? "del Capitolio."
-            : "del Distrito " + cache.district + "."
+            ?
+            "del Capitolio."
+            :
+            "del Distrito " +
+            cache.district +
+            "."
         ) +
         "<br><br>" +
         "Introduce el código grabado en ella para confirmar la recuperación.";
@@ -2638,7 +2692,7 @@ function prepareCurrentDistrict(){
         '<br><br>' +
         'La medalla ha sido validada.' +
         '<br><br>' +
-        'Pulsa <span class="gold">EQUIPAR</span> para añadir el suministro a tu equipamiento. Después vuelve a esta Arena para continuar.'
+        'Pulsa <span class="gold">EQUIPAR</span> para añadir el suministro a tu equipamiento. Después vuelve a esta Arena para continuar con el Distrito 1.'
         :
         'Suministro del <span class="gold">Distrito ' +
         cache.district +
@@ -2649,12 +2703,18 @@ function prepareCurrentDistrict(){
         'Pulsa <span class="gold">EQUIPAR</span> para añadir el suministro a tu equipamiento. Después vuelve a esta Arena para continuar.';
 
     document.getElementById("nextCacheButton").textContent =
-        currentCacheIndex === DISTRICTS.length - 1
-        ? "Finalizar"
-        : "Siguiente alijo";
+        currentCacheIndex ===
+        DISTRICTS.length - 1
+        ?
+        "Finalizar"
+        :
+        "Siguiente alijo";
 
-    document.getElementById("medalCode").value = "";
-    document.getElementById("codeMessage").textContent = "";
+    document.getElementById("medalCode").value =
+        "";
+
+    document.getElementById("codeMessage").textContent =
+        "";
 }
 
 /* LOCALIZAR ALIJO */
@@ -2666,6 +2726,7 @@ async function locateCurrentCache(){
     cacheReached = false;
 
     prepareCurrentDistrict();
+
     saveGame();
 
     showScreen(15);
@@ -2682,7 +2743,8 @@ async function locateCurrentCache(){
 
 function updateCurrentCacheGPS(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
     if(!cache){
         return;
@@ -2706,10 +2768,12 @@ function updateCurrentCacheGPS(){
             "La ubicación del alijo " +
             (
                 isCapitol
-                ? "del <span class='gold'>Capitolio</span>"
-                : "del <span class='gold'>Distrito " +
-                  cache.district +
-                  "</span>"
+                ?
+                "del <span class='gold'>Capitolio</span>"
+                :
+                "del <span class='gold'>Distrito " +
+                cache.district +
+                "</span>"
             ) +
             " todavía no ha sido asignada.";
 
@@ -2746,7 +2810,8 @@ function updateCurrentCacheGPS(){
         );
 
     document.getElementById("cacheDistance").textContent =
-        Math.round(distance) + " m";
+        Math.round(distance) +
+        " m";
 
     document.getElementById("cacheLocationMessage").textContent =
         "Sigue la señal hasta localizar el suministro.";
@@ -2792,7 +2857,9 @@ function updateCacheCompass(){
         );
 
     document.getElementById("cacheCompassArrow").style.transform =
-        "rotate(" + relative + "deg)";
+        "rotate(" +
+        relative +
+        "deg)";
 
     document.getElementById("cacheInstruction").textContent =
         getDirectionText(relative);
@@ -2848,11 +2915,12 @@ function simulateCacheFound(){
     );
 }
 
-/* VALIDAR MEDALLA */
+/* VALIDAR CÓDIGO */
 
 function validateMedalCode(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
     const input =
         document.getElementById("medalCode");
@@ -2892,13 +2960,15 @@ function validateMedalCode(){
 
 function acceptCurrentCache(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
     if(!cache){
         return;
     }
 
-    const id = getCacheId(cache);
+    const id =
+        getCacheId(cache);
 
     if(!recoveredCaches.includes(id)){
         recoveredCaches.push(id);
@@ -2926,16 +2996,9 @@ function acceptCurrentCache(){
     );
 }
 
-/* EQUIPAR MEDALLA */
+/* EQUIPAR */
 
 function equipMedal(){
-
-    /*
-    Guarda ALIJO RECUPERADO.
-    Al volver desde el inventario
-    seguirá aquí para pulsar
-    SIGUIENTE ALIJO.
-    */
 
     saveGame();
 
@@ -2951,13 +3014,15 @@ function equipMedal(){
 
 function nextCache(){
 
-    const current = getCurrentCache();
+    const current =
+        getCurrentCache();
 
     if(!current){
         return;
     }
 
-    const id = getCacheId(current);
+    const id =
+        getCacheId(current);
 
     if(!recoveredCaches.includes(id)){
         return;
@@ -2978,6 +3043,16 @@ function nextCache(){
 
         return;
     }
+
+    /*
+    Este incremento es el que garantiza:
+
+    0 Capitolio -> 1 Distrito 1
+    1 Distrito 1 -> 2 Distrito 2
+    2 Distrito 2 -> 3 Distrito 8
+    3 Distrito 8 -> 4 Distrito 11
+    4 Distrito 11 -> 5 Distrito 12
+    */
 
     currentCacheIndex++;
 
@@ -3001,30 +3076,34 @@ function calculateDistance(lat1,lon1,lat2,lon2){
 
     const R = 6371000;
 
-    const p1 = lat1 * Math.PI / 180;
-    const p2 = lat2 * Math.PI / 180;
+    const p1 =
+        lat1 * Math.PI / 180;
+
+    const p2 =
+        lat2 * Math.PI / 180;
 
     const dp =
-        (lat2 - lat1) *
+        (lat2-lat1) *
         Math.PI / 180;
 
     const dl =
-        (lon2 - lon1) *
+        (lon2-lon1) *
         Math.PI / 180;
 
     const a =
-        Math.sin(dp / 2) *
-        Math.sin(dp / 2)
+        Math.sin(dp/2) *
+        Math.sin(dp/2)
         +
         Math.cos(p1) *
         Math.cos(p2) *
-        Math.sin(dl / 2) *
-        Math.sin(dl / 2);
+        Math.sin(dl/2) *
+        Math.sin(dl/2);
 
-    return R * 2 *
+    return R *
+        2 *
         Math.atan2(
             Math.sqrt(a),
-            Math.sqrt(1 - a)
+            Math.sqrt(1-a)
         );
 }
 
@@ -3039,7 +3118,7 @@ function calculateBearing(lat1,lon1,lat2,lon2){
         lat2 * Math.PI / 180;
 
     const dl =
-        (lon2 - lon1) *
+        (lon2-lon1) *
         Math.PI / 180;
 
     const y =
@@ -3076,14 +3155,12 @@ function openRoute(){
         "," +
         ARENA_LONGITUDE;
 
-    const url =
-        "https://maps.apple.com/?daddr=" +
-        destination +
-        "&dirflg=d";
-
     setTimeout(() => {
 
-        window.location.href = url;
+        window.location.href =
+            "https://maps.apple.com/?daddr=" +
+            destination +
+            "&dirflg=d";
 
     },120);
 }
@@ -3102,68 +3179,78 @@ function flash(){
     element.classList.add("go");
 }
 
-/* ADMIN - 5 TOQUES */
+/* ADMIN 5 TOQUES */
 
 let adminTapCount = 0;
 let adminTapTimer = null;
 
 document.querySelectorAll(".admin-trigger").forEach(trigger => {
 
-    trigger.style.webkitTouchCallout = "none";
-    trigger.style.webkitUserSelect = "none";
-    trigger.style.userSelect = "none";
+    trigger.style.webkitTouchCallout =
+        "none";
 
-    trigger.addEventListener("click",function(event){
+    trigger.style.webkitUserSelect =
+        "none";
 
-        event.preventDefault();
+    trigger.style.userSelect =
+        "none";
 
-        adminTapCount++;
+    trigger.addEventListener(
+        "click",
+        function(event){
 
-        clearTimeout(adminTapTimer);
+            event.preventDefault();
 
-        adminTapTimer =
-            setTimeout(() => {
-
-                adminTapCount = 0;
-
-            },2000);
-
-        if(adminTapCount >= 5){
-
-            adminTapCount = 0;
+            adminTapCount++;
 
             clearTimeout(adminTapTimer);
 
-            if("vibrate" in navigator){
-                navigator.vibrate(80);
-            }
+            adminTapTimer =
+                setTimeout(() => {
 
-            openAdmin();
+                    adminTapCount = 0;
+
+                },2000);
+
+            if(adminTapCount >= 5){
+
+                adminTapCount = 0;
+
+                clearTimeout(adminTapTimer);
+
+                if("vibrate" in navigator){
+                    navigator.vibrate(80);
+                }
+
+                openAdmin();
+            }
         }
-    });
+    );
 });
 
 function openAdmin(){
 
-    document.getElementById("adminOverlay").classList.add(
-        "open"
-    );
+    document.getElementById("adminOverlay")
+        .classList.add("open");
 
-    document.getElementById("adminPin").value = "";
-    document.getElementById("adminError").textContent = "";
+    document.getElementById("adminPin").value =
+        "";
+
+    document.getElementById("adminError").textContent =
+        "";
 }
 
 function closeAdmin(){
 
-    document.getElementById("adminOverlay").classList.remove(
-        "open"
-    );
+    document.getElementById("adminOverlay")
+        .classList.remove("open");
 }
 
 function unlockAdmin(){
 
     const pin =
-        document.getElementById("adminPin").value;
+        document.getElementById("adminPin")
+        .value;
 
     if(pin !== ADMIN_PIN){
 
@@ -3194,16 +3281,20 @@ function adminGo(number){
 function adminCitizen(){
 
     setAdminTestParticipant();
+
     saveGame();
     closeAdmin();
+
     showScreen(4);
 }
 
 function adminSelected(){
 
     setAdminTestParticipant();
+
     saveGame();
     closeAdmin();
+
     showScreen(8);
 }
 
@@ -3239,9 +3330,8 @@ async function adminPerimeter(){
     document.getElementById("arenaLockStatus").textContent =
         "🔒 ACCESO BLOQUEADO";
 
-    document.getElementById("arenaLockStatus").classList.remove(
-        "open"
-    );
+    document.getElementById("arenaLockStatus")
+        .classList.remove("open");
 
     saveGame();
     closeAdmin();
@@ -3274,8 +3364,10 @@ async function adminEntrance(){
 function adminTransmission(){
 
     prepareCurrentDistrict();
+
     saveGame();
     closeAdmin();
+
     showScreen(14);
 }
 
@@ -3314,9 +3406,11 @@ function adminCacheFound(){
 
 function adminCodeAccepted(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
-    const id = getCacheId(cache);
+    const id =
+        getCacheId(cache);
 
     if(!recoveredCaches.includes(id)){
         recoveredCaches.push(id);
@@ -3332,10 +3426,14 @@ function adminCodeAccepted(){
 
 function adminSetCache(index){
 
-    currentCacheIndex = index;
+    currentCacheIndex =
+        index;
 
-    cacheReached = false;
-    cacheTargetBearing = null;
+    cacheReached =
+        false;
+
+    cacheTargetBearing =
+        null;
 
     prepareCurrentDistrict();
 
@@ -3380,13 +3478,15 @@ function adminForceCache(){
 
 function adminForceCurrentCode(){
 
-    const cache = getCurrentCache();
+    const cache =
+        getCurrentCache();
 
     if(!cache){
         return;
     }
 
-    const id = getCacheId(cache);
+    const id =
+        getCacheId(cache);
 
     if(!recoveredCaches.includes(id)){
         recoveredCaches.push(id);
@@ -3408,13 +3508,15 @@ function adminCompleteAll(){
 
     recoveredCaches =
         DISTRICTS.map(
-            cache => getCacheId(cache)
+            cache =>
+                getCacheId(cache)
         );
 
     currentCacheIndex =
         DISTRICTS.length - 1;
 
-    cacheReached = true;
+    cacheReached =
+        true;
 
     saveGame();
     closeAdmin();
@@ -3431,14 +3533,14 @@ function adminCompleteAll(){
 function resetGame(){
 
     try{
-
         localStorage.removeItem(SAVE_KEY);
-
     }catch(error){}
 
     if(watchID !== null){
 
-        navigator.geolocation.clearWatch(watchID);
+        navigator.geolocation.clearWatch(
+            watchID
+        );
 
         watchID = null;
     }
@@ -3464,9 +3566,14 @@ function resetGame(){
     arenaTargetBearing = null;
     cacheTargetBearing = null;
 
-    document.getElementById("firstName").value = "";
-    document.getElementById("lastName").value = "";
-    document.getElementById("birthDate").value = "";
+    document.getElementById("firstName").value =
+        "";
+
+    document.getElementById("lastName").value =
+        "";
+
+    document.getElementById("birthDate").value =
+        "";
 
     document.getElementById("enterArenaButton").disabled =
         true;
@@ -3474,9 +3581,8 @@ function resetGame(){
     document.getElementById("arenaLockStatus").textContent =
         "🔒 ACCESO BLOQUEADO";
 
-    document.getElementById("arenaLockStatus").classList.remove(
-        "open"
-    );
+    document.getElementById("arenaLockStatus")
+        .classList.remove("open");
 
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
@@ -3495,18 +3601,20 @@ function resetGame(){
         screen.classList.remove("active");
     });
 
-    document.getElementById("screen1").classList.add(
-        "active"
-    );
+    document.getElementById("screen1")
+        .classList.add("active");
 }
 
-/* GUARDAR AL SALIR */
+/* GUARDADO AL SALIR */
 
 document.addEventListener(
     "visibilitychange",
     () => {
 
-        if(document.visibilityState === "hidden"){
+        if(
+            document.visibilityState ===
+            "hidden"
+        ){
             saveGame();
         }
 
@@ -3529,6 +3637,13 @@ window.addEventListener(
             restoreGameInterface();
 
         }else{
+
+            /*
+            En una partida nueva el índice
+            siempre empieza en 0 = CAPITOLIO.
+            */
+
+            currentCacheIndex = 0;
 
             prepareCurrentDistrict();
 
