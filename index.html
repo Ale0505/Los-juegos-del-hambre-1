@@ -11,10 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 :root{
@@ -53,13 +50,8 @@ body{
     linear-gradient(180deg,#070707 0%,#030303 100%);
 }
 
-button,input{
-  font:inherit;
-}
-
-button{
-  touch-action:manipulation;
-}
+button,input{font:inherit}
+button{touch-action:manipulation}
 
 .screen{
   display:none;
@@ -82,11 +74,6 @@ button{
   to{opacity:1;transform:none}
 }
 
-@keyframes pulse{
-  0%,100%{opacity:.5}
-  50%{opacity:1}
-}
-
 @keyframes scan{
   0%{transform:translateY(-100%)}
   100%{transform:translateY(700%)}
@@ -95,6 +82,11 @@ button{
 @keyframes glow{
   0%,100%{filter:drop-shadow(0 0 4px rgba(198,163,91,.15))}
   50%{filter:drop-shadow(0 0 15px rgba(198,163,91,.55))}
+}
+
+@keyframes cursorBlink{
+  0%,45%{opacity:1}
+  46%,100%{opacity:0}
 }
 
 .capitol-logo{
@@ -128,23 +120,11 @@ h1,h2,h3{
   font-weight:600;
 }
 
-h1{
-  font-size:32px;
-  letter-spacing:2px;
-}
+h1{font-size:32px;letter-spacing:2px}
+h2{font-size:25px;letter-spacing:1.5px}
+h3{font-size:19px}
 
-h2{
-  font-size:25px;
-  letter-spacing:1.5px;
-}
-
-h3{
-  font-size:19px;
-}
-
-.gold{
-  color:var(--gold);
-}
+.gold{color:var(--gold)}
 
 .subtitle{
   max-width:520px;
@@ -210,8 +190,7 @@ h3{
   position:relative;
 }
 
-.card::before,
-.card::after{
+.card::before,.card::after{
   content:"";
   position:absolute;
   width:13px;
@@ -257,17 +236,7 @@ h3{
   border-radius:0;
 }
 
-.field input:focus{
-  border-color:var(--gold);
-}
-
-.status{
-  color:var(--gold);
-  text-align:center;
-  letter-spacing:2px;
-  font-size:11px;
-  margin-top:13px;
-}
+.field input:focus{border-color:var(--gold)}
 
 .big-name{
   font-family:"Cinzel",serif;
@@ -289,6 +258,10 @@ h3{
   margin-top:10px;
 }
 
+/* ==========================================================
+   TERMINAL ANIMADA
+========================================================== */
+
 .terminal{
   width:min(100%,470px);
   height:310px;
@@ -308,11 +281,33 @@ h3{
   height:35px;
   background:linear-gradient(transparent,rgba(198,163,91,.08),transparent);
   animation:scan 2s linear infinite;
+  pointer-events:none;
+}
+
+.terminal-output{
+  position:relative;
+  z-index:2;
 }
 
 .terminal-line{
+  min-height:18px;
   margin:12px 0;
   font-size:12px;
+  line-height:1.5;
+}
+
+.terminal-line.eligible{
+  color:#c0d3aa;
+}
+
+.terminal-cursor{
+  display:inline-block;
+  width:7px;
+  height:13px;
+  margin-left:3px;
+  vertical-align:-2px;
+  background:#a8b99a;
+  animation:cursorBlink .7s steps(1,end) infinite;
 }
 
 .countdown{
@@ -414,9 +409,7 @@ h3{
   background:#3b3428;
 }
 
-.phase-line.done{
-  background:#68765c;
-}
+.phase-line.done{background:#68765c}
 
 .compass-wrap{
   width:270px;
@@ -511,9 +504,7 @@ h3{
   margin-top:8px;
 }
 
-.sensor.active{
-  color:#84976f;
-}
+.sensor.active{color:#84976f}
 
 .stage-message{
   width:min(100%,470px);
@@ -600,9 +591,7 @@ h3{
   animation:fadeIn .35s ease;
 }
 
-.transition-content{
-  width:min(100%,430px);
-}
+.transition-content{width:min(100%,430px)}
 
 .transition-title{
   font-family:"Cinzel",serif;
@@ -637,9 +626,7 @@ h3{
   padding:30px 18px 60px;
 }
 
-.admin-overlay.show{
-  display:block;
-}
+.admin-overlay.show{display:block}
 
 .admin-panel{
   width:min(100%,560px);
@@ -693,15 +680,17 @@ h3{
   margin:20px 0;
 }
 
-.hidden{
-  display:none !important;
-}
+.hidden{display:none !important}
 
 @media(max-width:390px){
   h1{font-size:28px}
   h2{font-size:22px}
   .compass-wrap{width:245px;height:245px}
-  .compass-arrow{height:93px;transform-origin:50% 93px;top:29px}
+  .compass-arrow{
+    height:93px;
+    transform-origin:50% 93px;
+    top:29px;
+  }
 }
 </style>
 </head>
@@ -711,11 +700,9 @@ h3{
 <audio id="bgMusic" src="Horn of Plenty.mp3" loop preload="auto"></audio>
 <audio id="clickSound" src="Click.mp3" preload="auto"></audio>
 
-<!-- ========================================================= -->
-<!-- 1 · INTRO -->
-<!-- ========================================================= -->
+<!-- 1 -->
 <section class="screen active" id="screen1">
-  <img src="capitolio.png.webp" class="capitol-logo admin-logo" alt="Capitolio">
+  <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Panem · Registro Oficial</div>
   <h1>LA COSECHA</h1>
   <div class="divider"></div>
@@ -725,7 +712,7 @@ h3{
   <button class="btn" onclick="startCeremony()">INICIAR CEREMONIA</button>
 </section>
 
-<!-- 2 · REGISTRO -->
+<!-- 2 -->
 <section class="screen" id="screen2">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Registro de ciudadanos</div>
@@ -751,7 +738,7 @@ h3{
   <button class="btn" onclick="registerCitizen()">REGISTRAR CIUDADANO</button>
 </section>
 
-<!-- 3 · VERIFICACIÓN -->
+<!-- 3 · TERMINAL ANIMADA -->
 <section class="screen" id="screen3">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Terminal del Capitolio</div>
@@ -759,15 +746,12 @@ h3{
 
   <div class="terminal">
     <div class="scanline"></div>
-    <div class="terminal-line">> ACCEDIENDO AL REGISTRO CIVIL...</div>
-    <div class="terminal-line" id="terminalName">> IDENTIDAD: --</div>
-    <div class="terminal-line">> COMPROBANDO FECHA DE NACIMIENTO...</div>
-    <div class="terminal-line">> CONSULTANDO CENSO...</div>
-    <div class="terminal-line" id="terminalEligible">> ESTADO: PROCESANDO</div>
+
+    <div class="terminal-output" id="terminalOutput"></div>
   </div>
 </section>
 
-<!-- 4 · REGISTRADO -->
+<!-- 4 -->
 <section class="screen" id="screen4">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Registro completado</div>
@@ -781,7 +765,7 @@ h3{
   <button class="btn" onclick="goToScreen(5)">CONTINUAR A LA COSECHA</button>
 </section>
 
-<!-- 5 · COSECHA -->
+<!-- 5 -->
 <section class="screen" id="screen5">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Ceremonia de selección</div>
@@ -794,20 +778,20 @@ h3{
   <button class="btn" onclick="startSelection()">INICIAR SELECCIÓN</button>
 </section>
 
-<!-- 6 · CUENTA ATRÁS -->
+<!-- 6 -->
 <section class="screen" id="screen6">
   <div class="eyebrow">Selección en curso</div>
   <div class="countdown" id="countdown">3</div>
 </section>
 
-<!-- 7 · NOMBRES -->
+<!-- 7 -->
 <section class="screen" id="screen7">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Procesando candidatos</div>
   <div class="random-name" id="randomName">...</div>
 </section>
 
-<!-- 8 · TRIBUTO -->
+<!-- 8 -->
 <section class="screen" id="screen8">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Selección finalizada</div>
@@ -819,7 +803,7 @@ h3{
   <button class="btn" onclick="goToScreen(9)">CONTINUAR</button>
 </section>
 
-<!-- 9 · EXPLICACIÓN -->
+<!-- 9 -->
 <section class="screen" id="screen9">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Comunicado oficial</div>
@@ -840,9 +824,7 @@ h3{
   <button class="btn" onclick="beginMission()">INICIAR TRASLADO</button>
 </section>
 
-<!-- ========================================================= -->
-<!-- 10 · TRASLADO -->
-<!-- ========================================================= -->
+<!-- 10 -->
 <section class="screen" id="screen10">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Orden de traslado</div>
@@ -857,10 +839,7 @@ h3{
   <button class="btn" onclick="openArenaNavigation()">LOCALIZAR LA ARENA</button>
 </section>
 
-<!-- ========================================================= -->
-<!-- 11 · LOCALIZACIÓN DINÁMICA -->
-<!-- MAPA → BRÚJULA → BRÚJULA -->
-<!-- ========================================================= -->
+<!-- 11 -->
 <section class="screen" id="screen11">
 
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
@@ -876,7 +855,6 @@ h3{
     <div class="phase-dot" id="phaseDot2"></div>
   </div>
 
-  <!-- FASE 0: MAPA -->
   <div id="deploymentMapArea" style="width:100%;display:flex;flex-direction:column;align-items:center">
     <div class="map-wrap">
       <div id="map"></div>
@@ -892,7 +870,6 @@ h3{
     <button class="btn secondary" onclick="startGPS()">ACTUALIZAR POSICIÓN</button>
   </div>
 
-  <!-- FASE 1 Y 2: BRÚJULA -->
   <div id="arenaCompassArea" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center">
 
     <div class="compass-wrap">
@@ -909,9 +886,7 @@ h3{
     </div>
 
     <div class="distance-box">
-      <div class="distance-label" id="arenaDistanceLabel">
-        DISTANCIA AL OBJETIVO
-      </div>
+      <div class="distance-label" id="arenaDistanceLabel">DISTANCIA AL OBJETIVO</div>
       <div class="distance-value" id="arenaStageDistance">-- m</div>
       <div class="accuracy" id="arenaStageAccuracy">Esperando señal GPS...</div>
     </div>
@@ -919,15 +894,11 @@ h3{
     <div class="stage-message" id="arenaStageMessage">
       Sigue la dirección indicada por el Capitolio.
     </div>
-
   </div>
 
-  <!-- FINAL -->
   <div id="arenaLocatedArea" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center">
     <div class="divider"></div>
-
     <div class="confirmed">UBICACIÓN CONFIRMADA</div>
-
     <h2 style="margin-top:18px">ARENA LOCALIZADA</h2>
 
     <p class="subtitle">
@@ -941,25 +912,17 @@ h3{
 
 </section>
 
-<!-- ========================================================= -->
-<!-- 12 · ENTRADA / CONFIRMACIÓN -->
-<!-- Se conserva para compatibilidad con el flujo/admin -->
-<!-- ========================================================= -->
+<!-- 12 -->
 <section class="screen" id="screen12">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Acceso autorizado</div>
   <h1>ARENA LOCALIZADA</h1>
-
   <div class="confirmed">ENTRADA DESBLOQUEADA</div>
-
-  <p class="subtitle">
-    El sistema confirma tu presencia en el punto de entrada.
-  </p>
-
+  <p class="subtitle">El sistema confirma tu presencia en el punto de entrada.</p>
   <button class="btn" onclick="goToScreen(13)">ENTRAR EN LA ARENA</button>
 </section>
 
-<!-- 13 · BRIEFING -->
+<!-- 13 -->
 <section class="screen" id="screen13">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Transmisión del Capitolio</div>
@@ -981,11 +944,10 @@ h3{
   <button class="btn" onclick="startCaches()">COMENZAR LOS JUEGOS</button>
 </section>
 
-<!-- 14 · TRANSMISIÓN ALIJO -->
+<!-- 14 -->
 <section class="screen" id="screen14">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Transmisión entrante</div>
-
   <h2>SUMINISTRO DISPONIBLE</h2>
 
   <div class="card" style="text-align:center">
@@ -994,17 +956,14 @@ h3{
     <div class="cache-counter" id="cacheTransmissionCounter">ALIJO 1 DE 6</div>
   </div>
 
-  <p class="subtitle">
-    El Capitolio ha autorizado la revelación de su posición.
-  </p>
+  <p class="subtitle">El Capitolio ha autorizado la revelación de su posición.</p>
 
   <button class="btn" onclick="locateCurrentCache()">LOCALIZAR SUMINISTRO</button>
 </section>
 
-<!-- 15 · BRÚJULA ALIJO -->
+<!-- 15 -->
 <section class="screen" id="screen15">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
-
   <div class="eyebrow">Localización de suministro</div>
   <h2 id="cacheCompassName">CAPITOLIO</h2>
 
@@ -1013,14 +972,11 @@ h3{
       <span class="east">E</span>
       <span class="west">O</span>
     </div>
-
     <div class="compass-arrow" id="cacheArrow"></div>
     <div class="compass-center"></div>
   </div>
 
-  <div class="sensor" id="cacheSensor">
-    ESPERANDO SEÑAL DE ORIENTACIÓN
-  </div>
+  <div class="sensor" id="cacheSensor">ESPERANDO SEÑAL DE ORIENTACIÓN</div>
 
   <div class="distance-box">
     <div class="distance-label">DISTANCIA AL ALIJO</div>
@@ -1039,25 +995,16 @@ h3{
   </button>
 </section>
 
-<!-- 16 · CÓDIGO -->
+<!-- 16 -->
 <section class="screen" id="screen16">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
-
   <div class="eyebrow">Suministro localizado</div>
   <h2 id="cacheCodeName">CAPITOLIO</h2>
 
-  <p class="subtitle">
-    Introduce el código grabado en la medalla encontrada en el alijo.
-  </p>
+  <p class="subtitle">Introduce el código grabado en la medalla encontrada en el alijo.</p>
 
   <div class="code-box">
-    <input
-      id="cacheCodeInput"
-      inputmode="numeric"
-      maxlength="4"
-      placeholder="••••"
-      autocomplete="off"
-    >
+    <input id="cacheCodeInput" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
   </div>
 
   <div class="code-status" id="cacheCodeStatus"></div>
@@ -1065,10 +1012,9 @@ h3{
   <button class="btn" onclick="validateCacheCode()">VALIDAR CÓDIGO</button>
 </section>
 
-<!-- 17 · RECUPERADO / EQUIPAR -->
+<!-- 17 -->
 <section class="screen" id="screen17">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
-
   <div class="eyebrow">Suministro confirmado</div>
   <h2>ALIJO RECUPERADO</h2>
 
@@ -1077,9 +1023,7 @@ h3{
     <div class="confirmed">SUMINISTRO DISPONIBLE</div>
   </div>
 
-  <p class="subtitle">
-    Antes de continuar, equipa el suministro recuperado en tu inventario.
-  </p>
+  <p class="subtitle">Antes de continuar, equipa el suministro recuperado en tu inventario.</p>
 
   <button class="btn" id="equipButton" onclick="equipMedal()">EQUIPAR</button>
 
@@ -1092,10 +1036,9 @@ h3{
   </div>
 </section>
 
-<!-- 18 · FINAL ALIJOS -->
+<!-- 18 -->
 <section class="screen" id="screen18">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
-
   <div class="eyebrow">Transmisión final</div>
   <h1>TODOS LOS ALIJOS RECUPERADOS</h1>
 
@@ -1119,7 +1062,6 @@ h3{
   <button class="btn" onclick="goInventory()">VOLVER AL INVENTARIO</button>
 </section>
 
-<!-- TRANSICIÓN ENTRE PUNTOS -->
 <div class="transition-overlay" id="transitionOverlay">
   <div class="transition-content">
     <img src="capitolio.png.webp" class="capitol-logo">
@@ -1129,29 +1071,17 @@ h3{
   </div>
 </div>
 
-<!-- ADMIN HOTZONE -->
 <div class="admin-hotzone" id="adminHotzone"></div>
 
-<!-- ADMIN -->
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-panel">
 
-    <img
-      src="capitolio.png.webp"
-      class="capitol-logo"
-      style="display:block;margin:0 auto 15px"
-    >
+    <img src="capitolio.png.webp" class="capitol-logo" style="display:block;margin:0 auto 15px">
 
     <div class="admin-title">CONTROL DEL CAPITOLIO</div>
 
     <div id="adminLogin">
-      <input
-        id="adminPin"
-        class="admin-pin"
-        maxlength="3"
-        inputmode="numeric"
-        placeholder="•••"
-      >
+      <input id="adminPin" class="admin-pin" maxlength="3" inputmode="numeric" placeholder="•••">
       <button class="btn" onclick="unlockAdmin()">AUTORIZAR</button>
       <button class="btn secondary" onclick="closeAdmin()">CERRAR</button>
     </div>
@@ -1225,170 +1155,83 @@ h3{
 
 <script>
 
-/* ============================================================
-   CONFIGURACIÓN
-============================================================ */
+/* CONFIGURACIÓN */
 
-const INVENTORY_URL =
-  "https://ale0505.github.io/Almacenamiento-medallas/";
+const INVENTORY_URL = "https://ale0505.github.io/Almacenamiento-medallas/";
+const SAVE_KEY = "capitolio_hunger_games_save_v1";
 
-const SAVE_KEY =
-  "capitolio_hunger_games_save_v1";
-
-
-/* ============================================================
-   NUEVO SISTEMA DE ACCESO A LA ARENA
-============================================================ */
-
-/*
-  FASE 0
-  Punto de despliegue
-  MAPA + Apple Maps
-*/
 const DEPLOYMENT_LATITUDE = 28.0320011;
 const DEPLOYMENT_LONGITUDE = -15.4600100;
 
-/*
-  FASE 1
-  Camino a la Arena
-  BRÚJULA + METROS
-*/
 const PATH_LATITUDE = 28.0359930;
 const PATH_LONGITUDE = -15.4602196;
 
-/*
-  FASE 2
-  Comienzo de la Arena
-  BRÚJULA + METROS
-*/
 const ARENA_START_LATITUDE = 28.0346903;
 const ARENA_START_LONGITUDE = -15.4582592;
 
-
-/*
-  Radios de activación.
-*/
 const DEPLOYMENT_RADIUS = 40;
 const PATH_RADIUS = 20;
 const ARENA_START_RADIUS = 5;
-
-
-/* ============================================================
-   ALIJOS
-============================================================ */
-
 const CACHE_RADIUS = 5;
 
 const DISTRICTS = [
-  {
-    type:"capitol",
-    name:"Capitolio",
-    district:null,
-    code:"2025",
-    latitude:null,
-    longitude:null
-  },
-  {
-    type:"district",
-    name:"Distrito 1",
-    district:1,
-    code:"1847",
-    latitude:null,
-    longitude:null
-  },
-  {
-    type:"district",
-    name:"Distrito 2",
-    district:2,
-    code:"2714",
-    latitude:null,
-    longitude:null
-  },
-  {
-    type:"district",
-    name:"Distrito 8",
-    district:8,
-    code:"8265",
-    latitude:null,
-    longitude:null
-  },
-  {
-    type:"district",
-    name:"Distrito 11",
-    district:11,
-    code:"1172",
-    latitude:null,
-    longitude:null
-  },
-  {
-    type:"district",
-    name:"Distrito 12",
-    district:12,
-    code:"1259",
-    latitude:null,
-    longitude:null
-  }
+  {type:"capitol",name:"Capitolio",district:null,code:"2025",latitude:null,longitude:null},
+  {type:"district",name:"Distrito 1",district:1,code:"1847",latitude:null,longitude:null},
+  {type:"district",name:"Distrito 2",district:2,code:"2714",latitude:null,longitude:null},
+  {type:"district",name:"Distrito 8",district:8,code:"8265",latitude:null,longitude:null},
+  {type:"district",name:"Distrito 11",district:11,code:"1172",latitude:null,longitude:null},
+  {type:"district",name:"Distrito 12",district:12,code:"1259",latitude:null,longitude:null}
 ];
 
 
-/* ============================================================
-   ESTADO
-============================================================ */
+/* ESTADO */
 
-let currentScreen = 1;
+let currentScreen=1;
 
-let participant = {
+let participant={
   firstName:"",
   lastName:"",
   birthDate:"",
   fullName:""
 };
 
-let currentCacheIndex = 0;
+let currentCacheIndex=0;
+let recoveredCaches=[];
+let equippedCaches=[];
+let arenaStage=0;
+let cacheReached=false;
 
-let recoveredCaches = [];
-let equippedCaches = [];
+let currentLatitude=null;
+let currentLongitude=null;
+let currentAccuracy=null;
+
+let watchId=null;
+let currentHeading=0;
+let orientationEnabled=false;
+
+let map=null;
+let userMarker=null;
+let targetMarker=null;
+let targetLine=null;
+
+let stageTransitionRunning=false;
+let adminUnlocked=false;
 
 /*
-  arenaStage:
-
-  0 = Punto de despliegue
-  1 = Camino a la Arena
-  2 = Comienzo de la Arena
-  3 = Arena alcanzada
+  Control de la animación de terminal.
+  Sirve para evitar que dos animaciones se
+  ejecuten simultáneamente.
 */
-let arenaStage = 0;
-
-let cacheReached = false;
-
-let currentLatitude = null;
-let currentLongitude = null;
-let currentAccuracy = null;
-
-let watchId = null;
-
-let currentHeading = 0;
-let orientationEnabled = false;
-
-let map = null;
-let userMarker = null;
-let targetMarker = null;
-let targetLine = null;
-
-let stageTransitionRunning = false;
-
-let adminUnlocked = false;
+let terminalAnimationId=0;
 
 
-/* ============================================================
-   AUDIO
-============================================================ */
+/* AUDIO */
 
-const bgMusic = document.getElementById("bgMusic");
-const clickSound = document.getElementById("clickSound");
+const bgMusic=document.getElementById("bgMusic");
+const clickSound=document.getElementById("clickSound");
 
-bgMusic.volume = 0.30;
-clickSound.volume = 0.50;
+bgMusic.volume=.30;
+clickSound.volume=.50;
 
 function startAudio(){
   bgMusic.play().catch(()=>{});
@@ -1396,123 +1239,87 @@ function startAudio(){
 
 function playClick(){
   try{
-    clickSound.currentTime = 0;
+    clickSound.currentTime=0;
     clickSound.play().catch(()=>{});
   }catch(e){}
 }
 
-document.addEventListener("click",function(e){
-  if(
-    e.target.closest("button") ||
-    e.target.closest(".admin-logo")
-  ){
+document.addEventListener("click",e=>{
+  if(e.target.closest("button") || e.target.closest(".admin-logo")){
     playClick();
   }
 });
 
 
-/* ============================================================
-   UTILIDADES
-============================================================ */
+/* UTILIDADES */
+
+function sleep(ms){
+  return new Promise(resolve=>setTimeout(resolve,ms));
+}
 
 function normalizeAngle(angle){
-  return ((angle % 360) + 360) % 360;
+  return ((angle%360)+360)%360;
 }
 
 function toRadians(degrees){
-  return degrees * Math.PI / 180;
+  return degrees*Math.PI/180;
 }
 
 function toDegrees(radians){
-  return radians * 180 / Math.PI;
+  return radians*180/Math.PI;
 }
 
 function calculateDistance(lat1,lon1,lat2,lon2){
+  const R=6371000;
+  const p1=toRadians(lat1);
+  const p2=toRadians(lat2);
+  const dp=toRadians(lat2-lat1);
+  const dl=toRadians(lon2-lon1);
 
-  const R = 6371000;
+  const a=
+    Math.sin(dp/2)*Math.sin(dp/2)+
+    Math.cos(p1)*Math.cos(p2)*
+    Math.sin(dl/2)*Math.sin(dl/2);
 
-  const φ1 = toRadians(lat1);
-  const φ2 = toRadians(lat2);
-
-  const Δφ = toRadians(lat2-lat1);
-  const Δλ = toRadians(lon2-lon1);
-
-  const a =
-    Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-    Math.cos(φ1) *
-    Math.cos(φ2) *
-    Math.sin(Δλ/2) *
-    Math.sin(Δλ/2);
-
-  const c =
-    2 *
-    Math.atan2(
-      Math.sqrt(a),
-      Math.sqrt(1-a)
-    );
-
-  return R*c;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 }
 
 function calculateBearing(lat1,lon1,lat2,lon2){
+  const p1=toRadians(lat1);
+  const p2=toRadians(lat2);
+  const l1=toRadians(lon1);
+  const l2=toRadians(lon2);
 
-  const φ1 = toRadians(lat1);
-  const φ2 = toRadians(lat2);
+  const y=Math.sin(l2-l1)*Math.cos(p2);
+  const x=
+    Math.cos(p1)*Math.sin(p2)-
+    Math.sin(p1)*Math.cos(p2)*Math.cos(l2-l1);
 
-  const λ1 = toRadians(lon1);
-  const λ2 = toRadians(lon2);
-
-  const y =
-    Math.sin(λ2-λ1) *
-    Math.cos(φ2);
-
-  const x =
-    Math.cos(φ1) *
-    Math.sin(φ2) -
-    Math.sin(φ1) *
-    Math.cos(φ2) *
-    Math.cos(λ2-λ1);
-
-  return normalizeAngle(
-    toDegrees(Math.atan2(y,x))
-  );
+  return normalizeAngle(toDegrees(Math.atan2(y,x)));
 }
 
 function formatDistance(distance){
-
-  if(distance === null || !isFinite(distance)){
-    return "-- m";
-  }
-
-  if(distance >= 1000){
-    return (distance/1000).toFixed(1) + " km";
-  }
-
-  return Math.round(distance) + " m";
+  if(distance===null || !isFinite(distance)) return "-- m";
+  if(distance>=1000) return (distance/1000).toFixed(1)+" km";
+  return Math.round(distance)+" m";
 }
 
 function getCacheId(cache){
-
-  if(cache.type === "capitol"){
-    return "capitol";
-  }
-
-  return "district-" + cache.district;
+  if(cache.type==="capitol") return "capitol";
+  return "district-"+cache.district;
 }
 
 
-/* ============================================================
-   GUARDADO
-============================================================ */
+/* GUARDADO */
 
 function saveGame(){
 
-  const safeScreen =
-    currentScreen === 3 ? 4 :
-    currentScreen === 6 || currentScreen === 7 ? 5 :
+  const safeScreen=
+    currentScreen===3 ? 4 :
+    currentScreen===6 || currentScreen===7 ? 5 :
     currentScreen;
 
-  const data = {
+  const data={
     version:4,
     screen:safeScreen,
     participant,
@@ -1523,173 +1330,118 @@ function saveGame(){
     cacheReached
   };
 
-  localStorage.setItem(
-    SAVE_KEY,
-    JSON.stringify(data)
-  );
+  localStorage.setItem(SAVE_KEY,JSON.stringify(data));
 }
 
 function loadGame(){
 
-  const raw =
-    localStorage.getItem(SAVE_KEY);
-
-  if(!raw){
-    return false;
-  }
+  const raw=localStorage.getItem(SAVE_KEY);
+  if(!raw) return false;
 
   try{
 
-    const data = JSON.parse(raw);
+    const data=JSON.parse(raw);
 
-    participant =
-      data.participant || participant;
+    participant=data.participant||participant;
 
-    currentCacheIndex =
+    currentCacheIndex=
       Number.isInteger(data.currentCacheIndex)
         ? data.currentCacheIndex
         : 0;
 
-    recoveredCaches =
+    recoveredCaches=
       Array.isArray(data.recoveredCaches)
         ? data.recoveredCaches
         : [];
 
-    /*
-      Compatibilidad con guardados antiguos.
-    */
-    recoveredCaches =
-      recoveredCaches.map(item=>{
+    recoveredCaches=recoveredCaches.map(item=>{
+      if(typeof item==="number") return "district-"+item;
+      return item;
+    });
 
-        if(typeof item === "number"){
-          return "district-" + item;
-        }
-
-        return item;
-      });
-
-    equippedCaches =
+    equippedCaches=
       Array.isArray(data.equippedCaches)
         ? data.equippedCaches
         : [];
 
-    /*
-      Si el guardado era anterior al sistema
-      obligatorio de EQUIPAR.
-    */
-    if(!data.version || data.version < 3){
-      equippedCaches = [];
+    if(!data.version || data.version<3){
+      equippedCaches=[];
     }
 
-    /*
-      NUEVA MIGRACIÓN.
-      Guardados anteriores no tenían arenaStage.
-    */
-    if(typeof data.arenaStage === "number"){
-      arenaStage =
-        Math.max(
-          0,
-          Math.min(3,data.arenaStage)
-        );
+    if(typeof data.arenaStage==="number"){
+      arenaStage=Math.max(0,Math.min(3,data.arenaStage));
     }else{
-
-      /*
-        Si ya estaba dentro de la Arena en una
-        versión anterior, consideramos completado
-        el nuevo acceso para no bloquear la partida.
-      */
-      if((data.screen || 1) >= 13){
-        arenaStage = 3;
-      }else{
-        arenaStage = 0;
-      }
+      arenaStage=(data.screen||1)>=13 ? 3 : 0;
     }
 
-    cacheReached =
-      !!data.cacheReached;
+    cacheReached=!!data.cacheReached;
+    currentScreen=data.screen||1;
 
-    currentScreen =
-      data.screen || 1;
-
-    /*
-      La antigua pantalla 12 era el acceso exacto.
-      Ahora toda la navegación se realiza en 11.
-    */
-    if(currentScreen === 12 && arenaStage < 3){
-      currentScreen = 11;
+    if(currentScreen===12 && arenaStage<3){
+      currentScreen=11;
     }
 
     return true;
 
   }catch(error){
-
     console.error(error);
     return false;
   }
 }
 
 
-/* ============================================================
-   PANTALLAS
-============================================================ */
+/* PANTALLAS */
 
 function goToScreen(number){
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(screen=>{
-      screen.classList.remove("active");
-    });
-
-  const target =
-    document.getElementById(
-      "screen" + number
-    );
-
-  if(!target){
-    return;
+  /*
+    Si salimos de la terminal, cancelamos
+    cualquier escritura que siga ejecutándose.
+  */
+  if(currentScreen===3 && number!==3){
+    terminalAnimationId++;
   }
 
-  currentScreen = number;
+  document.querySelectorAll(".screen").forEach(screen=>{
+    screen.classList.remove("active");
+  });
 
+  const target=document.getElementById("screen"+number);
+  if(!target) return;
+
+  currentScreen=number;
   target.classList.add("active");
 
   window.scrollTo(0,0);
-
   updateParticipantUI();
 
-  if(number === 11){
-
+  if(number===11){
     setTimeout(()=>{
       updateArenaStageInterface();
       startGPS();
 
-      if(arenaStage > 0){
+      if(arenaStage>0){
         requestOrientationPermission();
       }
     },150);
   }
 
-  if(number === 14){
+  if(number===14){
     updateCacheTransmission();
   }
 
-  if(number === 15){
-
-    cacheReached = false;
-
+  if(number===15){
+    cacheReached=false;
     updateCacheCompassInterface();
-
     startGPS();
-
     requestOrientationPermission();
   }
 
-  if(number === 16){
+  if(number===16){
     updateCodeInterface();
   }
 
-  if(number === 17){
+  if(number===17){
     updateEquipInterface();
   }
 
@@ -1697,121 +1449,221 @@ function goToScreen(number){
 }
 
 
-/* ============================================================
-   PARTICIPANTE
-============================================================ */
+/* PARTICIPANTE */
 
 function updateParticipantUI(){
 
-  const name =
-    participant.fullName ||
-    "CIUDADANO";
+  const name=participant.fullName||"CIUDADANO";
 
-  document
-    .querySelectorAll(".participant-name")
-    .forEach(element=>{
-      element.textContent =
-        name.toUpperCase();
-    });
+  document.querySelectorAll(".participant-name").forEach(element=>{
+    element.textContent=name.toUpperCase();
+  });
 }
 
 function startCeremony(){
-
   startAudio();
-
   goToScreen(2);
+}
+
+
+/* ==========================================================
+   NUEVA TERMINAL DE VERIFICACIÓN
+========================================================== */
+
+async function typeTerminalLine(text,extraClass="",speed=24,animationId){
+
+  const output=document.getElementById("terminalOutput");
+
+  if(!output) return false;
+
+  const line=document.createElement("div");
+  line.className="terminal-line";
+
+  if(extraClass){
+    line.classList.add(extraClass);
+  }
+
+  const textSpan=document.createElement("span");
+  const cursor=document.createElement("span");
+
+  cursor.className="terminal-cursor";
+
+  line.appendChild(textSpan);
+  line.appendChild(cursor);
+  output.appendChild(line);
+
+  for(let i=0;i<text.length;i++){
+
+    if(animationId!==terminalAnimationId){
+      return false;
+    }
+
+    textSpan.textContent+=text[i];
+
+    /*
+      Pequeña variación para que parezca
+      una terminal y no una animación rígida.
+    */
+    let delay=speed;
+
+    if(text[i]==="."){
+      delay=speed+28;
+    }
+
+    if(text[i]===" "){
+      delay=Math.max(12,speed-8);
+    }
+
+    await sleep(delay);
+  }
+
+  cursor.remove();
+
+  return true;
+}
+
+async function runVerificationTerminal(){
+
+  const myAnimation=++terminalAnimationId;
+
+  const output=document.getElementById("terminalOutput");
+
+  if(!output) return;
+
+  output.innerHTML="";
+
+  /*
+    Pequeña pausa inicial.
+  */
+  await sleep(350);
+
+  if(myAnimation!==terminalAnimationId) return;
+
+  let ok;
+
+  ok=await typeTerminalLine(
+    "> ACCEDIENDO AL REGISTRO CIVIL...",
+    "",
+    24,
+    myAnimation
+  );
+
+  if(!ok) return;
+
+  await sleep(300);
+
+  ok=await typeTerminalLine(
+    "> IDENTIDAD: "+participant.fullName.toUpperCase(),
+    "",
+    24,
+    myAnimation
+  );
+
+  if(!ok) return;
+
+  await sleep(350);
+
+  ok=await typeTerminalLine(
+    "> COMPROBANDO FECHA DE NACIMIENTO...",
+    "",
+    22,
+    myAnimation
+  );
+
+  if(!ok) return;
+
+  await sleep(350);
+
+  ok=await typeTerminalLine(
+    "> CONSULTANDO CENSO...",
+    "",
+    27,
+    myAnimation
+  );
+
+  if(!ok) return;
+
+  /*
+    Aquí hacemos una pausa ligeramente
+    mayor para crear tensión.
+  */
+  await sleep(650);
+
+  ok=await typeTerminalLine(
+    "> ESTADO: ELEGIBLE",
+    "eligible",
+    38,
+    myAnimation
+  );
+
+  if(!ok) return;
+
+  await sleep(1100);
+
+  if(myAnimation!==terminalAnimationId) return;
+
+  goToScreen(4);
 }
 
 function registerCitizen(){
 
-  const first =
-    document
-      .getElementById("firstName")
-      .value
-      .trim();
-
-  const last =
-    document
-      .getElementById("lastName")
-      .value
-      .trim();
-
-  const birth =
-    document
-      .getElementById("birthDate")
-      .value;
+  const first=document.getElementById("firstName").value.trim();
+  const last=document.getElementById("lastName").value.trim();
+  const birth=document.getElementById("birthDate").value;
 
   if(!first || !last || !birth){
     alert("Completa todos los datos del registro.");
     return;
   }
 
-  participant.firstName = first;
-  participant.lastName = last;
-  participant.birthDate = birth;
-  participant.fullName =
-    first + " " + last;
+  participant.firstName=first;
+  participant.lastName=last;
+  participant.birthDate=birth;
+  participant.fullName=first+" "+last;
 
   updateParticipantUI();
 
-  document.getElementById(
-    "terminalName"
-  ).textContent =
-    "> IDENTIDAD: " +
-    participant.fullName.toUpperCase();
-
+  /*
+    Primero entramos en la pantalla vacía.
+  */
   goToScreen(3);
 
-  setTimeout(()=>{
-    document.getElementById(
-      "terminalEligible"
-    ).textContent =
-      "> ESTADO: ELEGIBLE";
-  },1700);
-
-  setTimeout(()=>{
-    goToScreen(4);
-  },3000);
+  /*
+    Después comienza la escritura.
+  */
+  runVerificationTerminal();
 }
 
 
-/* ============================================================
-   COSECHA
-============================================================ */
+/* COSECHA */
 
 function startSelection(){
 
   goToScreen(6);
 
-  let number = 3;
+  let number=3;
+  const element=document.getElementById("countdown");
 
-  const element =
-    document.getElementById("countdown");
+  element.textContent=number;
 
-  element.textContent = number;
+  const timer=setInterval(()=>{
 
-  const timer =
-    setInterval(()=>{
+    number--;
 
-      number--;
+    if(number>0){
+      element.textContent=number;
+    }else{
+      clearInterval(timer);
+      goToScreen(7);
+      randomSelection();
+    }
 
-      if(number > 0){
-        element.textContent = number;
-      }else{
-
-        clearInterval(timer);
-
-        goToScreen(7);
-
-        randomSelection();
-      }
-
-    },900);
+  },900);
 }
 
 function randomSelection(){
 
-  const names = [
+  const names=[
     "MARCUS AURELIUS",
     "ELENA VOSS",
     "DANIEL CREED",
@@ -1822,116 +1674,76 @@ function randomSelection(){
     "SAMUEL"
   ];
 
-  const element =
-    document.getElementById("randomName");
+  const element=document.getElementById("randomName");
 
-  let count = 0;
+  let count=0;
 
-  const timer =
-    setInterval(()=>{
+  const timer=setInterval(()=>{
 
-      element.textContent =
-        names[
-          Math.floor(
-            Math.random() *
-            (names.length-1)
-          )
-        ];
+    element.textContent=
+      names[Math.floor(Math.random()*(names.length-1))];
 
-      count++;
+    count++;
 
-      if(count >= 14){
+    if(count>=14){
 
-        clearInterval(timer);
+      clearInterval(timer);
 
-        element.textContent =
-          participant.fullName
-            ? participant.fullName.toUpperCase()
-            : "SAMUEL";
+      element.textContent=
+        participant.fullName
+          ? participant.fullName.toUpperCase()
+          : "SAMUEL";
 
-        setTimeout(()=>{
-          goToScreen(8);
-        },1300);
-      }
+      setTimeout(()=>goToScreen(8),1300);
+    }
 
-    },120);
+  },120);
 }
 
 
-/* ============================================================
-   INICIO DE MISIÓN
-============================================================ */
+/* MISIÓN */
 
 async function beginMission(){
-
-  /*
-    Solicitamos orientación mientras todavía
-    estamos dentro de una interacción directa
-    del usuario. Importante para iPhone/Safari.
-  */
   await requestOrientationPermission();
-
   goToScreen(10);
 }
 
 function openArenaNavigation(){
-
   goToScreen(11);
-
   startGPS();
-
   requestOrientationPermission();
 }
 
 
-/* ============================================================
-   ORIENTACIÓN IPHONE
-============================================================ */
+/* ORIENTACIÓN */
 
 async function requestOrientationPermission(){
 
   try{
 
-    if(
-      typeof DeviceOrientationEvent !==
-      "undefined"
-    ){
+    if(typeof DeviceOrientationEvent!=="undefined"){
 
-      if(
-        typeof DeviceOrientationEvent
-          .requestPermission === "function"
-      ){
+      if(typeof DeviceOrientationEvent.requestPermission==="function"){
 
-        const permission =
-          await DeviceOrientationEvent
-            .requestPermission();
+        const permission=await DeviceOrientationEvent.requestPermission();
 
-        if(permission === "granted"){
+        if(permission==="granted"){
           enableOrientation();
         }
 
       }else{
-
         enableOrientation();
       }
     }
 
-  }catch(error){
-
-    console.log(
-      "Orientación no disponible",
-      error
-    );
-  }
+  }catch(error){}
 }
 
 function enableOrientation(){
 
-  if(orientationEnabled){
-    return;
-  }
+  if(orientationEnabled) return;
 
-  orientationEnabled = true;
+  orientationEnabled=true;
 
   window.addEventListener(
     "deviceorientation",
@@ -1942,54 +1754,29 @@ function enableOrientation(){
 
 function handleOrientation(event){
 
-  let heading = null;
+  let heading=null;
 
-  if(
-    typeof event.webkitCompassHeading ===
-    "number"
-  ){
-
-    heading =
-      event.webkitCompassHeading;
-
-  }else if(
-    typeof event.alpha === "number"
-  ){
-
-    heading =
-      360 - event.alpha;
+  if(typeof event.webkitCompassHeading==="number"){
+    heading=event.webkitCompassHeading;
+  }else if(typeof event.alpha==="number"){
+    heading=360-event.alpha;
   }
 
-  if(heading === null){
-    return;
-  }
+  if(heading===null) return;
 
-  currentHeading =
-    normalizeAngle(heading);
+  currentHeading=normalizeAngle(heading);
 
-  const arenaSensor =
-    document.getElementById(
-      "arenaStageSensor"
-    );
+  const arenaSensor=document.getElementById("arenaStageSensor");
 
   if(arenaSensor){
-
-    arenaSensor.textContent =
-      "SEÑAL DE ORIENTACIÓN ACTIVA";
-
+    arenaSensor.textContent="SEÑAL DE ORIENTACIÓN ACTIVA";
     arenaSensor.classList.add("active");
   }
 
-  const cacheSensor =
-    document.getElementById(
-      "cacheSensor"
-    );
+  const cacheSensor=document.getElementById("cacheSensor");
 
   if(cacheSensor){
-
-    cacheSensor.textContent =
-      "SEÑAL DE ORIENTACIÓN ACTIVA";
-
+    cacheSensor.textContent="SEÑAL DE ORIENTACIÓN ACTIVA";
     cacheSensor.classList.add("active");
   }
 
@@ -1998,237 +1785,153 @@ function handleOrientation(event){
 }
 
 
-/* ============================================================
-   GPS
-============================================================ */
+/* GPS */
 
 function startGPS(){
 
   if(!navigator.geolocation){
-
-    alert(
-      "Este dispositivo no permite acceder a la ubicación."
-    );
-
+    alert("Este dispositivo no permite acceder a la ubicación.");
     return;
   }
 
-  if(watchId !== null){
-    return;
-  }
+  if(watchId!==null) return;
 
-  watchId =
-    navigator.geolocation.watchPosition(
-      locationSuccess,
-      locationFailure,
-      {
-        enableHighAccuracy:true,
-        timeout:15000,
-        maximumAge:2000
-      }
-    );
+  watchId=navigator.geolocation.watchPosition(
+    locationSuccess,
+    locationFailure,
+    {
+      enableHighAccuracy:true,
+      timeout:15000,
+      maximumAge:2000
+    }
+  );
 }
 
 function locationSuccess(position){
 
-  currentLatitude =
-    position.coords.latitude;
+  currentLatitude=position.coords.latitude;
+  currentLongitude=position.coords.longitude;
+  currentAccuracy=position.coords.accuracy;
 
-  currentLongitude =
-    position.coords.longitude;
-
-  currentAccuracy =
-    position.coords.accuracy;
-
-  if(currentScreen === 11){
+  if(currentScreen===11){
     updateArenaStagePosition();
   }
 
-  if(currentScreen === 15){
+  if(currentScreen===15){
     updateCacheCompass();
   }
 }
 
 function locationFailure(error){
 
-  console.log(
-    "Error GPS:",
-    error
-  );
-
-  const messages = [
+  const messages=[
     document.getElementById("mapAccuracy"),
     document.getElementById("arenaStageAccuracy"),
     document.getElementById("cacheAccuracy")
   ];
 
   messages.forEach(element=>{
-
     if(element){
-
-      element.textContent =
-        "No se ha podido obtener la posición. Comprueba los permisos de ubicación.";
+      element.textContent="No se ha podido obtener la posición. Comprueba los permisos de ubicación.";
     }
   });
 }
 
 
-/* ============================================================
-   MAPA
-============================================================ */
+/* MAPA */
 
 function initMap(){
 
   if(map){
-    setTimeout(()=>{
-      map.invalidateSize();
-    },100);
-
+    setTimeout(()=>map.invalidateSize(),100);
     return;
   }
 
-  map = L.map(
-    "map",
-    {
-      zoomControl:false,
-      attributionControl:false
-    }
-  ).setView(
-    [
-      DEPLOYMENT_LATITUDE,
-      DEPLOYMENT_LONGITUDE
-    ],
+  map=L.map("map",{
+    zoomControl:false,
+    attributionControl:false
+  }).setView(
+    [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE],
     15
   );
 
   L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      maxZoom:19
-    }
+    {maxZoom:19}
   ).addTo(map);
 
-  const capitolIcon =
-    L.icon({
-      iconUrl:"capitolio.png.webp",
-      iconSize:[46,46],
-      iconAnchor:[23,23]
-    });
+  const capitolIcon=L.icon({
+    iconUrl:"capitolio.png.webp",
+    iconSize:[46,46],
+    iconAnchor:[23,23]
+  });
 
-  targetMarker =
-    L.marker(
-      [
-        DEPLOYMENT_LATITUDE,
-        DEPLOYMENT_LONGITUDE
-      ],
-      {
-        icon:capitolIcon
-      }
-    ).addTo(map);
+  targetMarker=L.marker(
+    [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE],
+    {icon:capitolIcon}
+  ).addTo(map);
 
-  setTimeout(()=>{
-    map.invalidateSize();
-  },250);
+  setTimeout(()=>map.invalidateSize(),250);
 }
 
 function updateMap(){
 
-  if(
-    arenaStage !== 0 ||
-    currentLatitude === null
-  ){
-    return;
-  }
+  if(arenaStage!==0 || currentLatitude===null) return;
 
   initMap();
 
-  const currentPosition =
-    [
-      currentLatitude,
-      currentLongitude
-    ];
+  const currentPosition=[currentLatitude,currentLongitude];
 
   if(!userMarker){
 
-    userMarker =
-      L.circleMarker(
-        currentPosition,
-        {
-          radius:7,
-          weight:2,
-          color:"#d9c38a",
-          fillColor:"#c6a35b",
-          fillOpacity:.9
-        }
-      ).addTo(map);
+    userMarker=L.circleMarker(currentPosition,{
+      radius:7,
+      weight:2,
+      color:"#d9c38a",
+      fillColor:"#c6a35b",
+      fillOpacity:.9
+    }).addTo(map);
 
   }else{
-
-    userMarker.setLatLng(
-      currentPosition
-    );
+    userMarker.setLatLng(currentPosition);
   }
 
   if(targetLine){
     map.removeLayer(targetLine);
   }
 
-  targetLine =
-    L.polyline(
-      [
-        currentPosition,
-        [
-          DEPLOYMENT_LATITUDE,
-          DEPLOYMENT_LONGITUDE
-        ]
-      ],
-      {
-        color:"#a4864a",
-        weight:1,
-        opacity:.5,
-        dashArray:"5,8"
-      }
-    ).addTo(map);
-
-  const bounds =
-    L.latLngBounds(
+  targetLine=L.polyline(
+    [
       currentPosition,
-      [
-        DEPLOYMENT_LATITUDE,
-        DEPLOYMENT_LONGITUDE
-      ]
-    );
-
-  map.fitBounds(
-    bounds,
+      [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE]
+    ],
     {
-      padding:[45,45],
-      maxZoom:17
+      color:"#a4864a",
+      weight:1,
+      opacity:.5,
+      dashArray:"5,8"
     }
+  ).addTo(map);
+
+  const bounds=L.latLngBounds(
+    currentPosition,
+    [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE]
   );
+
+  map.fitBounds(bounds,{
+    padding:[45,45],
+    maxZoom:17
+  });
 }
 
 
-/* ============================================================
-   NUEVO ACCESO PROGRESIVO A LA ARENA
-============================================================ */
+/* ACCESO A LA ARENA */
 
 function updateArenaStageInterface(){
 
-  const mapArea =
-    document.getElementById(
-      "deploymentMapArea"
-    );
-
-  const compassArea =
-    document.getElementById(
-      "arenaCompassArea"
-    );
-
-  const locatedArea =
-    document.getElementById(
-      "arenaLocatedArea"
-    );
+  const mapArea=document.getElementById("deploymentMapArea");
+  const compassArea=document.getElementById("arenaCompassArea");
+  const locatedArea=document.getElementById("arenaLocatedArea");
 
   mapArea.classList.add("hidden");
   compassArea.classList.add("hidden");
@@ -2236,101 +1939,53 @@ function updateArenaStageInterface(){
 
   updateArenaProgressDots();
 
-  if(arenaStage === 0){
+  if(arenaStage===0){
 
-    document.getElementById(
-      "arenaStageEyebrow"
-    ).textContent =
-      "FASE I · TRASLADO";
-
-    document.getElementById(
-      "arenaStageTitle"
-    ).textContent =
-      "PUNTO DE DESPLIEGUE";
+    document.getElementById("arenaStageEyebrow").textContent="FASE I · TRASLADO";
+    document.getElementById("arenaStageTitle").textContent="PUNTO DE DESPLIEGUE";
 
     mapArea.classList.remove("hidden");
 
     initMap();
 
-    if(currentLatitude !== null){
+    if(currentLatitude!==null){
       updateArenaStagePosition();
     }
 
-  }else if(arenaStage === 1){
+  }else if(arenaStage===1){
 
-    document.getElementById(
-      "arenaStageEyebrow"
-    ).textContent =
-      "FASE II · APROXIMACIÓN";
+    document.getElementById("arenaStageEyebrow").textContent="FASE II · APROXIMACIÓN";
+    document.getElementById("arenaStageTitle").textContent="CAMINO A LA ARENA";
+    document.getElementById("arenaDistanceLabel").textContent="DISTANCIA AL CAMINO A LA ARENA";
 
-    document.getElementById(
-      "arenaStageTitle"
-    ).textContent =
-      "CAMINO A LA ARENA";
-
-    document.getElementById(
-      "arenaDistanceLabel"
-    ).textContent =
-      "DISTANCIA AL CAMINO A LA ARENA";
-
-    document.getElementById(
-      "arenaStageMessage"
-    ).innerHTML =
+    document.getElementById("arenaStageMessage").innerHTML=
       "El desplazamiento en vehículo ha finalizado.<br><br>Sigue la dirección indicada para continuar hacia la Arena.";
 
-    compassArea.classList.remove(
-      "hidden"
-    );
+    compassArea.classList.remove("hidden");
 
     requestOrientationPermission();
-
     updateArenaStagePosition();
 
-  }else if(arenaStage === 2){
+  }else if(arenaStage===2){
 
-    document.getElementById(
-      "arenaStageEyebrow"
-    ).textContent =
-      "FASE III · ACCESO";
+    document.getElementById("arenaStageEyebrow").textContent="FASE III · ACCESO";
+    document.getElementById("arenaStageTitle").textContent="COMIENZO DE LA ARENA";
+    document.getElementById("arenaDistanceLabel").textContent="DISTANCIA AL COMIENZO DE LA ARENA";
 
-    document.getElementById(
-      "arenaStageTitle"
-    ).textContent =
-      "COMIENZO DE LA ARENA";
-
-    document.getElementById(
-      "arenaDistanceLabel"
-    ).textContent =
-      "DISTANCIA AL COMIENZO DE LA ARENA";
-
-    document.getElementById(
-      "arenaStageMessage"
-    ).innerHTML =
+    document.getElementById("arenaStageMessage").innerHTML=
       "El Capitolio ha revelado el punto exacto de entrada.<br><br>Continúa hasta alcanzar la ubicación señalada.";
 
-    compassArea.classList.remove(
-      "hidden"
-    );
+    compassArea.classList.remove("hidden");
 
     requestOrientationPermission();
-
     updateArenaStagePosition();
 
   }else{
 
-    document.getElementById(
-      "arenaStageEyebrow"
-    ).textContent =
-      "ACCESO CONFIRMADO";
+    document.getElementById("arenaStageEyebrow").textContent="ACCESO CONFIRMADO";
+    document.getElementById("arenaStageTitle").textContent="COMIENZO DE LA ARENA";
 
-    document.getElementById(
-      "arenaStageTitle"
-    ).textContent =
-      "COMIENZO DE LA ARENA";
-
-    locatedArea.classList.remove(
-      "hidden"
-    );
+    locatedArea.classList.remove("hidden");
   }
 }
 
@@ -2338,48 +1993,24 @@ function updateArenaProgressDots(){
 
   for(let i=0;i<3;i++){
 
-    const dot =
-      document.getElementById(
-        "phaseDot"+i
-      );
+    const dot=document.getElementById("phaseDot"+i);
 
-    dot.classList.remove(
-      "active",
-      "done"
-    );
+    dot.classList.remove("active","done");
 
-    if(arenaStage > i){
+    if(arenaStage>i){
       dot.classList.add("done");
-    }else if(arenaStage === i){
+    }else if(arenaStage===i){
       dot.classList.add("active");
     }
   }
 
-  const line0 =
-    document.getElementById(
-      "phaseLine0"
-    );
-
-  const line1 =
-    document.getElementById(
-      "phaseLine1"
-    );
-
-  line0.classList.toggle(
-    "done",
-    arenaStage >= 1
-  );
-
-  line1.classList.toggle(
-    "done",
-    arenaStage >= 2
-  );
+  document.getElementById("phaseLine0").classList.toggle("done",arenaStage>=1);
+  document.getElementById("phaseLine1").classList.toggle("done",arenaStage>=2);
 }
 
 function getArenaStageTarget(){
 
-  if(arenaStage === 0){
-
+  if(arenaStage===0){
     return {
       latitude:DEPLOYMENT_LATITUDE,
       longitude:DEPLOYMENT_LONGITUDE,
@@ -2387,8 +2018,7 @@ function getArenaStageTarget(){
     };
   }
 
-  if(arenaStage === 1){
-
+  if(arenaStage===1){
     return {
       latitude:PATH_LATITUDE,
       longitude:PATH_LONGITUDE,
@@ -2396,8 +2026,7 @@ function getArenaStageTarget(){
     };
   }
 
-  if(arenaStage === 2){
-
+  if(arenaStage===2){
     return {
       latitude:ARENA_START_LATITUDE,
       longitude:ARENA_START_LONGITUDE,
@@ -2410,92 +2039,53 @@ function getArenaStageTarget(){
 
 function updateArenaStagePosition(){
 
-  if(
-    currentLatitude === null ||
-    arenaStage >= 3
-  ){
-    return;
-  }
+  if(currentLatitude===null || arenaStage>=3) return;
 
-  const target =
-    getArenaStageTarget();
+  const target=getArenaStageTarget();
+  if(!target) return;
 
-  if(!target){
-    return;
-  }
+  const distance=calculateDistance(
+    currentLatitude,
+    currentLongitude,
+    target.latitude,
+    target.longitude
+  );
 
-  const distance =
-    calculateDistance(
-      currentLatitude,
-      currentLongitude,
-      target.latitude,
-      target.longitude
-    );
+  if(arenaStage===0){
 
-  if(arenaStage === 0){
+    document.getElementById("mapDistance").textContent=formatDistance(distance);
 
-    document.getElementById(
-      "mapDistance"
-    ).textContent =
-      formatDistance(distance);
-
-    document.getElementById(
-      "mapAccuracy"
-    ).textContent =
-      currentAccuracy !== null
-        ? "Precisión GPS ±" +
-          Math.round(currentAccuracy) +
-          " m"
+    document.getElementById("mapAccuracy").textContent=
+      currentAccuracy!==null
+        ? "Precisión GPS ±"+Math.round(currentAccuracy)+" m"
         : "GPS activo";
 
     updateMap();
 
   }else{
 
-    document.getElementById(
-      "arenaStageDistance"
-    ).textContent =
-      formatDistance(distance);
+    document.getElementById("arenaStageDistance").textContent=formatDistance(distance);
 
-    document.getElementById(
-      "arenaStageAccuracy"
-    ).textContent =
-      currentAccuracy !== null
-        ? "Precisión GPS ±" +
-          Math.round(currentAccuracy) +
-          " m"
+    document.getElementById("arenaStageAccuracy").textContent=
+      currentAccuracy!==null
+        ? "Precisión GPS ±"+Math.round(currentAccuracy)+" m"
         : "GPS activo";
 
     updateArenaStageCompass();
   }
 
-  /*
-    Para reducir falsos positivos por GPS,
-    permitimos un pequeño margen de precisión
-    en las fases más amplias, pero el punto final
-    mantiene el radio exacto de 5 m.
-  */
-  let reached = false;
+  let reached=false;
 
-  if(arenaStage === 2){
-
-    reached =
-      distance <= ARENA_START_RADIUS;
-
+  if(arenaStage===2){
+    reached=distance<=ARENA_START_RADIUS;
   }else{
 
-    const accuracyAllowance =
+    const accuracyAllowance=
       currentAccuracy
-        ? Math.min(
-            currentAccuracy * .35,
-            10
-          )
+        ? Math.min(currentAccuracy*.35,10)
         : 0;
 
-    reached =
-      distance <=
-      target.radius +
-      accuracyAllowance;
+    reached=distance<=target.radius+accuracyAllowance;
   }
 
   if(reached){
@@ -2505,121 +2095,86 @@ function updateArenaStagePosition(){
 
 function updateArenaStageCompass(){
 
-  if(
-    currentLatitude === null ||
-    arenaStage < 1 ||
-    arenaStage > 2
-  ){
-    return;
-  }
+  if(currentLatitude===null || arenaStage<1 || arenaStage>2) return;
 
-  const target =
-    getArenaStageTarget();
+  const target=getArenaStageTarget();
+  if(!target) return;
 
-  if(!target){
-    return;
-  }
+  const bearing=calculateBearing(
+    currentLatitude,
+    currentLongitude,
+    target.latitude,
+    target.longitude
+  );
 
-  const bearing =
-    calculateBearing(
-      currentLatitude,
-      currentLongitude,
-      target.latitude,
-      target.longitude
-    );
+  const relative=normalizeAngle(bearing-currentHeading);
 
-  const relative =
-    normalizeAngle(
-      bearing - currentHeading
-    );
-
-  const arrow =
-    document.getElementById(
-      "arenaStageArrow"
-    );
+  const arrow=document.getElementById("arenaStageArrow");
 
   if(arrow){
-
-    arrow.style.transform =
-      "rotate(" +
-      relative +
-      "deg)";
+    arrow.style.transform="rotate("+relative+"deg)";
   }
 }
 
 function completeArenaStage(){
 
-  if(stageTransitionRunning){
-    return;
-  }
+  if(stageTransitionRunning) return;
 
-  stageTransitionRunning = true;
+  stageTransitionRunning=true;
 
-  if(arenaStage === 0){
+  if(arenaStage===0){
 
     showStageTransition(
       "PUNTO DE DESPLIEGUE ALCANZADO",
       "El traslado ha finalizado.<br><br>Abandona el vehículo. A partir de este punto deberás continuar a pie.",
       ()=>{
-        arenaStage = 1;
+        arenaStage=1;
         saveGame();
         updateArenaStageInterface();
-        stageTransitionRunning = false;
+        stageTransitionRunning=false;
       }
     );
 
     return;
   }
 
-  if(arenaStage === 1){
+  if(arenaStage===1){
 
     showStageTransition(
       "CAMINO A LA ARENA ALCANZADO",
       "El Capitolio ha registrado tu posición.<br><br>Se ha revelado el punto exacto donde comenzará la Arena.",
       ()=>{
-        arenaStage = 2;
+        arenaStage=2;
         saveGame();
         updateArenaStageInterface();
-        stageTransitionRunning = false;
+        stageTransitionRunning=false;
       }
     );
 
     return;
   }
 
-  if(arenaStage === 2){
+  if(arenaStage===2){
 
     showStageTransition(
       "UBICACIÓN CONFIRMADA",
       "Has alcanzado el comienzo de la Arena.<br><br>Prepárate. Los Juegos están a punto de comenzar.",
       ()=>{
-        arenaStage = 3;
+        arenaStage=3;
         saveGame();
         updateArenaStageInterface();
-        stageTransitionRunning = false;
+        stageTransitionRunning=false;
       }
     );
   }
 }
 
-function showStageTransition(
-  title,
-  text,
-  callback
-){
+function showStageTransition(title,text,callback){
 
-  const overlay =
-    document.getElementById(
-      "transitionOverlay"
-    );
+  const overlay=document.getElementById("transitionOverlay");
 
-  document.getElementById(
-    "transitionTitle"
-  ).textContent = title;
-
-  document.getElementById(
-    "transitionText"
-  ).innerHTML = text;
+  document.getElementById("transitionTitle").textContent=title;
+  document.getElementById("transitionText").innerHTML=text;
 
   overlay.classList.add("show");
 
@@ -2627,450 +2182,258 @@ function showStageTransition(
 
     overlay.classList.remove("show");
 
-    if(callback){
-      callback();
-    }
+    if(callback) callback();
 
   },3000);
 }
 
 function openAppleMaps(){
 
-  const destination =
-    DEPLOYMENT_LATITUDE +
-    "," +
-    DEPLOYMENT_LONGITUDE;
+  const destination=
+    DEPLOYMENT_LATITUDE+","+DEPLOYMENT_LONGITUDE;
 
   playClick();
 
   setTimeout(()=>{
-
-    window.location.href =
-      "https://maps.apple.com/?daddr=" +
-      destination +
-      "&dirflg=d";
-
+    window.location.href=
+      "https://maps.apple.com/?daddr="+destination+"&dirflg=d";
   },120);
 }
 
 function enterArena(){
 
-  if(arenaStage < 3){
-    return;
-  }
+  if(arenaStage<3) return;
 
   goToScreen(13);
 }
 
 
-/* ============================================================
-   ALIJOS
-============================================================ */
+/* ALIJOS */
 
 function startCaches(){
-
-  currentCacheIndex = 0;
-  cacheReached = false;
-
+  currentCacheIndex=0;
+  cacheReached=false;
   saveGame();
-
   goToScreen(14);
 }
 
 function getCurrentCache(){
-
-  return DISTRICTS[
-    currentCacheIndex
-  ];
+  return DISTRICTS[currentCacheIndex];
 }
 
 function updateCacheTransmission(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
-
-  document.getElementById(
-    "cacheTransmissionName"
-  ).textContent =
+  document.getElementById("cacheTransmissionName").textContent=
     cache.name.toUpperCase();
 
-  document.getElementById(
-    "cacheTransmissionCounter"
-  ).textContent =
-    "ALIJO " +
-    (currentCacheIndex+1) +
-    " DE " +
-    DISTRICTS.length;
+  document.getElementById("cacheTransmissionCounter").textContent=
+    "ALIJO "+(currentCacheIndex+1)+" DE "+DISTRICTS.length;
 }
 
 function locateCurrentCache(){
-
-  cacheReached = false;
-
+  cacheReached=false;
   saveGame();
-
   requestOrientationPermission();
-
   goToScreen(15);
 }
 
 function updateCacheCompassInterface(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
-
-  document.getElementById(
-    "cacheCompassName"
-  ).textContent =
+  document.getElementById("cacheCompassName").textContent=
     cache.name.toUpperCase();
 
-  const pending =
-    document.getElementById(
-      "pendingCacheLocation"
-    );
+  const pending=document.getElementById("pendingCacheLocation");
+  const simulate=document.getElementById("simulateCacheButton");
 
-  const simulate =
-    document.getElementById(
-      "simulateCacheButton"
-    );
+  if(cache.latitude===null || cache.longitude===null){
 
-  if(
-    cache.latitude === null ||
-    cache.longitude === null
-  ){
+    pending.classList.remove("hidden");
+    simulate.classList.remove("hidden");
 
-    pending.classList.remove(
-      "hidden"
-    );
-
-    simulate.classList.remove(
-      "hidden"
-    );
-
-    document.getElementById(
-      "cacheDistance"
-    ).textContent =
-      "-- m";
+    document.getElementById("cacheDistance").textContent="-- m";
 
   }else{
 
-    pending.classList.add(
-      "hidden"
-    );
-
-    simulate.classList.add(
-      "hidden"
-    );
+    pending.classList.add("hidden");
+    simulate.classList.add("hidden");
   }
 }
 
 function updateCacheCompass(){
 
-  if(currentScreen !== 15){
-    return;
-  }
+  if(currentScreen!==15) return;
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
 
-  if(!cache){
-    return;
-  }
+  if(!cache) return;
+  if(cache.latitude===null || cache.longitude===null) return;
+  if(currentLatitude===null) return;
 
-  if(
-    cache.latitude === null ||
-    cache.longitude === null
-  ){
-    return;
-  }
+  const distance=calculateDistance(
+    currentLatitude,
+    currentLongitude,
+    cache.latitude,
+    cache.longitude
+  );
 
-  if(currentLatitude === null){
-    return;
-  }
-
-  const distance =
-    calculateDistance(
-      currentLatitude,
-      currentLongitude,
-      cache.latitude,
-      cache.longitude
-    );
-
-  document.getElementById(
-    "cacheDistance"
-  ).textContent =
+  document.getElementById("cacheDistance").textContent=
     formatDistance(distance);
 
-  document.getElementById(
-    "cacheAccuracy"
-  ).textContent =
-    currentAccuracy !== null
-      ? "Precisión GPS ±" +
-        Math.round(currentAccuracy) +
-        " m"
+  document.getElementById("cacheAccuracy").textContent=
+    currentAccuracy!==null
+      ? "Precisión GPS ±"+Math.round(currentAccuracy)+" m"
       : "GPS activo";
 
-  const bearing =
-    calculateBearing(
-      currentLatitude,
-      currentLongitude,
-      cache.latitude,
-      cache.longitude
-    );
+  const bearing=calculateBearing(
+    currentLatitude,
+    currentLongitude,
+    cache.latitude,
+    cache.longitude
+  );
 
-  const relative =
-    normalizeAngle(
-      bearing - currentHeading
-    );
+  const relative=normalizeAngle(bearing-currentHeading);
 
-  document.getElementById(
-    "cacheArrow"
-  ).style.transform =
-    "rotate(" +
-    relative +
-    "deg)";
+  document.getElementById("cacheArrow").style.transform=
+    "rotate("+relative+"deg)";
 
-  if(
-    distance <= CACHE_RADIUS &&
-    !cacheReached
-  ){
+  if(distance<=CACHE_RADIUS && !cacheReached){
 
-    cacheReached = true;
-
+    cacheReached=true;
     saveGame();
 
-    setTimeout(()=>{
-      goToScreen(16);
-    },600);
+    setTimeout(()=>goToScreen(16),600);
   }
 }
 
 function simulateCacheFound(){
-
-  cacheReached = true;
-
+  cacheReached=true;
   saveGame();
-
   goToScreen(16);
 }
 
 
-/* ============================================================
-   CÓDIGOS
-============================================================ */
+/* CÓDIGOS */
 
 function updateCodeInterface(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
-
-  document.getElementById(
-    "cacheCodeName"
-  ).textContent =
+  document.getElementById("cacheCodeName").textContent=
     cache.name.toUpperCase();
 
-  document.getElementById(
-    "cacheCodeInput"
-  ).value = "";
-
-  document.getElementById(
-    "cacheCodeStatus"
-  ).textContent = "";
+  document.getElementById("cacheCodeInput").value="";
+  document.getElementById("cacheCodeStatus").textContent="";
 }
 
 function validateCacheCode(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const input=document.getElementById("cacheCodeInput");
+  const status=document.getElementById("cacheCodeStatus");
 
-  const input =
-    document.getElementById(
-      "cacheCodeInput"
-    );
+  const code=input.value.trim();
 
-  const status =
-    document.getElementById(
-      "cacheCodeStatus"
-    );
+  if(code!==cache.code){
 
-  const code =
-    input.value.trim();
-
-  if(code !== cache.code){
-
-    status.style.color =
-      "#b8584f";
-
-    status.textContent =
-      "ACCESO DENEGADO";
-
-    input.value = "";
+    status.style.color="#b8584f";
+    status.textContent="ACCESO DENEGADO";
+    input.value="";
 
     return;
   }
 
-  status.style.color =
-    "#91a77b";
+  status.style.color="#91a77b";
+  status.textContent="CÓDIGO ACEPTADO";
 
-  status.textContent =
-    "CÓDIGO ACEPTADO";
-
-  setTimeout(()=>{
-    acceptCurrentCache();
-  },650);
+  setTimeout(()=>acceptCurrentCache(),650);
 }
 
 function acceptCurrentCache(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const id=getCacheId(cache);
 
-  const id =
-    getCacheId(cache);
-
-  if(
-    !recoveredCaches.includes(id)
-  ){
-
+  if(!recoveredCaches.includes(id)){
     recoveredCaches.push(id);
   }
 
-  cacheReached = true;
+  cacheReached=true;
 
   saveGame();
-
   goToScreen(17);
 }
 
 
-/* ============================================================
-   EQUIPAR
-============================================================ */
+/* EQUIPAR */
 
 function updateEquipInterface(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const id=getCacheId(cache);
+  const equipped=equippedCaches.includes(id);
 
-  const id =
-    getCacheId(cache);
-
-  const equipped =
-    equippedCaches.includes(id);
-
-  document.getElementById(
-    "recoveredCacheName"
-  ).textContent =
+  document.getElementById("recoveredCacheName").textContent=
     cache.name.toUpperCase();
 
-  const equipButton =
-    document.getElementById(
-      "equipButton"
-    );
+  const equipButton=document.getElementById("equipButton");
+  const nextButton=document.getElementById("nextCacheButton");
+  const warning=document.getElementById("equipWarning");
 
-  const nextButton =
-    document.getElementById(
-      "nextCacheButton"
-    );
-
-  const warning =
-    document.getElementById(
-      "equipWarning"
-    );
-
-  const isLast =
-    currentCacheIndex ===
-    DISTRICTS.length-1;
+  const isLast=currentCacheIndex===DISTRICTS.length-1;
 
   if(equipped){
 
-    equipButton.textContent =
-      "✓ EQUIPADO";
+    equipButton.textContent="✓ EQUIPADO";
+    equipButton.disabled=true;
+    equipButton.classList.add("success");
 
-    equipButton.disabled = true;
-    equipButton.classList.add(
-      "success"
-    );
+    nextButton.disabled=false;
+    nextButton.textContent=isLast ? "FINALIZAR" : "SIGUIENTE ALIJO";
 
-    nextButton.disabled = false;
-
-    nextButton.textContent =
-      isLast
-        ? "FINALIZAR"
-        : "SIGUIENTE ALIJO";
-
-    warning.textContent =
+    warning.textContent=
       "Suministro equipado. El siguiente objetivo está disponible.";
 
   }else{
 
-    equipButton.textContent =
-      "EQUIPAR";
+    equipButton.textContent="EQUIPAR";
+    equipButton.disabled=false;
+    equipButton.classList.remove("success");
 
-    equipButton.disabled = false;
-    equipButton.classList.remove(
-      "success"
-    );
+    nextButton.disabled=true;
+    nextButton.textContent=
+      isLast ? "🔒 FINALIZAR" : "🔒 SIGUIENTE ALIJO";
 
-    nextButton.disabled = true;
-
-    nextButton.textContent =
-      isLast
-        ? "🔒 FINALIZAR"
-        : "🔒 SIGUIENTE ALIJO";
-
-    warning.textContent =
+    warning.textContent=
       "Debes equipar este suministro antes de que el Capitolio revele el siguiente alijo.";
   }
 }
 
 function equipMedal(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const id=getCacheId(cache);
 
-  const id =
-    getCacheId(cache);
-
-  if(
-    !equippedCaches.includes(id)
-  ){
-
+  if(!equippedCaches.includes(id)){
     equippedCaches.push(id);
   }
 
-  currentScreen = 17;
-
+  currentScreen=17;
   saveGame();
-
   updateEquipInterface();
 
   goInventory();
@@ -3078,247 +2441,151 @@ function equipMedal(){
 
 function nextCache(){
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const id=getCacheId(cache);
 
-  const id =
-    getCacheId(cache);
+  if(!recoveredCaches.includes(id)) return;
 
-  if(
-    !recoveredCaches.includes(id)
-  ){
-
-    return;
-  }
-
-  if(
-    !equippedCaches.includes(id)
-  ){
-
+  if(!equippedCaches.includes(id)){
     updateEquipInterface();
     return;
   }
 
-  if(
-    currentCacheIndex >=
-    DISTRICTS.length-1
-  ){
-
+  if(currentCacheIndex>=DISTRICTS.length-1){
     goToScreen(18);
     return;
   }
 
   currentCacheIndex++;
-
-  cacheReached = false;
+  cacheReached=false;
 
   saveGame();
-
   goToScreen(14);
 }
 
 
-/* ============================================================
-   INVENTARIO
-============================================================ */
+/* INVENTARIO */
 
 function goInventory(){
-
   saveGame();
-
-  window.location.href =
-    INVENTORY_URL;
+  window.location.href=INVENTORY_URL;
 }
 
 
-/* ============================================================
-   ADMIN
-============================================================ */
+/* ADMIN */
 
-let adminTapCount = 0;
-let adminTapTimer = null;
+let adminTapCount=0;
+let adminTapTimer=null;
 
 function registerAdminTap(){
 
   adminTapCount++;
 
-  clearTimeout(
-    adminTapTimer
-  );
+  clearTimeout(adminTapTimer);
 
-  adminTapTimer =
-    setTimeout(()=>{
-      adminTapCount = 0;
-    },1200);
+  adminTapTimer=setTimeout(()=>{
+    adminTapCount=0;
+  },1200);
 
-  if(adminTapCount >= 5){
-
-    adminTapCount = 0;
-
+  if(adminTapCount>=5){
+    adminTapCount=0;
     openAdmin();
   }
 }
 
-document
-  .querySelectorAll(".admin-logo")
-  .forEach(logo=>{
+document.querySelectorAll(".admin-logo").forEach(logo=>{
+  logo.addEventListener("click",registerAdminTap);
+});
 
-    logo.addEventListener(
-      "click",
-      registerAdminTap
-    );
-  });
-
-document
-  .getElementById("adminHotzone")
-  .addEventListener(
-    "click",
-    registerAdminTap
-  );
+document.getElementById("adminHotzone").addEventListener(
+  "click",
+  registerAdminTap
+);
 
 function openAdmin(){
 
-  const overlay =
-    document.getElementById(
-      "adminOverlay"
-    );
+  const overlay=document.getElementById("adminOverlay");
 
   overlay.classList.add("show");
 
   if(adminUnlocked){
 
-    document.getElementById(
-      "adminLogin"
-    ).classList.add("hidden");
-
-    document.getElementById(
-      "adminControls"
-    ).classList.remove("hidden");
+    document.getElementById("adminLogin").classList.add("hidden");
+    document.getElementById("adminControls").classList.remove("hidden");
 
   }else{
 
-    document.getElementById(
-      "adminLogin"
-    ).classList.remove("hidden");
-
-    document.getElementById(
-      "adminControls"
-    ).classList.add("hidden");
+    document.getElementById("adminLogin").classList.remove("hidden");
+    document.getElementById("adminControls").classList.add("hidden");
   }
 }
 
 function closeAdmin(){
-
-  document.getElementById(
-    "adminOverlay"
-  ).classList.remove("show");
+  document.getElementById("adminOverlay").classList.remove("show");
 }
 
 function unlockAdmin(){
 
-  const pin =
-    document.getElementById(
-      "adminPin"
-    ).value;
+  const pin=document.getElementById("adminPin").value;
 
-  if(pin !== "017"){
-
+  if(pin!=="017"){
     alert("PIN incorrecto.");
     return;
   }
 
-  adminUnlocked = true;
+  adminUnlocked=true;
 
-  document.getElementById(
-    "adminLogin"
-  ).classList.add("hidden");
-
-  document.getElementById(
-    "adminControls"
-  ).classList.remove("hidden");
+  document.getElementById("adminLogin").classList.add("hidden");
+  document.getElementById("adminControls").classList.remove("hidden");
 }
 
 function setAdminTestParticipant(){
 
   if(!participant.fullName){
 
-    participant.firstName =
-      "SAMUEL";
-
-    participant.lastName =
-      "TRIBUTO";
-
-    participant.birthDate =
-      "2000-01-01";
-
-    participant.fullName =
-      "SAMUEL TRIBUTO";
+    participant.firstName="SAMUEL";
+    participant.lastName="TRIBUTO";
+    participant.birthDate="2000-01-01";
+    participant.fullName="SAMUEL TRIBUTO";
   }
 
   updateParticipantUI();
 }
 
 function adminGo(screen){
-
   setAdminTestParticipant();
-
   closeAdmin();
-
   goToScreen(screen);
 }
 
 function adminRegistered(){
-
   setAdminTestParticipant();
-
   closeAdmin();
-
   goToScreen(4);
 }
 
 function adminTribute(){
-
   setAdminTestParticipant();
-
   closeAdmin();
-
   goToScreen(8);
 }
 
-
-/*
-  NUEVO:
-  permite probar individualmente cada fase
-  de acceso sin estar físicamente allí.
-*/
 function adminArenaStage(stage){
-
   setAdminTestParticipant();
-
-  arenaStage = stage;
-
+  arenaStage=stage;
   saveGame();
-
   closeAdmin();
-
   goToScreen(11);
 }
 
 function adminSelectCache(index){
-
   setAdminTestParticipant();
-
-  currentCacheIndex = index;
-  cacheReached = false;
-
+  currentCacheIndex=index;
+  cacheReached=false;
   saveGame();
-
   closeAdmin();
-
   goToScreen(14);
 }
 
@@ -3326,205 +2593,130 @@ function adminValidateCurrentCache(){
 
   setAdminTestParticipant();
 
-  const cache =
-    getCurrentCache();
+  const cache=getCurrentCache();
+  if(!cache) return;
 
-  if(!cache){
-    return;
-  }
+  const id=getCacheId(cache);
 
-  const id =
-    getCacheId(cache);
-
-  if(
-    !recoveredCaches.includes(id)
-  ){
-
+  if(!recoveredCaches.includes(id)){
     recoveredCaches.push(id);
   }
 
-  /*
-    IMPORTANTE:
-    quitamos el estado equipado para poder
-    probar el bloqueo obligatorio.
-  */
-  equippedCaches =
-    equippedCaches.filter(
-      item=>item !== id
-    );
+  equippedCaches=equippedCaches.filter(item=>item!==id);
 
-  cacheReached = true;
+  cacheReached=true;
 
   saveGame();
-
   closeAdmin();
-
   goToScreen(17);
 }
 
 function adminForceArena(){
-
-  arenaStage = 3;
-
+  arenaStage=3;
   saveGame();
-
   closeAdmin();
-
   goToScreen(13);
 }
 
 function adminForceCache(){
-
-  cacheReached = true;
-
+  cacheReached=true;
   saveGame();
-
   closeAdmin();
-
   goToScreen(16);
 }
 
 function adminCompleteAll(){
 
-  recoveredCaches =
-    DISTRICTS.map(
-      cache=>getCacheId(cache)
-    );
+  recoveredCaches=DISTRICTS.map(cache=>getCacheId(cache));
+  equippedCaches=DISTRICTS.map(cache=>getCacheId(cache));
 
-  equippedCaches =
-    DISTRICTS.map(
-      cache=>getCacheId(cache)
-    );
-
-  currentCacheIndex =
-    DISTRICTS.length-1;
-
-  arenaStage = 3;
+  currentCacheIndex=DISTRICTS.length-1;
+  arenaStage=3;
 
   saveGame();
-
   closeAdmin();
-
   goToScreen(18);
 }
 
 
-/* ============================================================
-   RESET
-============================================================ */
+/* RESET */
 
 function resetGame(){
 
-  const confirmed =
-    confirm(
-      "¿Reiniciar completamente la partida?"
-    );
+  const confirmed=confirm("¿Reiniciar completamente la partida?");
 
-  if(!confirmed){
-    return;
-  }
+  if(!confirmed) return;
 
-  localStorage.removeItem(
-    SAVE_KEY
-  );
+  localStorage.removeItem(SAVE_KEY);
 
-  participant = {
+  participant={
     firstName:"",
     lastName:"",
     birthDate:"",
     fullName:""
   };
 
-  currentCacheIndex = 0;
+  currentCacheIndex=0;
+  recoveredCaches=[];
+  equippedCaches=[];
+  arenaStage=0;
+  cacheReached=false;
 
-  recoveredCaches = [];
-  equippedCaches = [];
+  currentLatitude=null;
+  currentLongitude=null;
+  currentAccuracy=null;
 
-  arenaStage = 0;
+  terminalAnimationId++;
 
-  cacheReached = false;
-
-  currentLatitude = null;
-  currentLongitude = null;
-  currentAccuracy = null;
-
-  if(watchId !== null){
-
-    navigator.geolocation
-      .clearWatch(watchId);
-
-    watchId = null;
+  if(watchId!==null){
+    navigator.geolocation.clearWatch(watchId);
+    watchId=null;
   }
 
   closeAdmin();
-
   goToScreen(1);
 }
 
 
-/* ============================================================
-   REGRESO DESDE INVENTARIO
-============================================================ */
+/* REGRESO DESDE INVENTARIO */
 
-document.addEventListener(
-  "visibilitychange",
-  ()=>{
+document.addEventListener("visibilitychange",()=>{
 
-    if(
-      !document.hidden &&
-      currentScreen === 17
-    ){
-
-      updateEquipInterface();
-    }
+  if(!document.hidden && currentScreen===17){
+    updateEquipInterface();
   }
-);
+});
 
-window.addEventListener(
-  "pageshow",
-  ()=>{
+window.addEventListener("pageshow",()=>{
 
-    if(currentScreen === 17){
-      updateEquipInterface();
-    }
-
-    if(currentScreen === 11){
-
-      setTimeout(()=>{
-        updateArenaStageInterface();
-        startGPS();
-      },150);
-    }
+  if(currentScreen===17){
+    updateEquipInterface();
   }
-);
 
+  if(currentScreen===11){
 
-/* ============================================================
-   INICIO
-============================================================ */
-
-window.addEventListener(
-  "load",
-  ()=>{
-
-    const restored =
-      loadGame();
-
-    updateParticipantUI();
-
-    if(restored){
-
-      goToScreen(
-        currentScreen
-      );
-
-    }else{
-
-      goToScreen(1);
-    }
-
+    setTimeout(()=>{
+      updateArenaStageInterface();
+      startGPS();
+    },150);
   }
-);
+});
+
+
+/* INICIO */
+
+window.addEventListener("load",()=>{
+
+  const restored=loadGame();
+
+  updateParticipantUI();
+
+  if(restored){
+    goToScreen(currentScreen);
+  }else{
+    goToScreen(1);
+  }
+});
 
 </script>
 </body>
