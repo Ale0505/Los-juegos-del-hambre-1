@@ -355,6 +355,31 @@ h3{font-size:19px}
   filter:saturate(.55) brightness(.72) contrast(1.12);
 }
 
+.capitol-map-marker{
+  width:76px;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(5,5,5,.92);
+  border:2px solid #d8b45f;
+  box-shadow:
+    0 0 0 6px rgba(198,163,91,.22),
+    0 0 22px rgba(218,180,95,.95),
+    0 0 45px rgba(198,163,91,.50);
+}
+
+.capitol-map-marker img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  filter:
+    brightness(1.45)
+    contrast(1.2)
+    drop-shadow(0 0 7px rgba(218,180,95,1));
+}
+
 .distance-box{
   width:min(100%,480px);
   border-top:1px solid var(--line);
@@ -615,8 +640,6 @@ h3{font-size:19px}
   margin-top:16px;
 }
 
-/* NUEVA SECUENCIA DE ENTRADA */
-
 .arena-intro{
   width:min(100%,480px);
   text-align:center;
@@ -780,7 +803,6 @@ h3{font-size:19px}
 <audio id="bgMusic" src="Horn of Plenty.mp3" loop preload="auto"></audio>
 <audio id="clickSound" src="Click.mp3" preload="auto"></audio>
 
-<!-- 1 -->
 <section class="screen active" id="screen1">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Panem · Registro Oficial</div>
@@ -792,7 +814,6 @@ h3{font-size:19px}
   <button class="btn" onclick="startCeremony()">INICIAR CEREMONIA</button>
 </section>
 
-<!-- 2 -->
 <section class="screen" id="screen2">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Registro de ciudadanos</div>
@@ -818,7 +839,6 @@ h3{font-size:19px}
   <button class="btn" onclick="registerCitizen()">REGISTRAR CIUDADANO</button>
 </section>
 
-<!-- 3 -->
 <section class="screen" id="screen3">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Terminal del Capitolio</div>
@@ -830,7 +850,6 @@ h3{font-size:19px}
   </div>
 </section>
 
-<!-- 4 -->
 <section class="screen" id="screen4">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Registro completado</div>
@@ -844,7 +863,6 @@ h3{font-size:19px}
   <button class="btn" onclick="goToScreen(5)">CONTINUAR A LA COSECHA</button>
 </section>
 
-<!-- 5 -->
 <section class="screen" id="screen5">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Ceremonia de selección</div>
@@ -857,20 +875,17 @@ h3{font-size:19px}
   <button class="btn" onclick="startSelection()">INICIAR SELECCIÓN</button>
 </section>
 
-<!-- 6 -->
 <section class="screen" id="screen6">
   <div class="eyebrow">Selección en curso</div>
   <div class="countdown" id="countdown">3</div>
 </section>
 
-<!-- 7 -->
 <section class="screen" id="screen7">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Procesando candidatos</div>
   <div class="random-name" id="randomName">...</div>
 </section>
 
-<!-- 8 -->
 <section class="screen" id="screen8">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Selección finalizada</div>
@@ -882,7 +897,6 @@ h3{font-size:19px}
   <button class="btn" onclick="goToScreen(9)">CONTINUAR</button>
 </section>
 
-<!-- 9 -->
 <section class="screen" id="screen9">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Comunicado oficial</div>
@@ -903,7 +917,6 @@ h3{font-size:19px}
   <button class="btn" onclick="beginMission()">INICIAR TRASLADO</button>
 </section>
 
-<!-- 10 -->
 <section class="screen" id="screen10">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Orden de traslado</div>
@@ -918,7 +931,6 @@ h3{font-size:19px}
   <button class="btn" onclick="openArenaNavigation()">LOCALIZAR LA ARENA</button>
 </section>
 
-<!-- 11 -->
 <section class="screen" id="screen11">
 
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
@@ -945,7 +957,7 @@ h3{font-size:19px}
       <div class="accuracy" id="mapAccuracy">Esperando señal GPS...</div>
     </div>
 
-    <button class="btn" onclick="openAppleMaps()">INICIAR RUTA</button>
+    <button class="btn" onclick="openGoogleMaps()">INICIAR RUTA</button>
     <button class="btn secondary" onclick="startGPS()">ACTUALIZAR POSICIÓN</button>
   </div>
 
@@ -991,7 +1003,6 @@ h3{font-size:19px}
 
 </section>
 
-<!-- 12 NUEVA PRESENTACIÓN DE LA ARENA -->
 <section class="screen" id="screen12">
 
   <div class="arena-intro">
@@ -1022,7 +1033,6 @@ h3{font-size:19px}
 
 </section>
 
-<!-- 19 NUEVO ESCANEO -->
 <section class="screen" id="screen19">
 
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
@@ -1041,7 +1051,6 @@ h3{font-size:19px}
 
 </section>
 
-<!-- 13 -->
 <section class="screen" id="screen13">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Transmisión del Capitolio</div>
@@ -1068,7 +1077,6 @@ h3{font-size:19px}
   </button>
 </section>
 
-<!-- 14 -->
 <section class="screen" id="screen14">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Transmisión entrante</div>
@@ -1085,7 +1093,6 @@ h3{font-size:19px}
   <button class="btn" onclick="locateCurrentCache()">LOCALIZAR SUMINISTRO</button>
 </section>
 
-<!-- 15 -->
 <section class="screen" id="screen15">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Localización de suministro</div>
@@ -1119,7 +1126,6 @@ h3{font-size:19px}
   </button>
 </section>
 
-<!-- 16 -->
 <section class="screen" id="screen16">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Suministro localizado</div>
@@ -1136,7 +1142,6 @@ h3{font-size:19px}
   <button class="btn" onclick="validateCacheCode()">VALIDAR CÓDIGO</button>
 </section>
 
-<!-- 17 -->
 <section class="screen" id="screen17">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Suministro confirmado</div>
@@ -1160,7 +1165,6 @@ h3{font-size:19px}
   </div>
 </section>
 
-<!-- 18 -->
 <section class="screen" id="screen18">
   <img src="capitolio.png.webp" class="capitol-logo admin-logo">
   <div class="eyebrow">Transmisión final</div>
@@ -1280,8 +1284,6 @@ h3{font-size:19px}
 
 <script>
 
-/* CONFIGURACIÓN */
-
 const INVENTORY_URL="https://ale0505.github.io/Almacenamiento-medallas/";
 const SAVE_KEY="capitolio_hunger_games_save_v1";
 
@@ -1307,9 +1309,6 @@ const DISTRICTS=[
   {type:"district",name:"Distrito 11",district:11,code:"1172",latitude:null,longitude:null},
   {type:"district",name:"Distrito 12",district:12,code:"1259",latitude:null,longitude:null}
 ];
-
-
-/* ESTADO */
 
 let currentScreen=1;
 
@@ -1337,6 +1336,7 @@ let orientationEnabled=false;
 
 let map=null;
 let userMarker=null;
+let userHalo=null;
 let targetMarker=null;
 let targetLine=null;
 
@@ -1344,9 +1344,6 @@ let stageTransitionRunning=false;
 let adminUnlocked=false;
 let terminalAnimationId=0;
 let arenaScanAnimationId=0;
-
-
-/* AUDIO */
 
 const bgMusic=document.getElementById("bgMusic");
 const clickSound=document.getElementById("clickSound");
@@ -1370,9 +1367,6 @@ document.addEventListener("click",e=>{
     playClick();
   }
 });
-
-
-/* UTILIDADES */
 
 function sleep(ms){
   return new Promise(resolve=>setTimeout(resolve,ms));
@@ -1429,9 +1423,6 @@ function getCacheId(cache){
   if(cache.type==="capitol") return "capitol";
   return "district-"+cache.district;
 }
-
-
-/* GUARDADO */
 
 function saveGame(){
 
@@ -1510,9 +1501,6 @@ function loadGame(){
   }
 }
 
-
-/* PANTALLAS */
-
 function goToScreen(number){
 
   if(currentScreen===3 && number!==3){
@@ -1573,9 +1561,6 @@ function goToScreen(number){
   saveGame();
 }
 
-
-/* PARTICIPANTE */
-
 function updateParticipantUI(){
 
   const name=participant.fullName||"CIUDADANO";
@@ -1589,9 +1574,6 @@ function startCeremony(){
   startAudio();
   goToScreen(2);
 }
-
-
-/* TERMINAL */
 
 async function typeTerminalLine(text,extraClass="",speed=24,animationId){
 
@@ -1737,9 +1719,6 @@ function registerCitizen(){
   runVerificationTerminal();
 }
 
-
-/* COSECHA */
-
 function startSelection(){
 
   goToScreen(6);
@@ -1803,9 +1782,6 @@ function randomSelection(){
   },120);
 }
 
-
-/* MISIÓN */
-
 async function beginMission(){
   await requestOrientationPermission();
   goToScreen(10);
@@ -1816,9 +1792,6 @@ function openArenaNavigation(){
   startGPS();
   requestOrientationPermission();
 }
-
-
-/* ORIENTACIÓN */
 
 async function requestOrientationPermission(){
 
@@ -1887,9 +1860,6 @@ function handleOrientation(event){
   updateCacheCompass();
 }
 
-
-/* GPS */
-
 function startGPS(){
 
   if(!navigator.geolocation){
@@ -1940,9 +1910,6 @@ function locationFailure(error){
   });
 }
 
-
-/* MAPA */
-
 function initMap(){
 
   if(map){
@@ -1963,15 +1930,24 @@ function initMap(){
     {maxZoom:19}
   ).addTo(map);
 
-  const capitolIcon=L.icon({
-    iconUrl:"capitolio.png.webp",
-    iconSize:[46,46],
-    iconAnchor:[23,23]
+  const capitolIcon=L.divIcon({
+    className:"",
+    iconSize:[76,76],
+    iconAnchor:[38,38],
+
+    html:`
+      <div class="capitol-map-marker">
+        <img src="capitolio.png.webp">
+      </div>
+    `
   });
 
   targetMarker=L.marker(
     [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE],
-    {icon:capitolIcon}
+    {
+      icon:capitolIcon,
+      zIndexOffset:1000
+    }
   ).addTo(map);
 
   setTimeout(()=>map.invalidateSize(),250);
@@ -1983,19 +1959,40 @@ function updateMap(){
 
   initMap();
 
-  const currentPosition=[currentLatitude,currentLongitude];
+  const currentPosition=[
+    currentLatitude,
+    currentLongitude
+  ];
+
+  if(!userHalo){
+
+    userHalo=L.circleMarker(currentPosition,{
+      radius:20,
+      weight:2,
+      color:"#d8b45f",
+      opacity:.95,
+      fillColor:"#c6a35b",
+      fillOpacity:.20
+    }).addTo(map);
+
+  }else{
+
+    userHalo.setLatLng(currentPosition);
+  }
 
   if(!userMarker){
 
     userMarker=L.circleMarker(currentPosition,{
-      radius:7,
-      weight:2,
-      color:"#d9c38a",
-      fillColor:"#c6a35b",
-      fillOpacity:.9
+      radius:11,
+      weight:4,
+      color:"#fff0bd",
+      opacity:1,
+      fillColor:"#d9ad4c",
+      fillOpacity:1
     }).addTo(map);
 
   }else{
+
     userMarker.setLatLng(currentPosition);
   }
 
@@ -2006,29 +2003,48 @@ function updateMap(){
   targetLine=L.polyline(
     [
       currentPosition,
-      [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE]
+      [
+        DEPLOYMENT_LATITUDE,
+        DEPLOYMENT_LONGITUDE
+      ]
     ],
     {
-      color:"#a4864a",
-      weight:1,
-      opacity:.5,
-      dashArray:"5,8"
+      color:"#e0bb63",
+      weight:3,
+      opacity:.95,
+      dashArray:"8,10"
     }
   ).addTo(map);
 
   const bounds=L.latLngBounds(
     currentPosition,
-    [DEPLOYMENT_LATITUDE,DEPLOYMENT_LONGITUDE]
+    [
+      DEPLOYMENT_LATITUDE,
+      DEPLOYMENT_LONGITUDE
+    ]
   );
 
   map.fitBounds(bounds,{
-    padding:[45,45],
+    padding:[55,55],
     maxZoom:17
   });
+
+  if(userHalo){
+    userHalo.bringToBack();
+  }
+
+  if(targetLine){
+    targetLine.bringToBack();
+  }
+
+  if(userMarker){
+    userMarker.bringToFront();
+  }
+
+  if(targetMarker){
+    targetMarker.setZIndexOffset(1000);
+  }
 }
-
-
-/* ACCESO A LA ARENA */
 
 function updateArenaStageInterface(){
 
@@ -2290,7 +2306,10 @@ function showStageTransition(title,text,callback){
   },3000);
 }
 
-function openAppleMaps(){
+
+/* ÚNICO CAMBIO: GOOGLE MAPS */
+
+function openGoogleMaps(){
 
   const destination=
     DEPLOYMENT_LATITUDE+","+DEPLOYMENT_LONGITUDE;
@@ -2299,12 +2318,12 @@ function openAppleMaps(){
 
   setTimeout(()=>{
     window.location.href=
-      "https://maps.apple.com/?daddr="+destination+"&dirflg=d";
+      "https://www.google.com/maps/dir/?api=1&destination="+
+      encodeURIComponent(destination)+
+      "&travelmode=driving";
   },120);
 }
 
-
-/* NUEVA ENTRADA CINEMATOGRÁFICA */
 
 function enterArena(){
 
@@ -2416,9 +2435,6 @@ async function addArenaScanLine(text,className,animationId){
   }
 }
 
-
-/* EQUIPO MÍNIMO */
-
 function updateMinimumGearInterface(){
 
   const equipmentButton=document.getElementById("minimumEquipmentButton");
@@ -2455,9 +2471,6 @@ function equipMinimumGear(){
 
   goInventory();
 }
-
-
-/* ALIJOS */
 
 function startCaches(){
 
@@ -2581,9 +2594,6 @@ function simulateCacheFound(){
   goToScreen(16);
 }
 
-
-/* CÓDIGOS */
-
 function updateCodeInterface(){
 
   const cache=getCurrentCache();
@@ -2642,9 +2652,6 @@ function acceptCurrentCache(){
 
   goToScreen(17);
 }
-
-
-/* EQUIPAR */
 
 function updateEquipInterface(){
 
@@ -2739,16 +2746,10 @@ function nextCache(){
   goToScreen(14);
 }
 
-
-/* INVENTARIO */
-
 function goInventory(){
   saveGame();
   window.location.href=INVENTORY_URL;
 }
-
-
-/* ADMIN */
 
 let adminTapCount=0;
 let adminTapTimer=null;
@@ -2942,9 +2943,6 @@ function adminCompleteAll(){
   goToScreen(18);
 }
 
-
-/* RESET */
-
 function resetGame(){
 
   const confirmed=confirm("¿Reiniciar completamente la partida?");
@@ -2984,9 +2982,6 @@ function resetGame(){
   goToScreen(1);
 }
 
-
-/* REGRESO DESDE INVENTARIO */
-
 document.addEventListener("visibilitychange",()=>{
 
   if(!document.hidden){
@@ -3019,9 +3014,6 @@ window.addEventListener("pageshow",()=>{
     },150);
   }
 });
-
-
-/* INICIO */
 
 window.addEventListener("load",()=>{
 
