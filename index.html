@@ -89,6 +89,18 @@ button{touch-action:manipulation}
   46%,100%{opacity:0}
 }
 
+@keyframes arenaScan{
+  0%{top:-10%;opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{top:105%;opacity:0}
+}
+
+@keyframes pulseStatus{
+  0%,100%{opacity:.55}
+  50%{opacity:1}
+}
+
 .capitol-logo{
   width:88px;
   height:88px;
@@ -603,6 +615,78 @@ h3{font-size:19px}
   margin-top:16px;
 }
 
+/* NUEVA SECUENCIA DE ENTRADA */
+
+.arena-intro{
+  width:min(100%,480px);
+  text-align:center;
+}
+
+.arena-intro-text{
+  color:#aaa194;
+  font-size:14px;
+  line-height:1.8;
+  margin-top:24px;
+}
+
+.arena-intro-text strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+.arena-scan-panel{
+  width:min(100%,470px);
+  min-height:290px;
+  margin-top:25px;
+  border:1px solid var(--line);
+  background:#050705;
+  position:relative;
+  overflow:hidden;
+  padding:25px 22px;
+  font-family:monospace;
+}
+
+.arena-scan-line{
+  position:absolute;
+  left:0;
+  right:0;
+  top:-10%;
+  height:45px;
+  background:
+    linear-gradient(
+      transparent,
+      rgba(198,163,91,.12),
+      rgba(198,163,91,.25),
+      rgba(198,163,91,.12),
+      transparent
+    );
+  animation:arenaScan 2.3s linear infinite;
+  pointer-events:none;
+}
+
+.arena-status{
+  position:relative;
+  z-index:2;
+  text-align:left;
+}
+
+.arena-status-line{
+  color:#a8b99a;
+  font-size:12px;
+  line-height:1.55;
+  margin:15px 0;
+  min-height:19px;
+}
+
+.arena-status-line.gold-line{
+  color:var(--gold);
+}
+
+.arena-status-line.final{
+  color:#c0d3aa;
+  animation:pulseStatus 1.5s ease-in-out infinite;
+}
+
 .admin-hotzone{
   position:fixed;
   z-index:7000;
@@ -899,7 +983,7 @@ h3{font-size:19px}
     <p class="subtitle">
       Has alcanzado el punto designado por el Capitolio.
       <br><br>
-      A partir de este momento, comienza el juego.
+      La Arena se encuentra ante ti.
     </p>
 
     <button class="btn" onclick="enterArena()">ENTRAR EN LA ARENA</button>
@@ -907,14 +991,54 @@ h3{font-size:19px}
 
 </section>
 
-<!-- 12 -->
+<!-- 12 NUEVA PRESENTACIÓN DE LA ARENA -->
 <section class="screen" id="screen12">
-  <img src="capitolio.png.webp" class="capitol-logo admin-logo">
-  <div class="eyebrow">Acceso autorizado</div>
-  <h1>ARENA LOCALIZADA</h1>
-  <div class="confirmed">ENTRADA DESBLOQUEADA</div>
-  <p class="subtitle">El sistema confirma tu presencia en el punto de entrada.</p>
-  <button class="btn" onclick="goToScreen(13)">ENTRAR EN LA ARENA</button>
+
+  <div class="arena-intro">
+
+    <img src="capitolio.png.webp" class="capitol-logo admin-logo">
+
+    <div class="eyebrow">Transmisión del Capitolio</div>
+
+    <h1>BIENVENIDO A LA ARENA</h1>
+
+    <div class="divider"></div>
+
+    <div class="arena-intro-text">
+      <strong>Todo lo que ves ante ti forma parte de la Arena.</strong>
+      <br><br>
+      A partir de este punto, no recibirás ninguna ruta.
+      <br><br>
+      Solo se revelará la posición de los suministros enviados por el Capitolio y los Distritos.
+      <br><br>
+      Tu descenso comienza aquí.
+    </div>
+
+    <button class="btn" onclick="startArenaScan()">
+      INICIAR PROTOCOLO DE ENTRADA
+    </button>
+
+  </div>
+
+</section>
+
+<!-- 19 NUEVO ESCANEO -->
+<section class="screen" id="screen19">
+
+  <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
+
+  <div class="eyebrow">Sistema de control de la Arena</div>
+
+  <h2>ESCANEANDO ARENA</h2>
+
+  <div class="arena-scan-panel">
+
+    <div class="arena-scan-line"></div>
+
+    <div class="arena-status" id="arenaScanOutput"></div>
+
+  </div>
+
 </section>
 
 <!-- 13 -->
@@ -1101,13 +1225,14 @@ h3{font-size:19px}
       </div>
 
       <div class="admin-section">
-        <div class="admin-section-title">ARENA · NUEVO ACCESO</div>
+        <div class="admin-section-title">ARENA · ACCESO</div>
         <div class="admin-grid">
           <button class="admin-btn" onclick="adminArenaStage(0)">Punto despliegue</button>
           <button class="admin-btn" onclick="adminArenaStage(1)">Camino Arena</button>
           <button class="admin-btn" onclick="adminArenaStage(2)">Comienzo Arena</button>
-          <button class="admin-btn" onclick="adminArenaStage(3)">Arena alcanzada</button>
-          <button class="admin-btn" onclick="adminGo(10)">Traslado</button>
+          <button class="admin-btn" onclick="adminArenaStage(3)">Arena localizada</button>
+          <button class="admin-btn" onclick="adminGo(12)">Presentación Arena</button>
+          <button class="admin-btn" onclick="adminGo(19)">Escaneo Arena</button>
           <button class="admin-btn" onclick="adminGo(13)">Briefing</button>
           <button class="admin-btn" onclick="adminGo(18)">Final</button>
         </div>
@@ -1157,24 +1282,24 @@ h3{font-size:19px}
 
 /* CONFIGURACIÓN */
 
-const INVENTORY_URL = "https://ale0505.github.io/Almacenamiento-medallas/";
-const SAVE_KEY = "capitolio_hunger_games_save_v1";
+const INVENTORY_URL="https://ale0505.github.io/Almacenamiento-medallas/";
+const SAVE_KEY="capitolio_hunger_games_save_v1";
 
-const DEPLOYMENT_LATITUDE = 28.0320011;
-const DEPLOYMENT_LONGITUDE = -15.4600100;
+const DEPLOYMENT_LATITUDE=28.0320011;
+const DEPLOYMENT_LONGITUDE=-15.4600100;
 
-const PATH_LATITUDE = 28.0359930;
-const PATH_LONGITUDE = -15.4602196;
+const PATH_LATITUDE=28.0359930;
+const PATH_LONGITUDE=-15.4602196;
 
-const ARENA_START_LATITUDE = 28.0346903;
-const ARENA_START_LONGITUDE = -15.4582592;
+const ARENA_START_LATITUDE=28.0346903;
+const ARENA_START_LONGITUDE=-15.4582592;
 
-const DEPLOYMENT_RADIUS = 40;
-const PATH_RADIUS = 20;
-const ARENA_START_RADIUS = 5;
-const CACHE_RADIUS = 5;
+const DEPLOYMENT_RADIUS=40;
+const PATH_RADIUS=20;
+const ARENA_START_RADIUS=5;
+const CACHE_RADIUS=5;
 
-const DISTRICTS = [
+const DISTRICTS=[
   {type:"capitol",name:"Capitolio",district:null,code:"2025",latitude:null,longitude:null},
   {type:"district",name:"Distrito 1",district:1,code:"1847",latitude:null,longitude:null},
   {type:"district",name:"Distrito 2",district:2,code:"2714",latitude:null,longitude:null},
@@ -1200,8 +1325,6 @@ let recoveredCaches=[];
 let equippedCaches=[];
 let arenaStage=0;
 let cacheReached=false;
-
-/* NUEVO: controla si ya se ha pulsado EQUÍPATE CON EL EQUIPO MÍNIMO */
 let minimumGearEquipped=false;
 
 let currentLatitude=null;
@@ -1220,6 +1343,7 @@ let targetLine=null;
 let stageTransitionRunning=false;
 let adminUnlocked=false;
 let terminalAnimationId=0;
+let arenaScanAnimationId=0;
 
 
 /* AUDIO */
@@ -1314,10 +1438,11 @@ function saveGame(){
   const safeScreen=
     currentScreen===3 ? 4 :
     currentScreen===6 || currentScreen===7 ? 5 :
+    currentScreen===19 ? 12 :
     currentScreen;
 
   const data={
-    version:5,
+    version:6,
     screen:safeScreen,
     participant,
     currentCacheIndex,
@@ -1373,15 +1498,9 @@ function loadGame(){
     }
 
     cacheReached=!!data.cacheReached;
-
-    /* NUEVO */
     minimumGearEquipped=!!data.minimumGearEquipped;
 
     currentScreen=data.screen||1;
-
-    if(currentScreen===12 && arenaStage<3){
-      currentScreen=11;
-    }
 
     return true;
 
@@ -1400,6 +1519,10 @@ function goToScreen(number){
     terminalAnimationId++;
   }
 
+  if(currentScreen===19 && number!==19){
+    arenaScanAnimationId++;
+  }
+
   document.querySelectorAll(".screen").forEach(screen=>{
     screen.classList.remove("active");
   });
@@ -1413,7 +1536,6 @@ function goToScreen(number){
   window.scrollTo(0,0);
   updateParticipantUI();
 
-  /* NUEVO */
   if(number===13){
     updateMinimumGearInterface();
   }
@@ -1474,7 +1596,6 @@ function startCeremony(){
 async function typeTerminalLine(text,extraClass="",speed=24,animationId){
 
   const output=document.getElementById("terminalOutput");
-
   if(!output) return false;
 
   const line=document.createElement("div");
@@ -1522,7 +1643,6 @@ async function typeTerminalLine(text,extraClass="",speed=24,animationId){
 async function runVerificationTerminal(){
 
   const myAnimation=++terminalAnimationId;
-
   const output=document.getElementById("terminalOutput");
 
   if(!output) return;
@@ -2141,7 +2261,7 @@ function completeArenaStage(){
 
     showStageTransition(
       "UBICACIÓN CONFIRMADA",
-      "Has alcanzado el comienzo de la Arena.<br><br>Prepárate. Los Juegos están a punto de comenzar.",
+      "Has alcanzado el punto de entrada.<br><br>La Arena se encuentra ante ti.",
       ()=>{
         arenaStage=3;
         saveGame();
@@ -2183,17 +2303,121 @@ function openAppleMaps(){
   },120);
 }
 
+
+/* NUEVA ENTRADA CINEMATOGRÁFICA */
+
 function enterArena(){
 
   if(arenaStage<3) return;
 
+  goToScreen(12);
+}
+
+async function startArenaScan(){
+
+  goToScreen(19);
+
+  const myAnimation=++arenaScanAnimationId;
+
+  const output=document.getElementById("arenaScanOutput");
+
+  output.innerHTML="";
+
+  await sleep(450);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> ESTABLECIENDO CONEXIÓN CON LA ARENA...",
+    "",
+    myAnimation
+  );
+
+  await sleep(400);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> ESCANEANDO PERÍMETRO...",
+    "",
+    myAnimation
+  );
+
+  await sleep(750);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> PERÍMETRO IDENTIFICADO",
+    "gold-line",
+    myAnimation
+  );
+
+  await sleep(500);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> SEÑAL DE SUMINISTROS: ACTIVA",
+    "",
+    myAnimation
+  );
+
+  await sleep(500);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> TRIBUTO: "+(participant.fullName || "SAMUEL").toUpperCase(),
+    "",
+    myAnimation
+  );
+
+  await sleep(700);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
+  await addArenaScanLine(
+    "> ESTADO: EN JUEGO",
+    "final",
+    myAnimation
+  );
+
+  await sleep(1600);
+
+  if(myAnimation!==arenaScanAnimationId) return;
+
   goToScreen(13);
 }
 
+async function addArenaScanLine(text,className,animationId){
 
-/* ==========================================================
-   EQUIPO MÍNIMO
-========================================================== */
+  if(animationId!==arenaScanAnimationId) return;
+
+  const output=document.getElementById("arenaScanOutput");
+
+  const line=document.createElement("div");
+
+  line.className="arena-status-line";
+
+  if(className){
+    line.classList.add(className);
+  }
+
+  output.appendChild(line);
+
+  for(let i=0;i<text.length;i++){
+
+    if(animationId!==arenaScanAnimationId) return;
+
+    line.textContent+=text[i];
+
+    await sleep(20);
+  }
+}
+
+
+/* EQUIPO MÍNIMO */
 
 function updateMinimumGearInterface(){
 
@@ -2222,12 +2446,6 @@ function updateMinimumGearInterface(){
 
 function equipMinimumGear(){
 
-  /*
-    Se registra el paso antes de abrir el inventario.
-    Así, cuando Samu vuelva a esta web, el botón
-    COMENZAR LOS JUEGOS estará desbloqueado.
-  */
-
   minimumGearEquipped=true;
 
   currentScreen=13;
@@ -2243,13 +2461,6 @@ function equipMinimumGear(){
 
 function startCaches(){
 
-  /*
-    Protección adicional:
-    aunque intentasen ejecutar el botón de otra forma,
-    los Juegos no comienzan sin haber pasado antes
-    por el equipo mínimo.
-  */
-
   if(!minimumGearEquipped){
     updateMinimumGearInterface();
     return;
@@ -2257,6 +2468,7 @@ function startCaches(){
 
   currentCacheIndex=0;
   cacheReached=false;
+
   saveGame();
   goToScreen(14);
 }
@@ -2278,9 +2490,13 @@ function updateCacheTransmission(){
 }
 
 function locateCurrentCache(){
+
   cacheReached=false;
+
   saveGame();
+
   requestOrientationPermission();
+
   goToScreen(15);
 }
 
@@ -2349,6 +2565,7 @@ function updateCacheCompass(){
   if(distance<=CACHE_RADIUS && !cacheReached){
 
     cacheReached=true;
+
     saveGame();
 
     setTimeout(()=>goToScreen(16),600);
@@ -2356,8 +2573,11 @@ function updateCacheCompass(){
 }
 
 function simulateCacheFound(){
+
   cacheReached=true;
+
   saveGame();
+
   goToScreen(16);
 }
 
@@ -2367,6 +2587,7 @@ function simulateCacheFound(){
 function updateCodeInterface(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   document.getElementById("cacheCodeName").textContent=
@@ -2379,6 +2600,7 @@ function updateCodeInterface(){
 function validateCacheCode(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const input=document.getElementById("cacheCodeInput");
@@ -2390,6 +2612,7 @@ function validateCacheCode(){
 
     status.style.color="#b8584f";
     status.textContent="ACCESO DENEGADO";
+
     input.value="";
 
     return;
@@ -2404,6 +2627,7 @@ function validateCacheCode(){
 function acceptCurrentCache(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const id=getCacheId(cache);
@@ -2415,6 +2639,7 @@ function acceptCurrentCache(){
   cacheReached=true;
 
   saveGame();
+
   goToScreen(17);
 }
 
@@ -2424,6 +2649,7 @@ function acceptCurrentCache(){
 function updateEquipInterface(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const id=getCacheId(cache);
@@ -2468,6 +2694,7 @@ function updateEquipInterface(){
 function equipMedal(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const id=getCacheId(cache);
@@ -2477,6 +2704,7 @@ function equipMedal(){
   }
 
   currentScreen=17;
+
   saveGame();
   updateEquipInterface();
 
@@ -2486,6 +2714,7 @@ function equipMedal(){
 function nextCache(){
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const id=getCacheId(cache);
@@ -2506,6 +2735,7 @@ function nextCache(){
   cacheReached=false;
 
   saveGame();
+
   goToScreen(14);
 }
 
@@ -2599,9 +2829,16 @@ function setAdminTestParticipant(){
 }
 
 function adminGo(screen){
+
   setAdminTestParticipant();
+
   closeAdmin();
+
   goToScreen(screen);
+
+  if(screen===19){
+    startArenaScan();
+  }
 }
 
 function adminRegistered(){
@@ -2617,19 +2854,29 @@ function adminTribute(){
 }
 
 function adminArenaStage(stage){
+
   setAdminTestParticipant();
+
   arenaStage=stage;
+
   saveGame();
+
   closeAdmin();
+
   goToScreen(11);
 }
 
 function adminSelectCache(index){
+
   setAdminTestParticipant();
+
   currentCacheIndex=index;
   cacheReached=false;
+
   saveGame();
+
   closeAdmin();
+
   goToScreen(14);
 }
 
@@ -2638,6 +2885,7 @@ function adminValidateCurrentCache(){
   setAdminTestParticipant();
 
   const cache=getCurrentCache();
+
   if(!cache) return;
 
   const id=getCacheId(cache);
@@ -2651,21 +2899,31 @@ function adminValidateCurrentCache(){
   cacheReached=true;
 
   saveGame();
+
   closeAdmin();
+
   goToScreen(17);
 }
 
 function adminForceArena(){
+
   arenaStage=3;
+
   saveGame();
+
   closeAdmin();
-  goToScreen(13);
+
+  goToScreen(12);
 }
 
 function adminForceCache(){
+
   cacheReached=true;
+
   saveGame();
+
   closeAdmin();
+
   goToScreen(16);
 }
 
@@ -2678,7 +2936,9 @@ function adminCompleteAll(){
   arenaStage=3;
 
   saveGame();
+
   closeAdmin();
+
   goToScreen(18);
 }
 
@@ -2705,8 +2965,6 @@ function resetGame(){
   equippedCaches=[];
   arenaStage=0;
   cacheReached=false;
-
-  /* NUEVO: vuelve a bloquear COMENZAR LOS JUEGOS */
   minimumGearEquipped=false;
 
   currentLatitude=null;
@@ -2714,6 +2972,7 @@ function resetGame(){
   currentAccuracy=null;
 
   terminalAnimationId++;
+  arenaScanAnimationId++;
 
   if(watchId!==null){
     navigator.geolocation.clearWatch(watchId);
@@ -2721,6 +2980,7 @@ function resetGame(){
   }
 
   closeAdmin();
+
   goToScreen(1);
 }
 
