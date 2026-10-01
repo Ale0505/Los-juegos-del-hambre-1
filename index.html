@@ -258,10 +258,6 @@ h3{font-size:19px}
   margin-top:10px;
 }
 
-/* ==========================================================
-   TERMINAL ANIMADA
-========================================================== */
-
 .terminal{
   width:min(100%,470px);
   height:310px;
@@ -738,7 +734,7 @@ h3{font-size:19px}
   <button class="btn" onclick="registerCitizen()">REGISTRAR CIUDADANO</button>
 </section>
 
-<!-- 3 · TERMINAL ANIMADA -->
+<!-- 3 -->
 <section class="screen" id="screen3">
   <img src="capitolio.png.webp" class="capitol-logo logo-small admin-logo">
   <div class="eyebrow">Terminal del Capitolio</div>
@@ -746,7 +742,6 @@ h3{font-size:19px}
 
   <div class="terminal">
     <div class="scanline"></div>
-
     <div class="terminal-output" id="terminalOutput"></div>
   </div>
 </section>
@@ -940,8 +935,13 @@ h3{font-size:19px}
     </p>
   </div>
 
-  <button class="btn secondary" onclick="goInventory()">EQUÍPATE CON LOS SUMINISTROS</button>
-  <button class="btn" onclick="startCaches()">COMENZAR LOS JUEGOS</button>
+  <button class="btn secondary" id="minimumEquipmentButton" onclick="equipMinimumGear()">
+    EQUÍPATE CON EL EQUIPO MÍNIMO
+  </button>
+
+  <button class="btn" id="startGamesButton" onclick="startCaches()" disabled>
+    🔒 COMENZAR LOS JUEGOS
+  </button>
 </section>
 
 <!-- 14 -->
@@ -1201,6 +1201,9 @@ let equippedCaches=[];
 let arenaStage=0;
 let cacheReached=false;
 
+/* NUEVO: controla si ya se ha pulsado EQUÍPATE CON EL EQUIPO MÍNIMO */
+let minimumGearEquipped=false;
+
 let currentLatitude=null;
 let currentLongitude=null;
 let currentAccuracy=null;
@@ -1216,12 +1219,6 @@ let targetLine=null;
 
 let stageTransitionRunning=false;
 let adminUnlocked=false;
-
-/*
-  Control de la animación de terminal.
-  Sirve para evitar que dos animaciones se
-  ejecuten simultáneamente.
-*/
 let terminalAnimationId=0;
 
 
@@ -1320,14 +1317,15 @@ function saveGame(){
     currentScreen;
 
   const data={
-    version:4,
+    version:5,
     screen:safeScreen,
     participant,
     currentCacheIndex,
     recoveredCaches,
     equippedCaches,
     arenaStage,
-    cacheReached
+    cacheReached,
+    minimumGearEquipped
   };
 
   localStorage.setItem(SAVE_KEY,JSON.stringify(data));
@@ -1375,6 +1373,10 @@ function loadGame(){
     }
 
     cacheReached=!!data.cacheReached;
+
+    /* NUEVO */
+    minimumGearEquipped=!!data.minimumGearEquipped;
+
     currentScreen=data.screen||1;
 
     if(currentScreen===12 && arenaStage<3){
@@ -1394,10 +1396,6 @@ function loadGame(){
 
 function goToScreen(number){
 
-  /*
-    Si salimos de la terminal, cancelamos
-    cualquier escritura que siga ejecutándose.
-  */
   if(currentScreen===3 && number!==3){
     terminalAnimationId++;
   }
@@ -1414,6 +1412,11 @@ function goToScreen(number){
 
   window.scrollTo(0,0);
   updateParticipantUI();
+
+  /* NUEVO */
+  if(number===13){
+    updateMinimumGearInterface();
+  }
 
   if(number===11){
     setTimeout(()=>{
@@ -1466,9 +1469,7 @@ function startCeremony(){
 }
 
 
-/* ==========================================================
-   NUEVA TERMINAL DE VERIFICACIÓN
-========================================================== */
+/* TERMINAL */
 
 async function typeTerminalLine(text,extraClass="",speed=24,animationId){
 
@@ -1500,10 +1501,6 @@ async function typeTerminalLine(text,extraClass="",speed=24,animationId){
 
     textSpan.textContent+=text[i];
 
-    /*
-      Pequeña variación para que parezca
-      una terminal y no una animación rígida.
-    */
     let delay=speed;
 
     if(text[i]==="."){
@@ -1532,9 +1529,6 @@ async function runVerificationTerminal(){
 
   output.innerHTML="";
 
-  /*
-    Pequeña pausa inicial.
-  */
   await sleep(350);
 
   if(myAnimation!==terminalAnimationId) return;
@@ -1583,10 +1577,6 @@ async function runVerificationTerminal(){
 
   if(!ok) return;
 
-  /*
-    Aquí hacemos una pausa ligeramente
-    mayor para crear tensión.
-  */
   await sleep(650);
 
   ok=await typeTerminalLine(
@@ -1623,14 +1613,7 @@ function registerCitizen(){
 
   updateParticipantUI();
 
-  /*
-    Primero entramos en la pantalla vacía.
-  */
   goToScreen(3);
-
-  /*
-    Después comienza la escritura.
-  */
   runVerificationTerminal();
 }
 
@@ -2208,9 +2191,70 @@ function enterArena(){
 }
 
 
+/* ==========================================================
+   EQUIPO MÍNIMO
+========================================================== */
+
+function updateMinimumGearInterface(){
+
+  const equipmentButton=document.getElementById("minimumEquipmentButton");
+  const startButton=document.getElementById("startGamesButton");
+
+  if(!equipmentButton || !startButton) return;
+
+  if(minimumGearEquipped){
+
+    equipmentButton.textContent="✓ EQUIPO MÍNIMO EQUIPADO";
+    equipmentButton.classList.add("success");
+
+    startButton.disabled=false;
+    startButton.textContent="COMENZAR LOS JUEGOS";
+
+  }else{
+
+    equipmentButton.textContent="EQUÍPATE CON EL EQUIPO MÍNIMO";
+    equipmentButton.classList.remove("success");
+
+    startButton.disabled=true;
+    startButton.textContent="🔒 COMENZAR LOS JUEGOS";
+  }
+}
+
+function equipMinimumGear(){
+
+  /*
+    Se registra el paso antes de abrir el inventario.
+    Así, cuando Samu vuelva a esta web, el botón
+    COMENZAR LOS JUEGOS estará desbloqueado.
+  */
+
+  minimumGearEquipped=true;
+
+  currentScreen=13;
+
+  saveGame();
+  updateMinimumGearInterface();
+
+  goInventory();
+}
+
+
 /* ALIJOS */
 
 function startCaches(){
+
+  /*
+    Protección adicional:
+    aunque intentasen ejecutar el botón de otra forma,
+    los Juegos no comienzan sin haber pasado antes
+    por el equipo mínimo.
+  */
+
+  if(!minimumGearEquipped){
+    updateMinimumGearInterface();
+    return;
+  }
+
   currentCacheIndex=0;
   cacheReached=false;
   saveGame();
@@ -2662,6 +2706,9 @@ function resetGame(){
   arenaStage=0;
   cacheReached=false;
 
+  /* NUEVO: vuelve a bloquear COMENZAR LOS JUEGOS */
+  minimumGearEquipped=false;
+
   currentLatitude=null;
   currentLongitude=null;
   currentAccuracy=null;
@@ -2682,12 +2729,23 @@ function resetGame(){
 
 document.addEventListener("visibilitychange",()=>{
 
-  if(!document.hidden && currentScreen===17){
-    updateEquipInterface();
+  if(!document.hidden){
+
+    if(currentScreen===13){
+      updateMinimumGearInterface();
+    }
+
+    if(currentScreen===17){
+      updateEquipInterface();
+    }
   }
 });
 
 window.addEventListener("pageshow",()=>{
+
+  if(currentScreen===13){
+    updateMinimumGearInterface();
+  }
 
   if(currentScreen===17){
     updateEquipInterface();
